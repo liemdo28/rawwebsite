@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Raw Sushi Bistro Modesto Menu - Full menu of authentic Japanese cuisine: sushi rolls, sashimi, nigiri, appetizers, entrees & happy hour specials.">
+    <meta name="keywords"
+        content="sushi menu, Japanese restaurant menu, sushi rolls menu, sashimi, happy hour, Modesto sushi menu, California sushi, Raw Sushi Bistro menu">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.rawsushibar.com/menu-modesto.html">
+    <title>Modesto Menu | Raw Sushi Bistro</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.rawsushibar.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Menu", "item": "https://www.rawsushibar.com/menu"}
+      ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-red: #C41E3A;
+            --deep-red: #a01829;
+            --warm-black: #1a1a1a;
+            --charcoal: #2b2b2b;
+            --cream: #faf8f5;
+            --warm-cream: #f5f0ea;
+            --gold: #d4af37;
+            --white: #ffffff;
+            --text-dark: #2c2824;
+            --text-medium: #5a544e;
+            --text-light: #8a847e;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--cream);
+        }
+
+        /* Nav Bar */
+        .nav-bar {
+            background: var(--warm-black);
+            padding: 0.85rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-bar a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-bar a:hover {
+            color: var(--gold);
+        }
+
+        .nav-bar-right {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-bar-right .order-btn {
+            background: var(--primary-red);
+            padding: 0.5rem 1.25rem;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .nav-bar-right .order-btn:hover {
+            background: var(--deep-red);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem 0;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .breadcrumb a {
+            color: var(--primary-red);
+            text-decoration: none;
+        }
+
+        /* Menu Hero */
+        .menu-hero {
+            position: relative;
+            color: var(--white);
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .menu-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1553621042-f6e147245754?w=1920&q=80') center center / cover no-repeat;
+            z-index: 0;
+        }
+
+        .menu-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 26, 0.75);
+            z-index: 1;
+        }
+
+        .menu-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .menu-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Menu Container */
+        .menu-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 2rem 4rem;
+        }
+
+        /* Happy Hour Banner */
+        .happy-hour-banner {
+            background: linear-gradient(135deg, var(--primary-red) 0%, #8b1528 100%);
+            color: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .happy-hour-banner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hh-times {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .hh-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1rem;
+        }
+
+        .hh-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.25rem;
+            border-radius: 8px;
+        }
+
+        .hh-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .hh-item {
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hh-item:last-child {
+            border-bottom: none;
+        }
+
+        .special-note {
+            margin-top: 1.25rem;
+            font-size: 0.9rem;
+            opacity: 0.85;
+            font-style: italic;
+        }
+
+        /* Menu Navigation */
+        .menu-nav {
+            position: sticky;
+            top: 52px;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            z-index: 50;
+        }
+
+        .menu-nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .menu-nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.4rem 0.85rem;
+            border-radius: 5px;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .menu-nav a:hover {
+            background: var(--cream);
+            color: var(--primary-red);
+        }
+
+        /* Menu Sections */
+        .menu-section {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .menu-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--primary-red);
+        }
+
+        .menu-section-note {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .menu-items {
+            display: grid;
+            gap: 0;
+            margin-top: 1rem;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid var(--warm-cream);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
+        .menu-item:hover {
+            background-color: var(--cream);
+            transform: translateX(5px);
+            box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-name {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .item-heart {
+            color: var(--primary-red);
+            margin-right: 0.35rem;
+            font-size: 0.85rem;
+        }
+
+        .item-description {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            margin-top: 0.15rem;
+            font-style: italic;
+        }
+
+        .item-price {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--primary-red);
+            white-space: nowrap;
+            font-family: 'Playfair Display', serif;
+            transition: color 0.3s ease;
+        }
+
+        .menu-item:hover .item-price {
+            color: var(--deep-red);
+        }
+
+        /* Nigiri grid */
+        .nigiri-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 0;
+        }
+
+        .nigiri-grid .menu-item {
+            padding: 0.65rem 0.5rem;
+        }
+
+        /* Policies */
+        .policies {
+            background: var(--warm-cream);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .policies h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .policies ul {
+            list-style: none;
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .policies li {
+            padding-left: 1.25rem;
+            position: relative;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+        }
+
+        .policies li::before {
+            content: "\2022";
+            position: absolute;
+            left: 0;
+            color: var(--primary-red);
+            font-weight: bold;
+        }
+
+        .warning-box {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 1rem 1.25rem;
+            margin-top: 1.25rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .warning-box strong {
+            color: #7c6300;
+        }
+
+        /* CTA */
+        .menu-cta {
+            background: var(--warm-black);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .menu-cta h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .menu-cta p {
+            opacity: 0.85;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.85rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary-red);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--deep-red);
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold) 0%, #c9a227 100%);
+            color: var(--warm-black);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--warm-black);
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            padding: 1.5rem 2rem;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+        }
+
+        /* Mobile order bar */
+        .mobile-order-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: var(--warm-black);
+            padding: 0.75rem 1rem;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-order-bar-inner {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .mob-btn {
+            flex: 1;
+            padding: 0.75rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+        }
+
+        .mob-btn-order {
+            background: var(--primary-red);
+            color: var(--white);
+        }
+
+        .mob-btn-call {
+            background: rgba(255, 255, 255, 0.12);
+            color: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .menu-section {
+                padding: 1.75rem 1.25rem;
+            }
+
+            .menu-nav ul {
+                gap: 0.25rem;
+            }
+
+            .menu-nav a {
+                font-size: 0.8rem;
+                padding: 0.3rem 0.6rem;
+            }
+
+            .hh-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nigiri-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-bar-right {
+                display: none;
+            }
+
+            .mobile-order-bar {
+                display: block;
+            }
+
+            footer {
+                padding-bottom: 5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hh-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== FLOATING DESKTOP CTA ===== */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(196, 30, 58, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 998;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: cta-bounce-in 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes cta-bounce-in {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .floating-cta:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: var(--deep-red);
+            box-shadow: 0 15px 35px rgba(196, 30, 58, 0.6);
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .floating-cta {
+                display: none;
+            }
+        }
+
+        /* Location Picker */
+        .location-picker {
+            margin: 1.5rem auto 0;
+            display: inline-flex;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50px;
+            padding: 0.25rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .loc-tab {
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .loc-tab.active {
+            background: var(--primary-red);
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.4);
+        }
+
+        .loc-tab:not(.active):hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <a href="index.html">&larr; Home</a>
+        <div class="nav-bar-right">
+            <a href="tel:2095669560" style="color: var(--gold);">(209) 566-9560</a>
+            <a href="https://www.doordash.com/store/raw-sushi-bistro-892006/" target="_blank" rel="noopener"
+                class="order-btn">Order Online</a>
+        </div>
+    </div>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &rsaquo; <strong>Menu</strong>
+    </nav>
+
+    <div class="menu-hero">
+        <div class="menu-hero-bg" role="img" aria-label="Beautifully plated sushi rolls"></div>
+        <div class="menu-hero-overlay"></div>
+        <div class="menu-hero-content">
+            <h1>Modesto Menu</h1>
+            <p>Authentic Japanese Cuisine &mdash; Crafted with Excellence for 20 Years</p>
+            <div class="location-picker">
+                <a href="menu-stockton.html" class="loc-tab">📍 Stockton</a>
+                <a href="menu-modesto.html" class="loc-tab active" aria-current="page">📍 Modesto</a>
+            </div>
+        </div>
+    </div>
+
+    <main class="menu-container">
+        <!-- Happy Hour -->
+        <div class="happy-hour-banner">
+            <h2>Happy Hour Specials</h2>
+            <div class="hh-times">
+                MON-THU: 4:30-6:00 PM &nbsp;|&nbsp; FRI-SUN: 2:30-5:30 PM
+            </div>
+            <div class="hh-grid">
+                <div class="hh-section">
+                    <h3>$4</h3>
+                    <div class="hh-item">Sake Bomb</div>
+                    <div class="hh-item">Hot Sake (Small)</div>
+                    <div class="hh-item">Sapporo Draft</div>
+                    <div class="hh-item">Domestic Beer</div>
+                </div>
+                <div class="hh-section">
+                    <h3>$5</h3>
+                    <div class="hh-item">Edamame</div>
+                    <div class="hh-item">Wakame Salad</div>
+                    <div class="hh-item">House Wine (Glass)</div>
+                </div>
+                <div class="hh-section">
+                    <h3>$7</h3>
+                    <div class="hh-item">Fried Gyoza (6pcs)</div>
+                    <div class="hh-item">Fried Shumai</div>
+                    <div class="hh-item">California Roll</div>
+                    <div class="hh-item">Agedashi Tofu</div>
+                    <div class="hh-item">Hand Roll (Spicy Tuna/Cali)</div>
+                </div>
+                <div class="hh-section">
+                    <h3>$9</h3>
+                    <div class="hh-item">Spicy Tuna Roll</div>
+                    <div class="hh-item">Fried California Roll</div>
+                    <div class="hh-item">Tsunami Margarita</div>
+                    <div class="hh-item">Mule</div>
+                </div>
+            </div>
+            <div class="special-note">
+                <strong>TUESDAY:</strong> $6 Hand Rolls &nbsp;&bull;&nbsp;
+                <strong>WEDNESDAY:</strong> 50% Off Selected Wine Bottles (while supplies last)
+            </div>
+        </div>
+
+        <!-- Menu Navigation -->
+        <nav class="menu-nav" aria-label="Menu sections">
+            <ul>
+                <li><a href="#small-bites">Small Bites</a></li>
+                <li><a href="#hot-apps">Hot Appetizers</a></li>
+                <li><a href="#sushi-apps">Sushi Appetizers</a></li>
+                <li><a href="#salads">Salads</a></li>
+                <li><a href="#entrees">Entrees</a></li>
+                <li><a href="#nigiri">Nigiri</a></li>
+                <li><a href="#rolls">Sushi Rolls</a></li>
+                <li><a href="#special-rolls">Special Rolls</a></li>
+            </ul>
+        </nav>
+
+        <!-- Small Bites -->
+        <section id="small-bites" class="menu-section">
+            <h2>Small Bites</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;</span>Edamame</div>
+                        <div class="item-description">Boiled & Salted Soy Beans</div>
+                    </div>
+                    <div class="item-price">$5.95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Garlic Edamame</div>
+                        <div class="item-description">Sauteed Edamame in Special Garlic Sauces</div>
+                    </div>
+                    <div class="item-price">$9.25</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Agedashi Tofu</div>
+                        <div class="item-description">Fried Tofu Served in Agedashi Broth</div>
+                    </div>
+                    <div class="item-price">$9.25</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Fried Gyoza</div>
+                        <div class="item-description">Japanese Style Pork Pot-stickers (6 pieces)</div>
+                    </div>
+                    <div class="item-price">$9.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Fried Shumai</div>
+                        <div class="item-description">Japanese Style Shrimp Pot-stickers (6 pieces)</div>
+                    </div>
+                    <div class="item-price">$9.95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Wakame Salad</div>
+                        <div class="item-description">Marinated Seaweed</div>
+                    </div>
+                    <div class="item-price">$7.95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Sunomono</div>
+                        <div class="item-description">Cucumber Salad, Tomato Served in Ponzu Sauce</div>
+                    </div>
+                    <div class="item-price">$10.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Green Salad</div>
+                        <div class="item-description">Mixed Greens with House Dressing</div>
+                    </div>
+                    <div class="item-price">$7.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Oysters in a Half Shell</div>
+                        <div class="item-description">Seasonal, 2 pcs - Oysters with Tobiko, Green Onion & Spicy Sauce
+                            in Ponzu on Ice</div>
+                    </div>
+                    <div class="item-price">$8.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Oyster Shooter</div>
+                        <div class="item-description">A Shot of Oyster in Chilled Sake with our Special Sauce</div>
+                    </div>
+                    <div class="item-price">$9.50</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hot Appetizers -->
+        <section id="hot-apps" class="menu-section">
+            <h2>Hot Appetizers</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;</span>Mixed Tempura</div>
+                        <div class="item-description">Tempura Shrimp & Vegetables with Tempura Sauce</div>
+                    </div>
+                    <div class="item-price">$16.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Vegetable Tempura</div>
+                        <div class="item-description">Fried Assorted Vegetables with Tempura Sauce</div>
+                    </div>
+                    <div class="item-price">$12.95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;</span>Squid Vinegar</div>
+                        <div class="item-description">Fried Squid Served with Ponzu Sauce</div>
+                    </div>
+                    <div class="item-price">$16.95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Beef Asparagus</div>
+                        <div class="item-description">Beef Wrapped Asparagus in Ponzu Sauce, Jalapeno, Tomato</div>
+                    </div>
+                    <div class="item-price">$19.95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Spider Appetizer</div>
+                        <div class="item-description">Fried Soft Shell Crab</div>
+                    </div>
+                    <div class="item-price">$16.25</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Fried Oyster</div>
+                        <div class="item-description">Fried Breaded Oysters with Tartar Sauce</div>
+                    </div>
+                    <div class="item-price">$13.95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Beef Carpaccio</div>
+                        <div class="item-description">Thinly Sliced Beef Carpaccio Topped with Fried Veggies in Ponzu
+                            Sauce</div>
+                    </div>
+                    <div class="item-price">$19.95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Grilled Salmon Appetizer</div>
+                        <div class="item-description">Two Pieces of Grilled Salmon Lightly Salted</div>
+                    </div>
+                    <div class="item-price">$17.95</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sushi Appetizers -->
+        <section id="sushi-apps" class="menu-section">
+            <h2>Sushi Appetizers</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Albacore Vinegar</div>
+                        <div class="item-description">Thinly Sliced Seared White Tuna in Ponzu Sauce, Garlic Chips</div>
+                    </div>
+                    <div class="item-price">$15.95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Yellowtail Razor</div>
+                        <div class="item-description">Thinly Sliced Yellowtail Sashimi with Jalapenos in Ponzu</div>
+                    </div>
+                    <div class="item-price">$18.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Assorted Sashimi Ponzu</div>
+                        <div class="item-description">Assorted Sashimi in Ponzu & Garlic Chips</div>
+                    </div>
+                    <div class="item-price">$18.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Tuna or Salmon Ceviche</div>
+                        <div class="item-description">Spicy Tuna or Salmon Ceviche with Fried Wonton Chips</div>
+                    </div>
+                    <div class="item-price">$18.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Dante Inferno Appetizer
+                        </div>
+                        <div class="item-description">Seared Sesame Tuna on Tempura Jalapenos</div>
+                    </div>
+                    <div class="item-price">$19.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">BBQ Albacore Tuna Salad</div>
+                        <div class="item-description">Sauteed Albacore Tuna with Tomato, Asparagus, Spring Mix, Garlic
+                            Chips</div>
+                    </div>
+                    <div class="item-price">$19.95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;</span>Assorted Sashimi</div>
+                        <div class="item-description">9 Pieces of Tuna, Salmon & Yellowtail</div>
+                    </div>
+                    <div class="item-price">$18.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Spicy Lomi Lomi</div>
+                        <div class="item-description">Fresh Salmon & Red Onion with Chili Oil, Ponzu, Garlic Chips</div>
+                    </div>
+                    <div class="item-price">$16.95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Spicy Sesame Tuna</div>
+                        <div class="item-description">Seared Sesame Tuna, Jalapeno, Garlic Chips with Chili Oil & Ponzu
+                        </div>
+                    </div>
+                    <div class="item-price">$19.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;</span>Tako Kimchee</div>
+                        <div class="item-description">Octopus, Cucumbers & Tomato Tossed in Kimchee Sauce</div>
+                    </div>
+                    <div class="item-price">$18.95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Ahi Poke Martini</div>
+                        <div class="item-description">Tuna Poke Served in a Martini Glass</div>
+                    </div>
+                    <div class="item-price">$19.95</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Salads -->
+        <section id="salads" class="menu-section">
+            <h2>Salads</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Sashimi Sunomono</div>
+                        <div class="item-description">Cucumber Salad with Assorted Sashimi, Garlic Chips</div>
+                    </div>
+                    <div class="item-price">$21.95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Sashimi Wakame Salad</div>
+                        <div class="item-description">Wakame Salad with Assorted Sashimi, Garlic Chips</div>
+                    </div>
+                    <div class="item-price">$23.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Sashimi Salad</div>
+                        <div class="item-description">Assorted Sashimi on Vinaigrette Salad, Green Onion, Tobiko</div>
+                    </div>
+                    <div class="item-price">$23.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Spicy Sesame Seared Tuna Salad</div>
+                        <div class="item-description">Spicy Sesame Tuna on Vinaigrette Salad, Garlic Chips</div>
+                    </div>
+                    <div class="item-price">$23.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Snow Crab Salad</div>
+                        <div class="item-description">Snow Crab Tossed with Spring Mix, Garlic Chips</div>
+                    </div>
+                    <div class="item-price">$26.95</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Entrees -->
+        <section id="entrees" class="menu-section">
+            <h2>Entrees</h2>
+            <p class="menu-section-note">Served with Rice and Green Salad</p>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Beef Teriyaki</div>
+                        <div class="item-description">Grilled & Stir Fried Sliced Beef, Mushrooms, Zucchini & Onions
+                            with Teriyaki Sauce</div>
+                    </div>
+                    <div class="item-price">$19.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;</span>Chicken Katsu</div>
+                        <div class="item-description">Panko Breaded & Fried Chicken Breast with Tonkatsu Sauce</div>
+                    </div>
+                    <div class="item-price">$17.95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Chicken Teriyaki</div>
+                        <div class="item-description">Grilled & Stir Fried Chicken, Mushrooms, Zucchini & Onions with
+                            Teriyaki Sauce</div>
+                    </div>
+                    <div class="item-price">$16.25</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Sesame Chicken</div>
+                        <div class="item-description">Battered & Fried Chicken with Teriyaki Sauce & Sesame Seeds</div>
+                    </div>
+                    <div class="item-price">$17.25</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Grilled Salmon</div>
+                        <div class="item-description">2 Pieces of Fresh Salmon Lightly Salted & Grilled</div>
+                    </div>
+                    <div class="item-price">$22.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Salmon Teriyaki</div>
+                        <div class="item-description">2 Pieces of Pan Fried Fresh Salmon with Teriyaki Sauce</div>
+                    </div>
+                    <div class="item-price">$22.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Shrimp Teriyaki</div>
+                        <div class="item-description">Shrimp, Mushrooms, Zucchini & Onions with Teriyaki Sauce</div>
+                    </div>
+                    <div class="item-price">$18.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Vegetarian Teriyaki</div>
+                        <div class="item-description">Seasonal Vegetables in Teriyaki Sauce</div>
+                    </div>
+                    <div class="item-price">$14.95</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nigiri -->
+        <section id="nigiri" class="menu-section">
+            <h2>Nigiri</h2>
+            <p class="menu-section-note">2 pieces per order</p>
+            <div class="menu-items nigiri-grid">
+                <div class="menu-item">
+                    <div class="item-name">Ama Ebi (Sweet Shrimp)</div>
+                    <div class="item-price">$11.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Ebi (Shrimp)</div>
+                    <div class="item-price">$6.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Hamachi (Yellow Tail)</div>
+                    <div class="item-price">$7.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Hotate (Giant Scallop)</div>
+                    <div class="item-price">$8.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Ika (Squid)</div>
+                    <div class="item-price">$7.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Ikura (Salmon Roe)</div>
+                    <div class="item-price">$8.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Ikura w/ Quail Eggs</div>
+                    <div class="item-price">$9.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Inari (Tofu Pouch)</div>
+                    <div class="item-price">$6.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Kani (Snow Crab)</div>
+                    <div class="item-price">$8.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Maguro (Tuna)</div>
+                    <div class="item-price">$8.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Fresh Sake (Salmon)</div>
+                    <div class="item-price">$7.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Smoked Sake (Salmon)</div>
+                    <div class="item-price">$7.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Spicy Sesame Seared Tuna</div>
+                    <div class="item-price">$9.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Shiro Maguro (Albacore)</div>
+                    <div class="item-price">$7.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name"><span class="item-heart">&#10084;</span>Spicy Tempura Scallop (4pcs)</div>
+                    <div class="item-price">$9.95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Tako (Octopus)</div>
+                    <div class="item-price">$7.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Tobiko (Fish Roe)</div>
+                    <div class="item-price">$7.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Tobiko w/ Quail Eggs</div>
+                    <div class="item-price">$8.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Unagi (BBQ Eel)</div>
+                    <div class="item-price">$7.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Uni (Sea Urchin, seasonal)</div>
+                    <div class="item-price">MP</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Uni w/ Quail Eggs</div>
+                    <div class="item-price">MP</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sushi Rolls -->
+        <section id="rolls" class="menu-section">
+            <h2>Sushi Rolls</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>California Roll</div>
+                        <div class="item-description">Avocado & Imitation Crab Roll</div>
+                    </div>
+                    <div class="item-price">$8.95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Crunchy Rainbow Roll
+                        </div>
+                        <div class="item-description">Tempura Shrimp & Avocado - Topped with Assorted Sashimi, Green
+                            Onion & Tobiko</div>
+                    </div>
+                    <div class="item-price">$18.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Dragon Roll</div>
+                        <div class="item-description">Tempura Shrimp & Avocado - Topped with BBQ Eel, Teriyaki Sauce &
+                            Tempura Bits</div>
+                    </div>
+                    <div class="item-price">$17.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;</span>Golden Shrimp Roll</div>
+                        <div class="item-description">Avocado, Cucumber & Fried Panko Shrimp with Spicy Sauce</div>
+                    </div>
+                    <div class="item-price">$12.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Rainbow Roll</div>
+                        <div class="item-description">California Roll Topped with Assorted Sashimi, Green Onion, Tobiko
+                            & House Sauce</div>
+                    </div>
+                    <div class="item-price">$18.00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Spicy Tuna Roll</div>
+                        <div class="item-description">Spicy Tuna, Cucumber with Spicy Sauce</div>
+                    </div>
+                    <div class="item-price">$12.50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Spider Roll</div>
+                        <div class="item-description">Avocado, Fried Soft-Shell Crab & Lettuce - Topped with Tobiko
+                        </div>
+                    </div>
+                    <div class="item-price">$14.95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Tiger Roll</div>
+                        <div class="item-description">Tempura Shrimp & Avocado - Topped with Ebi, BBQ Eel & Tobiko with
+                            Spicy Sauce</div>
+                    </div>
+                    <div class="item-price">$18.95</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Rolls -->
+        <section id="special-rolls" class="menu-section">
+            <h2>Raw Special Rolls</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>The Finest Roll (Reggie's
+                            Roll)</div>
+                        <div class="item-description">Avocado, Panko Shrimp, Spicy Snow Crab - Topped with Salmon,
+                            Hamachi, Garlic Mayo, Shiso, Tataki Ponzu, Sriracha, Red Onion, Tobiko, Green Onion &
+                            Tempura Jalapeno</div>
+                    </div>
+                    <div class="item-price">$32.95</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;</span>BTS Roll</div>
+                        <div class="item-description">Fried Smoked Salmon & Cream Cheese - Topped with Tuna, Hamachi,
+                            Salmon, Onions, Jalapenos, Tobiko, Chili Oil & Tataki Sauce</div>
+                    </div>
+                    <div class="item-price">$23.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;</span>Beef Cilantro Roll</div>
+                        <div class="item-description">Cucumber, Steamed Asparagus, Avocado & Cilantro - Topped with
+                            Sauteed Beef & Veggies, Crispy Rice</div>
+                    </div>
+                    <div class="item-price">$23.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Dante's Inferno Roll
+                        </div>
+                        <div class="item-description">Tempura Shrimp & Avocado - Topped with Sesame Seared Tuna, Fresh
+                            Salmon, Tempura Jalapenos, Green Onion & Tobiko</div>
+                    </div>
+                    <div class="item-price">$23.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;</span>Goodi Roll</div>
+                        <div class="item-description">Shrimp & Imitation Crab Deep Fried, Topped with BBQ Eel, Teriyaki,
+                            House Sauce, Spicy Sauce & Tobiko</div>
+                    </div>
+                    <div class="item-price">$22.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Roadkill Roll</div>
+                        <div class="item-description">Spicy Tuna, Avocado & Asparagus - Topped with BBQ Eel, Sesame
+                            Tuna, Crab Salad, Tempura Bits & Tobiko</div>
+                    </div>
+                    <div class="item-price">$22.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>SCS Roll</div>
+                        <div class="item-description">Tempura Asparagus & Spicy Tuna - Topped with Tempura Scallops,
+                            Spicy Tuna, Avocado, Spring Mix & Tobiko</div>
+                    </div>
+                    <div class="item-price">$23.75</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;</span>Tsunami Roll</div>
+                        <div class="item-description">Soft Shell Crab & Avocado - Topped with Unagi, Fresh Salmon, Spicy
+                            Tuna, Jalapenos & Tobiko</div>
+                    </div>
+                    <div class="item-price">$22.75</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Policies -->
+        <div class="policies">
+            <h3>Our Policies</h3>
+            <ul>
+                <li>Sales tax will be added to all transactions</li>
+                <li>Cake fee: $12</li>
+                <li>No checks accepted (business or personal)</li>
+                <li>Check splitting available for parties of 4 or less</li>
+                <li>No outside food or beverages</li>
+                <li>Prices subject to change without notice</li>
+                <li>Corkage fee: $18 per bottle</li>
+                <li>We are not responsible for lost or stolen items</li>
+            </ul>
+            <div class="warning-box">
+                <strong>Warning:</strong> The consumption of raw or undercooked eggs, meat, poultry, seafood or
+                shellfish may increase your risk of food borne illness.
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="menu-cta">
+            <h3>Ready to Order?</h3>
+            <p>Dine with us, order takeout, or get it delivered right to your door.</p>
+            <div class="cta-buttons">
+                <a href="https://www.doordash.com/store/raw-sushi-bistro-892006/" target="_blank" rel="noopener"
+                    class="btn btn-primary">Order Delivery</a>
+                <a href="https://www.opentable.com/r/raw-sushi-bistro-stockton" target="_blank" rel="noopener"
+                    class="btn btn-gold">Reserve a Table</a>
+                <a href="tel:2095669560" class="btn"
+                    style="background: rgba(255,255,255,0.15); color: var(--white);">Call (209) 566-9560</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Raw Sushi Bistro &bull; <a href="index.html">Home</a> &bull; <a href="tel:2095669560">(209)
+                566-9560</a> &bull; Celebrating 20 Years of Excellence</p>
+    </footer>
+
+    <!-- Floating Desktop CTA -->
+    <a href="https://www.doordash.com/store/raw-sushi-bistro-892006/" target="_blank" rel="noopener"
+        class="floating-cta" aria-label="Order Delivery">
+        <span class="cta-icon">🛍️</span> Order Now
+    </a>
+
+    <!-- Sticky Mobile Order Bar -->
+    <div class="mobile-order-bar">
+        <div class="mobile-order-bar-inner">
+            <a href="https://www.doordash.com/store/raw-sushi-bistro-892006/" target="_blank" rel="noopener"
+                class="mob-btn mob-btn-order">Order Online</a>
+            <a href="tel:2095669560" class="mob-btn mob-btn-call">Call Us</a>
+        </div>
+    </div>
+</body>
+
+</html>
