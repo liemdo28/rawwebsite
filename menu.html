@@ -577,6 +577,56 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* ===== FLOATING DESKTOP CTA ===== */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(196, 30, 58, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 998;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: cta-bounce-in 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes cta-bounce-in {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .floating-cta:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: var(--deep-red);
+            box-shadow: 0 15px 35px rgba(196, 30, 58, 0.6);
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .floating-cta {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -1270,6 +1320,12 @@
         <p>&copy; 2025 Raw Sushi Bistro &bull; <a href="index.html">Home</a> &bull; <a href="tel:2099549729">(209)
                 954-9729</a> &bull; Celebrating 20 Years of Excellence</p>
     </footer>
+
+    <!-- Floating Desktop CTA -->
+    <a href="https://www.doordash.com/store/raw-sushi-bistro-892006/" target="_blank" rel="noopener"
+        class="floating-cta" aria-label="Order Delivery">
+        <span class="cta-icon">🛍️</span> Order Now
+    </a>
 
     <!-- Sticky Mobile Order Bar -->
     <div class="mobile-order-bar">
