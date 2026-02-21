@@ -1972,6 +1972,26 @@
         </nav>
     </header>
 
+    <!-- Location Chooser Modal -->
+    <div id="locationChooserModal" class="lead-popup">
+        <div class="popup-content" style="max-width: 450px; text-align: center;">
+            <button class="popup-close" aria-label="Close modal" onclick="closeLocationModal()">&times;</button>
+            <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; margin-top: 1rem;">Choose Your
+                Location</h2>
+            <p style="margin-bottom: 2rem; color: #666;">Please select a location to continue.</p>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <a href="#" id="locBtnStockton" class="btn btn-primary"
+                    style="padding: 1rem; width: 100%; text-decoration: none;">📍 Stockton</a>
+                <a href="#" id="locBtnModesto" class="btn btn-secondary"
+                    style="padding: 1rem; width: 100%; border: 2px solid var(--primary-red); color: var(--primary-red); text-decoration: none;">📍
+                    Modesto</a>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.8rem; color: #888;">Note: Online ordering is currently only
+                available for our Stockton location.</p>
+        </div>
+    </div>
+
     <main id="main-content">
         <!-- Hero Section -->
         <section id="home" class="hero" aria-label="Welcome to Raw Sushi Bistro">
@@ -1984,11 +2004,12 @@
                 <p>Two decades of crafting unforgettable moments, one perfect roll at a time. Fresh, authentic Japanese
                     cuisine made with the finest ingredients.</p>
                 <div class="hero-buttons">
-                    <a href="https://www.doordash.com/store/raw-sushi-bistro-892006/" target="_blank" rel="noopener"
-                        class="btn btn-primary">Order Online</a>
+                    <a href="#" onclick="openLocationModal('order'); return false;" class="btn btn-primary">Order
+                        Online</a>
                     <a href="https://www.opentable.com/r/raw-sushi-bistro-stockton" target="_blank" rel="noopener"
                         class="btn btn-gold">Reserve a Table</a>
-                    <a href="menu-stockton.html" class="btn btn-secondary">View Menu</a>
+                    <a href="#" onclick="openLocationModal('menu'); return false;" class="btn btn-secondary">View
+                        Menu</a>
                 </div>
             </div>
         </section>
@@ -2174,29 +2195,30 @@
                 <p class="section-subtitle">From traditional nigiri to innovative specialty rolls</p>
             </div>
             <div class="menu-categories">
-                <a href="menu-stockton.html#sushi-apps" class="menu-cat-card">
+                <a href="#" onclick="openLocationModal('menu', '#sushi-apps'); return false;" class="menu-cat-card">
                     <div class="menu-cat-icon" aria-hidden="true">&#x1F363;</div>
                     <h4>Sushi & Sashimi</h4>
                     <p>Nigiri, sashimi & handrolls</p>
                 </a>
-                <a href="menu-stockton.html#special-rolls" class="menu-cat-card">
+                <a href="#" onclick="openLocationModal('menu', '#special-rolls'); return false;" class="menu-cat-card">
                     <div class="menu-cat-icon" aria-hidden="true">&#x1F30A;</div>
                     <h4>Specialty Rolls</h4>
                     <p>Creative house signatures</p>
                 </a>
-                <a href="menu-stockton.html#entrees" class="menu-cat-card">
+                <a href="#" onclick="openLocationModal('menu', '#entrees'); return false;" class="menu-cat-card">
                     <div class="menu-cat-icon" aria-hidden="true">&#x1F35C;</div>
                     <h4>Hot Entrees</h4>
                     <p>Teriyaki, tempura & more</p>
                 </a>
-                <a href="menu-stockton.html#small-bites" class="menu-cat-card">
+                <a href="#" onclick="openLocationModal('menu', '#small-bites'); return false;" class="menu-cat-card">
                     <div class="menu-cat-icon" aria-hidden="true">&#x1F962;</div>
                     <h4>Small Bites</h4>
                     <p>Gyoza, edamame & apps</p>
                 </a>
             </div>
             <div style="text-align: center;">
-                <a href="menu-stockton.html" class="btn btn-primary">View Full Menu</a>
+                <a href="#" onclick="openLocationModal('menu'); return false;" class="btn btn-primary">View Full
+                    Menu</a>
             </div>
         </section>
 
@@ -2529,8 +2551,8 @@
                 <div class="hero-buttons">
                     <a href="https://www.opentable.com/r/raw-sushi-bistro-stockton" target="_blank" rel="noopener"
                         class="btn btn-gold">Reserve a Table</a>
-                    <a href="https://www.doordash.com/store/raw-sushi-bistro-892006/" target="_blank" rel="noopener"
-                        class="btn btn-primary">Order Delivery</a>
+                    <a href="#" onclick="openLocationModal('order'); return false;" class="btn btn-primary">Order
+                        Delivery</a>
                 </div>
             </div>
         </section>
@@ -2581,7 +2603,7 @@
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="menu-stockton.html">Full Menu</a></li>
+                    <li><a href="#" onclick="openLocationModal('menu'); return false;">Full Menu</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#blog">Blog</a></li>
                     <li><a href="#faq">FAQ</a></li>
@@ -2622,16 +2644,14 @@
     </footer>
 
     <!-- Floating Desktop CTA -->
-    <a href="https://www.doordash.com/store/raw-sushi-bistro-892006/" target="_blank" rel="noopener"
-        class="floating-cta" aria-label="Order Delivery">
+    <a href="#" onclick="openLocationModal('order'); return false;" class="floating-cta" aria-label="Order Delivery">
         <span class="cta-icon">🛍️</span> Order Now
     </a>
 
     <!-- Sticky Mobile Order Bar -->
     <div class="mobile-order-bar" aria-label="Quick order options">
         <div class="mobile-order-bar-inner">
-            <a href="https://www.doordash.com/store/raw-sushi-bistro-892006/" target="_blank" rel="noopener"
-                class="mob-btn mob-btn-order">Order</a>
+            <a href="#" onclick="openLocationModal('order'); return false;" class="mob-btn mob-btn-order">Order</a>
             <a href="tel:2099549729" class="mob-btn mob-btn-call">Call</a>
             <a href="https://www.opentable.com/r/raw-sushi-bistro-stockton" target="_blank" rel="noopener"
                 class="mob-btn mob-btn-reserve">Reserve</a>
@@ -2739,6 +2759,37 @@
                 }, 3000);
             });
         });
+
+        // Location Chooser Logic
+        function openLocationModal(action, targetSection = '') {
+            const modal = document.getElementById('locationChooserModal');
+            const stBtn = document.getElementById('locBtnStockton');
+            const moBtn = document.getElementById('locBtnModesto');
+
+            if (action === 'menu') {
+                stBtn.href = 'menu-stockton.html' + targetSection;
+                stBtn.innerHTML = '📍 Stockton Menu';
+                stBtn.target = '_self';
+
+                moBtn.href = 'menu-modesto.html' + targetSection;
+                moBtn.innerHTML = '📍 Modesto Menu';
+                moBtn.target = '_self';
+            } else if (action === 'order') {
+                stBtn.href = 'https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d';
+                stBtn.innerHTML = '📍 Order Online (Stockton)';
+                stBtn.target = '_blank';
+
+                moBtn.href = 'tel:2095669560';
+                moBtn.innerHTML = '📍 Call to Order (Modesto)';
+                moBtn.target = '_self';
+            }
+
+            modal.classList.add('show');
+        }
+
+        function closeLocationModal() {
+            document.getElementById('locationChooserModal').classList.remove('show');
+        }
     </script>
 </body>
 
