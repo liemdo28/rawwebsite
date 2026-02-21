@@ -49,6 +49,27 @@
             box-sizing: border-box;
         }
 
+        /* A11y Base Rules */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 10px 15px;
+            z-index: 100000;
+            transition: top 0.2s;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        *:focus-visible {
+            outline: 3px solid var(--primary-red) !important;
+            outline-offset: 3px !important;
+        }
+
         :root {
             --primary-red: #C41E3A;
             --deep-teal: #1a4d4d;
@@ -258,6 +279,7 @@
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="nav-bar">
         <a href="index.html">← Back to Home</a>
     </div>
@@ -270,7 +292,7 @@
         </div>
     </header>
 
-    <article class="blog-content">
+    <article id="main-content" class="blog-content">
         <p>To the untrained eye, nigiri sushi appears deceptively simple: a slice of fish atop a small mound of rice.
             But this elegant simplicity belies a profound complexity that takes decades to master. In my twenty years as
             a sushi chef, I'm still discovering nuances in this ancient art form.</p>

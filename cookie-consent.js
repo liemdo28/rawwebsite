@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Inject HTML for Cookie Banner
     const bannerHTML = `
-        <div id="cookieBanner" class="cookie-banner">
+        <div id="cookieBanner" class="cookie-banner" role="region" aria-label="Cookie consent banner">
             <div class="cookie-content">
-                <h3>Your Privacy Matters</h3>
+                <h3 id="cookieBannerTitle">Your Privacy Matters</h3>
                 <p>We use cookies and tracking technologies to enhance your browsing experience, analyze site traffic, and personalize content. You can customize your preferences below.</p>
             </div>
             <div class="cookie-buttons">
@@ -15,11 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Inject HTML for Cookie Modal
     const modalHTML = `
-        <div id="cookieModal" class="cookie-modal-overlay">
+        <div id="cookieModal" class="cookie-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
             <div class="cookie-modal">
                 <div class="cookie-modal-header">
-                    <h2>Cookie Preferences</h2>
-                    <button id="cookieModalCloseBtn" class="cookie-modal-close">&times;</button>
+                    <h2 id="cookieModalTitle">Cookie Preferences</h2>
+                    <button id="cookieModalCloseBtn" class="cookie-modal-close" aria-label="Close cookie preferences">&times;</button>
                 </div>
                 
                 <p style="margin-bottom: 2rem; font-size: 0.95rem; color: #5a544e;">
@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h4>Strictly Necessary Cookies</h4>
                         <p>These cookies are essential for the website to function properly. They cannot be disabled.</p>
                     </div>
-                    <label class="switch">
-                        <input type="checkbox" checked disabled>
+                    <label class="switch" for="toggleNecessary">
+                        <input type="checkbox" id="toggleNecessary" checked disabled aria-label="Strictly Necessary Cookies">
                         <span class="slider"></span>
                     </label>
                 </div>
@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h4>Analytics Cookies</h4>
                         <p>These cookies help us understand how visitors interact with our website, allowing us to improve performance and user experience.</p>
                     </div>
-                    <label class="switch">
-                        <input type="checkbox" id="toggleAnalytics" checked>
+                    <label class="switch" for="toggleAnalytics">
+                        <input type="checkbox" id="toggleAnalytics" checked aria-label="Analytics Cookies">
                         <span class="slider"></span>
                     </label>
                 </div>
@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h4>Marketing & Tracking Cookies</h4>
                         <p>We use these to deliver personalized advertisements and track cross-site browsing behavior to provide relevant promotions.</p>
                     </div>
-                    <label class="switch">
-                        <input type="checkbox" id="toggleMarketing" checked>
+                    <label class="switch" for="toggleMarketing">
+                        <input type="checkbox" id="toggleMarketing" checked aria-label="Marketing & Tracking Cookies">
                         <span class="slider"></span>
                     </label>
                 </div>

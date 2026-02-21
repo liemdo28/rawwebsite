@@ -23,6 +23,27 @@
             box-sizing: border-box;
         }
 
+        /* A11y Base Rules */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 10px 15px;
+            z-index: 100000;
+            transition: top 0.2s;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        *:focus-visible {
+            outline: 3px solid var(--primary-red) !important;
+            outline-offset: 3px !important;
+        }
+
         :root {
             --primary-red: #C41E3A;
             --deep-teal: #1a4d4d;
@@ -218,6 +239,7 @@
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="nav-bar">
         <a href="index.html">← Back to Home</a>
     </div>
@@ -230,7 +252,7 @@
         </div>
     </header>
 
-    <article class="blog-content">
+    <article id="main-content" class="blog-content">
         <p>As I stand in the restaurant today, watching our team carefully craft each roll with the same dedication we
             had on our opening day, I'm overwhelmed with gratitude. Twenty years ago, we opened the doors of Raw Sushi
             Bistro with a simple dream: to carry on a family tradition of Japanese fine cuisine and bring exceptional

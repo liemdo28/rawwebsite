@@ -223,6 +223,27 @@
             box-sizing: border-box;
         }
 
+        /* A11y Base Rules */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 10px 15px;
+            z-index: 100000;
+            transition: top 0.2s;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        *:focus-visible {
+            outline: 3px solid var(--primary-red) !important;
+            outline-offset: 3px !important;
+        }
+
         :root {
             --primary-red: #C41E3A;
             --deep-red: #a01829;
@@ -1930,6 +1951,7 @@
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Lead Generation Popup -->
     <div id="leadPopup" class="lead-popup">
         <div class="lead-popup-content">
