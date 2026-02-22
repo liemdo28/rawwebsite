@@ -161,7 +161,7 @@
           "name": "Does Raw Sushi Bistro take reservations?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, we accept reservations through OpenTable. You can also call us directly to reserve your table. Walk-ins are welcome but reservations are recommended, especially on weekends."
+            "text": "Yes, you can call us directly to reserve your table. Walk-ins are welcome but reservations are recommended, especially on weekends."
           }
         },
         {
@@ -236,9 +236,11 @@
             text-decoration: none;
             font-weight: bold;
         }
+
         .skip-link:focus {
             top: 0;
         }
+
         *:focus-visible {
             outline: 3px solid var(--primary-red) !important;
             outline-offset: 3px !important;
@@ -1985,8 +1987,8 @@
                 <li role="none"><a href="#blog" role="menuitem">Blog</a></li>
                 <li role="none"><a href="#locations" role="menuitem">Locations</a></li>
                 <li role="none"><a href="tel:2099549729" class="nav-phone" role="menuitem">(209) 954-9729</a></li>
-                <li role="none"><a href="https://www.opentable.com/r/raw-sushi-bistro-stockton" target="_blank"
-                        rel="noopener" class="nav-cta" role="menuitem">Reserve a Table</a></li>
+                <li role="none"><a href="#" onclick="openLocationModal('reserve'); return false;" class="nav-cta"
+                        role="menuitem">Call to Reserve</a></li>
             </ul>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
                 <span></span>
@@ -2030,8 +2032,8 @@
                 <div class="hero-buttons">
                     <a href="#" onclick="openLocationModal('order'); return false;" class="btn btn-primary">Order
                         Online</a>
-                    <a href="https://www.opentable.com/r/raw-sushi-bistro-stockton" target="_blank" rel="noopener"
-                        class="btn btn-gold">Reserve a Table</a>
+                    <a href="#" onclick="openLocationModal('reserve'); return false;" class="btn btn-gold">Call to
+                        Reserve</a>
                     <a href="#" onclick="openLocationModal('menu'); return false;" class="btn btn-secondary">View
                         Menu</a>
                 </div>
@@ -2370,9 +2372,7 @@
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            Yes! Reserve your table through <a
-                                href="https://www.opentable.com/r/raw-sushi-bistro-stockton" target="_blank"
-                                rel="noopener">OpenTable</a> or call us directly. Walk-ins are welcome but reservations
+                            Yes! Call us directly to reserve your table. Walk-ins are welcome but reservations
                             are recommended, especially on weekends.
                         </div>
                     </div>
@@ -2573,8 +2573,8 @@
                 <h2>Your Table Is Waiting</h2>
                 <p>Experience 20 years of culinary excellence. Reserve your table or order online today.</p>
                 <div class="hero-buttons">
-                    <a href="https://www.opentable.com/r/raw-sushi-bistro-stockton" target="_blank" rel="noopener"
-                        class="btn btn-gold">Reserve a Table</a>
+                    <a href="#" onclick="openLocationModal('reserve'); return false;" class="btn btn-gold">Call to
+                        Reserve</a>
                     <a href="#" onclick="openLocationModal('order'); return false;" class="btn btn-primary">Order
                         Delivery</a>
                 </div>
@@ -2631,8 +2631,7 @@
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#blog">Blog</a></li>
                     <li><a href="#faq">FAQ</a></li>
-                    <li><a href="https://www.opentable.com/r/raw-sushi-bistro-stockton" target="_blank"
-                            rel="noopener">Reservations</a></li>
+                    <li><a href="#" onclick="openLocationModal('reserve'); return false;">Reservations</a></li>
                     <li><a href="mailto:info@rawsushibar.com">Catering</a></li>
                 </ul>
             </div>
@@ -2677,7 +2676,7 @@
         <div class="mobile-order-bar-inner">
             <a href="#" onclick="openLocationModal('order'); return false;" class="mob-btn mob-btn-order">Order</a>
             <a href="tel:2099549729" class="mob-btn mob-btn-call">Call</a>
-            <a href="https://www.opentable.com/r/raw-sushi-bistro-stockton" target="_blank" rel="noopener"
+            <a href="#" onclick="openLocationModal('reserve'); return false;"
                 class="mob-btn mob-btn-reserve">Reserve</a>
         </div>
     </div>
@@ -2805,6 +2804,14 @@
 
                 moBtn.href = 'tel:2095669560';
                 moBtn.innerHTML = '📍 Call to Order (Modesto)';
+                moBtn.target = '_self';
+            } else if (action === 'reserve') {
+                stBtn.href = 'tel:2099549729';
+                stBtn.innerHTML = '📍 Call to Reserve (Stockton)';
+                stBtn.target = '_self';
+
+                moBtn.href = 'tel:2095669560';
+                moBtn.innerHTML = '📍 Call to Reserve (Modesto)';
                 moBtn.target = '_self';
             }
 
