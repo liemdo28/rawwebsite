@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SereniTEA Brew - Zen Modernist Homepage</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#19e63c",
+                        "primary-dark": "#14b830", // darker shade for text readability
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#112114",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2e1e",
+                        "text-main": "#0e1b10",
+                        "text-muted": "#5c6f60",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "body": ["Manrope", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom scrollbar to match theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f6f8f6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cddbcc;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #19e63c;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main font-display antialiased selection:bg-primary/30">
+<!-- Top Navigation -->
+<nav class="sticky top-0 z-50 w-full border-b border-[#e7f3e9]/50 bg-surface-light/90 backdrop-blur-md dark:bg-surface-dark/90 dark:border-white/5 transition-colors duration-300">
+<div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
+<!-- Logo -->
+<a class="flex items-center gap-3 group" href="#">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary-dark group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-[24px]">emoji_food_beverage</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-text-main dark:text-white">SereniTEA Brew</span>
+</a>
+<!-- Desktop Links -->
+<div class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-text-muted hover:text-primary-dark dark:text-gray-300 dark:hover:text-primary transition-colors" href="#menu">Menu</a>
+<a class="text-sm font-medium text-text-muted hover:text-primary-dark dark:text-gray-300 dark:hover:text-primary transition-colors" href="#philosophy">Philosophy</a>
+<a class="text-sm font-medium text-text-muted hover:text-primary-dark dark:text-gray-300 dark:hover:text-primary transition-colors" href="#shop">Shop</a>
+<a class="text-sm font-medium text-text-muted hover:text-primary-dark dark:text-gray-300 dark:hover:text-primary transition-colors" href="#locations">Locations</a>
+</div>
+<!-- CTA -->
+<div class="flex items-center gap-4">
+<button class="hidden md:flex h-10 items-center justify-center rounded-lg bg-primary px-6 text-sm font-bold text-text-main shadow-sm hover:bg-primary-dark hover:text-white transition-all duration-300">
+                    Order Now
+                </button>
+<!-- Mobile Menu Icon -->
+<button class="flex md:hidden h-10 w-10 items-center justify-center rounded-lg text-text-main hover:bg-black/5 dark:text-white dark:hover:bg-white/10">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative w-full h-[calc(100vh-80px)] min-h-[600px] overflow-hidden">
+<!-- Background Image simulating Video -->
+<div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat" data-alt="Close up of ceremonial matcha tea being prepared with bamboo whisk" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAUlk1LyabJWpAn6-BsNcFVCjSSANb35E7FwR7Dbb8MwHyu9ngcNi78OI4tZJW2QbKiGfnRhtoZLbRnIcXaOshm9AL44EyUyyJgNdYJXctPweJ9ApudftbxNEOcjGYVF9QZjK4l7E2lKyQzhIcQwnLIfNl7y6qtDrDWexYwveLmJiDfX1nqE0MEbYAupHirYjcESYLES5XSr1VMS1-8bSNCsSNMUWNbtnIPPciOt8zeoYC6tWJfipcQRGxujm50m_-FO2e9FNl0A8fL');">
+</div>
+<!-- Gradient Overlay -->
+<div class="absolute inset-0 z-10 bg-gradient-to-b from-black/30 via-black/10 to-background-light dark:to-background-dark"></div>
+<!-- Content -->
+<div class="relative z-20 flex h-full w-full flex-col items-center justify-center px-6 text-center">
+<div class="animate-fade-in-up max-w-3xl space-y-8">
+<div class="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 backdrop-blur-sm">
+<span class="h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-medium tracking-wide text-white uppercase">New Seasonal Blends Available</span>
+</div>
+<h1 class="font-display text-5xl font-black leading-tight tracking-tight text-white md:text-7xl lg:text-8xl drop-shadow-sm">
+                    Mindful Moments, <br/>
+<span class="text-primary-200">Functional Blends</span>
+</h1>
+<p class="mx-auto max-w-xl text-lg font-light leading-relaxed text-white/90 md:text-xl">
+                    Experience the ritual of preparation and find stillness in every cup. A sanctuary for clarity in a chaotic world.
+                </p>
+<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+<a class="inline-flex h-12 min-w-[160px] items-center justify-center rounded-lg bg-primary px-8 text-base font-bold text-text-main transition-transform hover:scale-105 hover:bg-primary-dark hover:text-white" href="#menu">
+                        Explore Menu
+                    </a>
+<button class="inline-flex h-12 min-w-[160px] items-center justify-center rounded-lg border border-white/30 bg-white/10 px-8 text-base font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20">
+                        Watch the Ritual
+                    </button>
+</div>
+</div>
+</div>
+</header>
+<!-- Philosophy Section -->
+<section class="py-24 lg:py-32 bg-background-light dark:bg-background-dark" id="philosophy">
+<div class="mx-auto max-w-7xl px-6 lg:px-8">
+<div class="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
+<!-- Image Grid -->
+<div class="relative group">
+<div class="absolute -inset-4 rounded-2xl bg-primary/20 opacity-0 blur-2xl transition duration-500 group-hover:opacity-100"></div>
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-800">
+<img alt="Traditional Japanese tea ceremony preparation focused on hands" class="h-full w-full object-cover transition-transform duration-700 hover:scale-105" data-alt="Close up hands using bamboo whisk in ceramic matcha bowl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa-YH83JMxSgsQFsNJqe1-uPVZ1bXr7xafLBRbNry3cDjc--SOMOgHgiy09Qc17ujE1Mv8K2sT9YXJRzDfZUun3obiNKp-L-16XTM9ncaGm5CMcMCRdUqluD5vWjqwMePjOvSLD54NmsYMcCXxk2uueB6QUzllvHOBDdWmTNB8hRCoOngUQfN1VUM0wTsmjzOaz4Js0aC3OlrkHaVhb4wD-Tt-D5rCl14OlaeMuIcrnMxsfRQ-nB3C9B6Aqxxii7l607c4fWZg601S"/>
+</div>
+<!-- Floater Card -->
+<div class="absolute -bottom-6 -right-6 hidden md:flex items-center gap-4 rounded-xl border border-white/50 bg-white/80 p-4 shadow-xl backdrop-blur-md dark:border-white/5 dark:bg-surface-dark/90">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary-dark">
+<span class="material-symbols-outlined">self_improvement</span>
+</div>
+<div>
+<p class="text-sm font-bold text-text-main dark:text-white">Daily Ritual</p>
+<p class="text-xs text-text-muted dark:text-gray-400">Find your center</p>
+</div>
+</div>
+</div>
+<!-- Content -->
+<div class="flex flex-col gap-8">
+<div class="space-y-4">
+<h2 class="text-sm font-bold uppercase tracking-widest text-primary-dark">Our Philosophy</h2>
+<h3 class="font-display text-4xl font-bold leading-tight text-text-main dark:text-white lg:text-5xl">
+                            Stillness in <br/>Every Sip
+                        </h3>
+</div>
+<p class="text-lg leading-relaxed text-text-muted dark:text-gray-300">
+                        We believe that the preparation of tea is just as important as the drinking of it. In a world that demands constant attention, we invite you to take a moment for yourself. 
+                    </p>
+<p class="text-lg leading-relaxed text-text-muted dark:text-gray-300">
+                        Our blends are crafted not just for taste, but for feeling. Whether you need clarity, calm, or energy, our functional ingredients are designed to support your mental and physical well-being.
+                    </p>
+<div class="pt-4">
+<a class="group inline-flex items-center gap-2 text-base font-bold text-text-main dark:text-white hover:text-primary-dark dark:hover:text-primary transition-colors" href="#">
+                            Read Our Full Story
+                            <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<!-- Stats -->
+<div class="mt-8 grid grid-cols-2 gap-8 border-t border-gray-200 pt-8 dark:border-gray-800">
+<div>
+<p class="text-3xl font-bold text-text-main dark:text-white">100%</p>
+<p class="mt-1 text-sm text-text-muted dark:text-gray-400">Organic Ingredients</p>
+</div>
+<div>
+<p class="text-3xl font-bold text-text-main dark:text-white">Zero</p>
+<p class="mt-1 text-sm text-text-muted dark:text-gray-400">Artificial Additives</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Functional Ingredients Section -->
+<section class="py-24 bg-white dark:bg-surface-dark">
+<div class="mx-auto max-w-7xl px-6 lg:px-8">
+<div class="mb-16 text-center max-w-2xl mx-auto">
+<h2 class="text-sm font-bold uppercase tracking-widest text-primary-dark mb-3">Functional Ingredients</h2>
+<h3 class="font-display text-3xl font-bold text-text-main dark:text-white md:text-4xl">Enhanced Wellness</h3>
+<p class="mt-4 text-lg text-text-muted dark:text-gray-300">Nature's most powerful adaptogens, carefully blended for your daily ritual.</p>
+</div>
+<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+<!-- Card 1 -->
+<div class="group relative overflow-hidden rounded-2xl border border-gray-100 bg-background-light p-8 transition-all hover:border-primary/30 hover:shadow-lg dark:border-gray-800 dark:bg-background-dark">
+<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-white text-primary-dark shadow-sm dark:bg-surface-dark dark:text-primary">
+<span class="material-symbols-outlined text-3xl">psychology</span>
+</div>
+<h4 class="mb-3 text-xl font-bold text-text-main dark:text-white">Lion's Mane</h4>
+<p class="text-text-muted dark:text-gray-400 mb-6">Known for its neuroprotective properties, supporting cognitive function, memory, and focus to help you stay sharp throughout the day.</p>
+<ul class="space-y-2">
+<li class="flex items-center gap-2 text-sm text-text-main dark:text-gray-300">
+<span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                            Mental Clarity
+                        </li>
+<li class="flex items-center gap-2 text-sm text-text-main dark:text-gray-300">
+<span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                            Focus Support
+                        </li>
+</ul>
+</div>
+<!-- Card 2 -->
+<div class="group relative overflow-hidden rounded-2xl border border-gray-100 bg-background-light p-8 transition-all hover:border-primary/30 hover:shadow-lg dark:border-gray-800 dark:bg-background-dark">
+<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-white text-primary-dark shadow-sm dark:bg-surface-dark dark:text-primary">
+<span class="material-symbols-outlined text-3xl">spa</span>
+</div>
+<h4 class="mb-3 text-xl font-bold text-text-main dark:text-white">Ashwagandha</h4>
+<p class="text-text-muted dark:text-gray-400 mb-6">An ancient medicinal herb that helps the body manage stress. It promotes balance and calm without sedation.</p>
+<ul class="space-y-2">
+<li class="flex items-center gap-2 text-sm text-text-main dark:text-gray-300">
+<span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                            Stress Reduction
+                        </li>
+<li class="flex items-center gap-2 text-sm text-text-main dark:text-gray-300">
+<span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                            Hormonal Balance
+                        </li>
+</ul>
+</div>
+<!-- Card 3 -->
+<div class="group relative overflow-hidden rounded-2xl border border-gray-100 bg-background-light p-8 transition-all hover:border-primary/30 hover:shadow-lg dark:border-gray-800 dark:bg-background-dark">
+<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-white text-primary-dark shadow-sm dark:bg-surface-dark dark:text-primary">
+<span class="material-symbols-outlined text-3xl">water_drop</span>
+</div>
+<h4 class="mb-3 text-xl font-bold text-text-main dark:text-white">Ceremonial Matcha</h4>
+<p class="text-text-muted dark:text-gray-400 mb-6">Shade-grown green tea leaves ground into a fine powder. Packed with antioxidants and L-theanine for sustained energy.</p>
+<ul class="space-y-2">
+<li class="flex items-center gap-2 text-sm text-text-main dark:text-gray-300">
+<span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                            Clean Energy
+                        </li>
+<li class="flex items-center gap-2 text-sm text-text-main dark:text-gray-300">
+<span class="material-symbols-outlined text-primary text-base">check_circle</span>
+                            High Antioxidants
+                        </li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Supply Chain / Sourcing Banner -->
+<section class="relative h-[500px] w-full overflow-hidden bg-fixed bg-center bg-cover flex items-center justify-center" data-alt="Lush green tea plantation fields rolling across hills" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDfiEA8Jur8V_XNB0Hv-iCYFXSsraVtnGzi5y0GC7lgKf5QVi8ianKF27r22EckpPJMPces3O5iyoimS9-FUyYe-z-UcQ4vFJu3toC5z0xh3IYxIQOVMPx_JfrxQ1Jqy6Hn3A-GzckAlLDpvUALY5d27GieKo5lKm1MnrSWhp76bJPRJXduu6L4_E-pERU4IlwJjgvFUREUYmqNxPIM0eVOTEdBNxRF-XVbYCOl9UGrlo8lWP68EGLlAjNx0VEZPc_CSOv8-uP5y1cj');">
+<div class="absolute inset-0 bg-black/40"></div>
+<div class="relative z-10 text-center px-4 max-w-3xl">
+<h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Traceable to the Source. <br/>Crafted for You.</h2>
+<p class="text-lg text-white/90 mb-8 max-w-xl mx-auto">We partner directly with family-owned farms in Uji, Japan to ensure fair wages and sustainable farming practices.</p>
+<button class="inline-flex h-12 items-center justify-center rounded-lg bg-white px-8 text-base font-bold text-text-main transition-colors hover:bg-primary hover:text-white">
+                Our Sourcing Journey
+            </button>
+</div>
+</section>
+<!-- Product Spotlight Carousel -->
+<section class="py-24 bg-background-light dark:bg-background-dark overflow-hidden" id="menu">
+<div class="mx-auto max-w-7xl px-6 lg:px-8">
+<div class="flex items-end justify-between mb-12">
+<div>
+<h2 class="text-sm font-bold uppercase tracking-widest text-primary-dark mb-3">Our Menu</h2>
+<h3 class="font-display text-3xl font-bold text-text-main dark:text-white md:text-4xl">Signature Brews</h3>
+</div>
+<div class="hidden md:flex gap-2">
+<button class="h-10 w-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-primary/20 hover:border-primary dark:border-gray-700 dark:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="h-10 w-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-primary/20 hover:border-primary dark:border-gray-700 dark:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Scrollable Container -->
+<div class="flex overflow-x-auto gap-6 pb-8 hide-scrollbar snap-x snap-mandatory">
+<!-- Product 1 -->
+<div class="min-w-[300px] md:min-w-[380px] snap-center rounded-2xl bg-white p-4 shadow-sm dark:bg-surface-dark hover:shadow-lg transition-shadow duration-300">
+<div class="relative aspect-square w-full overflow-hidden rounded-xl bg-gray-100 mb-6">
+<img alt="Creamy green matcha latte in a clear glass with ice" class="h-full w-full object-cover transition-transform duration-500 hover:scale-105" data-alt="Iced matcha latte with visible gradient of milk and tea" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxS2SY3-WQ50aGOWZ-QWCJYLdBFz8AbpCx5pSuth3Pdv-mw3jRiJRwTA2FqbXrXl9NvuMeU5BVWhgi5mgYGklPJS-IBP8X3Cu0ZeHIRPo1qEIpfVXzXj50ziQvmNc23D-JLw5HnunXq8EScoJH9KYaKOvNMmYZxn-YulS8hpsY4IY__eZtpdE1Pn_liE9spju_QDsPHtLKyF5CmHUHhDqio80uZeurRKLhBNhIUkdeeG_Ewmc-Jxi-iijDINCWZfpX8H5OKStLs8n3"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-text-main">
+                            Bestseller
+                        </div>
+</div>
+<div class="px-2 pb-2">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-xl font-bold text-text-main dark:text-white">Uji Matcha Latte</h4>
+<span class="text-lg font-medium text-primary-dark">$6.50</span>
+</div>
+<p class="text-sm text-text-muted dark:text-gray-400 mb-4 line-clamp-2">Premium ceremonial grade matcha whisked with oat milk and a hint of raw honey.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2 py-1 bg-primary/10 text-primary-dark rounded text-xs font-medium">Antioxidant Rich</span>
+<span class="px-2 py-1 bg-gray-100 text-text-muted dark:bg-white/10 dark:text-gray-300 rounded text-xs font-medium">Calming</span>
+</div>
+<button class="w-full h-10 rounded-lg border border-primary text-primary-dark font-bold text-sm hover:bg-primary hover:text-text-main transition-colors">
+                            Add to Order
+                        </button>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="min-w-[300px] md:min-w-[380px] snap-center rounded-2xl bg-white p-4 shadow-sm dark:bg-surface-dark hover:shadow-lg transition-shadow duration-300">
+<div class="relative aspect-square w-full overflow-hidden rounded-xl bg-gray-100 mb-6">
+<img alt="Espresso tonic with slice of yuzu lemon" class="h-full w-full object-cover transition-transform duration-500 hover:scale-105" data-alt="Sparkling espresso tonic in a tall glass with yuzu garnish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZvDWwAF3187iA5Qr61sxNTA22fDWyGzdx-ImAxjd3SHpuoovMoiw8v_2rLVcrVLeWn9aCRj1TvWzfMv1V1QLX8kh9qIFjj7EL7jG1w2LyX7s2s2ltP64T-86iyYad4nhL8gQuqdRcJtQSa0YSKkmlO-HiQ4J2y_8KBqNhQLgX9r_Vx112YwgFw0HwJ9UKn2wDBSRC-3Cny9KEhCWHT_DLZYYTZE5m1VxnyokwYO5vXkHfgIRJ7pbVLYDzhUSI-2Y34MY3RQRhw95l"/>
+</div>
+<div class="px-2 pb-2">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-xl font-bold text-text-main dark:text-white">Yuzu Espresso Tonic</h4>
+<span class="text-lg font-medium text-primary-dark">$5.75</span>
+</div>
+<p class="text-sm text-text-muted dark:text-gray-400 mb-4 line-clamp-2">Double shot espresso poured over tonic water with house-made yuzu syrup.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2 py-1 bg-primary/10 text-primary-dark rounded text-xs font-medium">Refreshing Zest</span>
+<span class="px-2 py-1 bg-gray-100 text-text-muted dark:bg-white/10 dark:text-gray-300 rounded text-xs font-medium">Focus</span>
+</div>
+<button class="w-full h-10 rounded-lg border border-primary text-primary-dark font-bold text-sm hover:bg-primary hover:text-text-main transition-colors">
+                            Add to Order
+                        </button>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="min-w-[300px] md:min-w-[380px] snap-center rounded-2xl bg-white p-4 shadow-sm dark:bg-surface-dark hover:shadow-lg transition-shadow duration-300">
+<div class="relative aspect-square w-full overflow-hidden rounded-xl bg-gray-100 mb-6">
+<img alt="Golden turmeric latte in a ceramic mug" class="h-full w-full object-cover transition-transform duration-500 hover:scale-105" data-alt="Golden turmeric ginger tea in white ceramic cup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnnEx9H-dzdTZQW5QKiAIYsXTCUodlnKvHfjpkA6wZ6ZuCgdDTIPpWwtpe-DfwgYzGUDANLUe3JNmZq2cd3in65DSgREnjXR1wDmSi0Zs4syjhgrN84_jcn5lcOpas0qIEJrmK1pvHBMl2M2AncAT2H5Pnfp0wUtZBJu2IP8Q33Sjw7qwC1SlD3owIMK4ddl7vAmyqEKA_PecR-_g60lkPMvpT2VNFLA8GFHIMhPL3J6TxNLo_S6-sWSAkg2JaN1fdSmx1n_7OD9TH"/>
+</div>
+<div class="px-2 pb-2">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-xl font-bold text-text-main dark:text-white">Turmeric Ginger Brew</h4>
+<span class="text-lg font-medium text-primary-dark">$5.50</span>
+</div>
+<p class="text-sm text-text-muted dark:text-gray-400 mb-4 line-clamp-2">Fresh turmeric root and ginger simmered with black pepper and coconut milk.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2 py-1 bg-primary/10 text-primary-dark rounded text-xs font-medium">Anti-inflammatory</span>
+<span class="px-2 py-1 bg-gray-100 text-text-muted dark:bg-white/10 dark:text-gray-300 rounded text-xs font-medium">Immunity</span>
+</div>
+<button class="w-full h-10 rounded-lg border border-primary text-primary-dark font-bold text-sm hover:bg-primary hover:text-text-main transition-colors">
+                            Add to Order
+                        </button>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="min-w-[300px] md:min-w-[380px] snap-center rounded-2xl bg-white p-4 shadow-sm dark:bg-surface-dark hover:shadow-lg transition-shadow duration-300">
+<div class="relative aspect-square w-full overflow-hidden rounded-xl bg-gray-100 mb-6">
+<img alt="Cold brew coffee bottle with minimalist label" class="h-full w-full object-cover transition-transform duration-500 hover:scale-105" data-alt="Kyoto style cold brew coffee in glass bottle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCpbRuCzdjiHhEAvC9ODKjYExKm3h_a9LW_mnZZ70LwkiI5_tiSELv5GtCHoo9n3apKTJgPfvrPhDdt5pgaUkf9XSO9gsaEl_wCWEYmRPGMv2-UGLV4HShftYM-W0_GeUJ_k2Oe0NSXIaDlp4aym8zHVqzHuYwpWMkgFEL7exKuKcNKhlQZ9cgU1_u_8t3HmwJJkC31h8fPPhshNkorC_pmJBXGmJFhCOezvgHxJBzTU6T0UtfvQD0M5HeGZsu1AleZTvv79L9M9sh"/>
+</div>
+<div class="px-2 pb-2">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-xl font-bold text-text-main dark:text-white">Kyoto Cold Brew</h4>
+<span class="text-lg font-medium text-primary-dark">$6.00</span>
+</div>
+<p class="text-sm text-text-muted dark:text-gray-400 mb-4 line-clamp-2">Slow-drip cold brew method extracting rich, complex flavors without acidity.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2 py-1 bg-primary/10 text-primary-dark rounded text-xs font-medium">Smooth</span>
+<span class="px-2 py-1 bg-gray-100 text-text-muted dark:bg-white/10 dark:text-gray-300 rounded text-xs font-medium">High Caffeine</span>
+</div>
+<button class="w-full h-10 rounded-lg border border-primary text-primary-dark font-bold text-sm hover:bg-primary hover:text-text-main transition-colors">
+                            Add to Order
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Location & Map Section -->
+<section class="py-16 md:py-24 bg-white dark:bg-surface-dark" id="locations">
+<div class="mx-auto max-w-7xl px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 overflow-hidden rounded-2xl bg-background-light dark:bg-background-dark border border-gray-100 dark:border-gray-800">
+<!-- Info Side -->
+<div class="flex flex-col justify-center p-8 md:p-12 lg:p-16">
+<h2 class="text-3xl font-bold text-text-main dark:text-white mb-6">Find Your Moment</h2>
+<p class="text-lg text-text-muted dark:text-gray-400 mb-8">
+                        Step away from the noise. Our cafes are designed as quiet zones for you to recharge and reconnect.
+                    </p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-dark mt-1">location_on</span>
+<div>
+<h4 class="font-bold text-text-main dark:text-white">Downtown Sanctuary</h4>
+<p class="text-text-muted dark:text-gray-400">124 Zen Garden Way, Suite 100<br/>San Francisco, CA 94103</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-dark mt-1">schedule</span>
+<div>
+<h4 class="font-bold text-text-main dark:text-white">Opening Hours</h4>
+<p class="text-text-muted dark:text-gray-400">Mon - Fri: 7am - 7pm<br/>Sat - Sun: 8am - 6pm</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-dark mt-1">call</span>
+<div>
+<h4 class="font-bold text-text-main dark:text-white">Contact</h4>
+<p class="text-text-muted dark:text-gray-400">(555) 123-4567<br/>hello@sereniteabrew.com</p>
+</div>
+</div>
+</div>
+<button class="mt-10 h-12 w-fit rounded-lg bg-primary px-8 text-sm font-bold text-text-main transition-colors hover:bg-primary-dark hover:text-white">
+                        Get Directions
+                    </button>
+</div>
+<!-- Map Side -->
+<div class="h-[400px] lg:h-auto w-full relative">
+<img alt="Map showing downtown San Francisco location" class="absolute inset-0 h-full w-full object-cover grayscale opacity-80 hover:grayscale-0 transition-all duration-700" data-location="San Francisco" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdPwj14uh30uolUXSVmcw3VRYWcpoOvqxyvg_h75pSKkpYhwUzETJHZNGrkokrbtRBHNZV66mWVhqZInFBHjFaJBAxZOluWL17FAhqugtlDKjSOxMNNLrpBMhMch5zeuXCTL5OmSi0f0uuq9Q6AXEzH1_O6XQbCPY4YeI-HRMi-beuPTKADeHd2XudlBPFyxtW97FDcTw8ADMRqNBsuiEKubO4PaJ7m2BN654YINZkfk0sqcqw_2Y4p4xucCnmELNzURpLhusQY4ye"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="bg-primary h-4 w-4 rounded-full animate-ping absolute"></div>
+<div class="bg-primary h-4 w-4 rounded-full relative border-2 border-white shadow-lg"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="border-t border-gray-200 bg-background-light py-16 dark:border-gray-800 dark:bg-background-dark">
+<div class="mx-auto max-w-7xl px-6 lg:px-8">
+<div class="grid grid-cols-1 gap-12 md:grid-cols-4">
+<!-- Brand -->
+<div class="md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary text-[28px]">emoji_food_beverage</span>
+<span class="text-lg font-bold text-text-main dark:text-white">SereniTEA Brew</span>
+</div>
+<p class="text-sm text-text-muted dark:text-gray-400">Mindful brewing for a balanced life.</p>
+</div>
+<!-- Links -->
+<div>
+<h4 class="mb-6 text-sm font-bold uppercase tracking-wider text-text-main dark:text-white">Shop</h4>
+<ul class="space-y-4">
+<li><a class="text-sm text-text-muted hover:text-primary-dark dark:text-gray-400 dark:hover:text-primary" href="#">All Teas</a></li>
+<li><a class="text-sm text-text-muted hover:text-primary-dark dark:text-gray-400 dark:hover:text-primary" href="#">Matcha Accessories</a></li>
+<li><a class="text-sm text-text-muted hover:text-primary-dark dark:text-gray-400 dark:hover:text-primary" href="#">Gift Sets</a></li>
+<li><a class="text-sm text-text-muted hover:text-primary-dark dark:text-gray-400 dark:hover:text-primary" href="#">Subscriptions</a></li>
+</ul>
+</div>
+<div>
+<h4 class="mb-6 text-sm font-bold uppercase tracking-wider text-text-main dark:text-white">Company</h4>
+<ul class="space-y-4">
+<li><a class="text-sm text-text-muted hover:text-primary-dark dark:text-gray-400 dark:hover:text-primary" href="#">Our Story</a></li>
+<li><a class="text-sm text-text-muted hover:text-primary-dark dark:text-gray-400 dark:hover:text-primary" href="#">Sustainability</a></li>
+<li><a class="text-sm text-text-muted hover:text-primary-dark dark:text-gray-400 dark:hover:text-primary" href="#">Careers</a></li>
+<li><a class="text-sm text-text-muted hover:text-primary-dark dark:text-gray-400 dark:hover:text-primary" href="#">Contact</a></li>
+</ul>
+</div>
+<!-- Newsletter -->
+<div class="md:col-span-1">
+<h4 class="mb-6 text-sm font-bold uppercase tracking-wider text-text-main dark:text-white">Join the Circle</h4>
+<p class="mb-4 text-sm text-text-muted dark:text-gray-400">Stay updated on seasonal drops and mindfulness tips.</p>
+<form class="flex gap-2">
+<input class="w-full rounded-lg border-gray-300 bg-white px-3 py-2 text-sm focus:border-primary focus:ring-primary dark:border-gray-700 dark:bg-surface-dark dark:text-white" placeholder="Email address" type="email"/>
+<button class="rounded-lg bg-primary px-4 py-2 text-text-main transition-colors hover:bg-primary-dark hover:text-white" type="button">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</form>
+<div class="mt-8 flex gap-4">
+<a class="text-text-muted hover:text-primary-dark dark:text-gray-400 dark:hover:text-primary" href="#"><span class="sr-only">Instagram</span>
+<svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+<a class="text-text-muted hover:text-primary-dark dark:text-gray-400 dark:hover:text-primary" href="#"><span class="sr-only">Twitter</span>
+<svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<div class="mt-16 border-t border-gray-200 pt-8 dark:border-gray-800">
+<p class="text-xs text-text-muted dark:text-gray-500">© 2023 SereniTEA Brew. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</body></html>

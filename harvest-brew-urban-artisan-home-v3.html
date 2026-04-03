@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Harvest &amp; Brew - Urban Artisan</title>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11d442",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102215",
+                        "stone-100": "#f5f5f4",
+                        "stone-200": "#e7e5e4",
+                        "stone-800": "#292524",
+                        "stone-900": "#1c1917",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"],
+                        "sans": ["Work Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-stone-900 dark:text-stone-100 font-display selection:bg-primary selection:text-white">
+<!-- Navbar -->
+<header class="sticky top-0 z-50 w-full border-b border-stone-200/50 dark:border-stone-800 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm">
+<div class="max-w-[1280px] mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<span class="material-symbols-outlined text-4xl">coffee_maker</span>
+</div>
+<h2 class="text-xl md:text-2xl font-black tracking-tighter uppercase text-stone-900 dark:text-white">Harvest &amp; Brew</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-bold uppercase tracking-wide hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-sm font-bold uppercase tracking-wide hover:text-primary transition-colors" href="#menu">Menu</a>
+<a class="text-sm font-bold uppercase tracking-wide hover:text-primary transition-colors" href="#story">Story</a>
+<a class="text-sm font-bold uppercase tracking-wide hover:text-primary transition-colors" href="#workshops">Workshops</a>
+<a class="text-sm font-bold uppercase tracking-wide hover:text-primary transition-colors" href="#contact">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 text-stone-900 dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<button class="hidden md:flex bg-primary hover:bg-primary/90 text-stone-900 px-6 py-2.5 rounded-lg font-bold text-sm tracking-wide transition-all shadow-lg shadow-primary/20 uppercase">
+                    Order Online
+                </button>
+</div>
+</div>
+</header>
+<main class="w-full flex flex-col">
+<!-- Hero Section -->
+<section class="relative w-full min-h-[calc(100vh-80px)] flex flex-col lg:flex-row bg-stone-100 dark:bg-stone-900">
+<!-- Left: Visual -->
+<div class="w-full lg:w-1/2 h-[50vh] lg:h-auto relative overflow-hidden group">
+<div class="absolute inset-0 bg-stone-900/10 z-10"></div>
+<div class="h-full w-full bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" data-alt="Barista pouring latte art into a ceramic cup on a wooden table" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBrWLte2shH8ZxFeHJcD-sOD0zpGbz8oM2GUTsVJlfaq4EzkliOeYyQLnwE1owQkGwEL2fIVQ9hIPDBEjfj9EiSWgpEkhUuH_E8pPv0p9crGSpdzYW9-xEzDomPFCJ6n7iyUU1IkeaA1-SdUev447nmeYAaYKgHLUMZWTmUopXwvMTG2_MnlC2t7PeOzXhYu6Bxnz6fHpCfq1X_czb_jQJPpBn0vLB59HGsgA1yx5iP3To4TpLsit7ePskv6FYvf95wi8vdItCRfwcl');">
+</div>
+<div class="absolute bottom-6 left-6 z-20 flex items-center gap-2 bg-white/90 dark:bg-stone-900/90 backdrop-blur px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-primary text-sm">schedule</span>
+<span class="text-xs font-bold uppercase tracking-widest">Fresh Brews Daily 7AM - 7PM</span>
+</div>
+</div>
+<!-- Right: Content -->
+<div class="w-full lg:w-1/2 flex flex-col justify-center px-6 md:px-16 py-12 lg:py-0 bg-background-light dark:bg-background-dark">
+<div class="max-w-xl">
+<span class="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">Artisan Coffee &amp; Matcha</span>
+<h1 class="text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tighter text-stone-900 dark:text-white mb-6">
+                        WHERE<br/>
+                        TRADITION<br/>
+                        MEETS THE<br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-600">DAILY GRIND</span>
+</h1>
+<p class="text-lg text-stone-600 dark:text-stone-300 mb-8 max-w-md leading-relaxed">
+                        Asian-inspired coffee and matcha shop with an industrial, community-focused vibe. Experience the perfect pour in every cup.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary hover:bg-primary/90 text-stone-900 px-8 py-3.5 rounded-lg font-bold text-base tracking-wide transition-all shadow-xl shadow-primary/20 uppercase">
+                            Order Online
+                        </button>
+<button class="bg-transparent border-2 border-stone-900 dark:border-stone-100 text-stone-900 dark:text-stone-100 hover:bg-stone-900 hover:text-white dark:hover:bg-stone-100 dark:hover:text-stone-900 px-8 py-3.5 rounded-lg font-bold text-base tracking-wide transition-all uppercase">
+                            Our Story
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Commitment Section -->
+<section class="py-20 px-4 md:px-8 max-w-[1280px] mx-auto w-full" id="story">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-black uppercase tracking-tight mb-4">Our Commitment</h2>
+<div class="w-24 h-1 bg-primary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="flex flex-col items-center text-center p-8 rounded-2xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-4xl">agriculture</span>
+</div>
+<h3 class="text-xl font-bold mb-3 uppercase">Ethical Farms</h3>
+<p class="text-stone-600 dark:text-stone-300">Direct trade partnerships ensuring fair wages and sustainable growth for every farmer.</p>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col items-center text-center p-8 rounded-2xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-4xl">recycling</span>
+</div>
+<h3 class="text-xl font-bold mb-3 uppercase">Sustainable Practices</h3>
+<p class="text-stone-600 dark:text-stone-300">Zero-waste initiatives in every cup served. Compostable packaging and responsible sourcing.</p>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col items-center text-center p-8 rounded-2xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-4xl">psychology_alt</span>
+</div>
+<h3 class="text-xl font-bold mb-3 uppercase">Functional Infusion</h3>
+<p class="text-stone-600 dark:text-stone-300">Botanical boosts for focus and vitality. Ingredients chosen to energize your mind and body.</p>
+</div>
+</div>
+</section>
+<!-- Product Showcase -->
+<section class="py-20 bg-stone-100 dark:bg-stone-900/50" id="menu">
+<div class="max-w-[1280px] mx-auto px-4 md:px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<h2 class="text-3xl md:text-4xl font-black uppercase tracking-tight mb-2">Signature Sips</h2>
+<p class="text-stone-600 dark:text-stone-400">Curated blends for the modern palate.</p>
+</div>
+<a class="group flex items-center gap-2 font-bold text-primary uppercase tracking-wider text-sm hover:text-primary/80" href="#">
+                        View Full Menu 
+                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Product 1 -->
+<div class="group relative rounded-xl overflow-hidden aspect-[4/5] shadow-lg">
+<div class="absolute inset-0 bg-stone-900/20 group-hover:bg-stone-900/10 transition-colors z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Green matcha latte with beautiful foam art in a clear glass" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBjR0PNIXOCtuX3E8P7X5MHYwQWEKOaMTFuR--PUBz68DXeTbTnjtG9fBfzkU-6tQsL0zopTaXtUHPbTtLN7eCnfG37FXpcoclfy6iNyqEoGa_QIYO0zu82Xfp2YC-zHebcmUkpmj-BsVkyCgki_QnCd70olQcj1J6gTPf7a0iw8Fcmv3vecN56j4FN0Ov7I38C7_ObJjCWvTXNCl_jI_ynQzJGAJHTnOf16qrox8HWPMx4WY_82aBDq4JgkC4X-VB8eL3B7EplYdJg');">
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-stone-900/90 to-transparent z-20">
+<h3 class="text-white text-xl font-bold mb-1">Ceremonial Matcha</h3>
+<div class="flex flex-wrap gap-2 mb-2">
+<span class="text-[10px] font-bold uppercase bg-primary text-stone-900 px-2 py-0.5 rounded-full">#Focus</span>
+<span class="text-[10px] font-bold uppercase bg-stone-800 text-white px-2 py-0.5 rounded-full">#Calm</span>
+</div>
+<p class="text-primary font-bold">$5.50</p>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group relative rounded-xl overflow-hidden aspect-[4/5] shadow-lg">
+<div class="absolute inset-0 bg-stone-900/20 group-hover:bg-stone-900/10 transition-colors z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Cold brew coffee in a glass bottle with ice" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA4n20nPrtULmkrDD1a5_SlsWfjufPB0ZeuAogWsa9EWwAiCb5wKe8DY85VKw-XU4_VXUDe9ZSESxnl7VLGRhKbdLp-pSjirfgSXMMcu1RD3pLIeQzypJrw35KHNb-nlJedRRzsFI4NewHzBd5vniLPFcjV8WEIlH2sJ3ow2Hk6gVshnQFkcL7AqC6rNLEfaMfupTeAeAmWd5cIw3YTEZWfOuNQ9sX8u295Z164T18YhorbxN6b7nAM_D63B1XMkk3Br2_XChl5u_I8');">
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-stone-900/90 to-transparent z-20">
+<h3 class="text-white text-xl font-bold mb-1">Hojicha Cold Brew</h3>
+<div class="flex flex-wrap gap-2 mb-2">
+<span class="text-[10px] font-bold uppercase bg-primary text-stone-900 px-2 py-0.5 rounded-full">#LowCaf</span>
+</div>
+<p class="text-primary font-bold">$4.75</p>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group relative rounded-xl overflow-hidden aspect-[4/5] shadow-lg">
+<div class="absolute inset-0 bg-stone-900/20 group-hover:bg-stone-900/10 transition-colors z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Espresso tonic with a slice of lemon on a wooden coaster" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBOqiM1dWUFL_WoLJVC11e3l30th9bTlLLWjBCXDBgec0x9Uci8u97DyM1fRZWFVaFUgxT3Gz0b9x-V_kSRETWO_5w9vcqIiA6yzOpNfP0XNBbe7TtDH_Nphxyq29fzfDp6Om4FY1LhCat-J4YV3GpLPIGeRy3iIkFZhX1cUUxK-h5Vtp8UP8CV2-cDLwK29JAnjGKSrQhnd8pegvivwjxq1VCxfWJrn_WKq242APtMbAizByQFi04YSZUpFgGtG6S3MEbHA8MBFVBX');">
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-stone-900/90 to-transparent z-20">
+<h3 class="text-white text-xl font-bold mb-1">Yuzu Espresso Tonic</h3>
+<div class="flex flex-wrap gap-2 mb-2">
+<span class="text-[10px] font-bold uppercase bg-primary text-stone-900 px-2 py-0.5 rounded-full">#Energy</span>
+<span class="text-[10px] font-bold uppercase bg-stone-800 text-white px-2 py-0.5 rounded-full">#Citrus</span>
+</div>
+<p class="text-primary font-bold">$6.00</p>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="group relative rounded-xl overflow-hidden aspect-[4/5] shadow-lg">
+<div class="absolute inset-0 bg-stone-900/20 group-hover:bg-stone-900/10 transition-colors z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Latte art with dark sesame seeds sprinkled on top" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBmWMCBG42q52K2Zd_TQZ4A3KexyQGcn_sG7Z3kfy04F8chXj-wZTThfEhmY0sp-4f_9mt51kTTs09ILF9mNvaYVheB-qhnBrpj3NQCKLzCcBtROK9joMUozblvQqbcwP55XFMK0OE1qmU-orG_RpOY3t-hB3c76FQLPFCjRptPHrLg9ZeDwe1QB8lzAt2Fx-G28BVRGqlXE5zXwlz-3fMsMp8dlNHUb2ujdKmDntSMl2TWZFfPiKLVE22WjDQoWPLOLj_5tFxi3rJX');">
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-stone-900/90 to-transparent z-20">
+<h3 class="text-white text-xl font-bold mb-1">Black Sesame Latte</h3>
+<div class="flex flex-wrap gap-2 mb-2">
+<span class="text-[10px] font-bold uppercase bg-primary text-stone-900 px-2 py-0.5 rounded-full">#Nutty</span>
+<span class="text-[10px] font-bold uppercase bg-stone-800 text-white px-2 py-0.5 rounded-full">#Rich</span>
+</div>
+<p class="text-primary font-bold">$5.75</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Workshops -->
+<section class="py-20 px-4 md:px-8 max-w-[1280px] mx-auto w-full" id="workshops">
+<div class="text-center mb-12">
+<span class="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">Community</span>
+<h2 class="text-3xl md:text-4xl font-black uppercase tracking-tight">Join The Craft</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Event 1 -->
+<div class="flex flex-col md:flex-row bg-white dark:bg-stone-800 rounded-2xl overflow-hidden border border-stone-200 dark:border-stone-700 shadow-sm hover:shadow-md transition-all">
+<div class="md:w-1/3 h-48 md:h-auto bg-cover bg-center" data-alt="Hands whisking matcha in a bowl during a workshop" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCuyqSG9MPpjBa32IjSD8dHX2Vu-9Jp8X9O7HWfFDxSi9lN9ASp12rMCoIQ3F9eLwYvTNOggddMQAqIhW5N6f4EBZqrBzxQDhVFIWSzRibH2EsXPnJdWeeX_GQDuzN1k7Vjs4SjpVmgGB8X41SE1JVPfvMwC0e3XCYgVhpJOu78K2JaWPfUIRT-zC3ZxZ88TTgSx2XuWHpk4HA1nLEk6xCttudj5smYivgVEFaKvanmFY41LUd9nQAPnP8YJJk_f0x_4U3nqCATgNpf');">
+</div>
+<div class="flex-1 p-6 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<span class="bg-primary/20 text-stone-900 text-xs font-bold px-3 py-1 rounded-full uppercase">Workshop</span>
+<span class="text-stone-500 text-sm font-medium">Oct 12, 10:00 AM</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Matcha Whisking Class</h3>
+<p class="text-stone-600 dark:text-stone-300 text-sm mb-4">Learn the traditional art of whisking matcha and understanding grades.</p>
+</div>
+<button class="w-full text-center border border-primary text-primary hover:bg-primary hover:text-stone-900 font-bold py-2 rounded-lg transition-colors uppercase text-sm">
+                            Book Slot
+                        </button>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="flex flex-col md:flex-row bg-white dark:bg-stone-800 rounded-2xl overflow-hidden border border-stone-200 dark:border-stone-700 shadow-sm hover:shadow-md transition-all">
+<div class="md:w-1/3 h-48 md:h-auto bg-cover bg-center" data-alt="Barista pouring latte art into a cup" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCNEmm-BQvLSpbTHvNhvCbXzK8M2wTDQLwi4tfZi1k7bFI3bHz4Q1AIh0JImm5QUWcLXezG4pfh5z_i09eRsmhqOvXkA-9KUwTpxO9gsezYs7FJLh_SRnp_SVzhArAn_skK76cHkToi8__kfjEyQwyhViSBsOQbosmkl2X6Mlfkox0VbUHK15I8xIOxzRN0fC6XUkqkjKm5B8JQmJRc5FcENar54h2Spe7sgcGfACP8UBv6dWTJ_KUeylA9Fc8zjqRUq3IvKbsj7j3A');">
+</div>
+<div class="flex-1 p-6 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<span class="bg-primary/20 text-stone-900 text-xs font-bold px-3 py-1 rounded-full uppercase">Competition</span>
+<span class="text-stone-500 text-sm font-medium">Oct 24, 6:00 PM</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Latte Art Throwdown</h3>
+<p class="text-stone-600 dark:text-stone-300 text-sm mb-4">Watch local baristas compete for the title of best pour. Free entry.</p>
+</div>
+<button class="w-full text-center border border-primary text-primary hover:bg-primary hover:text-stone-900 font-bold py-2 rounded-lg transition-colors uppercase text-sm">
+                            Register Now
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-20 bg-stone-900 text-white relative overflow-hidden">
+<!-- Background Texture -->
+<div class="absolute top-0 right-0 p-20 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[300px]">format_quote</span>
+</div>
+<div class="max-w-[1280px] mx-auto px-4 md:px-8 relative z-10">
+<div class="flex items-center justify-between mb-10">
+<h2 class="text-3xl md:text-4xl font-black uppercase tracking-tight">Locals Love Us</h2>
+<div class="flex gap-2">
+<button class="p-2 rounded-full border border-stone-600 hover:border-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="p-2 rounded-full border border-stone-600 hover:border-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory scrollbar-hide">
+<!-- Quote 1 -->
+<div class="min-w-[300px] md:min-w-[400px] bg-stone-800 p-8 rounded-2xl snap-center">
+<div class="flex gap-1 text-primary mb-4">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+<p class="text-lg font-medium italic mb-6">"The atmosphere is unmatched. It's the only place where I can actually get work done while enjoying a top-tier matcha."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-stone-600 bg-cover bg-center" data-alt="Portrait of a smiling man" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAuG5sv6n40V54jIe32sP9MPIRY1pxniRqciFJplFeHcLG1O6-AvX3xWKGWqa9RLqjJgrkA_O848IJTfCKwCnvO47x02H5xKlqTmSJBxWJCfgAJGycBx7958i5ky3kuOxc2bL6hOOP-p2wNG71eppSs0N0BDm3YjLe58QRBqafBM6FLiSAF0knmH6tRVON2arPpLrG1cHa_t7pj9xHV-QPiOPq-i4xGJ1385-uvqw0dfNTjrcquw3fvGdkFXgjJDhBm84gZImyM6K5t');"></div>
+<div>
+<p class="font-bold text-sm">Alex Chen</p>
+<p class="text-xs text-stone-400">Graphic Designer</p>
+</div>
+</div>
+</div>
+<!-- Quote 2 -->
+<div class="min-w-[300px] md:min-w-[400px] bg-stone-800 p-8 rounded-2xl snap-center">
+<div class="flex gap-1 text-primary mb-4">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+<p class="text-lg font-medium italic mb-6">"Finally, a place that takes hojicha seriously. The roasted flavor is deep and authentic. My new daily spot."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-stone-600 bg-cover bg-center" data-alt="Portrait of a smiling woman" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDwhdUAZG63u45q7jG29avnNDDoWt2KSX6FZnbfIEzpYgLh1mNGoztLHJZMPhdlIFOJsuRTdBkDmYnenFe5QsJP_Y4wRx1D0tm2TEnivdWTGQZ9-DKX7lSMJfurfDpyG03K9PKPimHQLaVXruel4EGnRovwzUO5MzMWZLb7h2rt3HLCEg7c6IaWDYwOONgtlmkwI0dpamo3zfl559_JERxAPlry86xt4Hc5TgbgiyHcxZEM-t3_fiRo92YtdJVhyHpMEzSXK89njmZ8');"></div>
+<div>
+<p class="font-bold text-sm">Sarah Jenkins</p>
+<p class="text-xs text-stone-400">Architect</p>
+</div>
+</div>
+</div>
+<!-- Quote 3 -->
+<div class="min-w-[300px] md:min-w-[400px] bg-stone-800 p-8 rounded-2xl snap-center">
+<div class="flex gap-1 text-primary mb-4">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+<p class="text-lg font-medium italic mb-6">"Love the workshops! Learned so much about coffee beans and brewing methods. The community here is great."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-stone-600 bg-cover bg-center" data-alt="Portrait of a man with glasses" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC87yJSMQI9qFXzkSK9VaWG7RbDpERL4AqzuhIDdDxInO3HC-k75rHfRjMHbK3emtyuPvOej9QY4JGDNEf9XlxnSEl6nNbE8beFp-XYDET3s0A6ZdJdDugtQw7ZBZHWKhiqnLCsqF6E2z7s8TLBjTEJt-8NmEmckgDINc4WFimYKV5V50B_7XaafvQIyBr32cJgaOzYLTM5JQ4NhGr_6ROSL49Y7sZJgQJgT4nLx_oqvlIf6lUlXoNR2jPYlCjpp_ywjSl8e1az94Bt');"></div>
+<div>
+<p class="font-bold text-sm">Marcus Wei</p>
+<p class="text-xs text-stone-400">Software Engineer</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Location & Footer -->
+<footer class="bg-stone-100 dark:bg-stone-900 border-t border-stone-200 dark:border-stone-800" id="contact">
+<!-- Map Section -->
+<div class="w-full h-80 relative bg-stone-300 overflow-hidden grayscale">
+<div class="absolute inset-0 flex items-center justify-center bg-stone-200 dark:bg-stone-800">
+<img alt="Map background showing street view" class="object-cover w-full h-full opacity-60" data-alt="Stylized map showing city streets" data-location="New York City" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5eYn4_FS4jM92l6Bv0ciavnxhfCWfcqlajN6OgxT4yhS6HbYReo-kVE6UJshiGJwbaQXKu2ZawsJOMzsJqRQTWkPU3lKTHhPxUQN-YnJEUJ1lhjXUJD5OKyNqN4tD4bZnijlYRc0KJM43clZd5buJ7cMJK8LU9CGkKf8h2YFkQ2gwsFCngUGSrYLi5ycmL8ni6mjjKgG394GxXN1WYXgEr9V_1qotVceZA0dBVVZv95a3TL5zDH6FyO5nxSeJeekB1UPF10dAOCqu"/>
+</div>
+<!-- Pin -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="bg-primary text-stone-900 p-3 rounded-full shadow-xl animate-bounce">
+<span class="material-symbols-outlined text-2xl">storefront</span>
+</div>
+<div class="w-3 h-1 bg-black/20 rounded-full blur-sm mt-1"></div>
+</div>
+</div>
+<!-- Footer Content -->
+<div class="max-w-[1280px] mx-auto px-4 md:px-8 py-16">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<!-- Brand -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl text-primary">coffee_maker</span>
+<h2 class="text-xl font-black uppercase text-stone-900 dark:text-white">Harvest &amp; Brew</h2>
+</div>
+<p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed">
+                            Serving the community with ethically sourced coffee and premium matcha. A space for creativity, connection, and great taste.
+                        </p>
+</div>
+<!-- Contact Info -->
+<div>
+<h3 class="text-lg font-bold uppercase mb-4 text-stone-900 dark:text-white">Find Us</h3>
+<ul class="space-y-3 text-stone-600 dark:text-stone-400 text-sm">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg mt-0.5">location_on</span>
+                                123 Artisan Avenue,<br/>Industrial District, NY 10012
+                            </li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">call</span>
+                                +1 (555) 123-4567
+                            </li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">mail</span>
+                                hello@harvestandbrew.com
+                            </li>
+</ul>
+</div>
+<!-- Hours -->
+<div>
+<h3 class="text-lg font-bold uppercase mb-4 text-stone-900 dark:text-white">Hours</h3>
+<ul class="space-y-2 text-stone-600 dark:text-stone-400 text-sm">
+<li class="flex justify-between border-b border-stone-200 dark:border-stone-800 pb-2">
+<span>Mon - Fri</span>
+<span class="font-bold">7:00 AM - 7:00 PM</span>
+</li>
+<li class="flex justify-between border-b border-stone-200 dark:border-stone-800 pb-2">
+<span>Saturday</span>
+<span class="font-bold">8:00 AM - 8:00 PM</span>
+</li>
+<li class="flex justify-between pb-2">
+<span>Sunday</span>
+<span class="font-bold">8:00 AM - 6:00 PM</span>
+</li>
+</ul>
+</div>
+<!-- Quick Form -->
+<div>
+<h3 class="text-lg font-bold uppercase mb-4 text-stone-900 dark:text-white">Stay in the Loop</h3>
+<form class="flex flex-col gap-3">
+<input class="bg-white dark:bg-stone-800 border border-stone-300 dark:border-stone-700 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-stone-900 dark:text-white" placeholder="Enter your email" type="email"/>
+<button class="bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 hover:bg-primary dark:hover:bg-primary hover:text-stone-900 dark:hover:text-stone-900 font-bold py-2 rounded-lg transition-colors uppercase text-xs tracking-wider" type="submit">
+                                Subscribe
+                            </button>
+</form>
+<div class="flex gap-4 mt-6">
+<a class="text-stone-500 hover:text-primary transition-colors" href="#">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+</a>
+<a class="text-stone-500 hover:text-primary transition-colors" href="#">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<div class="border-t border-stone-200 dark:border-stone-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-stone-500">
+<p>© 2023 Harvest &amp; Brew. All rights reserved.</p>
+<div class="flex gap-4 mt-2 md:mt-0">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</main>
+</body></html>
