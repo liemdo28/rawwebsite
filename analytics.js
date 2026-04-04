@@ -88,6 +88,25 @@ document.addEventListener('click', function(e) {
 });
 
 /**
+ * Scroll engagement tracking
+ * Fires once at 25%, 50%, 75%, 90% scroll depth
+ */
+(function() {
+    var fired = {};
+    window.addEventListener('scroll', function() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        if (h <= 0) return;
+        var pct = Math.round((window.scrollY / h) * 100);
+        [25, 50, 75, 90].forEach(function(threshold) {
+            if (pct >= threshold && !fired[threshold]) {
+                fired[threshold] = true;
+                gtag('event', 'scroll_depth', { percent: threshold, page: location.pathname });
+            }
+        });
+    });
+})();
+
+/**
  * Track form submissions (newsletter, lead popup)
  */
 document.addEventListener('submit', function(e) {
