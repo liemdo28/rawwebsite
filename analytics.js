@@ -3,6 +3,14 @@
  * GA4 Property: Replace G-XXXXXXXXXX with your actual GA4 Measurement ID
  */
 
+// Subdomain redirect: stockton.rawsushibar.com → www.rawsushibar.com
+(function() {
+    if (location.hostname === 'stockton.rawsushibar.com') {
+        location.replace('https://www.rawsushibar.com' + location.pathname + location.search + location.hash);
+        return;
+    }
+})();
+
 // GA4 initialization
 (function() {
     var GA_ID = 'G-XXXXXXXXXX'; // TODO: Replace with real GA4 Measurement ID
