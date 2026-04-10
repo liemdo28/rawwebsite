@@ -22,6 +22,36 @@
 })();
 
 /**
+ * Detect location context from page URL or phone number
+ */
+function getLocationContext() {
+    var path = location.pathname;
+    if (path.indexOf('modesto') !== -1) return 'modesto';
+    if (path.indexOf('stockton') !== -1) return 'stockton';
+    if (path === '/' || path.indexOf('index') !== -1) return 'stockton';
+    return 'unknown';
+}
+
+function getLocationFromPhone(phone) {
+    if (phone.indexOf('5669560') !== -1) return 'modesto';
+    if (phone.indexOf('9549729') !== -1) return 'stockton';
+    return getLocationContext();
+}
+
+/**
+ * Detect page type from URL
+ */
+function getPageType() {
+    var path = location.pathname;
+    if (path.indexOf('menu-') !== -1) return 'menu';
+    if (path.indexOf('order-') !== -1) return 'order';
+    if (path.indexOf('blog-') !== -1) return 'blog';
+    if (path === '/' || path.indexOf('index') !== -1) return 'landing';
+    if (path.indexOf('modesto') !== -1 && path.indexOf('menu') === -1) return 'landing';
+    return 'page';
+}
+
+/**
  * Track CTA clicks across the site
  * Listens for clicks on links/buttons with data-track attributes
  * and common action patterns (tel:, order, reserve)
@@ -33,18 +63,23 @@ document.addEventListener('click', function(e) {
     var href = el.getAttribute('href') || '';
     var track = el.getAttribute('data-track');
     var text = (el.textContent || '').trim().substring(0, 50);
+    var loc = getLocationContext();
+    var pageType = getPageType();
 
     // Explicit data-track attribute
     if (track) {
-        gtag('event', track, { link_text: text, link_url: href });
+        gtag('event', track, { link_text: text, link_url: href, location: loc, page_type: pageType });
         return;
     }
 
     // Auto-detect: phone call clicks
     if (href.startsWith('tel:')) {
+        var phone = href.replace('tel:', '');
         gtag('event', 'call_click', {
-            phone_number: href.replace('tel:', ''),
-            link_text: text
+            phone_number: phone,
+            link_text: text,
+            location: getLocationFromPhone(phone),
+            page_type: pageType
         });
         return;
     }
@@ -53,36 +88,39 @@ document.addEventListener('click', function(e) {
     if (href.startsWith('mailto:')) {
         gtag('event', 'email_click', {
             email: href.replace('mailto:', ''),
-            link_text: text
+            link_text: text,
+            location: loc,
+            page_type: pageType
         });
         return;
     }
 
     // Auto-detect: external order links (Toast, DoorDash)
     if (href.indexOf('toasttab.com') !== -1) {
-        gtag('event', 'order_click', { method: 'toast_online', link_text: text });
+        gtag('event', 'order_click', { method: 'toast_online', link_text: text, location: loc, page_type: pageType });
         return;
     }
     if (href.indexOf('doordash.com') !== -1) {
-        gtag('event', 'order_click', { method: 'doordash', link_text: text });
+        gtag('event', 'order_click', { method: 'doordash', link_text: text, location: loc, page_type: pageType });
         return;
     }
 
     // Auto-detect: Google Maps / directions
     if (href.indexOf('google.com/maps') !== -1) {
-        gtag('event', 'directions_click', { link_text: text });
+        gtag('event', 'directions_click', { link_text: text, location: loc, page_type: pageType });
         return;
     }
 
     // Auto-detect: menu page views
     if (href.indexOf('menu-') !== -1 || href.indexOf('menu') !== -1) {
-        gtag('event', 'menu_click', { link_text: text, link_url: href });
+        var menuLoc = href.indexOf('modesto') !== -1 ? 'modesto' : href.indexOf('stockton') !== -1 ? 'stockton' : loc;
+        gtag('event', 'menu_click', { link_text: text, link_url: href, location: menuLoc, page_type: pageType });
         return;
     }
 
     // Auto-detect: order page
     if (href.indexOf('order-sushi') !== -1) {
-        gtag('event', 'order_page_click', { link_text: text });
+        gtag('event', 'order_page_click', { link_text: text, location: loc, page_type: pageType });
         return;
     }
 });
@@ -93,6 +131,8 @@ document.addEventListener('click', function(e) {
  */
 (function() {
     var fired = {};
+    var loc = getLocationContext();
+    var pageType = getPageType();
     window.addEventListener('scroll', function() {
         var h = document.documentElement.scrollHeight - window.innerHeight;
         if (h <= 0) return;
@@ -100,7 +140,7 @@ document.addEventListener('click', function(e) {
         [25, 50, 75, 90].forEach(function(threshold) {
             if (pct >= threshold && !fired[threshold]) {
                 fired[threshold] = true;
-                gtag('event', 'scroll_depth', { percent: threshold, page: location.pathname });
+                gtag('event', 'scroll_depth', { percent: threshold, page: location.pathname, location: loc, page_type: pageType });
             }
         });
     });
@@ -114,7 +154,9 @@ document.addEventListener('submit', function(e) {
     if (form.querySelector('input[type="email"]')) {
         gtag('event', 'email_signup', {
             form_location: form.closest('section') ?
-                (form.closest('section').getAttribute('aria-label') || 'unknown') : 'unknown'
+                (form.closest('section').getAttribute('aria-label') || 'unknown') : 'unknown',
+            location: getLocationContext(),
+            page_type: getPageType()
         });
     }
 });

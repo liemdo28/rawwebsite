@@ -16,10 +16,18 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Modesto Landing Page -->
+  <url>
+    <loc>https://stockton.rawsushibar.com/modesto.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Modesto Menu -->
   <url>
     <loc>https://stockton.rawsushibar.com/menu-modesto.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
