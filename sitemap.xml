@@ -8,6 +8,14 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- Terms of Service -->
+  <url>
+    <loc>https://www.rawsushibar.com/terms.html</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
   <!-- Stockton Landing Page -->
   <url>
     <loc>https://www.rawsushibar.com/stockton.html</loc>
