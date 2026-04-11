@@ -1,8 +1,8 @@
 # robots.txt for Raw Sushi Bar - Stockton
-# https://stockton.rawsushibar.com
+# https://www.rawsushibar.com
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://stockton.rawsushibar.com/sitemap.xml
+Sitemap: https://www.rawsushibar.com/sitemap.xml
