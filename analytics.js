@@ -1,32 +1,55 @@
 /**
  * Raw Sushi Bar — Analytics & Event Tracking
- * GA4 Property: Replace G-XXXXXXXXXX with your actual GA4 Measurement ID
+ * Replace `gaId` with the live GA4 Measurement ID before launch.
  */
 
-// Subdomain redirect: stockton.rawsushibar.com → www.rawsushibar.com
-(function() {
-    if (location.hostname === 'stockton.rawsushibar.com') {
-        location.replace('https://www.rawsushibar.com' + location.pathname + location.search + location.hash);
+var RAW_SUSHI_CONFIG = window.RAW_SUSHI_CONFIG || {
+    gaId: 'G-XXXXXXXXXX',
+    canonicalHost: 'www.rawsushibar.com'
+};
+
+window.dataLayer = window.dataLayer || [];
+function gtag() {
+    window.dataLayer.push(arguments);
+}
+window.gtag = window.gtag || gtag;
+
+function trackEvent(name, params) {
+    if (typeof window.gtag !== 'function' || !window.__rawSushiAnalyticsReady) {
         return;
+    }
+    window.gtag('event', name, params);
+}
+
+// Canonical host redirect: apex/subdomain -> www.rawsushibar.com
+(function() {
+    var host = location.hostname.toLowerCase();
+    if (host === 'rawsushibar.com' || host === 'stockton.rawsushibar.com') {
+        location.replace('https://' + RAW_SUSHI_CONFIG.canonicalHost + location.pathname + location.search + location.hash);
     }
 })();
 
 // GA4 initialization
 (function() {
-    var GA_ID = 'G-XXXXXXXXXX'; // TODO: Replace with real GA4 Measurement ID
+    var GA_ID = RAW_SUSHI_CONFIG.gaId;
+    var hasValidGaId = /^G-[A-Z0-9]+$/i.test(GA_ID) && GA_ID !== 'G-XXXXXXXXXX';
 
-    // Load gtag.js
+    if (!hasValidGaId) {
+        console.warn('Raw Sushi Bar analytics disabled: set RAW_SUSHI_CONFIG.gaId to the live GA4 Measurement ID.');
+        return;
+    }
+
     var s = document.createElement('script');
     s.async = true;
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
     document.head.appendChild(s);
 
-    // Initialize dataLayer
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    window.gtag = gtag;
     gtag('js', new Date());
-    gtag('config', GA_ID);
+    gtag('config', GA_ID, {
+        page_path: location.pathname,
+        page_title: document.title
+    });
+    window.__rawSushiAnalyticsReady = true;
 })();
 
 /**
@@ -36,7 +59,7 @@ function getLocationContext() {
     var path = location.pathname;
     if (path.indexOf('modesto') !== -1) return 'modesto';
     if (path.indexOf('stockton') !== -1) return 'stockton';
-    if (path === '/' || path.indexOf('index') !== -1) return 'stockton';
+    if (path === '/' || path.indexOf('index') !== -1) return 'brand';
     return 'unknown';
 }
 
@@ -54,7 +77,7 @@ function getPageType() {
     if (path.indexOf('menu-') !== -1) return 'menu';
     if (path.indexOf('order-') !== -1) return 'order';
     if (path.indexOf('blog-') !== -1) return 'blog';
-    if (path === '/' || path.indexOf('index') !== -1) return 'landing';
+    if (path === '/' || path.indexOf('index') !== -1) return 'brand_home';
     if (path.indexOf('modesto') !== -1 && path.indexOf('menu') === -1) return 'landing';
     return 'page';
 }
@@ -76,14 +99,14 @@ document.addEventListener('click', function(e) {
 
     // Explicit data-track attribute
     if (track) {
-        gtag('event', track, { link_text: text, link_url: href, location: loc, page_type: pageType });
+        trackEvent(track, { link_text: text, link_url: href, location: loc, page_type: pageType });
         return;
     }
 
     // Auto-detect: phone call clicks
     if (href.startsWith('tel:')) {
         var phone = href.replace('tel:', '');
-        gtag('event', 'call_click', {
+        trackEvent('call_click', {
             phone_number: phone,
             link_text: text,
             location: getLocationFromPhone(phone),
@@ -94,7 +117,7 @@ document.addEventListener('click', function(e) {
 
     // Auto-detect: email clicks
     if (href.startsWith('mailto:')) {
-        gtag('event', 'email_click', {
+        trackEvent('email_click', {
             email: href.replace('mailto:', ''),
             link_text: text,
             location: loc,
@@ -105,30 +128,30 @@ document.addEventListener('click', function(e) {
 
     // Auto-detect: external order links (Toast, DoorDash)
     if (href.indexOf('toasttab.com') !== -1) {
-        gtag('event', 'order_click', { method: 'toast_online', link_text: text, location: loc, page_type: pageType });
+        trackEvent('order_click', { method: 'toast_online', link_text: text, location: loc, page_type: pageType });
         return;
     }
     if (href.indexOf('doordash.com') !== -1) {
-        gtag('event', 'order_click', { method: 'doordash', link_text: text, location: loc, page_type: pageType });
+        trackEvent('order_click', { method: 'doordash', link_text: text, location: loc, page_type: pageType });
         return;
     }
 
     // Auto-detect: Google Maps / directions
     if (href.indexOf('google.com/maps') !== -1) {
-        gtag('event', 'directions_click', { link_text: text, location: loc, page_type: pageType });
+        trackEvent('directions_click', { link_text: text, location: loc, page_type: pageType });
         return;
     }
 
     // Auto-detect: menu page views
     if (href.indexOf('menu-') !== -1 || href.indexOf('menu') !== -1) {
         var menuLoc = href.indexOf('modesto') !== -1 ? 'modesto' : href.indexOf('stockton') !== -1 ? 'stockton' : loc;
-        gtag('event', 'menu_click', { link_text: text, link_url: href, location: menuLoc, page_type: pageType });
+        trackEvent('menu_click', { link_text: text, link_url: href, location: menuLoc, page_type: pageType });
         return;
     }
 
     // Auto-detect: order page
     if (href.indexOf('order-sushi') !== -1) {
-        gtag('event', 'order_page_click', { link_text: text, location: loc, page_type: pageType });
+        trackEvent('order_page_click', { link_text: text, location: loc, page_type: pageType });
         return;
     }
 });
@@ -148,7 +171,7 @@ document.addEventListener('click', function(e) {
         [25, 50, 75, 90].forEach(function(threshold) {
             if (pct >= threshold && !fired[threshold]) {
                 fired[threshold] = true;
-                gtag('event', 'scroll_depth', { percent: threshold, page: location.pathname, location: loc, page_type: pageType });
+                trackEvent('scroll_depth', { percent: threshold, page: location.pathname, location: loc, page_type: pageType });
             }
         });
     });
@@ -160,11 +183,13 @@ document.addEventListener('click', function(e) {
 document.addEventListener('submit', function(e) {
     var form = e.target;
     if (form.querySelector('input[type="email"]')) {
-        gtag('event', 'email_signup', {
+        var payload = {
             form_location: form.closest('section') ?
                 (form.closest('section').getAttribute('aria-label') || 'unknown') : 'unknown',
             location: getLocationContext(),
             page_type: getPageType()
-        });
+        };
+        trackEvent('lead_submit', payload);
+        trackEvent('email_signup', payload);
     }
 });

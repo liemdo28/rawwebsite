@@ -1,4 +1,4 @@
-# robots.txt for Raw Sushi Bar - Stockton
+# robots.txt for Raw Sushi Bar
 # https://www.rawsushibar.com
 
 User-agent: *
