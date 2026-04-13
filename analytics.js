@@ -4,7 +4,7 @@
  */
 
 var RAW_SUSHI_CONFIG = window.RAW_SUSHI_CONFIG || {
-    gaId: 'G-XXXXXXXXXX',
+    gaId: 'G-WNHH66NT41',
     canonicalHost: 'www.rawsushibar.com'
 };
 
