@@ -4,7 +4,7 @@ slug: what-to-order-sushi-stockton-tonight
 date: 2026-04-20
 excerpt: "Not sure what to order tonight? Here's a simple way to choose sushi that fits your mood—whether you're stopping by for a quick bite or planning a relaxed dinner in Stockton."
 meta_description: "Looking for sushi in Stockton tonight? Here's a simple guide to choosing the right rolls and making your next meal easy and satisfying."
-image: /images/sushi-rolls.jpg
+image: https://images.unsplash.com/photo-1617196034183-421b4917c92d?w=800
 cta: "Take a look at the menu and decide what fits your night best."
 cta_url: https://www.rawsushibar.com/menu-stockton.html
 primary_keyword: sushi in Stockton

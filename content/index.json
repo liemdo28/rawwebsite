@@ -3,11 +3,12 @@
     {
       "slug": "what-to-order-sushi-stockton-tonight",
       "title": "What to Order When You're Looking for Sushi in Stockton Tonight",
-      "excerpt": "Not sure what to order tonight? Here's a simple way to choose sushi that fits your mood—whether you're stopping by for a quick bite or planning a relaxed dinner in Stockton.",
+      "excerpt": "Not sure what to order tonight? Here's a simple way to enjoy sushi in Stockton without overthinking your meal.",
       "date": "2026-04-20",
-      "post_type": "conversion_order",
-      "image": "/images/sushi-rolls.jpg",
+      "post_type": "conversion",
+      "image": "https://images.unsplash.com/photo-1617196034183-421b4917c92d?w=800",
       "primary_keyword": "sushi in Stockton",
+      "secondary_keywords": ["sushi restaurant Stockton", "sushi near me Stockton"],
       "published": true
     },
     {
@@ -15,7 +16,7 @@
       "title": "Experience a Memorable Date Night at Raw Sushi Bar in Stockton",
       "excerpt": "Enjoy a memorable date night with premium sushi at Raw Sushi Bar in Stockton. Fresh, authentic, and perfect for couples.",
       "date": "2026-04-17",
-      "post_type": "conversion_order",
+      "post_type": "conversion",
       "image": "",
       "primary_keyword": "date night sushi stockton",
       "published": true

@@ -398,7 +398,7 @@
             var postType = fm.post_type || "blog";
             var readingTime = estimateReadingTime(htmlBody);
             var img = fm.image && fm.image.trim() ? fm.image : FALLBACK_IMAGES["default"];
-            var canonical = "https://www.rawsushibar.com/posts/" + slug + ".html";
+            var canonical = "https://www.rawsushibar.com/blog-posts.html?slug=" + slug;
 
             // CTA block
             var ctaBlock = "";
