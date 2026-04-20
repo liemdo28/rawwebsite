@@ -5,4 +5,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://www.rawsushibar.com/sitemap.xml
+Sitemap: https://www.rawsushibar.com/sitemap-index.xml

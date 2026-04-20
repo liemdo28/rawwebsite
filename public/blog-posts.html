@@ -9,11 +9,11 @@
     <title id="page-title">Raw Sushi Bar Blog</title>
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.rawsushibar.com/blog-posts.html">
+    <meta property="og:url" content="https://www.rawsushibar.com/blog/">
     <meta property="og:title" id="og-title" content="Raw Sushi Bar Blog">
     <meta property="og:description" id="og-desc" content="Fresh sushi stories from Stockton, CA.">
 
-    <link rel="canonical" id="canonical-url" href="https://www.rawsushibar.com/blog-posts.html">
+    <link rel="canonical" id="canonical-url" href="https://www.rawsushibar.com/blog/">
 
     <link rel="apple-touch-icon" href="https://static.wixstatic.com/media/401243_d65d2b6fde216c976b09b4520417899d.png/v1/fill/w_180,h_180,al_c,q_85/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -457,7 +457,7 @@
             var postType = fm.post_type || "blog";
             var readingTime = estimateReadingTime(htmlBody);
             var img = fm.image && fm.image.trim() ? fm.image : FALLBACK_IMAGES["default"];
-            var canonical = "https://www.rawsushibar.com/blog-posts.html?slug=" + slug;
+            var canonical = "https://www.rawsushibar.com/blog/?slug=" + slug;
 
             // CTA block
             var ctaBlock = "";
