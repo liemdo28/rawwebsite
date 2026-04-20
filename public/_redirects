@@ -1,0 +1,2 @@
+/blog-posts.html /blog/ 301
+/blog-posts.html?slug=* /blog/:splat 301

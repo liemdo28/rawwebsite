@@ -1,0 +1,229 @@
+---
+/**
+ * Analytics.astro - GA4 + Meta Pixel initialization with full event tracking
+ * Reads GA4_ID and META_PIXEL_ID from config
+ * Includes: call_click, email_click, order_click, directions_click,
+ * menu_click, scroll_depth, email_signup, UTM persistence
+ */
+import { GA4_ID, META_PIXEL_ID } from '../data/config';
+---
+
+<!-- Google Analytics 4 -->
+<script is:inline define:vars={{ GA4_ID }}>
+  // GA4 initialization
+  (function() {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+    document.head.appendChild(s);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA4_ID);
+  })();
+
+  /**
+   * Detect location context from page URL
+   */
+  function getLocationContext() {
+    var path = location.pathname;
+    if (path.indexOf('modesto') !== -1) return 'modesto';
+    if (path.indexOf('stockton') !== -1) return 'stockton';
+    if (path === '/' || path.indexOf('index') !== -1) return 'stockton';
+    return 'unknown';
+  }
+
+  function getLocationFromPhone(phone) {
+    if (phone.indexOf('5669560') !== -1) return 'modesto';
+    if (phone.indexOf('9549729') !== -1) return 'stockton';
+    return getLocationContext();
+  }
+
+  /**
+   * Detect page type from URL
+   */
+  function getPageType() {
+    var path = location.pathname;
+    if (path.indexOf('menu') !== -1) return 'menu';
+    if (path.indexOf('order') !== -1) return 'order';
+    if (path.indexOf('blog') !== -1) return 'blog';
+    if (path === '/' || path.indexOf('index') !== -1) return 'landing';
+    if (path.indexOf('modesto') !== -1 && path.indexOf('menu') === -1) return 'landing';
+    return 'page';
+  }
+
+  /**
+   * UTM parameter persistence
+   * Reads UTM params from URL, stores in sessionStorage
+   */
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+    var hasUtm = false;
+    var utmData = {};
+
+    utmKeys.forEach(function(key) {
+      var val = params.get(key);
+      if (val) {
+        utmData[key] = val;
+        hasUtm = true;
+      }
+    });
+
+    if (hasUtm) {
+      sessionStorage.setItem('rawSushiUtm', JSON.stringify(utmData));
+    }
+
+    // Attach UTM data to gtag config if available
+    var stored = sessionStorage.getItem('rawSushiUtm');
+    if (stored) {
+      try {
+        var utm = JSON.parse(stored);
+        if (window.gtag) {
+          window.gtag('set', {
+            campaign_source: utm.utm_source || '',
+            campaign_medium: utm.utm_medium || '',
+            campaign_name: utm.utm_campaign || '',
+            campaign_term: utm.utm_term || '',
+            campaign_content: utm.utm_content || '',
+          });
+        }
+      } catch(e) {}
+    }
+  })();
+
+  /**
+   * Track CTA clicks across the site
+   * Auto-detects phone calls, emails, order links, directions, and menus
+   */
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('a, button');
+    if (!el) return;
+
+    var href = el.getAttribute('href') || '';
+    var track = el.getAttribute('data-track');
+    var text = (el.textContent || '').trim().substring(0, 50);
+    var loc = getLocationContext();
+    var pageType = getPageType();
+
+    // Explicit data-track attribute
+    if (track) {
+      gtag('event', track, { link_text: text, link_url: href, location: loc, page_type: pageType });
+      return;
+    }
+
+    // Phone call clicks
+    if (href.startsWith('tel:')) {
+      var phone = href.replace('tel:', '');
+      gtag('event', 'call_click', {
+        phone_number: phone,
+        link_text: text,
+        location: getLocationFromPhone(phone),
+        page_type: pageType
+      });
+      return;
+    }
+
+    // Email clicks
+    if (href.startsWith('mailto:')) {
+      gtag('event', 'email_click', {
+        email: href.replace('mailto:', ''),
+        link_text: text,
+        location: loc,
+        page_type: pageType
+      });
+      return;
+    }
+
+    // Toast online ordering
+    if (href.indexOf('toasttab.com') !== -1) {
+      gtag('event', 'order_click', { method: 'toast_online', link_text: text, location: loc, page_type: pageType });
+      return;
+    }
+
+    // DoorDash ordering
+    if (href.indexOf('doordash.com') !== -1) {
+      gtag('event', 'order_click', { method: 'doordash', link_text: text, location: loc, page_type: pageType });
+      return;
+    }
+
+    // Google Maps / directions
+    if (href.indexOf('google.com/maps') !== -1) {
+      gtag('event', 'directions_click', { link_text: text, location: loc, page_type: pageType });
+      return;
+    }
+
+    // Menu page views
+    if (href.indexOf('menu') !== -1) {
+      var menuLoc = href.indexOf('modesto') !== -1 ? 'modesto' : href.indexOf('stockton') !== -1 ? 'stockton' : loc;
+      gtag('event', 'menu_click', { link_text: text, link_url: href, location: menuLoc, page_type: pageType });
+      return;
+    }
+
+    // Order page
+    if (href.indexOf('order') !== -1) {
+      gtag('event', 'order_page_click', { link_text: text, location: loc, page_type: pageType });
+      return;
+    }
+  });
+
+  /**
+   * Scroll depth tracking
+   * Fires once at 25%, 50%, 75%, 90% thresholds
+   */
+  (function() {
+    var fired = {};
+    var loc = getLocationContext();
+    var pageType = getPageType();
+    window.addEventListener('scroll', function() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      if (h <= 0) return;
+      var pct = Math.round((window.scrollY / h) * 100);
+      [25, 50, 75, 90].forEach(function(threshold) {
+        if (pct >= threshold && !fired[threshold]) {
+          fired[threshold] = true;
+          gtag('event', 'scroll_depth', { percent: threshold, page: location.pathname, location: loc, page_type: pageType });
+        }
+      });
+    });
+  })();
+
+  /**
+   * Track form submissions (newsletter, lead popup)
+   */
+  document.addEventListener('submit', function(e) {
+    var form = e.target;
+    if (form.querySelector && form.querySelector('input[type="email"]')) {
+      gtag('event', 'email_signup', {
+        form_location: form.closest('section')
+          ? (form.closest('section').getAttribute('aria-label') || 'unknown')
+          : 'unknown',
+        location: getLocationContext(),
+        page_type: getPageType()
+      });
+    }
+  });
+</script>
+
+<!-- Meta Pixel -->
+{META_PIXEL_ID && (
+  <script is:inline define:vars={{ META_PIXEL_ID }}>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', META_PIXEL_ID);
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
+      alt="" />
+  </noscript>
+)}

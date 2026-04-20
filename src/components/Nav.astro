@@ -1,0 +1,60 @@
+---
+/**
+ * Nav.astro - Responsive navigation bar
+ * Logo, nav links, phone number, mobile hamburger menu
+ */
+---
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="nav-container" role="banner">
+  <nav aria-label="Main navigation">
+    <a href="/" class="logo" aria-label="Raw Sushi Bar - Home">
+      <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Raw Sushi Bar logo">
+        <circle cx="25" cy="25" r="22" fill="#1a1a1a" stroke="#C41E3A" stroke-width="1.5"/>
+        <text x="25" y="33" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-style="italic" font-weight="700" font-size="28" fill="#C41E3A">R</text>
+        <text x="60" y="24" font-family="'Playfair Display',Georgia,serif" font-style="italic" font-weight="700" font-size="24" fill="#C41E3A" letter-spacing="2">aw</text>
+        <text x="60" y="42" font-family="'Inter','Helvetica Neue',sans-serif" font-weight="300" font-size="11" fill="rgba(255,255,255,0.9)" letter-spacing="3">SUSHI BAR</text>
+      </svg>
+    </a>
+    <ul class="nav-links" id="navLinks" role="menubar">
+      <li role="none"><a href="/" role="menuitem">Home</a></li>
+      <li role="none"><a href="/stockton/" role="menuitem">Stockton</a></li>
+      <li role="none"><a href="/modesto/" role="menuitem">Modesto</a></li>
+      <li role="none"><a href="/menu/stockton/" role="menuitem">Menu</a></li>
+      <li role="none"><a href="/blog/" role="menuitem">Blog</a></li>
+      <li role="none"><a href="tel:2099549729" class="nav-phone" role="menuitem">(209) 954-9729</a></li>
+    </ul>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    if (btn && navLinks) {
+      btn.addEventListener('click', () => {
+        const isOpen = btn.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        btn.setAttribute('aria-expanded', String(isOpen));
+        btn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      });
+
+      // Close menu when a link is clicked
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          btn.classList.remove('active');
+          navLinks.classList.remove('active');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.setAttribute('aria-label', 'Open menu');
+        });
+      });
+    }
+  });
+</script>

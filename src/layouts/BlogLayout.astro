@@ -1,0 +1,302 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { SITE_URL, SITE_NAME } from '../data/config';
+
+interface Props {
+  title: string;
+  description: string;
+  author?: string;
+  datePublished: string;
+  readTime?: string;
+  category?: string;
+  categoryColor?: string;
+  image?: string;
+  ctaText?: string;
+  ctaUrl?: string;
+}
+
+const {
+  title,
+  description,
+  author = 'Raw Sushi Bar',
+  datePublished,
+  readTime = '5 min read',
+  category = 'Dining Guide',
+  categoryColor = '#C41E3A',
+  image,
+  ctaText,
+  ctaUrl = 'https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-parkway-suite-d',
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, SITE_URL).href;
+const publishedISO = new Date(datePublished).getTime()
+  ? new Date(datePublished).toISOString()
+  : datePublished;
+
+const blogPostingSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "author": { "@type": "Organization", "name": author },
+  "publisher": { "@type": "Organization", "name": SITE_NAME, "url": SITE_URL },
+  "datePublished": publishedISO,
+  "dateModified": publishedISO,
+  "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
+  ...(image ? { "image": image } : {}),
+});
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  ogType="article"
+  ogTitle={title}
+  ogDescription={description}
+  ogImage={image}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={blogPostingSchema} />
+  </Fragment>
+
+  <main id="main-content">
+    <article class="blog-post-article">
+      <header class="blog-post-header">
+        <div class="container">
+          <span class="blog-post-badge" style={`background: ${categoryColor};`}>{category}</span>
+          <h1>{title}</h1>
+          <div class="blog-post-meta">
+            <span class="blog-post-author">By {author}</span>
+            <span class="blog-post-separator">|</span>
+            <time datetime={publishedISO}>{datePublished}</time>
+            <span class="blog-post-separator">|</span>
+            <span class="blog-post-readtime">{readTime}</span>
+          </div>
+        </div>
+      </header>
+
+      {image && (
+        <div class="blog-post-image">
+          <img src={image} alt={title} />
+        </div>
+      )}
+
+      <div class="blog-post-content container">
+        <slot />
+      </div>
+
+      <section class="blog-cta-section">
+        <div class="container">
+          <h2>Ready to Experience Raw Sushi Bar?</h2>
+          <p>Visit us at one of our locations and taste the freshest sushi in the Central Valley.</p>
+          <div class="blog-cta-buttons">
+            <a href="/menu/stockton/" class="btn btn-primary">View Our Menu</a>
+            <a href="/#locations" class="btn btn-outline">Find a Location</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="blog-back-link container">
+        <a href="/blog/">&larr; Back to All Posts</a>
+      </div>
+    </article>
+  </main>
+</BaseLayout>
+
+<style>
+  .blog-post-article {
+    padding-top: 80px;
+  }
+
+  .blog-post-header {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2b2b2b 100%);
+    color: #fff;
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+  }
+
+  .blog-post-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    max-width: 860px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.2;
+    color: #fff;
+  }
+
+  .blog-post-badge {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-post-meta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.75;
+    flex-wrap: wrap;
+  }
+
+  .blog-post-meta span:not(:last-child)::after {
+    content: '|';
+    margin-left: 1rem;
+    opacity: 0.4;
+  }
+
+  .blog-post-image {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .blog-post-image img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+  }
+
+  .blog-post-content {
+    padding: 4rem 2rem;
+    max-width: 800px;
+  }
+
+  .blog-post-content :global(h2) {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #2c2824;
+    margin: 2.5rem 0 1rem;
+    line-height: 1.3;
+  }
+
+  .blog-post-content :global(p) {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #5a544e;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-post-content :global(ul),
+  .blog-post-content :global(ol) {
+    margin: 1rem 0 1.5rem 1.5rem;
+    color: #5a544e;
+  }
+
+  .blog-post-content :global(li) {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-post-content :global(blockquote) {
+    border-left: 4px solid #d4af37;
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: #f5f0ea;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+  }
+
+  .blog-post-content :global(a) {
+    color: #C41E3A;
+  }
+
+  .blog-cta-section {
+    background: linear-gradient(135deg, #C41E3A 0%, #8b1528 100%);
+    color: #fff;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .blog-cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 0.75rem;
+    color: #fff;
+  }
+
+  .blog-cta-section p {
+    opacity: 0.9;
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+  }
+
+  .blog-cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: #C41E3A;
+    color: #fff;
+    padding: 0.85rem 2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background: #a01829;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(196, 30, 58, 0.4);
+    color: #fff;
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: #fff;
+    padding: 0.85rem 2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline:hover {
+    background: #fff;
+    color: #1a1a1a;
+    border-color: #fff;
+    transform: translateY(-3px);
+  }
+
+  .blog-back-link {
+    text-align: center;
+    padding: 2rem 2rem 4rem;
+  }
+
+  .blog-back-link a {
+    color: #C41E3A;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .blog-back-link a:hover {
+    text-decoration: underline;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .blog-post-header h1 {
+      font-size: 2rem;
+    }
+
+    .blog-post-content {
+      padding: 3rem 1.5rem;
+    }
+  }
+</style>

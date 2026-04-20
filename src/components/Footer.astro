@@ -1,0 +1,72 @@
+---
+/**
+ * Footer.astro - 4-column footer with brand, links, and location info
+ */
+import { locations } from '../data/locations';
+
+const stockton = locations.stockton;
+const modesto = locations.modesto;
+const currentYear = new Date().getFullYear();
+---
+
+<footer role="contentinfo">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <a href="/" class="logo" style="margin-bottom: 1rem;">
+        <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Raw Sushi Bar logo">
+          <circle cx="25" cy="25" r="22" fill="#1a1a1a" stroke="#C41E3A" stroke-width="1.5"/>
+          <text x="25" y="33" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-style="italic" font-weight="700" font-size="28" fill="#C41E3A">R</text>
+          <text x="60" y="24" font-family="'Playfair Display',Georgia,serif" font-style="italic" font-weight="700" font-size="24" fill="#C41E3A" letter-spacing="2">aw</text>
+          <text x="60" y="42" font-family="'Inter','Helvetica Neue',sans-serif" font-weight="300" font-size="11" fill="rgba(255,255,255,0.9)" letter-spacing="3">SUSHI BAR</text>
+        </svg>
+      </a>
+      <p>Stockton & Modesto's premier sushi destination since 2005. Authentic Japanese cuisine crafted with passion and the freshest ingredients.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/rawsushibar/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">FB</a>
+        <a href="https://instagram.com/rawsushibistro/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">IG</a>
+        <a href="https://www.yelp.com/biz/raw-sushi-bistro-stockton-2" target="_blank" rel="noopener" class="social-link" aria-label="Yelp">Y!</a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/stockton/">Stockton</a></li>
+        <li><a href="/modesto/">Modesto</a></li>
+        <li><a href="/menu/stockton/">Stockton Menu</a></li>
+        <li><a href="/menu/modesto/">Modesto Menu</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="mailto:info@rawsushibar.com">Catering</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Stockton</h3>
+      <ul>
+        <li>{stockton.address}</li>
+        <li>{stockton.city}, {stockton.state} {stockton.zip}</li>
+        <li><a href={`tel:${stockton.phoneTel}`}>{stockton.phone}</a></li>
+        {stockton.hours.map(h => (
+          <li>{h.day}: {h.hours}</li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Modesto</h3>
+      <ul>
+        <li>{modesto.address}</li>
+        <li>{modesto.city}, {modesto.state} {modesto.zip}</li>
+        <li><a href={`tel:${modesto.phoneTel}`}>{modesto.phone}</a></li>
+        {modesto.hours.map(h => (
+          <li>{h.day}: {h.hours}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; {currentYear} Raw Sushi Bar. All rights reserved. | Celebrating 20 Years (2005-2025) | <a href="mailto:info@rawsushibar.com" style="color: rgba(255,255,255,0.5);">info@rawsushibar.com</a></p>
+  </div>
+</footer>
