@@ -1,0 +1,8 @@
+# robots.txt for Raw Sushi Bar
+# https://www.rawsushibar.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.rawsushibar.com/sitemap.xml
