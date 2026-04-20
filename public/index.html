@@ -1933,12 +1933,13 @@
                     <text x="60" y="42" font-family="'Inter','Helvetica Neue',sans-serif" font-weight="300" font-size="11" fill="rgba(255,255,255,0.9)" letter-spacing="3">SUSHI BAR</text>
                 </svg>
             </a>
-            <ul class="nav-links" id="navLinks" role="menubar">
-                <li role="none"><a href="#home" role="menuitem">Home</a></li>
-                <li role="none"><a href="#" onclick="openLocationModal('menu'); return false;" role="menuitem">Menu</a></li>
-                <li role="none"><a href="#locations" role="menuitem">Locations</a></li>
-                <li role="none"><a href="#" onclick="openLocationModal('order'); return false;" class="nav-cta"
-                        role="menuitem">Order Online</a></li>
+                        <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="/" role="menuitem">Home</a></li>
+                <li role="none"><a href="/stockton/" role="menuitem">Stockton</a></li>
+                <li role="none"><a href="/modesto/" role="menuitem">Modesto</a></li>
+                <li role="none"><a href="/menu/stockton/" role="menuitem">Menu</a></li>
+                <li role="none"><a href="/blog/" role="menuitem">Blog</a></li>
+                <li role="none"><a href="tel:2099549729" class="nav-phone" role="menuitem">(209) 954-9729</a></li>
             </ul>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
                 <span></span>
@@ -1948,25 +1949,6 @@
         </nav>
     </header>
 
-    <!-- Location Chooser Modal -->
-    <div id="locationChooserModal" class="lead-popup">
-        <div class="popup-content" style="max-width: 450px; text-align: center;">
-            <button class="popup-close" aria-label="Close modal" onclick="closeLocationModal()">&times;</button>
-            <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; margin-top: 1rem;">Choose Your
-                Location</h2>
-            <p style="margin-bottom: 2rem; color: #666;">Please select a location to continue.</p>
-
-            <div style="display: flex; flex-direction: column; gap: 1rem;">
-                <a href="#" id="locBtnStockton" class="btn btn-primary"
-                    style="padding: 1rem; width: 100%; text-decoration: none;">&#x1F4CD; Stockton</a>
-                <a href="#" id="locBtnModesto" class="btn btn-secondary"
-                    style="padding: 1rem; width: 100%; border: 2px solid var(--primary-red); color: var(--primary-red); text-decoration: none;">&#x1F4CD;
-                    Modesto</a>
-            </div>
-            <p style="margin-top: 1rem; font-size: 0.8rem; color: #888;">Note: Online ordering is currently only
-                available for our Stockton location.</p>
-        </div>
-    </div>
 
     <main id="main-content">
         <!-- Hero Section -->
@@ -1979,8 +1961,8 @@
                 <p class="hero-subtitle">Fresh Sushi. Authentic Japanese Flavor.</p>
                 <p>Discover a California sushi destination built around fresh fish, thoughtful hospitality, and Japanese cuisine made to share. Choose your nearest location for menus, hours, and ordering details.</p>
                 <div class="hero-buttons">
-                    <a href="#" onclick="openLocationModal('order'); return false;" class="btn btn-primary">Order Online</a>
-                    <a href="#" onclick="openLocationModal('menu'); return false;" class="btn btn-gold">View Menu</a>
+                    <a href="/order/stockton/" class="btn btn-primary">Order Online</a>
+                    <a href="/menu/stockton/" class="btn btn-gold">View Menu</a>
                     <a href="#locations" class="btn btn-secondary">Find a Location</a>
                 </div>
             </div>
@@ -2103,7 +2085,7 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 2.5rem;">
-                <a href="#" onclick="openLocationModal('menu'); return false;" class="btn btn-gold">View Full Menu</a>
+                <a href="/menu/stockton/" class="btn btn-gold">View Full Menu</a>
             </div>
         </section>
 
@@ -2124,8 +2106,8 @@
                     <div class="location-body">
                         <p style="color: var(--text-medium); line-height: 1.7; margin-bottom: 1.5rem;">Visit the Stockton page for local hours, happy hour details, directions, ordering, and menu access.</p>
                         <div class="location-actions">
-                            <a href="stockton.html" class="loc-btn loc-btn-primary">Visit Stockton</a>
-                            <a href="menu-stockton.html" class="loc-btn loc-btn-secondary">View Menu</a>
+                            <a href="/stockton/" class="loc-btn loc-btn-primary">Visit Stockton</a>
+                            <a href="/menu/stockton/" class="loc-btn loc-btn-secondary">View Menu</a>
                         </div>
                     </div>
                 </div>
@@ -2138,8 +2120,8 @@
                     <div class="location-body">
                         <p style="color: var(--text-medium); line-height: 1.7; margin-bottom: 1.5rem;">Visit the Modesto page for local hours, directions, call-to-order details, and the full Modesto menu.</p>
                         <div class="location-actions">
-                            <a href="modesto.html" class="loc-btn loc-btn-primary">Visit Modesto</a>
-                            <a href="menu-modesto.html" class="loc-btn loc-btn-secondary">View Menu</a>
+                            <a href="/modesto/" class="loc-btn loc-btn-primary">Visit Modesto</a>
+                            <a href="/menu/modesto/" class="loc-btn loc-btn-secondary">View Menu</a>
                         </div>
                     </div>
                 </div>
@@ -2188,7 +2170,7 @@
             <h2>Order Your Favorite Sushi Today</h2>
             <p>Choose your location for the right ordering path, menu, and contact details before checkout.</p>
             <div style="text-align: center;">
-                <a href="#" onclick="openLocationModal('order'); return false;" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Order Now</a>
+                <a href="/order/stockton/" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Order Now</a>
             </div>
         </section>
 
@@ -2200,7 +2182,7 @@
                 <h2>Ready to Enjoy Fresh Sushi?</h2>
                 <p>Experience authentic Japanese cuisine crafted with the freshest ingredients at Raw Sushi Bar.</p>
                 <div class="hero-buttons">
-                    <a href="#" onclick="openLocationModal('order'); return false;" class="btn btn-primary">Order Online</a>
+                    <a href="/order/stockton/" class="btn btn-primary">Order Online</a>
                     <a href="#locations" class="btn btn-secondary">Find a Location</a>
                 </div>
             </div>
@@ -2209,10 +2191,10 @@
     </main>
 
     <!-- Footer -->
-    <footer role="contentinfo">
+        <footer role="contentinfo">
         <div class="footer-content">
             <div class="footer-brand">
-                <a href="/" class="logo" style="margin-bottom: 1rem;">
+                <a href="/" class="logo" style="margin-bottom:1rem;">
                     <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Raw Sushi Bar logo">
                         <circle cx="25" cy="25" r="22" fill="#1a1a1a" stroke="#C41E3A" stroke-width="1.5"/>
                         <text x="25" y="33" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-style="italic" font-weight="700" font-size="28" fill="#C41E3A">R</text>
@@ -2222,57 +2204,64 @@
                 </a>
                 <p>Fresh sushi and authentic Japanese cuisine since 2005. Explore our California locations for dine-in, takeout, and ordering details.</p>
                 <div class="footer-social">
-                    <a href="https://www.facebook.com/rawsushibar/" target="_blank" rel="noopener" class="social-link"
-                        aria-label="Facebook">FB</a>
-                    <a href="https://instagram.com/rawsushibistro/" target="_blank" rel="noopener" class="social-link"
-                        aria-label="Instagram">IG</a>
+                    <a href="https://www.facebook.com/rawsushibar/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">FB</a>
+                    <a href="https://instagram.com/rawsushibistro/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">IG</a>
+                    <a href="https://www.yelp.com/biz/raw-sushi-bistro-stockton-2" target="_blank" rel="noopener" class="social-link" aria-label="Yelp">Y!</a>
                 </div>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="#" onclick="openLocationModal('menu'); return false;">Menu</a></li>
-                    <li><a href="#locations">Locations</a></li>
-                    <li><a href="#" onclick="openLocationModal('order'); return false;">Order Online</a></li>
-                    <li><a href="mailto:info@rawsushibar.com">Contact</a></li>
-                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="/stockton/">Stockton</a></li>
+                    <li><a href="/modesto/">Modesto</a></li>
+                    <li><a href="/menu/stockton/">Stockton Menu</a></li>
+                    <li><a href="/menu/modesto/">Modesto Menu</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="mailto:info@rawsushibar.com">Catering</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Our Locations</h3>
+                <h3>Stockton</h3>
                 <ul>
-                    <li><a href="stockton.html" style="color: rgba(255,255,255,0.7);">Stockton Location</a></li>
-                    <li><a href="modesto.html" style="color: rgba(255,255,255,0.7);">Modesto Location</a></li>
-                    <li><a href="menu-stockton.html" style="color: rgba(255,255,255,0.7);">Stockton Menu</a></li>
-                    <li><a href="menu-modesto.html" style="color: rgba(255,255,255,0.7);">Modesto Menu</a></li>
+                    <li>10742 Trinity Pkwy, Suite D</li>
+                    <li>Stockton, CA 95219</li>
+                    <li><a href="tel:2099549729">(209) 954-9729</a></li>
+                    <li>Mon–Thu: 4:30 PM – 8:30 PM</li>
+                    <li>Fri: 11:30 AM – 9:00 PM</li>
+                    <li>Sat: 12:00 PM – 9:00 PM</li>
+                    <li>Sun: 12:00 PM – 8:00 PM</li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Connect</h3>
+                <h3>Modesto</h3>
                 <ul>
-                    <li><a href="mailto:info@rawsushibar.com" style="color: rgba(255,255,255,0.7);">info@rawsushibar.com</a></li>
-                    <li style="margin-top: 0.5rem;">Serving California since 2005</li>
+                    <li>1200 I Street</li>
+                    <li>Modesto, CA 95354</li>
+                    <li><a href="tel:2095669560">(209) 566-9560</a></li>
+                    <li>Mon: 5:00 PM – 9:00 PM</li>
+                    <li>Tue–Thu: 11:30 AM – 9:00 PM</li>
+                    <li>Fri: 11:30 AM – 10:00 PM</li>
+                    <li>Sat: 5:00 PM – 10:00 PM</li>
+                    <li>Sun: Closed</li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Raw Sushi Bar. All rights reserved. | <a
-                    href="mailto:info@rawsushibar.com" style="color: rgba(255,255,255,0.5);">info@rawsushibar.com</a>
-            </p>
+            <p>&copy; 2025 Raw Sushi Bar. All rights reserved. | Celebrating 20 Years (2005–2025) | <a href="mailto:info@rawsushibar.com" style="color:rgba(255,255,255,0.5);">info@rawsushibar.com</a></p>
         </div>
     </footer>
 
     <!-- Floating Desktop CTA -->
-    <a href="#" onclick="openLocationModal('order'); return false;" class="floating-cta" aria-label="Order Online">
+    <a href="/order/stockton/" class="floating-cta" aria-label="Order Online">
         <span class="cta-icon">&#x1F6CD;&#xFE0F;</span> Order Now
     </a>
 
     <!-- Sticky Mobile Order Bar -->
     <div class="mobile-order-bar" aria-label="Quick order options">
         <div class="mobile-order-bar-inner">
-            <a href="#" onclick="openLocationModal('order'); return false;" class="mob-btn mob-btn-order">Order</a>
-            <a href="#" onclick="openLocationModal('menu'); return false;" class="mob-btn mob-btn-call">Menu</a>
+            <a href="/order/stockton/" class="mob-btn mob-btn-order">Order</a>
+            <a href="/menu/stockton/" class="mob-btn mob-btn-call">Menu</a>
             <a href="#locations" class="mob-btn mob-btn-reserve">Locations</a>
         </div>
     </div>
@@ -2380,42 +2369,7 @@
         });
 
         // Location Chooser Logic
-        function openLocationModal(action, targetSection = '') {
-            const modal = document.getElementById('locationChooserModal');
-            const stBtn = document.getElementById('locBtnStockton');
-            const moBtn = document.getElementById('locBtnModesto');
-
-            if (action === 'menu') {
-                stBtn.href = 'menu-stockton.html' + targetSection;
-                stBtn.innerHTML = '&#x1F4CD; Stockton Menu';
-                stBtn.target = '_self';
-
-                moBtn.href = 'menu-modesto.html' + targetSection;
-                moBtn.innerHTML = '&#x1F4CD; Modesto Menu';
-                moBtn.target = '_self';
-            } else if (action === 'order') {
-                stBtn.href = 'https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d';
-                stBtn.innerHTML = '&#x1F4CD; Order Online (Stockton)';
-                stBtn.target = '_blank';
-
-                moBtn.href = 'tel:2095669560';
-                moBtn.innerHTML = '&#x1F4CD; Call to Order (Modesto)';
-                moBtn.target = '_self';
-            } else if (action === 'reserve') {
-                stBtn.href = 'tel:2099549729';
-                stBtn.innerHTML = '&#x1F4CD; Call to Reserve (Stockton)';
-                stBtn.target = '_self';
-
-                moBtn.href = 'tel:2095669560';
-                moBtn.innerHTML = '&#x1F4CD; Call to Reserve (Modesto)';
-                moBtn.target = '_self';
-            }
-
             modal.classList.add('show');
-        }
-
-        function closeLocationModal() {
-            document.getElementById('locationChooserModal').classList.remove('show');
         }
     </script>
     <!-- Cookie Consent -->

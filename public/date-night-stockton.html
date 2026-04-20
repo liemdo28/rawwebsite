@@ -226,17 +226,85 @@
             .content-grid { grid-template-columns: 1fr; }
             .loc-hero h1 { font-size: 1.8rem; }
         }
-    </style>
+    
+        /* ── Unified Navigation (Raw Sushi Bar) ─────────────────────────── */
+        .skip-link { position: absolute; top: -100px; left: 0; background: #C41E3A; color: #fff; padding: 10px 15px; z-index: 100000; transition: top 0.2s; text-decoration: none; font-weight: bold; }
+        .skip-link:focus { top: 0; }
+        .nav-container { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(26,26,26,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(0,0,0,0.15); }
+        .nav-container nav { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 3rem; }
+        .logo { display: flex; align-items: center; text-decoration: none; }
+        .logo svg { height: 44px; width: auto; display: block; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; align-items: center; }
+        .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: all 0.3s; text-transform: uppercase; letter-spacing: 0.5px; position: relative; }
+        .nav-links a:hover { color: #d4af37; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #d4af37; transition: width 0.3s; }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-phone { color: #d4af37 !important; font-weight: 600 !important; }
+        .mobile-menu-btn { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; background: none; border: none; z-index: 1001; }
+        .mobile-menu-btn span { width: 25px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; }
+        .mobile-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+        .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+        @media (max-width: 768px) {
+            .nav-container nav { padding: 0.75rem 1.5rem; }
+            .nav-links { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; background: #1a1a1a; flex-direction: column; padding: 5rem 2rem 2rem; gap: 0; transition: right 0.3s; box-shadow: -10px 0 30px rgba(0,0,0,0.3); }
+            .nav-links.active { right: 0; }
+            .nav-links li { width: 100%; }
+            .nav-links a { display: block; padding: 0.85rem 0; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+            .nav-links a::after { display: none; }
+            .mobile-menu-btn { display: flex; }
+        }
+        /* ─────────────────────────────────────────────────────────────────── */
+        body { padding-top: 72px; }
+        
+        /* ── Unified Footer (Raw Sushi Bar) ─────────────────────────────── */
+        footer { background: #1a1a1a; color: rgba(255,255,255,0.8); padding: 4rem 2rem 1.5rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand p { font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; opacity: 0.8; }
+        .footer-social { display: flex; gap: 0.75rem; }
+        .social-link { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: all 0.3s; }
+        .social-link:hover { background: #C41E3A; transform: translateY(-3px); }
+        .footer-section h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 1.25rem; color: #d4af37; }
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 0.6rem; font-size: 0.9rem; opacity: 0.7; }
+        .footer-section a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; transition: all 0.3s; }
+        .footer-section a:hover { color: #fff; }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.85rem; opacity: 0.5; }
+        @media (max-width: 1024px) { .footer-content { grid-template-columns: repeat(2,1fr); } }
+        @media (max-width: 768px) { .footer-content { grid-template-columns: 1fr; gap: 2rem; } footer { padding-bottom: 5rem; } }
+        /* ─────────────────────────────────────────────────────────────────── */
+        </style>
 </head>
 
 <body>
-    <div class="nav-bar">
-        <a href="index.html">&larr; Home</a>
-        <div class="nav-bar-right">
-            <a href="menu-stockton.html">Menu</a>
-            <a href="order-sushi-stockton.html" style="color: var(--gold);">Order Online</a>
-        </div>
-    </div>
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="nav-container" role="banner">
+        <nav aria-label="Main navigation">
+            <a href="/" class="logo" aria-label="Raw Sushi Bar - Home">
+                <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Raw Sushi Bar logo">
+                    <circle cx="25" cy="25" r="22" fill="#1a1a1a" stroke="#C41E3A" stroke-width="1.5"/>
+                    <text x="25" y="33" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-style="italic" font-weight="700" font-size="28" fill="#C41E3A">R</text>
+                    <text x="60" y="24" font-family="'Playfair Display',Georgia,serif" font-style="italic" font-weight="700" font-size="24" fill="#C41E3A" letter-spacing="2">aw</text>
+                    <text x="60" y="42" font-family="'Inter','Helvetica Neue',sans-serif" font-weight="300" font-size="11" fill="rgba(255,255,255,0.9)" letter-spacing="3">SUSHI BAR</text>
+                </svg>
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="/" role="menuitem">Home</a></li>
+                <li role="none"><a href="/stockton/" role="menuitem">Stockton</a></li>
+                <li role="none"><a href="/modesto/" role="menuitem">Modesto</a></li>
+                <li role="none"><a href="/menu/stockton/" role="menuitem">Menu</a></li>
+                <li role="none"><a href="/blog/" role="menuitem">Blog</a></li>
+                <li role="none"><a href="tel:2099549729" class="nav-phone" role="menuitem">(209) 954-9729</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+</div>
 
     <section class="loc-hero">
         <div class="badge">DATE NIGHT DESTINATION</div>
@@ -278,7 +346,7 @@
             <h2>Why Raw Sushi Bar Is Stockton's Best Date Night Spot</h2>
             <p>Finding the right restaurant for a date night in Stockton can be a challenge. You want somewhere with great food, a relaxed yet sophisticated atmosphere, and enough variety to make the evening feel special. Raw Sushi Bar checks every box. Our warm, modern interior creates the perfect setting for conversation, and our menu offers a shared dining experience that feels both adventurous and comfortable.</p>
             <p>Sushi is inherently social. Sharing a platter of signature rolls, passing pieces of nigiri back and forth, and exploring new flavors together makes for a dining experience that connects people. At Raw Sushi Bar, couples can start with edamame and miso soup, move on to a sashimi plate or a selection of specialty rolls like the BTS Roll or Rainbow Roll, and finish with a perfectly crafted cocktail. It is a meal built for two.</p>
-            <p>With 4.5 stars on Yelp and over 655 reviews, Raw Sushi Bar has earned its reputation as one of the <a href="best-sushi-stockton.html" style="color: var(--primary-red);">best restaurants in Stockton</a>. Couples return week after week because the food is consistently excellent and the service makes every visit feel personal. Whether it is your first date or your hundredth, this is the place to be.</p>
+            <p>With 4.5 stars on Yelp and over 655 reviews, Raw Sushi Bar has earned its reputation as one of the <a href="/stockton/best-sushi/" style="color: var(--primary-red);">best restaurants in Stockton</a>. Couples return week after week because the food is consistently excellent and the service makes every visit feel personal. Whether it is your first date or your hundredth, this is the place to be.</p>
         </div>
     </div>
 
@@ -286,8 +354,8 @@
         <div class="seo-content">
             <h2>Craft Cocktails &amp; Dishes for Two</h2>
             <p>No date night is complete without great drinks, and our bar program delivers. Our bartenders craft cocktails using premium Japanese whisky, top-shelf sake, and fresh ingredients. Pair a sake-based cocktail with a plate of salmon sashimi, or enjoy a Japanese whisky highball alongside our Dante's Inferno Roll. For wine lovers, we offer a curated selection that complements both sushi and grilled entrees.</p>
-            <p>For the ideal date night dinner, we suggest starting with our Chef's Choice Sashimi Platter to share, followed by two or three specialty rolls from our <a href="menu-stockton.html" style="color: var(--primary-red);">full menu</a>. Add a teriyaki or tempura plate if you want something heartier. Our staff is always happy to recommend pairings and help you build the perfect meal for the evening.</p>
-            <p>We also offer Happy Hour specials Monday through Thursday from 4:30 to 6:00 PM and Friday through Sunday from 2:30 to 5:30 PM, making an early date night both delicious and budget-friendly. For weekend evenings, we recommend calling ahead at (209) 954-9729 to ensure a table is ready when you arrive. You can also explore our <a href="japanese-restaurant-stockton.html" style="color: var(--primary-red);">full Japanese dining experience</a> or <a href="order-sushi-stockton.html" style="color: var(--primary-red);">order online</a> for a cozy sushi night at home.</p>
+            <p>For the ideal date night dinner, we suggest starting with our Chef's Choice Sashimi Platter to share, followed by two or three specialty rolls from our <a href="/menu/stockton/" style="color: var(--primary-red);">full menu</a>. Add a teriyaki or tempura plate if you want something heartier. Our staff is always happy to recommend pairings and help you build the perfect meal for the evening.</p>
+            <p>We also offer Happy Hour specials Monday through Thursday from 4:30 to 6:00 PM and Friday through Sunday from 2:30 to 5:30 PM, making an early date night both delicious and budget-friendly. For weekend evenings, we recommend calling ahead at (209) 954-9729 to ensure a table is ready when you arrive. You can also explore our <a href="/stockton/japanese-restaurant/" style="color: var(--primary-red);">full Japanese dining experience</a> or <a href="/order/stockton/" style="color: var(--primary-red);">order online</a> for a cozy sushi night at home.</p>
         </div>
     </div>
 
@@ -295,16 +363,76 @@
         <h2>Plan Your Date Night at Raw Sushi Bar</h2>
         <p>Call to reserve a table, or order online for a sushi night in.</p>
         <div class="cta-buttons">
-            <a href="order-sushi-stockton.html" class="cta-btn cta-btn-red" data-track="location_order">Order Online</a>
+            <a href="/order/stockton/" class="cta-btn cta-btn-red" data-track="location_order">Order Online</a>
             <a href="tel:2099549729" class="cta-btn cta-btn-gold" data-track="location_call">(209) 954-9729</a>
-            <a href="menu-stockton.html" class="cta-btn cta-btn-outline">View Full Menu</a>
+            <a href="/menu/stockton/" class="cta-btn cta-btn-outline">View Full Menu</a>
         </div>
     </section>
 
-    <a href="index.html" class="back-link">&larr; Back to Raw Sushi Bar Home</a>
+    <a href="/" class="back-link">&larr; Back to Raw Sushi Bar Home</a>
 
     <link rel="stylesheet" href="cookie-consent.css">
     <script src="cookie-consent.js"></script>
     <script src="analytics.js"></script>
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="/" class="logo" style="margin-bottom:1rem;">
+                    <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Raw Sushi Bar logo">
+                        <circle cx="25" cy="25" r="22" fill="#1a1a1a" stroke="#C41E3A" stroke-width="1.5"/>
+                        <text x="25" y="33" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-style="italic" font-weight="700" font-size="28" fill="#C41E3A">R</text>
+                        <text x="60" y="24" font-family="'Playfair Display',Georgia,serif" font-style="italic" font-weight="700" font-size="24" fill="#C41E3A" letter-spacing="2">aw</text>
+                        <text x="60" y="42" font-family="'Inter','Helvetica Neue',sans-serif" font-weight="300" font-size="11" fill="rgba(255,255,255,0.9)" letter-spacing="3">SUSHI BAR</text>
+                    </svg>
+                </a>
+                <p>Fresh sushi and authentic Japanese cuisine since 2005. Explore our California locations for dine-in, takeout, and ordering details.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/rawsushibar/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">FB</a>
+                    <a href="https://instagram.com/rawsushibistro/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">IG</a>
+                    <a href="https://www.yelp.com/biz/raw-sushi-bistro-stockton-2" target="_blank" rel="noopener" class="social-link" aria-label="Yelp">Y!</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/stockton/">Stockton</a></li>
+                    <li><a href="/modesto/">Modesto</a></li>
+                    <li><a href="/menu/stockton/">Stockton Menu</a></li>
+                    <li><a href="/menu/modesto/">Modesto Menu</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="mailto:info@rawsushibar.com">Catering</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Stockton</h3>
+                <ul>
+                    <li>10742 Trinity Pkwy, Suite D</li>
+                    <li>Stockton, CA 95219</li>
+                    <li><a href="tel:2099549729">(209) 954-9729</a></li>
+                    <li>Mon–Thu: 4:30 PM – 8:30 PM</li>
+                    <li>Fri: 11:30 AM – 9:00 PM</li>
+                    <li>Sat: 12:00 PM – 9:00 PM</li>
+                    <li>Sun: 12:00 PM – 8:00 PM</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Modesto</h3>
+                <ul>
+                    <li>1200 I Street</li>
+                    <li>Modesto, CA 95354</li>
+                    <li><a href="tel:2095669560">(209) 566-9560</a></li>
+                    <li>Mon: 5:00 PM – 9:00 PM</li>
+                    <li>Tue–Thu: 11:30 AM – 9:00 PM</li>
+                    <li>Fri: 11:30 AM – 10:00 PM</li>
+                    <li>Sat: 5:00 PM – 10:00 PM</li>
+                    <li>Sun: Closed</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Raw Sushi Bar. All rights reserved. | Celebrating 20 Years (2005–2025) | <a href="mailto:info@rawsushibar.com" style="color:rgba(255,255,255,0.5);">info@rawsushibar.com</a></p>
+        </div>
+    </footer>
 </body>
 </html>
