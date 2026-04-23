@@ -33,8 +33,12 @@
 /blog-stockton-restaurants.html                 /#blog                  301
 /blog-modesto-dining.html                       /#blog                  301
 /blog-catering-guide.html                       /#blog                  301
+# The 5 approved article pages served as static files — NO redirect:
 # blog-20-years.html, blog-nigiri-art.html, blog-sustainability.html
-# Served as static files from public/ — NO redirect
+# blog-menu-deep-dive.html, blog-what-to-order.html
+# Old Astro slug URLs → redirect to the new static pages
+/blog/menu-deep-dive-raw-sushi-bar-stockton/    /blog-menu-deep-dive.html   301
+/blog/what-to-order-sushi-stockton-tonight/     /blog-what-to-order.html    301
 
 # ── Canonical domain (handled by functions/_middleware.js, listed for clarity)
 # rawsushibar.com  →  www.rawsushibar.com  (301 via middleware)

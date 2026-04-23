@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Not sure what to order tonight? Here's a simple way to choose sushi that fits your mood at Raw Sushi Bar Stockton.">
+    <meta name="keywords"
+        content="what to order sushi Stockton, sushi guide Stockton, Raw Sushi Bar Stockton, best sushi rolls tonight">
+    <title>What to Order When You're Looking for Sushi in Stockton Tonight | Raw Sushi Bar</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 10px 15px;
+            z-index: 100000;
+            transition: top 0.2s;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .skip-link:focus { top: 0; }
+        *:focus-visible {
+            outline: 3px solid var(--primary-red) !important;
+            outline-offset: 3px !important;
+        }
+
+        :root {
+            --primary-red: #C41E3A;
+            --deep-teal: #1a4d4d;
+            --charcoal: #2b2b2b;
+            --cream: #f9f7f4;
+            --gold: #d4af37;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.7;
+            background: var(--cream);
+        }
+
+        .nav-bar {
+            background: linear-gradient(135deg, var(--deep-teal) 0%, #0d3333 100%);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-bar a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .nav-bar a:hover { color: var(--gold); }
+
+        .blog-header {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--charcoal) 100%);
+            color: var(--white);
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .blog-category {
+            display: inline-block;
+            background: var(--primary-red);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .blog-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 1.5rem;
+        }
+
+        .blog-content {
+            max-width: 800px;
+            margin: -2rem auto 4rem;
+            background: var(--white);
+            padding: 4rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .blog-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--charcoal);
+            margin: 3rem 0 1.5rem;
+        }
+
+        .blog-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--deep-teal);
+            margin: 2rem 0 1rem;
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: #444;
+        }
+
+        .blog-content ul {
+            margin: 1rem 0 1.5rem 2rem;
+        }
+        .blog-content ul li {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #444;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: var(--cream);
+            border-left: 4px solid var(--primary-red);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        .highlight-box p { margin: 0; font-style: italic; color: var(--charcoal); }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--deep-teal) 0%, #0d3333 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 3rem;
+        }
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .cta-section p { font-size: 1.1rem; margin-bottom: 1rem; opacity: 0.9; }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: #a01829;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(196,30,58,0.4);
+        }
+
+        footer {
+            background: var(--charcoal);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .blog-header h1 { font-size: 2.2rem; }
+            .blog-content { padding: 2rem; margin: 1rem 1rem 2rem; }
+        }
+    </style>
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" href="cookie-consent.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="nav-bar">
+        <a href="/#blog">&#8592; Stories &amp; Insights</a>
+    </div>
+
+    <header class="blog-header">
+        <div class="blog-category">&#127869; DINING GUIDE</div>
+        <h1>What to Order When You're Looking for Sushi in Stockton Tonight</h1>
+        <div class="blog-meta">
+            Published April 20, 2026 &nbsp;|&nbsp; By Raw Sushi Bar &nbsp;|&nbsp; 4 min read
+        </div>
+    </header>
+
+    <article id="main-content" class="blog-content">
+
+        <p>When you're trying to decide where to eat in Stockton, it's easy to get stuck between too many options. But
+            if you're in the mood for something fresh, balanced, and easy to enjoy, sushi is often one of the simplest
+            choices to get right.</p>
+
+        <p>The real question isn't just where to go &mdash; it's what to order once you get there.</p>
+
+        <h2>Start with Something Light and Familiar</h2>
+
+        <p>If you're easing into a meal or just want something simple, starting with lighter options can make the
+            experience more enjoyable. A small appetizer or a classic roll gives you a chance to settle in without
+            overthinking your order.</p>
+
+        <p>This is especially helpful if you're stopping in after work or meeting friends for a casual dinner.</p>
+
+        <h2>Go for Rolls That Feel Balanced</h2>
+
+        <p>One of the easiest ways to enjoy sushi is to look for rolls that combine texture and flavor without feeling
+            too heavy. Rolls that bring together fresh fish, rice, and a bit of crunch tend to feel satisfying without
+            being overwhelming.</p>
+
+        <p>Whether you prefer something classic or slightly more creative, a balanced roll can make the whole meal feel
+            complete.</p>
+
+        <h2>When You Want a More Filling Meal</h2>
+
+        <p>If you're coming in hungry or planning a full dinner, it helps to build your order around a few different
+            items. Mixing a couple of rolls with a side or two gives you variety and keeps the meal interesting.</p>
+
+        <p>This approach works well for:</p>
+
+        <ul>
+            <li>Dinner with family</li>
+            <li>Catching up with friends</li>
+            <li>A relaxed evening out</li>
+        </ul>
+
+        <h2>A Comfortable Option for Any Kind of Night</h2>
+
+        <p>One of the reasons sushi works so well in Stockton is how flexible it is. It fits a quick lunch, a low-key
+            dinner, or even a last-minute plan when you don't feel like cooking.</p>
+
+        <p>Instead of trying to find the &ldquo;perfect&rdquo; option, it's often easier to choose something reliable
+            that you know will be fresh and enjoyable.</p>
+
+        <h2>Make It Easy on Yourself</h2>
+
+        <p>At the end of the day, choosing sushi shouldn't feel complicated. A simple combination of familiar favorites
+            and a few new options is usually all it takes to create a satisfying meal.</p>
+
+        <div class="highlight-box">
+            <p>If you're deciding what to eat tonight, starting with something fresh and well-prepared is always a safe
+                bet.</p>
+        </div>
+
+        <h2>Ready to Take a Look?</h2>
+
+        <p>Take a moment to explore the menu and see what fits your mood. Whether you're planning a quick stop or a
+            relaxed dinner, it's easy to find something that works for you.</p>
+
+        <p>Plan your next sushi night with something fresh and straightforward &mdash; and enjoy the experience without
+            overthinking it.</p>
+
+    </article>
+
+    <div class="cta-section">
+        <h2>See Tonight's Menu</h2>
+        <p>Take a look at the menu and decide what fits your night best.</p>
+        <a href="https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-parkway-suite-d" class="btn"
+            target="_blank" rel="noopener">View Full Menu &rarr;</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Raw Sushi Bar. Stockton &amp; Modesto, California.</p>
+    </footer>
+    <!-- Cookie Consent -->
+    <script src="cookie-consent.js"></script>
+</body>
+
+</html>

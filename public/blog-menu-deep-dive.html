@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Dive into delicious options at Raw Sushi Bar, a top Japanese restaurant in Stockton.">
+    <meta name="keywords"
+        content="Raw Sushi Bar Stockton menu, best sushi rolls Stockton, sashimi Stockton, Japanese restaurant Stockton">
+    <title>Explore the Exquisite Menu at Raw Sushi Bar Stockton | Raw Sushi Bar</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 10px 15px;
+            z-index: 100000;
+            transition: top 0.2s;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .skip-link:focus { top: 0; }
+        *:focus-visible {
+            outline: 3px solid var(--primary-red) !important;
+            outline-offset: 3px !important;
+        }
+
+        :root {
+            --primary-red: #C41E3A;
+            --deep-teal: #1a4d4d;
+            --charcoal: #2b2b2b;
+            --cream: #f9f7f4;
+            --gold: #d4af37;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.7;
+            background: var(--cream);
+        }
+
+        .nav-bar {
+            background: linear-gradient(135deg, var(--deep-teal) 0%, #0d3333 100%);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-bar a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .nav-bar a:hover { color: var(--gold); }
+
+        .blog-header {
+            background: linear-gradient(135deg, #2E86AB 0%, var(--charcoal) 100%);
+            color: var(--white);
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .blog-category {
+            display: inline-block;
+            background: #2E86AB;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .blog-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 1.5rem;
+        }
+
+        .blog-content {
+            max-width: 800px;
+            margin: -2rem auto 4rem;
+            background: var(--white);
+            padding: 4rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .blog-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--charcoal);
+            margin: 3rem 0 1.5rem;
+        }
+
+        .blog-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--deep-teal);
+            margin: 2rem 0 1rem;
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: #444;
+        }
+
+        .blog-content strong { color: var(--charcoal); }
+
+        .highlight-box {
+            background: var(--cream);
+            border-left: 4px solid #2E86AB;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        .highlight-box p { margin: 0; font-style: italic; color: var(--charcoal); }
+
+        .cta-section {
+            background: linear-gradient(135deg, #2E86AB 0%, var(--charcoal) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 3rem;
+        }
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .cta-section p { font-size: 1.1rem; margin-bottom: 1rem; opacity: 0.9; }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: #a01829;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(196,30,58,0.4);
+        }
+
+        footer {
+            background: var(--charcoal);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .blog-header h1 { font-size: 2.5rem; }
+            .blog-content { padding: 2rem; margin: 1rem 1rem 2rem; }
+        }
+    </style>
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" href="cookie-consent.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="nav-bar">
+        <a href="/#blog">&#8592; Stories &amp; Insights</a>
+    </div>
+
+    <header class="blog-header">
+        <div class="blog-category">&#127859; MENU SPOTLIGHT</div>
+        <h1>Explore the Exquisite Menu at Raw Sushi Bar Stockton</h1>
+        <div class="blog-meta">
+            Published April 22, 2026 &nbsp;|&nbsp; By Raw Sushi Bar Stockton &nbsp;|&nbsp; 4 min read
+        </div>
+    </header>
+
+    <article id="main-content" class="blog-content">
+
+        <h3>Welcome to Raw Sushi Bar Stockton</h3>
+
+        <p>When you're craving the best sushi in Stockton, <strong>Raw Sushi Bar Stockton</strong> is the place to be.
+            Our menu offers a delightful journey into the heart of Japanese flavors. From handcrafted sushi rolls to
+            fresh sashimi, we have something for everyone.</p>
+
+        <h2>Sushi Rolls Galore</h2>
+
+        <p>Our menu features a wide range of <strong>sushi rolls</strong> that are sure to satisfy any palate. Whether
+            you're in the mood for something classic like the California Roll or seeking adventure with our unique Dragon
+            Roll, every bite promises a harmonious blend of flavors. Each roll is carefully prepared using the freshest
+            ingredients to provide you with an authentic sushi experience.</p>
+
+        <h2>Savor Fresh Sashimi</h2>
+
+        <p>For those who appreciate the simplicity and purity of <strong>sashimi</strong>, Raw Sushi Bar delivers in
+            spades. Our selection includes salmon, tuna, and yellowtail, all sliced to perfection. It's an ideal choice
+            for sushi purists who want to enjoy the rich taste of seafood without any distractions.</p>
+
+        <h3>Dive Into Japanese Cuisine</h3>
+
+        <p>Beyond sushi and sashimi, our Stockton location offers an array of <strong>Japanese dishes</strong> that
+            highlights the very best of this rich culinary tradition. From flavorful teriyaki to hearty udon noodles,
+            each dish is crafted with precision and passion.</p>
+
+        <h2>Discover Our Ultimate Dining Experience</h2>
+
+        <p>Dining at Raw Sushi Bar Stockton is more than just a meal; it's an experience. With our dedicated team
+            providing exceptional service and a cozy ambiance perfect for any occasion, you'll enjoy not just a meal but
+            an unforgettable evening.</p>
+
+        <div class="highlight-box">
+            <p>Ready to embark on this culinary adventure? Order now and taste why we're known for having the best sushi
+                in Stockton!</p>
+        </div>
+
+    </article>
+
+    <div class="cta-section">
+        <h2>Ready to Order?</h2>
+        <p>Order now to experience the best sushi in Stockton.</p>
+        <a href="https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d" class="btn"
+            target="_blank" rel="noopener">Order Online &rarr;</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Raw Sushi Bar. Stockton &amp; Modesto, California.</p>
+    </footer>
+    <!-- Cookie Consent -->
+    <script src="cookie-consent.js"></script>
+</body>
+
+</html>
