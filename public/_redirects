@@ -29,9 +29,8 @@
 /blog-stockton-restaurants.html     /blog/                              301
 /blog-modesto-dining.html           /blog/                              301
 /blog-catering-guide.html           /blog/                              301
-/blog-20-years.html                 /blog/                              301
-/blog-nigiri-art.html               /blog/                              301
-/blog-sustainability.html           /blog/                              301
+# blog-20-years.html, blog-nigiri-art.html, blog-sustainability.html
+# Served as static files from public/ — NO redirect
 
 # ── Canonical domain (handled by functions/_middleware.js, listed for clarity)
 # rawsushibar.com  →  www.rawsushibar.com  (301 via middleware)
