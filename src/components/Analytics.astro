@@ -48,7 +48,7 @@ import { GA4_ID, META_PIXEL_ID } from '../data/config';
     var path = location.pathname;
     if (path.indexOf('menu') !== -1) return 'menu';
     if (path.indexOf('order') !== -1) return 'order';
-    if (path.indexOf('blog') !== -1) return 'blog';
+    if (path.indexOf('blog') !== -1) return 'stories';
     if (path === '/' || path.indexOf('index') !== -1) return 'landing';
     if (path.indexOf('modesto') !== -1 && path.indexOf('menu') === -1) return 'landing';
     return 'page';

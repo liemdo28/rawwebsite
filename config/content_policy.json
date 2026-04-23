@@ -1,0 +1,145 @@
+{
+  "brand": "Raw Sushi Bar",
+  "version": "1.0",
+  "updated_at": "2026-04-22",
+
+  "stores": {
+    "raw_stockton": {
+      "name": "Raw Sushi Bar Stockton",
+      "city": "Stockton",
+      "state": "CA",
+      "country": "US",
+      "timezone": "America/Los_Angeles",
+      "address": "10742 Trinity Parkway Suite D, Stockton, CA 95219",
+      "phone": "(209) 954-9729",
+      "order_url": "https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d",
+      "menu_url": "https://www.rawsushibar.com/menu/stockton/",
+      "location_url": "https://www.rawsushibar.com/stockton/",
+      "platforms": ["facebook", "instagram"],
+      "posting_hours": ["11:30", "18:00"],
+      "target_actions": ["visit", "order", "reserve"]
+    },
+    "raw_modesto": {
+      "name": "Raw Sushi Bar Modesto",
+      "city": "Modesto",
+      "state": "CA",
+      "country": "US",
+      "timezone": "America/Los_Angeles",
+      "address": "1200 I Street, Modesto, CA 95354",
+      "phone": "(209) 526-8700",
+      "order_url": null,
+      "menu_url": "https://www.rawsushibar.com/menu/modesto/",
+      "location_url": "https://www.rawsushibar.com/modesto/",
+      "platforms": ["facebook", "instagram"],
+      "posting_hours": ["11:30", "17:30"],
+      "target_actions": ["visit", "reserve"]
+    }
+  },
+
+  "tone": {
+    "style": "friendly, modern, local, premium-casual",
+    "reading_level": "simple",
+    "emoji_level": "light",
+    "do": [
+      "mention city name naturally",
+      "highlight freshness and quality",
+      "use conversational mobile-first language",
+      "include one clear CTA per post",
+      "use real food descriptions"
+    ],
+    "dont": [
+      "fabricate prices, hours, or reviews",
+      "use keyword stuffing (same keyword more than 3x)",
+      "use more than 3 exclamation marks",
+      "use 4+ consecutive ALL-CAPS words",
+      "make fake health claims",
+      "use offensive or inappropriate language"
+    ]
+  },
+
+  "seo": {
+    "raw_stockton": {
+      "primary_keywords": [
+        "sushi Stockton",
+        "best sushi in Stockton",
+        "Japanese restaurant Stockton"
+      ],
+      "secondary_keywords": [
+        "fresh sushi near me",
+        "sushi rolls Stockton",
+        "sashimi Stockton",
+        "Japanese food Stockton"
+      ]
+    },
+    "raw_modesto": {
+      "primary_keywords": [
+        "sushi Modesto",
+        "best sushi in Modesto",
+        "Japanese restaurant Modesto"
+      ],
+      "secondary_keywords": [
+        "fresh sushi near me",
+        "sushi Modesto CA",
+        "Japanese food Modesto"
+      ]
+    },
+    "rules": {
+      "require_location_mention": true,
+      "require_primary_keyword": true,
+      "require_cta": true,
+      "max_keyword_repeat": 3,
+      "max_hashtags": 6,
+      "min_body_chars": 50,
+      "max_body_chars": 280
+    }
+  },
+
+  "safety": {
+    "hard_blocks": [
+      "hate_speech",
+      "slurs",
+      "deceptive_health_claims",
+      "illegal_drug_content",
+      "violent_language"
+    ],
+    "blocked_terms": [
+      "kill", "murder", "shoot", "bomb", "attack",
+      "weed", "marijuana", "cannabis", "cocaine", "drug",
+      "cure cancer", "prevent disease", "treat diabetes"
+    ],
+    "fake_claim_terms": [
+      "best in the world",
+      "only place",
+      "guaranteed"
+    ],
+    "strict_block": true
+  },
+
+  "scoring": {
+    "pass_threshold": 60,
+    "weights": {
+      "has_location": 20,
+      "has_primary_keyword": 20,
+      "has_cta": 15,
+      "brand_tone_ok": 15,
+      "readable_length": 10,
+      "no_keyword_stuffing": 10,
+      "no_fake_claims": 10
+    }
+  },
+
+  "approval": {
+    "mode": "required",
+    "reviewers": ["ceo", "marketing_manager"],
+    "auto_approve_threshold": null
+  },
+
+  "stories_and_insights": {
+    "publish_dir": "public",
+    "url_prefix": "/blog-",
+    "min_word_count": 400,
+    "max_word_count": 600,
+    "require_h2_headings": true,
+    "image_source": "unsplash"
+  }
+}

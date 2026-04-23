@@ -1,8 +1,12 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-const blog = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+// "Stories & Insights" is the content section (formerly named "blog").
+// Static article pages live in public/ and are served directly by Cloudflare Pages.
+// This collection definition is retained for schema reference only;
+// src/content/stories/ directory is not currently populated.
+const stories = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/stories' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -18,4 +22,4 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+export const collections = { stories };
