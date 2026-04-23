@@ -19,16 +19,20 @@
 /sushi-delivery-stockton.html       /stockton/sushi-delivery/           301
 /sushi-downtown-modesto.html        /modesto/downtown-sushi/            301
 
-# ── Blog ──────────────────────────────────────────────────────────────────────
-/blog-posts.html                    /blog/                              301
-/blog-posts.html?slug=*             /blog/:splat                        301
-/blog-top-sushi-rolls.html          /blog/                              301
-/blog-date-night-guide.html         /blog/memorable-date-night-sushi-stockton/ 301
-/blog-sushi-etiquette.html          /blog/                              301
-/blog-sashimi-guide.html            /blog/                              301
-/blog-stockton-restaurants.html     /blog/                              301
-/blog-modesto-dining.html           /blog/                              301
-/blog-catering-guide.html           /blog/                              301
+# ── Stories & Insights (blog) — all blog-module URLs → homepage section ──────
+# There is no separate /blog/ page. The blog system lives at /#blog on homepage.
+/blog/                                          /#blog                  301
+/blog                                           /#blog                  301
+/blog/*                                         /#blog                  301
+/blog-posts.html                                /#blog                  301
+/blog-posts.html?slug=*                         /#blog                  301
+/blog-top-sushi-rolls.html                      /#blog                  301
+/blog-date-night-guide.html                     /#blog                  301
+/blog-sushi-etiquette.html                      /#blog                  301
+/blog-sashimi-guide.html                        /#blog                  301
+/blog-stockton-restaurants.html                 /#blog                  301
+/blog-modesto-dining.html                       /#blog                  301
+/blog-catering-guide.html                       /#blog                  301
 # blog-20-years.html, blog-nigiri-art.html, blog-sustainability.html
 # Served as static files from public/ — NO redirect
 
