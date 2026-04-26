@@ -355,8 +355,39 @@
 
         .nav-phone {
             color: var(--gold) !important;
-            font-weight: 600 !important;
-            font-size: 0.85rem !important;
+            font-weight: 500 !important;
+            font-size: 0.8rem !important;
+            text-transform: none !important;
+            letter-spacing: 0.3px !important;
+            white-space: nowrap;
+        }
+
+        .nav-phone strong {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .nav-phone:hover {
+            color: var(--white) !important;
+        }
+
+        .nav-phone:hover strong {
+            color: var(--white);
+        }
+
+        .nav-phone::after {
+            display: none !important;
+        }
+
+        .nav-phone-group {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .nav-phone-sep {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.85rem;
         }
 
         /* Mobile menu */
@@ -1601,6 +1632,22 @@
                 padding: 0.85rem 1.5rem;
             }
 
+            .nav-phone-group {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                width: 100%;
+            }
+
+            .nav-phone {
+                font-size: 0.95rem !important;
+                white-space: normal !important;
+            }
+
+            .nav-phone-sep {
+                display: none;
+            }
+
             .mobile-menu-btn {
                 display: flex;
             }
@@ -1948,6 +1995,11 @@
                 <li role="none"><a href="#" onclick="openLocationModal('menu'); return false;" role="menuitem">Menu</a></li>
                 <li role="none"><a href="#locations" role="menuitem">Locations</a></li>
                 <li role="none"><a href="#stories" role="menuitem">Stories</a></li>
+                <li role="none" class="nav-phone-group">
+                    <a href="tel:+12099549729" class="nav-phone" role="menuitem" data-track="call_click_homepage_stockton">Stockton <strong>(209) 954-9729</strong></a>
+                    <span class="nav-phone-sep" aria-hidden="true">·</span>
+                    <a href="tel:+12095669560" class="nav-phone" role="menuitem" data-track="call_click_homepage_modesto">Modesto <strong>(209) 566-9560</strong></a>
+                </li>
                 <li role="none"><a href="#" onclick="openLocationModal('order'); return false;" class="nav-cta"
                         role="menuitem">Order Online</a></li>
             </ul>
