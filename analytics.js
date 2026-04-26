@@ -76,7 +76,7 @@ function getPageType() {
     var path = location.pathname;
     if (path.indexOf('menu-') !== -1) return 'menu';
     if (path.indexOf('order-') !== -1) return 'order';
-    if (path.indexOf('blog-') !== -1) return 'blog';
+    if (path.indexOf('blog-') !== -1) return 'story';
     if (path === '/' || path.indexOf('index') !== -1) return 'brand_home';
     if (path.indexOf('modesto') !== -1 && path.indexOf('menu') === -1) return 'landing';
     return 'page';

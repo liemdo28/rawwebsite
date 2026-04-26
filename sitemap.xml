@@ -72,7 +72,7 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Blog: Nigiri Art -->
+  <!-- Story:Nigiri Art -->
   <url>
     <loc>https://www.rawsushibar.com/blog-nigiri-art.html</loc>
     <lastmod>2025-02-10</lastmod>
@@ -80,7 +80,7 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Blog: Sustainability -->
+  <!-- Story:Sustainability -->
   <url>
     <loc>https://www.rawsushibar.com/blog-sustainability.html</loc>
     <lastmod>2025-02-05</lastmod>
@@ -152,7 +152,7 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Blog Posts (New) -->
+  <!-- Stories (article pages — filenames retained for SEO continuity) -->
   <url>
     <loc>https://www.rawsushibar.com/blog-top-sushi-rolls.html</loc>
     <lastmod>2026-04-10</lastmod>
