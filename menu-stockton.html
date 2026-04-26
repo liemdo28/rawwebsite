@@ -317,6 +317,38 @@
             margin-bottom: 1rem;
         }
 
+        /* Call/visit note for current pricing */
+        .menu-note {
+            max-width: 900px;
+            margin: 1.25rem auto 0;
+            padding: 1rem 1.25rem;
+            background: #fff8e6;
+            border: 1px solid #f1d98a;
+            border-radius: 8px;
+            color: #5a4a16;
+            font-size: 0.95rem;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        .menu-note strong { color: #3a2f0e; }
+        .menu-note .menu-note-call {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            background: #C41E3A;
+            color: #fff;
+            font-weight: 700;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .menu-note .menu-note-call:hover { background: #a01828; }
+
         .menu-items {
             display: grid;
             gap: 0;
@@ -1232,6 +1264,12 @@
     </div>
 
     <main id="main-content" class="menu-container">
+        <!-- Pricing & specials note -->
+        <div class="menu-note" role="note">
+            <span><strong>Note:</strong> Prices and specials may change. Call or visit us for current pricing and specials.</span>
+            <a href="tel:+12099549729" class="menu-note-call" data-track="menu_call_click_stockton">📞 Call (209) 954-9729</a>
+        </div>
+
         <!-- Happy Hour -->
         <div class="happy-hour-banner">
             <h2>Happy Hour Specials</h2>

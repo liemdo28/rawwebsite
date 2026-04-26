@@ -353,41 +353,292 @@
             box-shadow: 0 5px 15px rgba(196, 30, 58, 0.4);
         }
 
-        .nav-phone {
-            color: var(--gold) !important;
-            font-weight: 500 !important;
-            font-size: 0.8rem !important;
+        /* Conversion CTA buttons */
+        .cta-order,
+        .cta-call {
+            display: inline-block;
+            padding: 10px 16px !important;
+            border-radius: 6px;
+            font-weight: 600 !important;
             text-transform: none !important;
             letter-spacing: 0.3px !important;
+            font-size: 0.9rem !important;
+            line-height: 1;
+            transition: all 0.2s ease;
             white-space: nowrap;
         }
 
-        .nav-phone strong {
+        .cta-order {
+            background: #111 !important;
+            color: #fff !important;
+        }
+
+        .cta-order:hover {
+            background: #000 !important;
+            color: #fff !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-call {
+            background: #E11D2E !important;
+            color: #fff !important;
+        }
+
+        .cta-call:hover {
+            background: #c4131f !important;
+            color: #fff !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(225, 29, 46, 0.4);
+        }
+
+        .cta-order::after,
+        .cta-call::after {
+            display: none !important;
+        }
+
+        /* Call dropdown (desktop) */
+        .cta-call-wrap {
+            position: relative;
+        }
+
+        .call-dropdown {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            min-width: 260px;
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+            padding: 6px;
+            z-index: 1000;
+        }
+
+        .call-dropdown.open {
+            display: block;
+        }
+
+        .call-dropdown a {
+            display: block;
+            padding: 12px 14px !important;
+            color: rgba(255, 255, 255, 0.92) !important;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.95rem !important;
+            text-transform: none !important;
+            letter-spacing: 0 !important;
+            font-weight: 500 !important;
+            white-space: nowrap;
+        }
+
+        .call-dropdown a:hover {
+            background: rgba(225, 29, 46, 0.15);
+            color: #fff !important;
+        }
+
+        .call-dropdown a strong {
             color: var(--gold);
             font-weight: 700;
         }
 
-        .nav-phone:hover {
-            color: var(--white) !important;
-        }
-
-        .nav-phone:hover strong {
-            color: var(--white);
-        }
-
-        .nav-phone::after {
+        .call-dropdown a::after {
             display: none !important;
         }
 
-        .nav-phone-group {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
+        /* Hero CTA buttons (slightly larger than nav) */
+        .cta-hero {
+            padding: 14px 28px !important;
+            font-size: 1rem !important;
+            font-weight: 700 !important;
         }
 
-        .nav-phone-sep {
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 0.85rem;
+        /* A/B variant defaults — hide variant-specific elements until applied */
+        .top-promo,
+        .hero.hero-location-first,
+        .hero-subtitle-b,
+        .story-cta-b {
+            display: none !important;
+        }
+
+        /* Variant A (current — default visible) */
+        body.ab-a .hero-subtitle-a {
+            display: block;
+        }
+
+        /* Variant B — Revenue push */
+        body.ab-b .top-promo {
+            display: block !important;
+        }
+
+        body.ab-b .hero-subtitle-a {
+            display: none;
+        }
+
+        body.ab-b .hero-subtitle-b {
+            display: block !important;
+        }
+
+        body.ab-b .cta-order {
+            font-weight: 800 !important;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+        }
+
+        body.ab-b .story-cta-b {
+            display: block !important;
+        }
+
+        body.ab-b .mobile-cta-bar {
+            padding: 14px 12px;
+        }
+
+        body.ab-b .mobile-cta-bar a {
+            font-size: 1.05rem;
+        }
+
+        /* Variant C — Location first */
+        body.ab-c .hero.hero-default {
+            display: none !important;
+        }
+
+        body.ab-c .hero.hero-location-first {
+            display: flex !important;
+        }
+
+        body.ab-c #navMenuStockton,
+        body.ab-c #navMenuModesto,
+        body.ab-c #navMenuOrder,
+        body.ab-c #navMenuCall {
+            display: none;
+        }
+
+        body.ab-c .nav-choose-location {
+            display: list-item;
+        }
+
+        .nav-choose-location {
+            display: none;
+        }
+
+        /* Top promo banner */
+        .top-promo {
+            background: #E11D2E;
+            color: #fff;
+            text-align: center;
+            padding: 10px 16px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            position: relative;
+            z-index: 90;
+        }
+
+        /* Location-first hero (Variant C) */
+        .hero-location-first .location-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        /* Story card actions */
+        .story-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding-top: 0.85rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .cta-small,
+        .cta-small-outline {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 5px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .cta-small {
+            background: #111;
+            color: #fff;
+        }
+
+        .cta-small:hover {
+            background: #E11D2E;
+            color: #fff;
+        }
+
+        .cta-small-outline {
+            background: transparent;
+            color: #111;
+            border: 1.5px solid #111;
+        }
+
+        .cta-small-outline:hover {
+            background: #111;
+            color: #fff;
+        }
+
+        /* Variant B story-grid CTA */
+        .story-cta-b {
+            text-align: center;
+            margin: 1.5rem auto 0;
+            font-weight: 700;
+            color: #E11D2E;
+            font-size: 1.05rem;
+        }
+
+        .story-cta-b a {
+            color: #fff;
+            background: #E11D2E;
+            padding: 10px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            margin-left: 0.5rem;
+        }
+
+        /* Mobile sticky CTA bar */
+        .mobile-cta-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.12);
+            padding: 10px 12px;
+            z-index: 950;
+            gap: 8px;
+        }
+
+        .mobile-cta-bar a {
+            flex: 1;
+            text-align: center;
+            padding: 14px 8px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            letter-spacing: 0.3px;
+        }
+
+        .mobile-cta-bar .mcta-order {
+            background: #111;
+            color: #fff;
+        }
+
+        .mobile-cta-bar .mcta-call {
+            background: #E11D2E;
+            color: #fff;
         }
 
         /* Mobile menu */
@@ -1274,6 +1525,15 @@
             color: var(--warm-black);
         }
 
+        .story-card h3 a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .story-card h3 a:hover {
+            color: var(--primary-red);
+        }
+
         .story-card p {
             font-size: 0.95rem;
             color: #555;
@@ -1287,6 +1547,13 @@
             letter-spacing: 1px;
             color: var(--primary-red);
             text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .story-card-more:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 900px) {
@@ -1713,12 +1980,27 @@
                 gap: 1.5rem;
             }
 
-            .mobile-order-bar {
-                display: block;
+            .mobile-cta-bar {
+                display: flex;
+            }
+
+            body {
+                padding-bottom: 80px; /* room for sticky CTA bar */
             }
 
             footer {
                 padding-bottom: 5rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.75rem;
+            }
+
+            .cta-hero {
+                width: 100%;
+                text-align: center;
             }
 
             .lead-popup-content {
@@ -1991,17 +2273,20 @@
                 </svg>
             </a>
             <ul class="nav-links" id="navLinks" role="menubar">
-                <li role="none"><a href="#home" role="menuitem">Home</a></li>
                 <li role="none"><a href="#" onclick="openLocationModal('menu'); return false;" role="menuitem">Menu</a></li>
-                <li role="none"><a href="#locations" role="menuitem">Locations</a></li>
+                <li role="none"><a href="/stockton.html" role="menuitem">Stockton</a></li>
+                <li role="none"><a href="/modesto.html" role="menuitem">Modesto</a></li>
                 <li role="none"><a href="#stories" role="menuitem">Stories</a></li>
-                <li role="none" class="nav-phone-group">
-                    <a href="tel:+12099549729" class="nav-phone" role="menuitem" data-track="call_click_homepage_stockton">Stockton <strong>(209) 954-9729</strong></a>
-                    <span class="nav-phone-sep" aria-hidden="true">·</span>
-                    <a href="tel:+12095669560" class="nav-phone" role="menuitem" data-track="call_click_homepage_modesto">Modesto <strong>(209) 566-9560</strong></a>
+                <li role="none">
+                    <a href="#" onclick="openLocationModal('order'); return false;" class="cta-order" role="menuitem" data-track="order_now_homepage">Order Now</a>
                 </li>
-                <li role="none"><a href="#" onclick="openLocationModal('order'); return false;" class="nav-cta"
-                        role="menuitem">Order Online</a></li>
+                <li role="none" class="cta-call-wrap">
+                    <a href="#" id="callNowBtn" class="cta-call" role="menuitem" aria-haspopup="true" aria-expanded="false" data-track="call_now_homepage_open">📞 Call Now</a>
+                    <div class="call-dropdown" id="callDropdown" role="menu" aria-label="Choose location to call">
+                        <a href="tel:+12099549729" role="menuitem" data-track="call_click_homepage_stockton">Stockton — <strong>(209) 954-9729</strong></a>
+                        <a href="tel:+12095669560" role="menuitem" data-track="call_click_homepage_modesto">Modesto — <strong>(209) 566-9560</strong></a>
+                    </div>
+                </li>
             </ul>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
                 <span></span>
@@ -2031,20 +2316,38 @@
         </div>
     </div>
 
+    <!-- Variant B: top promo banner (hidden by default; body.ab-b shows it) -->
+    <div class="top-promo" role="region" aria-label="Today's promo">
+        <span>Fresh Sushi Today — Order Online or Call Your Location</span>
+    </div>
+
     <main id="main-content">
-        <!-- Hero Section -->
-        <section id="home" class="hero" aria-label="Welcome to Raw Sushi Bar">
+        <!-- Hero Section (default — Variant A & B) -->
+        <section id="home" class="hero hero-default" aria-label="Welcome to Raw Sushi Bar">
             <div class="hero-bg-image" role="img" aria-label="Fresh sushi being prepared at Raw Sushi Bar"></div>
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <div class="anniversary-badge">Since 2005</div>
-                <h1>Raw Sushi Bar</h1>
-                <p class="hero-subtitle">Fresh Sushi. Authentic Japanese Flavor.</p>
-                <p>Discover a California sushi destination built around fresh fish, thoughtful hospitality, and Japanese cuisine made to share. Choose your nearest location for menus, hours, and ordering details.</p>
-                <div class="hero-buttons">
-                    <a href="#" onclick="openLocationModal('order'); return false;" class="btn btn-primary">Order Online</a>
-                    <a href="#" onclick="openLocationModal('menu'); return false;" class="btn btn-gold">View Menu</a>
-                    <a href="#locations" class="btn btn-secondary">Find a Location</a>
+                <h1>Fresh Sushi in Stockton &amp; Modesto</h1>
+                <p class="hero-subtitle hero-subtitle-a">Premium sushi, sashimi, and rolls made fresh daily.</p>
+                <p class="hero-subtitle hero-subtitle-b">Order fresh sushi, sashimi, and rolls today.</p>
+                <div class="hero-buttons hero-cta">
+                    <a href="#" onclick="openLocationModal('order'); return false;" class="cta-order cta-hero" data-track="hero_order_click">Order Online</a>
+                    <a href="#" id="heroCallBtn" class="cta-call cta-hero" data-track="hero_call_click">📞 Call Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hero Section (Variant C only — location-first) -->
+        <section id="homeLocationFirst" class="hero hero-location-first" aria-label="Choose your Raw Sushi Bar location">
+            <div class="hero-bg-image" role="img" aria-label="Fresh sushi being prepared at Raw Sushi Bar"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Choose Your Raw Sushi Bar</h1>
+                <p class="hero-subtitle">Pick your location to order, call, or view the right menu.</p>
+                <div class="location-actions">
+                    <a href="/stockton.html" class="cta-order cta-hero" data-track="location_stockton_click">📍 Stockton</a>
+                    <a href="/modesto.html" class="cta-order cta-hero" data-track="location_modesto_click">📍 Modesto</a>
                 </div>
             </div>
         </section>
@@ -2255,25 +2558,39 @@
                     <p class="section-subtitle" style="color:#555;">Chef notes, dining guides, and behind-the-scenes from Stockton and Modesto.</p>
                 </div>
                 <div class="stories-grid">
-                    <a href="blog-20-years.html" class="story-card">
+                    <article class="story-card">
                         <div class="story-card-tag">Anniversary</div>
-                        <h3>Celebrating 20 Years of Raw Sushi Bar</h3>
+                        <h3><a href="blog-20-years.html" data-track="stories_card_click">20 Years of Excellence — Why Locals Keep Coming Back</a></h3>
                         <p>Two decades of fresh fish, family, and Stockton hospitality.</p>
-                        <span class="story-card-more">Read story →</span>
-                    </a>
-                    <a href="blog-nigiri-art.html" class="story-card">
+                        <a href="blog-20-years.html" class="story-card-more" data-track="stories_card_click">Read story →</a>
+                        <div class="story-actions">
+                            <a href="#" onclick="openLocationModal('order'); return false;" class="cta-small" data-track="stories_order_click">Order Now</a>
+                            <a href="#" class="cta-small-outline story-call-btn" data-track="stories_call_click">📞 Call</a>
+                        </div>
+                    </article>
+                    <article class="story-card">
                         <div class="story-card-tag">Chef's Insights</div>
-                        <h3>The Art of Nigiri: A Chef's Perspective</h3>
+                        <h3><a href="blog-nigiri-art.html" data-track="stories_card_click">The Art of Nigiri — A Chef's Perspective on Fresh Fish</a></h3>
                         <p>What it takes to shape a perfect piece of nigiri at our counter.</p>
-                        <span class="story-card-more">Read story →</span>
-                    </a>
-                    <a href="blog-sashimi-guide.html" class="story-card">
+                        <a href="blog-nigiri-art.html" class="story-card-more" data-track="stories_card_click">Read story →</a>
+                        <div class="story-actions">
+                            <a href="#" onclick="openLocationModal('order'); return false;" class="cta-small" data-track="stories_order_click">Order Now</a>
+                            <a href="#" class="cta-small-outline story-call-btn" data-track="stories_call_click">📞 Call</a>
+                        </div>
+                    </article>
+                    <article class="story-card">
                         <div class="story-card-tag">Guide</div>
-                        <h3>A Beginner's Guide to Sashimi</h3>
+                        <h3><a href="blog-sashimi-guide.html" data-track="stories_card_click">A Beginner's Guide to Sashimi — Tasting Notes from Our Chefs</a></h3>
                         <p>Cuts, pairings, and how to taste sashimi the way we serve it.</p>
-                        <span class="story-card-more">Read story →</span>
-                    </a>
+                        <a href="blog-sashimi-guide.html" class="story-card-more" data-track="stories_card_click">Read story →</a>
+                        <div class="story-actions">
+                            <a href="#" onclick="openLocationModal('order'); return false;" class="cta-small" data-track="stories_order_click">Order Now</a>
+                            <a href="#" class="cta-small-outline story-call-btn" data-track="stories_call_click">📞 Call</a>
+                        </div>
+                    </article>
                 </div>
+                <!-- Variant B only -->
+                <p class="story-cta-b">Hungry now? <a href="#" onclick="openLocationModal('order'); return false;" data-track="stories_b_order_click">Order online today</a></p>
             </div>
         </section>
 
@@ -2362,13 +2679,10 @@
         <span class="cta-icon">&#x1F6CD;&#xFE0F;</span> Order Now
     </a>
 
-    <!-- Sticky Mobile Order Bar -->
-    <div class="mobile-order-bar" aria-label="Quick order options">
-        <div class="mobile-order-bar-inner">
-            <a href="#" onclick="openLocationModal('order'); return false;" class="mob-btn mob-btn-order">Order</a>
-            <a href="#" onclick="openLocationModal('menu'); return false;" class="mob-btn mob-btn-call">Menu</a>
-            <a href="#locations" class="mob-btn mob-btn-reserve">Locations</a>
-        </div>
+    <!-- Sticky Mobile CTA Bar (Order + Call) -->
+    <div class="mobile-cta-bar" aria-label="Quick actions">
+        <a href="#" onclick="openLocationModal('order'); return false;" class="mcta-order" data-track="mobile_order_click">Order</a>
+        <a href="#" id="mobileCallBtn" class="mcta-call" data-track="mobile_call_click">📞 Call</a>
     </div>
 
     <script>
@@ -2394,14 +2708,73 @@
             this.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
         });
 
-        // Close mobile menu when clicking a link
+        // Close mobile menu when clicking a link (but NOT the Call Now button which opens dropdown)
         navLinks.querySelectorAll('a').forEach(link => {
+            if (link.id === 'callNowBtn') return;
             link.addEventListener('click', () => {
                 navLinks.classList.remove('open');
                 mobileMenuBtn.classList.remove('active');
                 mobileMenuBtn.setAttribute('aria-expanded', 'false');
             });
         });
+
+        // Call Now dropdown (desktop) / direct dial chooser (mobile)
+        (function () {
+            const callBtn = document.getElementById('callNowBtn');
+            const dropdown = document.getElementById('callDropdown');
+            const heroCallBtn = document.getElementById('heroCallBtn');
+            const mobileCallBtn = document.getElementById('mobileCallBtn');
+            const storyCallBtns = document.querySelectorAll('.story-call-btn');
+
+            function openDropdown(anchor) {
+                if (!dropdown) return;
+                // Position dropdown near the trigger if it's not the nav button
+                if (anchor && anchor !== callBtn) {
+                    const r = anchor.getBoundingClientRect();
+                    dropdown.style.position = 'fixed';
+                    dropdown.style.top = (r.bottom + 8) + 'px';
+                    dropdown.style.left = Math.max(8, Math.min(window.innerWidth - 280, r.left)) + 'px';
+                    dropdown.style.right = 'auto';
+                } else {
+                    dropdown.style.position = '';
+                    dropdown.style.top = '';
+                    dropdown.style.left = '';
+                    dropdown.style.right = '';
+                }
+                dropdown.classList.add('open');
+                if (callBtn) callBtn.setAttribute('aria-expanded', 'true');
+            }
+            function closeDropdown() {
+                if (!dropdown) return;
+                dropdown.classList.remove('open');
+                if (callBtn) callBtn.setAttribute('aria-expanded', 'false');
+            }
+            function bind(btn) {
+                if (!btn) return;
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (dropdown.classList.contains('open')) {
+                        closeDropdown();
+                    } else {
+                        openDropdown(btn);
+                    }
+                });
+            }
+            bind(callBtn);
+            bind(heroCallBtn);
+            bind(mobileCallBtn);
+            storyCallBtns.forEach(bind);
+
+            document.addEventListener('click', function (e) {
+                if (!dropdown.classList.contains('open')) return;
+                if (dropdown.contains(e.target)) return;
+                closeDropdown();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeDropdown();
+            });
+        })();
 
         // FAQ accordion
         document.querySelectorAll('.faq-question').forEach(button => {
@@ -2516,6 +2889,8 @@
     <script src="cookie-consent.js"></script>
     <!-- Analytics & Event Tracking -->
     <script src="analytics.js"></script>
+    <!-- A/B Test Framework (Variant assignment + event tracking) -->
+    <script src="ab-test.js"></script>
 </body>
 
 </html>
