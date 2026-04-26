@@ -33,6 +33,7 @@ published: false
 
 ## Loading posts
 
-Posts are rendered by `blog-posts.html` using the content loader.
-Each post URL: `/blog-posts.html?slug={post-slug}`
-Blog index: `/blog-posts.html`
+Posts are rendered as standalone articles (e.g., `blog-20-years.html`,
+`blog-nigiri-art.html`). The Stories & Insights section on `index.html` is the
+single discovery surface; there is no listing/index page (the legacy
+`blog-posts.html` route was removed).

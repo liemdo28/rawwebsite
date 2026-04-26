@@ -1256,6 +1256,85 @@
             transform: translateY(-2px);
         }
 
+        /* ===== STORIES & INSIGHTS ===== */
+        .stories-section {
+            background: var(--cream);
+            padding: 5rem 2rem;
+        }
+
+        .stories-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.75rem;
+        }
+
+        .story-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.75rem;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .story-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .story-card-tag {
+            display: inline-block;
+            align-self: flex-start;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--primary-red);
+            background: rgba(196, 30, 58, 0.08);
+            padding: 0.3rem 0.7rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+
+        .story-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            line-height: 1.35;
+            margin-bottom: 0.6rem;
+            color: var(--warm-black);
+        }
+
+        .story-card p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .story-card-more {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--primary-red);
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 900px) {
+            .stories-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .stories-grid { grid-template-columns: 1fr; }
+        }
+
         /* ===== EMAIL SIGNUP ===== */
         .signup-section {
             background: linear-gradient(135deg, var(--warm-black) 0%, #2a2522 100%);
@@ -1900,6 +1979,7 @@
     </style>
     <!-- Cookie Consent -->
     <link rel="stylesheet" href="cookie-consent.css">
+    <script src="location-phone.js" defer></script>
 </head>
 
 <body>
@@ -1937,6 +2017,7 @@
                 <li role="none"><a href="#home" role="menuitem">Home</a></li>
                 <li role="none"><a href="#" onclick="openLocationModal('menu'); return false;" role="menuitem">Menu</a></li>
                 <li role="none"><a href="#locations" role="menuitem">Locations</a></li>
+                <li role="none"><a href="#stories" role="menuitem">Stories</a></li>
                 <li role="none"><a href="#" onclick="openLocationModal('order'); return false;" class="nav-cta"
                         role="menuitem">Order Online</a></li>
             </ul>
@@ -2179,6 +2260,55 @@
                         they prepare."</p>
                     <div class="testimonial-author">Anniversary Diner</div>
                     <div class="testimonial-source">Yelp Review</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stories & Insights Section -->
+        <section id="stories" class="stories-section fade-in" aria-label="Stories and insights from Raw Sushi Bar">
+            <div class="stories-inner">
+                <div class="section-header" style="text-align:center; max-width:720px; margin:0 auto 3rem;">
+                    <span class="section-label" style="display:block; color:var(--gold); letter-spacing:3px; font-size:0.85rem; text-transform:uppercase; margin-bottom:0.75rem;">From The Restaurant</span>
+                    <h2 class="section-title" style="font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,2.75rem); color:var(--warm-black); margin-bottom:0.75rem;">Stories &amp; Insights</h2>
+                    <p class="section-subtitle" style="color:#555;">Chef notes, dining guides, and behind-the-scenes from Stockton and Modesto.</p>
+                </div>
+                <div class="stories-grid">
+                    <a href="blog-20-years.html" class="story-card">
+                        <div class="story-card-tag">Anniversary</div>
+                        <h3>Celebrating 20 Years of Raw Sushi Bar</h3>
+                        <p>Two decades of fresh fish, family, and Stockton hospitality.</p>
+                        <span class="story-card-more">Read story →</span>
+                    </a>
+                    <a href="blog-nigiri-art.html" class="story-card">
+                        <div class="story-card-tag">Chef's Insights</div>
+                        <h3>The Art of Nigiri: A Chef's Perspective</h3>
+                        <p>What it takes to shape a perfect piece of nigiri at our counter.</p>
+                        <span class="story-card-more">Read story →</span>
+                    </a>
+                    <a href="blog-sashimi-guide.html" class="story-card">
+                        <div class="story-card-tag">Guide</div>
+                        <h3>A Beginner's Guide to Sashimi</h3>
+                        <p>Cuts, pairings, and how to taste sashimi the way we serve it.</p>
+                        <span class="story-card-more">Read story →</span>
+                    </a>
+                    <a href="blog-date-night-guide.html" class="story-card">
+                        <div class="story-card-tag">Dining Experience</div>
+                        <h3>Planning the Perfect Sushi Date Night</h3>
+                        <p>How to make an evening at Raw feel effortless from the first call.</p>
+                        <span class="story-card-more">Read story →</span>
+                    </a>
+                    <a href="blog-sushi-etiquette.html" class="story-card">
+                        <div class="story-card-tag">Sushi Culture</div>
+                        <h3>Sushi Etiquette &amp; Tradition</h3>
+                        <p>Small habits at the bar that make every bite better.</p>
+                        <span class="story-card-more">Read story →</span>
+                    </a>
+                    <a href="blog-sustainability.html" class="story-card">
+                        <div class="story-card-tag">Sustainability</div>
+                        <h3>How We Source Sustainably</h3>
+                        <p>Why our fish list is shorter, fresher, and more transparent than most.</p>
+                        <span class="story-card-more">Read story →</span>
+                    </a>
                 </div>
             </div>
         </section>
