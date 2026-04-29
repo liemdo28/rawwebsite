@@ -1045,7 +1045,7 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 280px);
+            grid-auto-rows: 320px;
             gap: 1rem;
         }
 
@@ -1067,8 +1067,8 @@
             transform: scale(1.08);
         }
 
-        .gallery-item:first-child {
-            grid-row: 1 / 3;
+        .gallery-item.gallery-feature {
+            grid-column: span 2;
         }
 
         .gallery-overlay {
@@ -1947,11 +1947,10 @@
 
             .gallery-grid {
                 grid-template-columns: 1fr 1fr;
-                grid-template-rows: repeat(3, 200px);
+                grid-auto-rows: 220px;
             }
 
-            .gallery-item:first-child {
-                grid-row: auto;
+            .gallery-item.gallery-feature {
                 grid-column: 1 / -1;
             }
 
@@ -2010,6 +2009,130 @@
         }
 
         /* Lead Gen Popup Styles */
+        /* ===== ORDER / LOCATION CHOOSER MODAL (fixed: clean, dismissable, no email mixing) ===== */
+        .order-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+        }
+        .order-modal.show {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.25s ease;
+        }
+        .order-modal-content {
+            background: #fff;
+            border-radius: 14px;
+            padding: 2.25rem 2rem 1.75rem;
+            max-width: 460px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+            transform: translateY(16px);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+        }
+        .order-modal.show .order-modal-content { transform: translateY(0); }
+
+        .order-modal .modal-close {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.85rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: #f4f4f4;
+            color: #333;
+            font-size: 1.4rem;
+            line-height: 1;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, color 0.2s;
+        }
+        .order-modal .modal-close:hover {
+            background: var(--primary-red, #C41E3A);
+            color: #fff;
+        }
+        .order-modal h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            margin: 0.25rem 0 0.5rem;
+            color: var(--charcoal, #2b2b2b);
+        }
+        .order-modal > .order-modal-content > p:first-of-type {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        .order-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            margin-bottom: 1rem;
+        }
+        .order-actions a {
+            display: block;
+            padding: 0.95rem 1rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+            text-align: center;
+        }
+        .order-actions .order-primary {
+            background: var(--primary-red, #C41E3A);
+            color: #fff;
+            border: 1px solid var(--primary-red, #C41E3A);
+        }
+        .order-actions .order-primary:hover {
+            background: #a01828;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(196,30,58,0.35);
+        }
+        .order-actions .order-secondary {
+            background: #1a1a1a;
+            color: #fff;
+            border: 1px solid #1a1a1a;
+        }
+        .order-actions .order-secondary:hover {
+            background: #000;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+        }
+        .order-modal .modal-note {
+            font-size: 0.8rem;
+            color: #888;
+            margin: 0.5rem 0 1.25rem;
+            line-height: 1.5;
+        }
+        .order-modal .modal-later {
+            background: transparent;
+            border: none;
+            color: #666;
+            font-size: 0.9rem;
+            text-decoration: underline;
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+        }
+        .order-modal .modal-later:hover { color: #333; }
+
+        @media (max-width: 480px) {
+            .order-modal-content { padding: 1.75rem 1.25rem 1.25rem; }
+            .order-modal h2 { font-size: 1.4rem; }
+        }
+
         .lead-popup {
             position: fixed;
             top: 0;
@@ -2173,11 +2296,11 @@
 
             .gallery-grid {
                 grid-template-columns: 1fr;
-                grid-template-rows: repeat(4, 200px);
+                grid-auto-rows: 220px;
             }
 
-            .gallery-item:first-child {
-                grid-row: auto;
+            .gallery-item.gallery-feature {
+                grid-column: auto;
             }
 
             .story-stats {
@@ -2296,23 +2419,24 @@
         </nav>
     </header>
 
-    <!-- Location Chooser Modal -->
-    <div id="locationChooserModal" class="lead-popup">
-        <div class="popup-content" style="max-width: 450px; text-align: center;">
-            <button class="popup-close" aria-label="Close modal" onclick="closeLocationModal()">&times;</button>
-            <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; margin-top: 1rem;">Choose Your
-                Location</h2>
-            <p style="margin-bottom: 2rem; color: #666;">Please select a location to continue.</p>
+    <!-- Location Chooser Modal (rebuilt: clean, dismissable, no email mixing) -->
+    <div id="locationChooserModal" class="order-modal" role="dialog" aria-modal="true" aria-labelledby="locModalTitle" aria-hidden="true">
+        <div class="order-modal-content" role="document">
+            <button class="modal-close" aria-label="Close" onclick="closeLocationModal()">&times;</button>
 
-            <div style="display: flex; flex-direction: column; gap: 1rem;">
-                <a href="#" id="locBtnStockton" class="btn btn-primary"
-                    style="padding: 1rem; width: 100%; text-decoration: none;">&#x1F4CD; Stockton</a>
-                <a href="#" id="locBtnModesto" class="btn btn-secondary"
-                    style="padding: 1rem; width: 100%; border: 2px solid var(--primary-red); color: var(--primary-red); text-decoration: none;">&#x1F4CD;
-                    Modesto</a>
+            <h2 id="locModalTitle">Choose Your Location</h2>
+            <p>Select a location to order or call.</p>
+
+            <div class="order-actions">
+                <a id="locBtnStockton" class="order-primary" href="#" data-track="modal_action_stockton">📍 Order Online — Stockton</a>
+                <a id="locBtnModesto" class="order-secondary" href="#" data-track="modal_action_modesto">📍 Call to Order — Modesto</a>
             </div>
-            <p style="margin-top: 1rem; font-size: 0.8rem; color: #888;">Note: Online ordering is currently only
-                available for our Stockton location.</p>
+
+            <p class="modal-note" id="locModalNote">
+                Online ordering is currently available for Stockton. For Modesto, please call to order.
+            </p>
+
+            <button class="modal-later" type="button" onclick="closeLocationModal()" data-track="modal_maybe_later">Maybe Later</button>
         </div>
     </div>
 
@@ -2425,46 +2549,33 @@
                 <p class="section-subtitle">Fresh, handcrafted dishes that keep our guests coming back</p>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://static.wixstatic.com/media/a8971f_ea6b5008fe434ac3a5d4b665cbfd668a~mv2.jpg/v1/fill/w_800,h_560,al_c,q_90/sushi-rolls.jpg"
-                        alt="Signature sushi rolls at Raw Sushi Bar" loading="lazy" width="800"
-                        height="560">
+                <!-- Featured: signature rolls (sushi close-up) -->
+                <div class="gallery-item gallery-feature">
+                    <img src="https://static.wixstatic.com/media/a8971f_ea6b5008fe434ac3a5d4b665cbfd668a~mv2.jpg/v1/fill/w_1200,h_640,al_c,q_90/sushi-rolls.jpg"
+                        alt="Signature sushi rolls at Raw Sushi Bar" loading="lazy" width="1200"
+                        height="640">
                     <div class="gallery-overlay">
                         <h3>Signature Rolls</h3>
                         <p>Creative house specialties handcrafted daily</p>
                     </div>
                 </div>
+                <!-- Sashimi / nigiri close-up -->
                 <div class="gallery-item">
-                    <img src="https://static.wixstatic.com/media/a8971f_1628bca31c244ee2b1db9119146687d9~mv2.jpg/v1/fill/w_600,h_280,al_c,q_90/nigiri-craft.jpg"
+                    <img src="https://static.wixstatic.com/media/a8971f_1628bca31c244ee2b1db9119146687d9~mv2.jpg/v1/fill/w_600,h_320,al_c,q_90/nigiri-craft.jpg"
                         alt="Fresh sashimi and nigiri at Raw Sushi Bar" loading="lazy" width="600"
-                        height="280">
+                        height="320">
                     <div class="gallery-overlay">
                         <h3>Sashimi &amp; Nigiri</h3>
                         <p>Premium cuts of the freshest fish</p>
                     </div>
                 </div>
+                <!-- Restaurant ambiance / interior -->
                 <div class="gallery-item">
-                    <img src="https://static.wixstatic.com/media/a8971f_1628bca31c244ee2b1db9119146687d9~mv2.jpg/v1/fill/w_600,h_280,al_c,q_90/nigiri-craft.jpg"
-                        alt="Chef-crafted sushi platter at Raw Sushi Bar" loading="lazy" width="600" height="280">
-                    <div class="gallery-overlay">
-                        <h3>Sushi Combos</h3>
-                        <p>Perfect platters for sharing or solo dining</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://static.wixstatic.com/media/401243_3c19e7949cf1ce7750d019eee206e440.jpg/v1/fill/w_600,h_280,al_c,q_90/ambiance.jpg"
-                        alt="Warm dining atmosphere at Raw Sushi Bar" loading="lazy" width="600" height="280">
+                    <img src="https://static.wixstatic.com/media/401243_3c19e7949cf1ce7750d019eee206e440.jpg/v1/fill/w_600,h_320,al_c,q_90/ambiance.jpg"
+                        alt="Warm dining atmosphere at Raw Sushi Bar" loading="lazy" width="600" height="320">
                     <div class="gallery-overlay">
                         <h3>Dine-In Ambiance</h3>
                         <p>A welcoming space for every occasion</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://static.wixstatic.com/media/a8971f_ea6b5008fe434ac3a5d4b665cbfd668a~mv2.jpg/v1/fill/w_600,h_280,al_c,q_90/plating.jpg"
-                        alt="Artfully plated sushi at Raw Sushi Bar" loading="lazy" width="600" height="280">
-                    <div class="gallery-overlay">
-                        <h3>Artful Presentation</h3>
-                        <p>Every dish is a work of art</p>
                     </div>
                 </div>
             </div>
@@ -2847,43 +2958,88 @@
         });
 
         // Location Chooser Logic
+        // ===== Order / Location Chooser Modal =====
+        var __lastFocusedBeforeModal = null;
+
         function openLocationModal(action, targetSection = '') {
             const modal = document.getElementById('locationChooserModal');
             const stBtn = document.getElementById('locBtnStockton');
             const moBtn = document.getElementById('locBtnModesto');
+            const note = document.getElementById('locModalNote');
 
             if (action === 'menu') {
                 stBtn.href = 'menu-stockton.html' + targetSection;
-                stBtn.innerHTML = '&#x1F4CD; Stockton Menu';
+                stBtn.innerHTML = '📍 Stockton Menu';
                 stBtn.target = '_self';
 
                 moBtn.href = 'menu-modesto.html' + targetSection;
-                moBtn.innerHTML = '&#x1F4CD; Modesto Menu';
+                moBtn.innerHTML = '📍 Modesto Menu';
                 moBtn.target = '_self';
+
+                if (note) note.textContent = 'Choose a location to view its full menu.';
             } else if (action === 'order') {
                 stBtn.href = 'https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d';
-                stBtn.innerHTML = '&#x1F4CD; Order Online (Stockton)';
+                stBtn.innerHTML = '📍 Order Online — Stockton';
                 stBtn.target = '_blank';
+                stBtn.rel = 'noopener';
 
-                moBtn.href = 'tel:2095669560';
-                moBtn.innerHTML = '&#x1F4CD; Call to Order (Modesto)';
+                moBtn.href = 'tel:+12095669560';
+                moBtn.innerHTML = '📞 Call to Order — Modesto';
                 moBtn.target = '_self';
+
+                if (note) note.textContent = 'Online ordering is currently available for Stockton. For Modesto, please call to order.';
             } else if (action === 'reserve') {
-                stBtn.href = 'tel:2099549729';
-                stBtn.innerHTML = '&#x1F4CD; Call to Reserve (Stockton)';
+                stBtn.href = 'tel:+12099549729';
+                stBtn.innerHTML = '📞 Call to Reserve — Stockton';
                 stBtn.target = '_self';
 
-                moBtn.href = 'tel:2095669560';
-                moBtn.innerHTML = '&#x1F4CD; Call to Reserve (Modesto)';
+                moBtn.href = 'tel:+12095669560';
+                moBtn.innerHTML = '📞 Call to Reserve — Modesto';
                 moBtn.target = '_self';
+
+                if (note) note.textContent = 'Reservations are taken by phone — call your closest location.';
             }
 
+            __lastFocusedBeforeModal = document.activeElement;
             modal.classList.add('show');
+            modal.setAttribute('aria-hidden', 'false');
+            // Focus close button for keyboard users
+            setTimeout(function () {
+                var closeBtn = modal.querySelector('.modal-close');
+                if (closeBtn) closeBtn.focus();
+            }, 50);
         }
 
         function closeLocationModal() {
-            document.getElementById('locationChooserModal').classList.remove('show');
+            const modal = document.getElementById('locationChooserModal');
+            if (!modal) return;
+            modal.classList.remove('show');
+            modal.setAttribute('aria-hidden', 'true');
+            // Restore focus
+            if (__lastFocusedBeforeModal && typeof __lastFocusedBeforeModal.focus === 'function') {
+                try { __lastFocusedBeforeModal.focus(); } catch (e) { /* ignore */ }
+            }
         }
+
+        // Dismiss handlers — ESC + click outside content
+        (function () {
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' || e.key === 'Esc') {
+                    var modal = document.getElementById('locationChooserModal');
+                    if (modal && modal.classList.contains('show')) {
+                        closeLocationModal();
+                    }
+                }
+            });
+            document.addEventListener('click', function (e) {
+                var modal = document.getElementById('locationChooserModal');
+                if (!modal || !modal.classList.contains('show')) return;
+                // Click on the backdrop itself (not on the inner content) closes
+                if (e.target === modal) {
+                    closeLocationModal();
+                }
+            });
+        })();
     </script>
     <!-- Cookie Consent -->
     <script src="cookie-consent.js"></script>
