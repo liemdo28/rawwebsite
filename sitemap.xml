@@ -201,4 +201,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <!-- Story: Summer Sushi -->
+  <url>
+    <loc>https://www.rawsushibar.com/blog-summer-sushi.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
