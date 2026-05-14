@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bảng Chi Tiêu & Chia Tiền Nhóm</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      color: #1a202c;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+      color: white;
+      padding: 24px 32px;
+      text-align: center;
+    }
+    header h1 { font-size: 1.8rem; font-weight: 700; }
+    header p { margin-top: 6px; opacity: 0.75; font-size: 0.95rem; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 28px 16px; }
+
+    /* ── Group summary cards ── */
+    .group-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .group-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border-top: 4px solid var(--color);
+      text-align: center;
+    }
+    .group-card h3 { font-size: 1rem; font-weight: 600; color: var(--color); margin-bottom: 8px; }
+    .group-card .paid { font-size: 1.6rem; font-weight: 700; color: #2d3748; }
+    .group-card .label { font-size: 0.78rem; color: #718096; margin-top: 4px; }
+    .group-card .balance-tag {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .tag-receive { background: #c6f6d5; color: #276749; }
+    .tag-pay    { background: #fed7d7; color: #9b2c2c; }
+    .tag-even   { background: #e2e8f0; color: #4a5568; }
+
+    /* ── Add expense form ── */
+    .form-card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin-bottom: 28px;
+    }
+    .form-card h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; color: #2d3748; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 2fr 1.2fr 1fr 1.2fr auto;
+      gap: 10px;
+      align-items: end;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #4a5568;
+      margin-bottom: 5px;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus { border-color: #667eea; }
+
+    .btn-add {
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background .2s;
+    }
+    .btn-add:hover { background: #5a67d8; }
+
+    /* ── Expense table ── */
+    .table-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin-bottom: 28px;
+      overflow: hidden;
+    }
+    .table-card h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #2d3748;
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    thead tr { background: #f7fafc; }
+    th {
+      padding: 11px 16px;
+      text-align: left;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #718096;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    td {
+      padding: 12px 16px;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #f0f4f8;
+      vertical-align: middle;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f7fafc; }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: var(--color);
+      color: white;
+    }
+    .cat-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: #edf2f7;
+      color: #4a5568;
+    }
+    .amount { font-weight: 700; color: #2d3748; }
+
+    .btn-del {
+      background: none;
+      border: none;
+      color: #fc8181;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 2px 6px;
+      border-radius: 4px;
+      transition: background .15s;
+    }
+    .btn-del:hover { background: #fff5f5; }
+
+    .no-data { text-align: center; color: #a0aec0; padding: 40px; font-size: 0.95rem; }
+
+    /* ── Settlement section ── */
+    .settle-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+    .settle-card h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #2d3748;
+      margin-bottom: 16px;
+    }
+    .settle-list { display: flex; flex-direction: column; gap: 10px; }
+    .settle-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      border-radius: 10px;
+      background: #f7fafc;
+      border-left: 4px solid var(--color);
+    }
+    .settle-item .arrow { font-size: 1.2rem; }
+    .settle-item .from { font-weight: 700; }
+    .settle-item .to   { font-weight: 700; }
+    .settle-item .amt  { margin-left: auto; font-weight: 700; font-size: 1.05rem; color: #2d3748; }
+    .no-settle { text-align: center; color: #48bb78; font-weight: 600; padding: 20px; }
+
+    /* ── Totals bar ── */
+    .totals-bar {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .total-box {
+      flex: 1;
+      background: white;
+      border-radius: 12px;
+      padding: 18px 22px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .total-box .val { font-size: 1.5rem; font-weight: 700; color: #667eea; }
+    .total-box .lbl { font-size: 0.8rem; color: #718096; margin-top: 4px; }
+
+    /* Color theme per group */
+    .g1 { --color: #667eea; }
+    .g2 { --color: #48bb78; }
+    .g3 { --color: #ed8936; }
+
+    @media (max-width: 768px) {
+      .group-cards { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .totals-bar { flex-direction: column; }
+      table { font-size: 0.82rem; }
+      th, td { padding: 10px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🧾 Bảng Chi Tiêu & Chia Tiền Nhóm</h1>
+  <p>Theo dõi chi phí · Chia đều cuối chuyến · 3 nhóm</p>
+</header>
+
+<div class="container">
+
+  <!-- Group cards -->
+  <div class="group-cards" id="groupCards"></div>
+
+  <!-- Totals bar -->
+  <div class="totals-bar">
+    <div class="total-box">
+      <div class="val" id="totalSpend">0 đ</div>
+      <div class="lbl">Tổng chi tiêu</div>
+    </div>
+    <div class="total-box">
+      <div class="val" id="perGroupShare">0 đ</div>
+      <div class="lbl">Mỗi nhóm phải trả (chia đều)</div>
+    </div>
+    <div class="total-box">
+      <div class="val" id="totalItems">0</div>
+      <div class="lbl">Số khoản chi</div>
+    </div>
+  </div>
+
+  <!-- Add expense form -->
+  <div class="form-card">
+    <h2>➕ Thêm khoản chi</h2>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Tên khoản chi</label>
+        <input type="text" id="fName" placeholder="VD: Tiền phòng, Ăn tối, Xăng xe…" />
+      </div>
+      <div class="form-group">
+        <label>Danh mục</label>
+        <select id="fCategory">
+          <option value="🏨 Lưu trú">🏨 Lưu trú</option>
+          <option value="🍜 Ăn uống">🍜 Ăn uống</option>
+          <option value="🚗 Di chuyển">🚗 Di chuyển</option>
+          <option value="🎡 Vui chơi">🎡 Vui chơi</option>
+          <option value="🛒 Mua sắm">🛒 Mua sắm</option>
+          <option value="💊 Y tế">💊 Y tế</option>
+          <option value="📦 Khác">📦 Khác</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Số tiền (VNĐ)</label>
+        <input type="number" id="fAmount" placeholder="100000" min="0" step="1000" />
+      </div>
+      <div class="form-group">
+        <label>Nhóm trả</label>
+        <select id="fGroup">
+          <option value="1">Nhóm 1</option>
+          <option value="2">Nhóm 2</option>
+          <option value="3">Nhóm 3</option>
+        </select>
+      </div>
+      <button class="btn-add" onclick="addExpense()">Thêm</button>
+    </div>
+  </div>
+
+  <!-- Expense table -->
+  <div class="table-card">
+    <h2>📋 Chi tiết khoản chi</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Tên khoản chi</th>
+          <th>Danh mục</th>
+          <th>Nhóm trả</th>
+          <th>Số tiền</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="expenseBody"></tbody>
+    </table>
+    <div id="noData" class="no-data">Chưa có khoản chi nào. Hãy thêm ở trên! 👆</div>
+  </div>
+
+  <!-- Settlement -->
+  <div class="settle-card">
+    <h2>💸 Quyết toán cuối chuyến</h2>
+    <div class="settle-list" id="settlementList"></div>
+    <div id="noSettle" class="no-settle" style="display:none">✅ Các nhóm đã cân bằng, không cần chuyển tiền!</div>
+  </div>
+
+</div>
+
+<script>
+  const GROUPS = {
+    1: { name: 'Nhóm 1', cls: 'g1', color: '#667eea' },
+    2: { name: 'Nhóm 2', cls: 'g2', color: '#48bb78' },
+    3: { name: 'Nhóm 3', cls: 'g3', color: '#ed8936' },
+  };
+
+  let expenses = JSON.parse(localStorage.getItem('expenses') || '[]');
+
+  function fmt(n) {
+    return n.toLocaleString('vi-VN') + ' đ';
+  }
+
+  function save() {
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+  }
+
+  function addExpense() {
+    const name   = document.getElementById('fName').value.trim();
+    const cat    = document.getElementById('fCategory').value;
+    const amount = parseInt(document.getElementById('fAmount').value) || 0;
+    const group  = parseInt(document.getElementById('fGroup').value);
+
+    if (!name) { alert('Vui lòng nhập tên khoản chi.'); return; }
+    if (amount <= 0) { alert('Vui lòng nhập số tiền hợp lệ.'); return; }
+
+    expenses.push({ id: Date.now(), name, cat, amount, group });
+    save();
+    document.getElementById('fName').value   = '';
+    document.getElementById('fAmount').value = '';
+    render();
+  }
+
+  function deleteExpense(id) {
+    expenses = expenses.filter(e => e.id !== id);
+    save();
+    render();
+  }
+
+  function render() {
+    renderTable();
+    renderGroupCards();
+    renderTotals();
+    renderSettlement();
+  }
+
+  function renderTable() {
+    const body   = document.getElementById('expenseBody');
+    const noData = document.getElementById('noData');
+    body.innerHTML = '';
+
+    if (expenses.length === 0) {
+      noData.style.display = 'block';
+      return;
+    }
+    noData.style.display = 'none';
+
+    expenses.forEach((e, i) => {
+      const g = GROUPS[e.group];
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td style="color:#a0aec0;font-size:.85rem">${i + 1}</td>
+        <td><strong>${e.name}</strong></td>
+        <td><span class="cat-badge">${e.cat}</span></td>
+        <td><span class="badge ${g.cls}" style="background:${g.color}">${g.name}</span></td>
+        <td class="amount">${fmt(e.amount)}</td>
+        <td><button class="btn-del" onclick="deleteExpense(${e.id})" title="Xoá">✕</button></td>
+      `;
+      body.appendChild(tr);
+    });
+  }
+
+  function paidByGroup() {
+    const paid = { 1: 0, 2: 0, 3: 0 };
+    expenses.forEach(e => paid[e.group] += e.amount);
+    return paid;
+  }
+
+  function renderGroupCards() {
+    const paid  = paidByGroup();
+    const total = Object.values(paid).reduce((a, b) => a + b, 0);
+    const share = Math.round(total / 3);
+    const el    = document.getElementById('groupCards');
+    el.innerHTML = '';
+
+    [1, 2, 3].forEach(g => {
+      const diff    = paid[g] - share;          // positive = should receive, negative = should pay
+      const tagCls  = diff > 0 ? 'tag-receive' : diff < 0 ? 'tag-pay' : 'tag-even';
+      const tagTxt  = diff > 0
+        ? `Được nhận lại ${fmt(diff)}`
+        : diff < 0
+          ? `Cần trả thêm ${fmt(-diff)}`
+          : 'Cân bằng ✓';
+      const gInfo = GROUPS[g];
+      el.innerHTML += `
+        <div class="group-card ${gInfo.cls}" style="--color:${gInfo.color}">
+          <h3>${gInfo.name}</h3>
+          <div class="paid">${fmt(paid[g])}</div>
+          <div class="label">Đã chi thực tế</div>
+          <span class="balance-tag ${tagCls}">${tagTxt}</span>
+        </div>
+      `;
+    });
+  }
+
+  function renderTotals() {
+    const total = expenses.reduce((s, e) => s + e.amount, 0);
+    document.getElementById('totalSpend').textContent   = fmt(total);
+    document.getElementById('perGroupShare').textContent = fmt(Math.round(total / 3));
+    document.getElementById('totalItems').textContent   = expenses.length;
+  }
+
+  function renderSettlement() {
+    const paid  = paidByGroup();
+    const total = Object.values(paid).reduce((a, b) => a + b, 0);
+    const share = Math.round(total / 3);
+
+    // balance[g] > 0  → owed to them;  < 0 → they owe others
+    const balance = { 1: paid[1] - share, 2: paid[2] - share, 3: paid[3] - share };
+
+    const transactions = [];
+    const bal = { ...balance };
+
+    // Greedy settle algorithm
+    for (let iter = 0; iter < 10; iter++) {
+      const creditors = Object.entries(bal).filter(([, v]) => v > 1).sort((a, b) => b[1] - a[1]);
+      const debtors   = Object.entries(bal).filter(([, v]) => v < -1).sort((a, b) => a[1] - b[1]);
+      if (!creditors.length || !debtors.length) break;
+
+      const [cg, cv] = creditors[0];
+      const [dg, dv] = debtors[0];
+      const amount   = Math.min(cv, -dv);
+
+      transactions.push({ from: parseInt(dg), to: parseInt(cg), amount });
+      bal[cg] -= amount;
+      bal[dg] += amount;
+    }
+
+    const list    = document.getElementById('settlementList');
+    const noSettle = document.getElementById('noSettle');
+    list.innerHTML = '';
+
+    if (transactions.length === 0) {
+      list.style.display  = 'none';
+      noSettle.style.display = 'block';
+      return;
+    }
+    list.style.display  = 'flex';
+    noSettle.style.display = 'none';
+
+    transactions.forEach(t => {
+      const fromG = GROUPS[t.from];
+      const toG   = GROUPS[t.to];
+      const div = document.createElement('div');
+      div.className = `settle-item ${fromG.cls}`;
+      div.style.setProperty('--color', fromG.color);
+      div.innerHTML = `
+        <span class="from" style="color:${fromG.color}">${fromG.name}</span>
+        <span class="arrow">→</span>
+        <span class="to" style="color:${toG.color}">${toG.name}</span>
+        <span class="amt">${fmt(t.amount)}</span>
+      `;
+      list.appendChild(div);
+    });
+  }
+
+  // Enter key support
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && document.activeElement.closest('.form-card')) addExpense();
+  });
+
+  render();
+</script>
+</body>
+</html>
