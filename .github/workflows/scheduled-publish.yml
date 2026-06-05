@@ -22,12 +22,9 @@ jobs:
         id: vars
         shell: bash
         run: |
-          INPUT_URL="${{ github.event.inputs.preview_url }}"
           PREVIEW_URL="${{ vars.RAWWEBSITE_PREVIEW_URL }}"
           FALLBACK_URL="https://7c7a9769.rawwebsite.pages.dev"
-          if [ -n "$INPUT_URL" ]; then
-            URL="$INPUT_URL"
-          elif [ -n "$PREVIEW_URL" ]; then
+          if [ -n "$PREVIEW_URL" ]; then
             URL="$PREVIEW_URL"
           else
             URL="$FALLBACK_URL"
