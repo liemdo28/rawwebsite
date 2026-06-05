@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Raw Sushi Bar — Agent-coding Admin</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23C41E3A'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-weight='bold' font-size='20' fill='%23fff'%3ER%%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --primary-red: #C41E3A;
+      --deep-red: #a01829;
+      --warm-black: #1a1a1a;
+      --charcoal: #2b2b2b;
+      --warm-gray: #3d3a38;
+      --cream: #faf8f5;
+      --warm-cream: #f5f0ea;
+      --gold: #d4af37;
+      --white: #ffffff;
+      --text-dark: #2c2824;
+      --text-medium: #5a544e;
+      --text-light: #8a847e;
+      --success: #2f7a3d;
+      --warning: #b56b1d;
+      --danger:  #b03030;
+      --border: #e2dcd2;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text-dark);
+      background: var(--cream);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+    a { color: var(--primary-red); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+    .app { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+    .sidebar {
+      background: var(--warm-black);
+      color: var(--white);
+      padding: 1.5rem 1rem;
+      position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    }
+    .sidebar h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.05rem; color: var(--gold);
+      margin-bottom: 0.25rem; letter-spacing: 1px;
+    }
+    .sidebar .subtitle { font-size: 0.75rem; opacity: 0.7; margin-bottom: 1.5rem; }
+    .nav { list-style: none; }
+    .nav li { margin: 0; }
+    .nav button {
+      width: 100%;
+      text-align: left;
+      background: none; border: none; color: rgba(255,255,255,0.85);
+      padding: 0.6rem 0.75rem; font-size: 0.9rem; cursor: pointer; border-radius: 6px;
+      transition: background 0.15s ease;
+    }
+    .nav button:hover { background: rgba(255,255,255,0.08); color: var(--gold); }
+    .nav button.active { background: var(--primary-red); color: var(--white); }
+    .sidebar .footer { font-size: 0.7rem; opacity: 0.5; margin-top: 2rem; }
+
+    main { padding: 2rem 2.5rem; max-width: 1200px; }
+    main h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.8rem; margin-bottom: 0.5rem;
+    }
+    main .lead { color: var(--text-medium); margin-bottom: 1.5rem; }
+
+    .panel { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; }
+    .panel h3 { font-size: 1.05rem; margin-bottom: 0.75rem; font-family: 'Inter', sans-serif; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+    @media (max-width: 900px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+    .field { margin-bottom: 0.85rem; }
+    .field label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.25rem; color: var(--text-medium); text-transform: uppercase; letter-spacing: 0.5px; }
+    .field input, .field textarea, .field select {
+      width: 100%; padding: 0.55rem 0.7rem; border: 1px solid var(--border); border-radius: 6px;
+      font: inherit; color: inherit; background: var(--white);
+    }
+    .field textarea { min-height: 140px; font-family: inherit; }
+    .field-row { display: flex; gap: 0.75rem; }
+    .field-row > .field { flex: 1; }
+
+    .btn {
+      padding: 0.55rem 1.1rem; border-radius: 6px; border: 1px solid var(--border);
+      background: var(--white); color: var(--text-dark); cursor: pointer; font: inherit; font-weight: 500;
+      transition: all 0.15s ease; display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    .btn:hover { background: var(--warm-cream); }
+    .btn-primary { background: var(--primary-red); color: var(--white); border-color: var(--primary-red); }
+    .btn-primary:hover { background: var(--deep-red); }
+    .btn-gold { background: var(--gold); color: var(--warm-black); border-color: var(--gold); }
+    .btn-danger { background: var(--danger); color: var(--white); border-color: var(--danger); }
+    .btn-sm { padding: 0.3rem 0.7rem; font-size: 0.8rem; }
+
+    .badge { display: inline-block; padding: 0.15rem 0.55rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+    .badge-draft { background: #e0d8c8; color: var(--text-dark); }
+    .badge-pending_review, .badge-pending { background: #f3d8a4; color: #6b4a17; }
+    .badge-approved, .badge-succeeded { background: #c8e6c9; color: var(--success); }
+    .badge-scheduled { background: #c5d8f7; color: #1f3d77; }
+    .badge-published { background: #d8e9d2; color: var(--success); }
+    .badge-rejected, .badge-failed { background: #f3c0c0; color: var(--danger); }
+    .badge-running { background: #fff3c0; color: var(--warning); }
+    .badge-queued { background: #e2e2e2; color: var(--text-medium); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { padding: 0.6rem 0.7rem; text-align: left; border-bottom: 1px solid var(--border); }
+    th { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-medium); font-weight: 700; }
+    tr:hover { background: var(--cream); }
+    .row-actions { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+    .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    @media (max-width: 900px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } }
+    .stat { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; }
+    .stat .num { font-family: 'Playfair Display', Georgia, serif; font-size: 1.8rem; color: var(--primary-red); }
+    .stat .lbl { font-size: 0.7rem; color: var(--text-medium); text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .toast-wrap { position: fixed; right: 1.5rem; bottom: 1.5rem; z-index: 9999; display: flex; flex-direction: column; gap: 0.5rem; }
+    .toast { padding: 0.7rem 1rem; border-radius: 6px; font-size: 0.85rem; max-width: 360px; box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+    .toast-success { background: #d8e9d2; color: var(--success); }
+    .toast-error { background: #f3c0c0; color: var(--danger); }
+    .toast-info { background: #c5d8f7; color: #1f3d77; }
+
+    .auth-bar {
+      background: var(--warm-cream); padding: 0.75rem 1rem; border-radius: 8px;
+      margin-bottom: 1.5rem; display: flex; gap: 0.75rem; align-items: center;
+    }
+    .auth-bar input { flex: 1; max-width: 360px; }
+
+    .empty { color: var(--text-light); font-style: italic; padding: 2rem 0; text-align: center; }
+
+    pre.json { background: var(--warm-cream); padding: 0.75rem; border-radius: 6px; font-size: 0.78rem; overflow-x: auto; max-height: 240px; }
+
+    .view { display: none; }
+    .view.active { display: block; }
+  </style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <h1>Raw Sushi Bar</h1>
+    <div class="subtitle">Agent-coding Admin</div>
+    <ul class="nav" id="nav">
+      <li><button data-view="dashboard" class="active">Dashboard</button></li>
+      <li><button data-view="posts">Posts</button></li>
+      <li><button data-view="calendar">Calendar</button></li>
+      <li><button data-view="media">Media</button></li>
+      <li><button data-view="menu">Menu</button></li>
+      <li><button data-view="agent">Agent-coding</button></li>
+      <li><button data-view="audit">Audit Log</button></li>
+      <li><button data-view="settings">Settings</button></li>
+    </ul>
+    <div class="footer">v0.1.0 · Cloudflare Pages Functions</div>
+  </aside>
+
+  <main>
+    <div class="auth-bar">
+      <label for="apiBase" style="font-size:0.8rem;font-weight:600;color:var(--text-medium);">API base</label>
+      <input id="apiBase" placeholder="/api" value="/api">
+      <label for="adminToken" style="font-size:0.8rem;font-weight:600;color:var(--text-medium);">Admin token</label>
+      <input id="adminToken" type="password" placeholder="Bearer RAWWEBSITE_ADMIN_SECRET">
+      <button class="btn btn-primary btn-sm" id="saveAuthBtn">Save</button>
+    </div>
+
+    <!-- DASHBOARD -->
+    <section class="view active" data-view="dashboard">
+      <h2>Dashboard</h2>
+      <p class="lead">Bridge health, last sync, and quick actions.</p>
+      <div class="stat-grid" id="dashStats"></div>
+      <div class="panel">
+        <h3>Last 10 jobs</h3>
+        <table>
+          <thead><tr><th>Command</th><th>Status</th><th>Created</th><th>Completed</th><th>Error</th></tr></thead>
+          <tbody id="dashJobs"></tbody>
+        </table>
+      </div>
+      <div class="panel">
+        <h3>Agent-coding connection</h3>
+        <pre class="json" id="dashAgent"></pre>
+      </div>
+    </section>
+
+    <!-- POSTS -->
+    <section class="view" data-view="posts">
+      <h2>Posts</h2>
+      <p class="lead">Create, approve, schedule, and publish blog posts.</p>
+      <div class="panel">
+        <h3>New post</h3>
+        <div class="field-row">
+          <div class="field"><label>Title</label><input id="newPostTitle"></div>
+          <div class="field"><label>Slug</label><input id="newPostSlug" placeholder="my-post-slug"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Location</label>
+            <select id="newPostLocation">
+              <option value="raw_stockton">Stockton</option>
+              <option value="raw_modesto">Modesto</option>
+            </select>
+          </div>
+          <div class="field"><label>Primary keyword</label><input id="newPostKw"></div>
+          <div class="field"><label>CTA URL</label><input id="newPostCtaUrl" placeholder="https://..."></div>
+        </div>
+        <div class="field"><label>Excerpt</label><input id="newPostExcerpt"></div>
+        <div class="field"><label>Body (markdown)</label><textarea id="newPostBody"></textarea></div>
+        <div class="row-actions">
+          <button class="btn" id="scorePostBtn">Score against policy</button>
+          <button class="btn btn-primary" id="createPostBtn">Create draft</button>
+        </div>
+        <pre class="json" id="newPostScore" style="display:none"></pre>
+      </div>
+
+      <div class="panel">
+        <h3>All posts</h3>
+        <table>
+          <thead><tr><th>Title</th><th>Slug</th><th>Location</th><th>Status</th><th>Score</th><th>Updated</th><th>Actions</th></tr></thead>
+          <tbody id="postsTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CALENDAR -->
+    <section class="view" data-view="calendar">
+      <h2>Calendar</h2>
+      <p class="lead">Posts grouped by publish date.</p>
+      <div class="panel">
+        <h3>Scheduled</h3>
+        <table>
+          <thead><tr><th>Title</th><th>Publish at</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="calScheduled"></tbody>
+        </table>
+      </div>
+      <div class="panel">
+        <h3>Recently published</h3>
+        <table>
+          <thead><tr><th>Title</th><th>Published at</th><th>Status</th></tr></thead>
+          <tbody id="calPublished"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- MEDIA -->
+    <section class="view" data-view="media">
+      <h2>Media</h2>
+      <p class="lead">Upload images and manage the media library.</p>
+      <div class="panel">
+        <h3>Upload</h3>
+        <div class="field"><label>Image file</label><input type="file" id="mediaFile" accept="image/*"></div>
+        <div class="field"><label>Alt text (required)</label><input id="mediaAlt" placeholder="Short description for screen readers"></div>
+        <div class="field"><label>Source</label><input id="mediaSource" value="admin"></div>
+        <div class="row-actions">
+          <button class="btn btn-primary" id="mediaUploadBtn">Upload</button>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Library</h3>
+        <div id="mediaGrid" class="grid-3"></div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="view" data-view="menu">
+      <h2>Menu</h2>
+      <p class="lead">Edit menu categories and items per location.</p>
+      <div class="panel">
+        <h3>Categories</h3>
+        <table>
+          <thead><tr><th>Name</th><th>Location</th><th>Sort</th><th>Active</th><th>Actions</th></tr></thead>
+          <tbody id="catTable"></tbody>
+        </table>
+        <h3 style="margin-top:1rem;">Add category</h3>
+        <div class="field-row">
+          <div class="field"><label>Name</label><input id="newCatName"></div>
+          <div class="field"><label>Location</label>
+            <select id="newCatLocation"><option value="raw_stockton">Stockton</option><option value="raw_modesto">Modesto</option></select>
+          </div>
+          <div class="field"><label>Sort</label><input id="newCatSort" type="number" value="0"></div>
+          <div class="field" style="display:flex;align-items:flex-end;"><button class="btn btn-primary" id="addCatBtn">Add</button></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Items</h3>
+        <table>
+          <thead><tr><th>Name</th><th>Location</th><th>Price</th><th>Active</th><th>Actions</th></tr></thead>
+          <tbody id="itemTable"></tbody>
+        </table>
+        <h3 style="margin-top:1rem;">Add item</h3>
+        <div class="field-row">
+          <div class="field"><label>Name</label><input id="newItemName"></div>
+          <div class="field"><label>Location</label>
+            <select id="newItemLocation"><option value="raw_stockton">Stockton</option><option value="raw_modesto">Modesto</option></select>
+          </div>
+          <div class="field"><label>Price</label><input id="newItemPrice" type="number" step="0.01"></div>
+          <div class="field" style="display:flex;align-items:flex-end;"><button class="btn btn-primary" id="addItemBtn">Add</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AGENT -->
+    <section class="view" data-view="agent">
+      <h2>Agent-coding</h2>
+      <p class="lead">Connection status, last 20 jobs, and a manual sync button.</p>
+      <div class="panel">
+        <h3>Connection</h3>
+        <pre class="json" id="agentConn"></pre>
+        <div class="row-actions">
+          <button class="btn btn-primary" id="agentSyncBtn">Trigger site.sync</button>
+          <button class="btn" id="agentRefreshBtn">Refresh</button>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Recent jobs</h3>
+        <table>
+          <thead><tr><th>Command</th><th>Status</th><th>Created</th><th>Error</th></tr></thead>
+          <tbody id="agentJobs"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- AUDIT -->
+    <section class="view" data-view="audit">
+      <h2>Audit Log</h2>
+      <p class="lead">Every state-changing action is recorded here.</p>
+      <div class="panel">
+        <table>
+          <thead><tr><th>When</th><th>Actor</th><th>Action</th><th>Target</th></tr></thead>
+          <tbody id="auditTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="view" data-view="settings">
+      <h2>Settings</h2>
+      <p class="lead">Bridge configuration and policy score preview.</p>
+      <div class="panel">
+        <h3>Bridge configuration</h3>
+        <pre class="json" id="settingsConfig"></pre>
+      </div>
+      <div class="panel">
+        <h3>Raw status response</h3>
+        <pre class="json" id="settingsStatus"></pre>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="toast-wrap" id="toasts"></div>
+
+<script>
+/* ───────────────────────── Admin SPA ───────────────────────── */
+const $ = (sel) => document.querySelector(sel);
+const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
+const STORAGE_KEY = 'rawwebsite_admin_auth';
+function getAuth() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+  catch { return {}; }
+}
+function setAuth(v) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(v));
+  toast('info', 'Auth saved');
+}
+
+function toast(kind, msg) {
+  const t = document.createElement('div');
+  t.className = 'toast toast-' + kind;
+  t.textContent = msg;
+  $('#toasts').appendChild(t);
+  setTimeout(() => t.remove(), 4500);
+}
+
+async function api(path, opts = {}) {
+  const auth = getAuth();
+  const base = (auth.apiBase || '/api').replace(/\/+$/, '');
+  const headers = { ...(opts.headers || {}) };
+  if (auth.token) headers['Authorization'] = 'Bearer ' + auth.token;
+  if (opts.json) {
+    headers['Content-Type'] = 'application/json';
+    opts.body = JSON.stringify(opts.json);
+    delete opts.json;
+  }
+  const res = await fetch(base + path, { ...opts, headers });
+  const text = await res.text();
+  let data;
+  try { data = text ? JSON.parse(text) : null; } catch { data = { raw: text }; }
+  if (!res.ok || (data && data.ok === false)) {
+    const msg = (data && (data.message || data.error)) || ('HTTP ' + res.status);
+    throw new Error(msg);
+  }
+  return data;
+}
+
+/* ───────── nav ───────── */
+$$('#nav button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    $$('#nav button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const view = btn.dataset.view;
+    $$('.view').forEach(v => v.classList.remove('active'));
+    const el = document.querySelector('.view[data-view="' + view + '"]');
+    if (el) el.classList.add('active');
+    if (viewHandlers[view]) viewHandlers[view]();
+  });
+});
+
+$('#saveAuthBtn').addEventListener('click', () => {
+  setAuth({ apiBase: $('#apiBase').value, token: $('#adminToken').value });
+  loadDashboard();
+});
+
+/* ───────── view renderers ───────── */
+const viewHandlers = {};
+
+function statusBadge(s) {
+  if (!s) return '';
+  return '<span class="badge badge-' + s + '">' + s + '</span>';
+}
+
+function fmtDate(iso) {
+  if (!iso) return '';
+  try { return new Date(iso).toLocaleString(); } catch { return iso; }
+}
+
+async function loadDashboard() {
+  try {
+    const { bridge } = await api('/agent/status');
+    $('#dashStats').innerHTML = [
+      ['Total jobs', bridge.jobs_total],
+      ['Queued', bridge.jobs_queued],
+      ['Failed', bridge.jobs_failed],
+      ['Succeeded', bridge.jobs_succeeded],
+    ].map(([lbl, num]) => '<div class="stat"><div class="num">' + num + '</div><div class="lbl">' + lbl + '</div></div>').join('');
+    $('#dashJobs').innerHTML = (bridge.last_jobs || []).slice(0, 10).map(j =>
+      '<tr><td>' + j.command + '</td><td>' + statusBadge(j.status) + '</td><td>' + fmtDate(j.created_at) + '</td><td>' + fmtDate(j.completed_at) + '</td><td>' + (j.error || '') + '</td></tr>'
+    ).join('') || '<tr><td colspan="5" class="empty">No jobs yet.</td></tr>';
+    $('#dashAgent').textContent = JSON.stringify(bridge.agent_coding, null, 2);
+  } catch (e) { toast('error', e.message); }
+}
+viewHandlers.dashboard = loadDashboard;
+
+async function loadPosts() {
+  try {
+    const { posts } = await api('/content/posts');
+    $('#postsTable').innerHTML = posts.map(p => {
+      const actions = [];
+      if (p.status === 'draft') actions.push('<button class="btn btn-sm" data-act="pending_review" data-id="' + p.id + '">Submit</button>');
+      if (p.status === 'pending_review') {
+        actions.push('<button class="btn btn-sm btn-primary" data-act="approved" data-id="' + p.id + '">Approve</button>');
+        actions.push('<button class="btn btn-sm btn-danger" data-act="rejected" data-id="' + p.id + '">Reject</button>');
+      }
+      if (p.status === 'approved') {
+        actions.push('<button class="btn btn-sm btn-gold" data-act="schedule" data-id="' + p.id + '">Schedule</button>');
+        actions.push('<button class="btn btn-sm btn-primary" data-act="publish" data-id="' + p.id + '">Publish</button>');
+      }
+      if (p.status === 'scheduled') actions.push('<button class="btn btn-sm btn-primary" data-act="publish" data-id="' + p.id + '">Publish now</button>');
+      actions.push('<button class="btn btn-sm btn-danger" data-act="delete" data-id="' + p.id + '">Delete</button>');
+      return '<tr><td>' + (p.title || '') + '</td><td><code>' + (p.slug || '') + '</code></td><td>' + (p.location || '') + '</td><td>' + statusBadge(p.status) + '</td><td>' + (p.score ?? '—') + '</td><td>' + fmtDate(p.updated_at) + '</td><td><div class="row-actions">' + actions.join('') + '</div></td></tr>';
+    }).join('') || '<tr><td colspan="7" class="empty">No posts yet.</td></tr>';
+  } catch (e) { toast('error', e.message); }
+}
+viewHandlers.posts = loadPosts;
+
+$('#scorePostBtn').addEventListener('click', async () => {
+  try {
+    const { score } = await api('/content/posts/preview', {
+      method: 'POST', json: {
+        title: $('#newPostTitle').value, slug: $('#newPostSlug').value,
+        body: $('#newPostBody').value, location: $('#newPostLocation').value,
+        primary_keyword: $('#newPostKw').value, cta: $('#newPostExcerpt').value,
+        cta_url: $('#newPostCtaUrl').value,
+      }
+    });
+    $('#newPostScore').style.display = 'block';
+    $('#newPostScore').textContent = JSON.stringify(score, null, 2);
+    toast(score.passed ? 'success' : 'info',
+      'Score: ' + score.score + ' — ' + (score.passed ? 'passes policy' : 'needs work'));
+  } catch (e) { toast('error', e.message); }
+});
+
+$('#createPostBtn').addEventListener('click', async () => {
+  try {
+    await api('/content/posts', {
+      method: 'POST', json: {
+        title: $('#newPostTitle').value, slug: $('#newPostSlug').value,
+        body: $('#newPostBody').value, excerpt: $('#newPostExcerpt').value,
+        location: $('#newPostLocation').value, primary_keyword: $('#newPostKw').value,
+        cta_url: $('#newPostCtaUrl').value, status: 'draft',
+      }
+    });
+    toast('success', 'Draft created');
+    $('#newPostTitle').value = ''; $('#newPostSlug').value = ''; $('#newPostBody').value = '';
+    $('#newPostExcerpt').value = ''; $('#newPostKw').value = ''; $('#newPostCtaUrl').value = '';
+    $('#newPostScore').style.display = 'none';
+    loadPosts();
+  } catch (e) { toast('error', e.message); }
+});
+
+document.addEventListener('click', async (e) => {
+  const btn = e.target.closest('button[data-act]');
+  if (!btn) return;
+  const id = btn.dataset.id;
+  const act = btn.dataset.act;
+  try {
+    if (act === 'delete') {
+      if (!confirm('Delete this post?')) return;
+      await api('/content/posts?id=' + encodeURIComponent(id), { method: 'DELETE' });
+      toast('success', 'Deleted');
+    } else if (act === 'schedule') {
+      const when = prompt('Publish at (ISO 8601, e.g. 2026-06-15T18:00:00Z):', new Date(Date.now() + 24*3600*1000).toISOString());
+      if (!when) return;
+      await api('/content/posts/' + encodeURIComponent(id) + '/schedule', { method: 'POST', json: { publish_at: when } });
+      toast('success', 'Scheduled');
+    } else if (act === 'publish') {
+      await api('/content/posts/' + encodeURIComponent(id) + '/publish', { method: 'POST' });
+      toast('success', 'Published');
+    } else {
+      await api('/content/posts/' + encodeURIComponent(id) + '/transition', { method: 'POST', json: { to: act } });
+      toast('success', 'Transitioned to ' + act);
+    }
+    loadPosts();
+    loadCalendar();
+  } catch (e) { toast('error', e.message); }
+});
+
+async function loadCalendar() {
+  try {
+    const { posts } = await api('/content/posts');
+    const scheduled = posts.filter(p => p.status === 'scheduled' || p.status === 'approved');
+    const published = posts.filter(p => p.status === 'published');
+    $('#calScheduled').innerHTML = scheduled.map(p =>
+      '<tr><td>' + (p.title || '') + '</td><td>' + fmtDate(p.publish_at) + '</td><td>' + statusBadge(p.status) + '</td><td><div class="row-actions"><button class="btn btn-sm btn-primary" data-act="publish" data-id="' + p.id + '">Publish now</button></div></td></tr>'
+    ).join('') || '<tr><td colspan="4" class="empty">No scheduled posts.</td></tr>';
+    $('#calPublished').innerHTML = published.map(p =>
+      '<tr><td>' + (p.title || '') + '</td><td>' + fmtDate(p.published_at || p.updated_at) + '</td><td>' + statusBadge(p.status) + '</td></tr>'
+    ).join('') || '<tr><td colspan="3" class="empty">No published posts yet.</td></tr>';
+  } catch (e) { toast('error', e.message); }
+}
+viewHandlers.calendar = loadCalendar;
+
+async function loadMedia() {
+  try {
+    const { media } = await api('/media/upload');
+    $('#mediaGrid').innerHTML = media.map(m =>
+      '<div class="panel" style="margin:0;padding:0.75rem;">' +
+      '<img src="' + m.url + '" alt="' + (m.alt || '') + '" style="width:100%;height:160px;object-fit:cover;border-radius:6px;">' +
+      '<div style="font-size:0.8rem;margin-top:0.4rem;color:var(--text-medium);">' + (m.alt || '(no alt)') + '</div>' +
+      '<div style="font-size:0.7rem;color:var(--text-light);">' + (m.mime || '') + ' · ' + Math.round((m.size||0)/1024) + ' KB</div>' +
+      '</div>'
+    ).join('') || '<div class="empty">No media yet.</div>';
+  } catch (e) { toast('error', e.message); }
+}
+viewHandlers.media = loadMedia;
+
+$('#mediaUploadBtn').addEventListener('click', async () => {
+  const f = $('#mediaFile').files[0];
+  const alt = $('#mediaAlt').value.trim();
+  const source = $('#mediaSource').value || 'admin';
+  if (!f) { toast('error', 'Choose a file'); return; }
+  if (!alt) { toast('error', 'Alt text required'); return; }
+  try {
+    const fd = new FormData();
+    fd.append('file', f);
+    fd.append('alt', alt);
+    fd.append('source', source);
+    await api('/media/upload', { method: 'POST', body: fd });
+    toast('success', 'Uploaded');
+    $('#mediaFile').value = ''; $('#mediaAlt').value = '';
+    loadMedia();
+  } catch (e) { toast('error', e.message); }
+});
+
+async function loadMenu() {
+  try {
+    const [{ categories }, { items }] = await Promise.all([
+      api('/menu/categories'), api('/menu/items'),
+    ]);
+    $('#catTable').innerHTML = categories.map(c =>
+      '<tr><td>' + (c.name || '') + '</td><td>' + (c.location || '') + '</td><td>' + (c.sort_order || 0) + '</td><td>' + (c.active ? 'yes' : 'no') + '</td>' +
+      '<td><div class="row-actions">' +
+      '<button class="btn btn-sm" data-catact="toggle" data-id="' + c.id + '">' + (c.active ? 'Disable' : 'Enable') + '</button>' +
+      '<button class="btn btn-sm btn-danger" data-catact="delete" data-id="' + c.id + '">Delete</button>' +
+      '</div></td></tr>'
+    ).join('') || '<tr><td colspan="5" class="empty">No categories yet.</td></tr>';
+    $('#itemTable').innerHTML = items.map(i =>
+      '<tr><td>' + (i.name || '') + '</td><td>' + (i.location || '') + '</td><td>$' + (i.price ?? 0).toFixed(2) + '</td><td>' + (i.active ? 'yes' : 'no') + '</td>' +
+      '<td><div class="row-actions">' +
+      '<button class="btn btn-sm" data-itemact="toggle" data-id="' + i.id + '">' + (i.active ? 'Disable' : 'Enable') + '</button>' +
+      '<button class="btn btn-sm btn-danger" data-itemact="delete" data-id="' + i.id + '">Delete</button>' +
+      '</div></td></tr>'
+    ).join('') || '<tr><td colspan="5" class="empty">No items yet.</td></tr>';
+  } catch (e) { toast('error', e.message); }
+}
+viewHandlers.menu = loadMenu;
+
+$('#addCatBtn').addEventListener('click', async () => {
+  try {
+    await api('/menu/categories', { method: 'POST', json: {
+      name: $('#newCatName').value, location: $('#newCatLocation').value,
+      sort_order: parseInt($('#newCatSort').value || '0', 10),
+    }});
+    toast('success', 'Category added');
+    $('#newCatName').value = '';
+    loadMenu();
+  } catch (e) { toast('error', e.message); }
+});
+
+$('#addItemBtn').addEventListener('click', async () => {
+  try {
+    await api('/menu/items', { method: 'POST', json: {
+      name: $('#newItemName').value, location: $('#newItemLocation').value,
+      price: parseFloat($('#newItemPrice').value || '0'),
+    }});
+    toast('success', 'Item added');
+    $('#newItemName').value = ''; $('#newItemPrice').value = '';
+    loadMenu();
+  } catch (e) { toast('error', e.message); }
+});
+
+document.addEventListener('click', async (e) => {
+  const tBtn = e.target.closest('button[data-catact],button[data-itemact]');
+  if (!tBtn) return;
+  const id = tBtn.dataset.id;
+  const act = tBtn.dataset.catact || tBtn.dataset.itemact;
+  try {
+    if (act === 'delete') {
+      const path = tBtn.dataset.catact ? '/menu/categories' : '/menu/items';
+      if (!confirm('Delete this ' + (tBtn.dataset.catact ? 'category' : 'item') + '?')) return;
+      await api(path + '?id=' + encodeURIComponent(id), { method: 'DELETE' });
+      toast('success', 'Deleted');
+    } else if (act === 'toggle') {
+      const path = tBtn.dataset.catact ? '/menu/categories' : '/menu/items';
+      await api(path + '?id=' + encodeURIComponent(id), { method: 'PATCH', json: { active: null } });
+      toast('success', 'Toggled');
+    }
+    loadMenu();
+  } catch (e) { toast('error', e.message); }
+});
+
+async function loadAgent() {
+  try {
+    const [{ bridge }, { jobs }] = await Promise.all([
+      api('/agent/status'), api('/agent/jobs'),
+    ]);
+    $('#agentConn').textContent = JSON.stringify(bridge.agent_coding, null, 2);
+    $('#agentJobs').innerHTML = (jobs || []).slice(0, 20).map(j =>
+      '<tr><td>' + j.command + '</td><td>' + statusBadge(j.status) + '</td><td>' + fmtDate(j.created_at) + '</td><td>' + (j.error || '') + '</td></tr>'
+    ).join('') || '<tr><td colspan="4" class="empty">No jobs yet.</td></tr>';
+  } catch (e) { toast('error', e.message); }
+}
+viewHandlers.agent = loadAgent;
+
+$('#agentSyncBtn').addEventListener('click', async () => {
+  try {
+    const { job, processed } = await api('/agent/jobs', { method: 'POST', json: {
+      command: 'site.sync', payload: {}, created_by: 'admin-ui',
+    }});
+    toast(processed && processed.status === 'succeeded' ? 'success' : 'error',
+      'Sync: ' + (processed && processed.status));
+    loadAgent();
+  } catch (e) { toast('error', e.message); }
+});
+
+$('#agentRefreshBtn').addEventListener('click', loadAgent);
+
+async function loadAudit() {
+  try {
+    const { bridge } = await api('/agent/status');
+    $('#auditTable').innerHTML = (bridge.last_audit || []).map(a =>
+      '<tr><td>' + fmtDate(a.created_at) + '</td><td>' + (a.actor || '') + '</td><td>' + (a.action || '') + '</td><td>' + (a.target_type || '') + (a.target_id ? ' / ' + a.target_id.slice(0, 8) : '') + '</td></tr>'
+    ).join('') || '<tr><td colspan="4" class="empty">No audit entries yet.</td></tr>';
+  } catch (e) { toast('error', e.message); }
+}
+viewHandlers.audit = loadAudit;
+
+async function loadSettings() {
+  try {
+    const { bridge } = await api('/agent/status');
+    $('#settingsConfig').textContent = JSON.stringify({
+      api_base: $('#apiBase').value,
+      has_token: !!getAuth().token,
+      store: bridge.store,
+    }, null, 2);
+    $('#settingsStatus').textContent = JSON.stringify(bridge, null, 2);
+  } catch (e) { toast('error', e.message); }
+}
+viewHandlers.settings = loadSettings;
+
+/* ───────── boot ───────── */
+(function boot() {
+  const a = getAuth();
+  if (a.apiBase) $('#apiBase').value = a.apiBase;
+  if (a.token) $('#adminToken').value = a.token;
+  loadDashboard();
+  setInterval(() => {
+    if (document.querySelector('.view.active[data-view="dashboard"]')) loadDashboard();
+  }, 30000);
+})();
+</script>
+</body>
+</html>
+       

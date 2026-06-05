@@ -1,0 +1,46 @@
+name: RawWebsite Scheduled Publish
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+    inputs:
+      preview_url:
+        description: 'Preview URL to target'
+        required: false
+        default: 'https://7c7a9769.rawwebsite.pages.dev'
+      now:
+        description: 'Optional override ISO timestamp'
+        required: false
+        default: ''
+
+jobs:
+  scheduled-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve target URL
+        id: vars
+        shell: bash
+        run: |
+          URL="${{ github.event.inputs.preview_url || vars.RAWWEBSITE_PREVIEW_URL || 'https://7c7a9769.rawwebsite.pages.dev' }}"
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+
+      - name: Trigger scheduled publish API
+        shell: bash
+        env:
+          RAWWEBSITE_SCHEDULER_TOKEN: ${{ secrets.RAWWEBSITE_SCHEDULER_TOKEN }}
+          NOW_OVERRIDE: ${{ github.event.inputs.now }}
+        run: |
+          set -euo pipefail
+          BODY='{}'
+          if [ -n "${NOW_OVERRIDE:-}" ]; then
+            BODY=$(printf '{"now":"%s"}' "$NOW_OVERRIDE")
+          fi
+          echo "Calling ${{ steps.vars.outputs.url }}/api/scheduler/run"
+          curl --fail-with-body \
+            -X POST "${{ steps.vars.outputs.url }}/api/scheduler/run" \
+            -H "Authorization: Bearer ${RAWWEBSITE_SCHEDULER_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -H "X-GitHub-Run-Id: ${{ github.run_id }}" \
+            -H "X-GitHub-Actor: ${{ github.actor }}" \
+            -d "$BODY"

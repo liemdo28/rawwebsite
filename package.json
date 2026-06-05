@@ -1,7 +1,8 @@
 {
   "name": "rawwebsite",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "private": true,
   "engines": {
     "node": ">=18.0.0"
   },
@@ -9,9 +10,15 @@
     "dev": "astro dev",
     "build": "node build.mjs",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check:duplicates": "node scripts/check-duplicates.mjs",
+    "test": "node --test tests/*.test.js",
+    "agent:status": "node scripts/agent-status.mjs",
+    "agent:export": "node scripts/agent-export.mjs",
+    "agent:seed": "node scripts/agent-seed.mjs"
   },
   "dependencies": {
-    "astro": "^6.1.5"
+    "astro": "^6.1.5",
+    "zod": "^3.23.8"
   }
 }
