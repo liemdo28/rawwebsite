@@ -1,0 +1,41 @@
+{
+  "rows": [
+    {
+      "id": "cat-1780635321310-0sx35d",
+      "name": "Appetizers",
+      "location": "raw_stockton",
+      "sort_order": 10,
+      "active": true,
+      "updated_at": "2026-06-05T04:55:21.310Z",
+      "created_at": "2026-06-05T04:55:21.310Z"
+    },
+    {
+      "id": "cat-1780635321312-pcek0a",
+      "name": "Specialty Rolls",
+      "location": "raw_stockton",
+      "sort_order": 20,
+      "active": true,
+      "updated_at": "2026-06-05T04:55:21.312Z",
+      "created_at": "2026-06-05T04:55:21.312Z"
+    },
+    {
+      "id": "cat-1780635321313-inbwqt",
+      "name": "Appetizers",
+      "location": "raw_modesto",
+      "sort_order": 10,
+      "active": true,
+      "updated_at": "2026-06-05T04:55:21.313Z",
+      "created_at": "2026-06-05T04:55:21.313Z"
+    },
+    {
+      "id": "cat-1780635321315-3r7s2y",
+      "name": "Lunch Specials",
+      "location": "raw_modesto",
+      "sort_order": 20,
+      "active": true,
+      "updated_at": "2026-06-05T04:55:21.315Z",
+      "created_at": "2026-06-05T04:55:21.315Z"
+    }
+  ],
+  "updated_at": "2026-06-05T04:55:21.315Z"
+}

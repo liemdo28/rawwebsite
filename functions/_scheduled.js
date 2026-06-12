@@ -26,7 +26,8 @@ import { record } from '../lib/auditLog.js';
  */
 export async function scheduled(event, env, ctx) {
   const config = loadConfig(env);
-  const store = createStore(env, { dataDir: config.dataDir });
+  // Allow store injection via env._store (for testing) or fall back to factory.
+  const store = env._store || createStore(env, { dataDir: config.dataDir });
 
   const startTime = Date.now();
   let result;

@@ -1,0 +1,27 @@
+{
+  "rows": [
+    {
+      "id": "post-1780635321307-63i5w2",
+      "slug": "sample-post-stockton",
+      "title": "Sample Post — Stockton",
+      "body": "This is a seed post about sushi in Stockton. Visit us today for the freshest fish.",
+      "excerpt": "A seed post demonstrating the bridge.",
+      "image": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800",
+      "primary_keyword": "sushi Stockton",
+      "secondary_keywords": [
+        "sushi near me Stockton"
+      ],
+      "cta": "Order now",
+      "cta_url": "https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d",
+      "post_type": "conversion_order",
+      "location": "raw_stockton",
+      "status": "draft",
+      "score": 95,
+      "hard_blocks": [],
+      "soft_failures": [],
+      "created_at": "2026-06-05T04:55:21.307Z",
+      "updated_at": "2026-06-05T04:55:21.308Z"
+    }
+  ],
+  "updated_at": "2026-06-05T04:55:21.308Z"
+}

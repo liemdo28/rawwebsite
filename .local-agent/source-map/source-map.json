@@ -1,0 +1,4443 @@
+{
+  "projectName": "RawWebsite",
+  "projectPath": "E:\\Project\\Master\\RawSushi\\RawWebsite",
+  "generatedAt": "2026-06-09T02:14:09.809Z",
+  "framework": {
+    "type": "node",
+    "frameworks": [
+      "Node.js",
+      "Astro"
+    ],
+    "indicators": [
+      "package.json",
+      "astro.config.mjs"
+    ],
+    "structure": {
+      "src": true,
+      "public": true,
+      "config": true,
+      "lib": true
+    }
+  },
+  "entryPoints": [
+    "package.json",
+    ".github/workflows"
+  ],
+  "importantFiles": [
+    "package.json",
+    ".github/workflows",
+    ".astro\\data-store.json",
+    ".local-agent\\source-map\\api.md",
+    ".local-agent\\source-map\\controllers.md",
+    ".local-agent\\source-map\\database.md",
+    ".local-agent\\source-map\\models.md",
+    ".local-agent\\source-map\\routes.md",
+    "astro.config.mjs",
+    "functions\\_middleware.js",
+    "lib\\config.js",
+    "lib\\schedulerAuth.js",
+    "lib\\store.js",
+    "src\\content.config.ts",
+    "src\\data\\config.ts",
+    "tests\\store.test.js"
+  ],
+  "routes": {
+    "total": 0,
+    "routes": [],
+    "endpoints": []
+  },
+  "controllers": {
+    "total": 0,
+    "controllers": []
+  },
+  "models": {
+    "total": 0,
+    "models": []
+  },
+  "views": {
+    "total": 0,
+    "views": []
+  },
+  "database": {
+    "type": "unknown",
+    "connection": "not detected",
+    "tables": [],
+    "migrations": [],
+    "config": []
+  },
+  "frontend": {
+    "components": [],
+    "pages": [],
+    "stores": [],
+    "frameworks": [],
+    "total": 0
+  },
+  "dependencies": {
+    "production": [
+      "astro",
+      "zod"
+    ],
+    "dev": [],
+    "peer": [],
+    "php": [],
+    "python": [],
+    "external": [
+      "https://api.github.com",
+      "https://instagram.com/rawsushibistro/"
+    ]
+  },
+  "riskMap": {
+    "entries": [
+      {
+        "file": "build.mjs",
+        "line": 27,
+        "reason": "Shell execution or eval — high security risk if input is not sanitized",
+        "severity": "CRITICAL",
+        "suggested_fix": "Validate and sanitize all inputs; prefer safe alternatives"
+      },
+      {
+        "file": "functions\\api\\agent\\jobs.js",
+        "line": 44,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\agent\\jobs.js",
+        "line": 5,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\agent\\status.js",
+        "line": 6,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\agent\\status.js",
+        "line": 6,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\agent\\webhook.js",
+        "line": 17,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\preview.js",
+        "line": 28,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\preview.js",
+        "line": 6,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\publish.js",
+        "line": 30,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\publish.js",
+        "line": 5,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\schedule.js",
+        "line": 29,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\schedule.js",
+        "line": 6,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\transition.js",
+        "line": 24,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\transition.js",
+        "line": 6,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id].js",
+        "line": 29,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id].js",
+        "line": 30,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\content\\posts.js",
+        "line": 47,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\content\\posts.js",
+        "line": 46,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\content\\publish.js",
+        "line": 11,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\content\\publish.js",
+        "line": 6,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\media\\upload.js",
+        "line": 51,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\media\\upload.js",
+        "line": 9,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\menu\\categories.js",
+        "line": 41,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\menu\\categories.js",
+        "line": 42,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\menu\\items\\[id].js",
+        "line": 38,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\menu\\items\\[id].js",
+        "line": 39,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\menu\\items.js",
+        "line": 44,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\menu\\items.js",
+        "line": 45,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\menu\\publish.js",
+        "line": 10,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\menu\\publish.js",
+        "line": 6,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\pages\\pages.js",
+        "line": 43,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\pages\\pages.js",
+        "line": 44,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\pages\\versions.js",
+        "line": 32,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\pages\\versions.js",
+        "line": 33,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\scheduler\\run.js",
+        "line": 5,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\scheduler\\run.js",
+        "line": 5,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\site\\analytics.js",
+        "line": 34,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\site\\analytics.js",
+        "line": 35,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\site\\redirects.js",
+        "line": 43,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\site\\redirects.js",
+        "line": 44,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\site\\seo.js",
+        "line": 29,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\site\\seo.js",
+        "line": 30,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\site\\theme.js",
+        "line": 28,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\site\\theme.js",
+        "line": 29,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\system\\export.js",
+        "line": 22,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\system\\export.js",
+        "line": 10,
+        "reason": "Security/permissions logic — vulnerabilities cause unauthorized access",
+        "severity": "CRITICAL",
+        "suggested_fix": "Least privilege principle; test all edge cases"
+      },
+      {
+        "file": "functions\\api\\system\\import.js",
+        "line": 23,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\system\\import.js",
+        "line": 11,
+        "reason": "Security/permissions logic — vulnerabilities cause unauthorized access",
+        "severity": "CRITICAL",
+        "suggested_fix": "Least privilege principle; test all edge cases"
+      },
+      {
+        "file": "functions\\api\\system\\validate.js",
+        "line": 23,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\system\\validate.js",
+        "line": 11,
+        "reason": "Security/permissions logic — vulnerabilities cause unauthorized access",
+        "severity": "CRITICAL",
+        "suggested_fix": "Least privilege principle; test all edge cases"
+      },
+      {
+        "file": "functions\\api\\_rateLimit.js",
+        "line": 8,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\_rateLimit.js",
+        "line": 6,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\_scheduled.js",
+        "line": 36,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\_scheduled.js",
+        "line": 25,
+        "reason": "Shell execution or eval — high security risk if input is not sanitized",
+        "severity": "CRITICAL",
+        "suggested_fix": "Validate and sanitize all inputs; prefer safe alternatives"
+      },
+      {
+        "file": "lib\\agentCodingClient.js",
+        "line": 12,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "lib\\agentCodingClient.js",
+        "line": 12,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "lib\\analytics.js",
+        "line": 17,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "lib\\auditLog.js",
+        "line": 61,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "lib\\auditLog.js",
+        "line": 68,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "lib\\config.js",
+        "line": 22,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "lib\\gitPublish.js",
+        "line": 8,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "lib\\jobs.js",
+        "line": 5,
+        "reason": "Shell execution or eval — high security risk if input is not sanitized",
+        "severity": "CRITICAL",
+        "suggested_fix": "Validate and sanitize all inputs; prefer safe alternatives"
+      },
+      {
+        "file": "lib\\permissions.js",
+        "line": 2,
+        "reason": "Security/permissions logic — vulnerabilities cause unauthorized access",
+        "severity": "CRITICAL",
+        "suggested_fix": "Least privilege principle; test all edge cases"
+      },
+      {
+        "file": "lib\\schedulerAuth.js",
+        "line": 2,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "lib\\schedulerAuth.js",
+        "line": 2,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "lib\\seo.js",
+        "line": 15,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "scripts\\agent-status.mjs",
+        "line": 31,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "scripts\\unify_nav.py",
+        "line": 23,
+        "reason": "Security/permissions logic — vulnerabilities cause unauthorized access",
+        "severity": "CRITICAL",
+        "suggested_fix": "Least privilege principle; test all edge cases"
+      },
+      {
+        "file": "tests\\agentCodingClient.test.js",
+        "line": 19,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "tests\\agentCodingClient.test.js",
+        "line": 40,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "tests\\cronTrigger.test.js",
+        "line": 47,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "tests\\gitPublish.test.js",
+        "line": 5,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "astro.config.mjs",
+        "line": 1,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\agent\\jobs.js",
+        "line": 11,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "functions\\api\\agent\\jobs.js",
+        "line": 15,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\agent\\status.js",
+        "line": 14,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\agent\\webhook.js",
+        "line": 2,
+        "reason": "Webhook handlers process external callbacks — must validate signatures",
+        "severity": "HIGH",
+        "suggested_fix": "Verify webhook signatures; idempotent processing"
+      },
+      {
+        "file": "functions\\api\\agent\\webhook.js",
+        "line": 22,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\content\\blog.js",
+        "line": 13,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\preview.js",
+        "line": 10,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\publish.js",
+        "line": 15,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\schedule.js",
+        "line": 2,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\schedule.js",
+        "line": 14,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\transition.js",
+        "line": 5,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\transition.js",
+        "line": 9,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id].js",
+        "line": 6,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\content\\posts.js",
+        "line": 14,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\content\\publish.js",
+        "line": 45,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "functions\\api\\content\\publish.js",
+        "line": 11,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\media\\upload.js",
+        "line": 25,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\menu\\categories.js",
+        "line": 10,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\menu\\items\\[id].js",
+        "line": 6,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\menu\\items.js",
+        "line": 10,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\menu\\publish.js",
+        "line": 10,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\pages\\pages.js",
+        "line": 11,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\pages\\versions.js",
+        "line": 8,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\scheduler\\run.js",
+        "line": 2,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "functions\\api\\scheduler\\run.js",
+        "line": 17,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\site\\analytics.js",
+        "line": 4,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\site\\redirects.js",
+        "line": 12,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\site\\seo.js",
+        "line": 4,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\site\\theme.js",
+        "line": 8,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\system\\export.js",
+        "line": 7,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\system\\import.js",
+        "line": 8,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\system\\validate.js",
+        "line": 8,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\_rateLimit.js",
+        "line": 8,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "functions\\api\\_rateLimit.js",
+        "line": 4,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\_scheduled.js",
+        "line": 2,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "functions\\_scheduled.js",
+        "line": 14,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\agentCodingClient.js",
+        "line": 7,
+        "reason": "Webhook handlers process external callbacks — must validate signatures",
+        "severity": "HIGH",
+        "suggested_fix": "Verify webhook signatures; idempotent processing"
+      },
+      {
+        "file": "lib\\agentCodingClient.js",
+        "line": 16,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\analytics.js",
+        "line": 4,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\auditLog.js",
+        "line": 8,
+        "reason": "Webhook handlers process external callbacks — must validate signatures",
+        "severity": "HIGH",
+        "suggested_fix": "Verify webhook signatures; idempotent processing"
+      },
+      {
+        "file": "lib\\auditLog.js",
+        "line": 4,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "lib\\config.js",
+        "line": 57,
+        "reason": "Webhook handlers process external callbacks — must validate signatures",
+        "severity": "HIGH",
+        "suggested_fix": "Verify webhook signatures; idempotent processing"
+      },
+      {
+        "file": "lib\\config.js",
+        "line": 2,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\contentPolicy.js",
+        "line": 4,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\jobs.js",
+        "line": 15,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "lib\\jobs.js",
+        "line": 24,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\mediaR2.js",
+        "line": 8,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\pages.js",
+        "line": 5,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "lib\\permissions.js",
+        "line": 23,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "lib\\posts.js",
+        "line": 6,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "lib\\scheduler.js",
+        "line": 2,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "lib\\scheduler.js",
+        "line": 12,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\schedulerAuth.js",
+        "line": 2,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "lib\\schedulerAuth.js",
+        "line": 5,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\seo.js",
+        "line": 4,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\store.js",
+        "line": 35,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "lib\\store.js",
+        "line": 6,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\theme.js",
+        "line": 4,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "scripts\\agent-seed.mjs",
+        "line": 3,
+        "reason": "Data migrations — data loss risk",
+        "severity": "HIGH",
+        "suggested_fix": "Test on staging first; ensure rollback capability"
+      },
+      {
+        "file": "scripts\\agent-status.mjs",
+        "line": 32,
+        "reason": "Webhook handlers process external callbacks — must validate signatures",
+        "severity": "HIGH",
+        "suggested_fix": "Verify webhook signatures; idempotent processing"
+      },
+      {
+        "file": "scripts\\agent-status.mjs",
+        "line": 25,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "scripts\\check-duplicates.mjs",
+        "line": 44,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "src\\content.config.ts",
+        "line": null,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "src\\data\\config.ts",
+        "line": null,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "tests\\agentCodingClient.test.js",
+        "line": 20,
+        "reason": "Webhook handlers process external callbacks — must validate signatures",
+        "severity": "HIGH",
+        "suggested_fix": "Verify webhook signatures; idempotent processing"
+      },
+      {
+        "file": "tests\\agentCodingClient.test.js",
+        "line": 15,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "tests\\contentPolicy.test.js",
+        "line": 10,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "tests\\cronTrigger.test.js",
+        "line": 2,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "tests\\jobs.test.js",
+        "line": 19,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "tests\\jobs.test.js",
+        "line": 12,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "tests\\scheduler.test.js",
+        "line": 2,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "astro.config.mjs",
+        "line": 11,
+        "reason": "Middleware — affects request pipeline globally",
+        "severity": "MEDIUM",
+        "suggested_fix": "Test middleware independently; document side effects"
+      },
+      {
+        "file": "astro.config.mjs",
+        "line": 1,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "build.mjs",
+        "line": 17,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\agent\\jobs.js",
+        "line": 2,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "functions\\api\\agent\\jobs.js",
+        "line": 15,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\agent\\status.js",
+        "line": 5,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "functions\\api\\agent\\status.js",
+        "line": 14,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\agent\\webhook.js",
+        "line": 7,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "functions\\api\\agent\\webhook.js",
+        "line": 22,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\content\\blog.js",
+        "line": 13,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\preview.js",
+        "line": 10,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\publish.js",
+        "line": 9,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\schedule.js",
+        "line": 14,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\transition.js",
+        "line": 9,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id].js",
+        "line": 6,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\content\\posts.js",
+        "line": 14,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\content\\publish.js",
+        "line": 15,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\media\\upload.js",
+        "line": 2,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\menu\\categories.js",
+        "line": 10,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\menu\\items\\[id].js",
+        "line": 6,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\menu\\items.js",
+        "line": 10,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\menu\\publish.js",
+        "line": 14,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\pages\\pages.js",
+        "line": 11,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\pages\\versions.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\scheduler\\run.js",
+        "line": 17,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\site\\analytics.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\site\\redirects.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\site\\seo.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\site\\theme.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\system\\export.js",
+        "line": 2,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\system\\import.js",
+        "line": 2,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\system\\validate.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\_rateLimit.js",
+        "line": 8,
+        "reason": "Service layer — contains business logic",
+        "severity": "MEDIUM",
+        "suggested_fix": "Unit test thoroughly; handle error states"
+      },
+      {
+        "file": "functions\\api\\_rateLimit.js",
+        "line": 2,
+        "reason": "Middleware — affects request pipeline globally",
+        "severity": "MEDIUM",
+        "suggested_fix": "Test middleware independently; document side effects"
+      },
+      {
+        "file": "functions\\api\\_rateLimit.js",
+        "line": 7,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\_middleware.js",
+        "line": null,
+        "reason": "Middleware — affects request pipeline globally",
+        "severity": "MEDIUM",
+        "suggested_fix": "Test middleware independently; document side effects"
+      },
+      {
+        "file": "functions\\_middleware.js",
+        "line": 7,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\_scheduled.js",
+        "line": 4,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\agentCodingClient.js",
+        "line": 2,
+        "reason": "Service layer — contains business logic",
+        "severity": "MEDIUM",
+        "suggested_fix": "Unit test thoroughly; handle error states"
+      },
+      {
+        "file": "lib\\agentCodingClient.js",
+        "line": 5,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "lib\\agentCodingClient.js",
+        "line": 16,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\analytics.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\auditLog.js",
+        "line": 5,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\config.js",
+        "line": 14,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\contentPolicy.js",
+        "line": 5,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\disasterRecovery.js",
+        "line": 2,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\gitPublish.js",
+        "line": 52,
+        "reason": "Notification system — delivery failures impact users",
+        "severity": "MEDIUM",
+        "suggested_fix": "Queue notifications; handle provider failures"
+      },
+      {
+        "file": "lib\\gitPublish.js",
+        "line": 4,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\jobs.js",
+        "line": 2,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "lib\\jobs.js",
+        "line": 17,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\mediaR2.js",
+        "line": 12,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\pages.js",
+        "line": 15,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\permissions.js",
+        "line": 16,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\posts.js",
+        "line": 11,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\redirects.js",
+        "line": 2,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\scheduler.js",
+        "line": 17,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\schedulerAuth.js",
+        "line": 2,
+        "reason": "Service layer — contains business logic",
+        "severity": "MEDIUM",
+        "suggested_fix": "Unit test thoroughly; handle error states"
+      },
+      {
+        "file": "lib\\schedulerAuth.js",
+        "line": 5,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\seo.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\store.js",
+        "line": 30,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "lib\\store.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\theme.js",
+        "line": 10,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "scripts\\agent-export.mjs",
+        "line": 37,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "scripts\\agent-export.mjs",
+        "line": 3,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "scripts\\agent-seed.mjs",
+        "line": 11,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "scripts\\agent-status.mjs",
+        "line": 9,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "scripts\\agent-status.mjs",
+        "line": 13,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "scripts\\check-duplicates.mjs",
+        "line": 5,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "scripts\\fix_html_refs.py",
+        "line": 2,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "scripts\\fix_routing.py",
+        "line": 7,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "scripts\\fix_routing.py",
+        "line": 24,
+        "reason": "Caching — stale data causes inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Set appropriate TTL; implement cache invalidation"
+      },
+      {
+        "file": "scripts\\unify_nav.py",
+        "line": 14,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "src\\content.config.ts",
+        "line": 1,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "src\\data\\config.ts",
+        "line": 1,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "src\\data\\locations.ts",
+        "line": 19,
+        "reason": "Notification system — delivery failures impact users",
+        "severity": "MEDIUM",
+        "suggested_fix": "Queue notifications; handle provider failures"
+      },
+      {
+        "file": "src\\data\\locations.ts",
+        "line": 1,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\agentCodingClient.test.js",
+        "line": 33,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "tests\\agentCodingClient.test.js",
+        "line": 9,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\agentCodingClient.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "tests\\contentPolicy.test.js",
+        "line": 5,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\contentPolicy.test.js",
+        "line": 8,
+        "reason": "Caching — stale data causes inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Set appropriate TTL; implement cache invalidation"
+      },
+      {
+        "file": "tests\\contentPolicy.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "tests\\cronTrigger.test.js",
+        "line": 5,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\cronTrigger.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "tests\\gitPublish.test.js",
+        "line": 6,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\gitPublish.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "tests\\jobs.test.js",
+        "line": 2,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "tests\\jobs.test.js",
+        "line": 5,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\jobs.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "tests\\mediaR2.test.js",
+        "line": 6,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\mediaR2.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "tests\\phase2.test.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\phase2.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "tests\\posts.test.js",
+        "line": 5,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\posts.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "tests\\scheduler.test.js",
+        "line": 10,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\scheduler.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "tests\\store.test.js",
+        "line": 6,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\store.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "astro.config.mjs",
+        "line": 3,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "astro.config.mjs",
+        "line": 9,
+        "reason": "Style sheet — visual changes",
+        "severity": "LOW",
+        "suggested_fix": "Use CSS variables for theming; avoid !important"
+      },
+      {
+        "file": "astro.config.mjs",
+        "line": 13,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "build.mjs",
+        "line": 14,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "functions\\api\\agent\\jobs.js",
+        "line": 8,
+        "reason": "Constants/enums — changes affect dependent code",
+        "severity": "LOW",
+        "suggested_fix": "Update all references; consider deprecation strategy"
+      },
+      {
+        "file": "functions\\api\\agent\\status.js",
+        "line": 10,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "functions\\api\\content\\blog.js",
+        "line": 53,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\preview.js",
+        "line": 2,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\preview.js",
+        "line": 24,
+        "reason": "Utility function — low risk, widely used",
+        "severity": "LOW",
+        "suggested_fix": "Keep pure; add unit tests for edge cases"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id].js",
+        "line": 48,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "functions\\api\\media\\upload.js",
+        "line": 5,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "functions\\api\\menu\\categories.js",
+        "line": 19,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "functions\\api\\menu\\items\\[id].js",
+        "line": 15,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "functions\\api\\menu\\items.js",
+        "line": 19,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "functions\\api\\pages\\pages.js",
+        "line": 2,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "functions\\api\\pages\\versions.js",
+        "line": 2,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "functions\\api\\scheduler\\run.js",
+        "line": 40,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "functions\\api\\site\\analytics.js",
+        "line": 11,
+        "reason": "Style sheet — visual changes",
+        "severity": "LOW",
+        "suggested_fix": "Use CSS variables for theming; avoid !important"
+      },
+      {
+        "file": "functions\\api\\site\\redirects.js",
+        "line": 35,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "functions\\api\\site\\theme.js",
+        "line": 10,
+        "reason": "Style sheet — visual changes",
+        "severity": "LOW",
+        "suggested_fix": "Use CSS variables for theming; avoid !important"
+      },
+      {
+        "file": "functions\\_scheduled.js",
+        "line": 49,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\analytics.js",
+        "line": 77,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "lib\\analytics.js",
+        "line": 5,
+        "reason": "Utility function — low risk, widely used",
+        "severity": "LOW",
+        "suggested_fix": "Keep pure; add unit tests for edge cases"
+      },
+      {
+        "file": "lib\\analytics.js",
+        "line": 67,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\auditLog.js",
+        "line": 2,
+        "reason": "Utility function — low risk, widely used",
+        "severity": "LOW",
+        "suggested_fix": "Keep pure; add unit tests for edge cases"
+      },
+      {
+        "file": "lib\\auditLog.js",
+        "line": 15,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\config.js",
+        "line": 5,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "lib\\config.js",
+        "line": 17,
+        "reason": "Utility function — low risk, widely used",
+        "severity": "LOW",
+        "suggested_fix": "Keep pure; add unit tests for edge cases"
+      },
+      {
+        "file": "lib\\config.js",
+        "line": 29,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\disasterRecovery.js",
+        "line": 45,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\jobs.js",
+        "line": 46,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "lib\\jobs.js",
+        "line": 61,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\mediaR2.js",
+        "line": 12,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\pages.js",
+        "line": 2,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "lib\\pages.js",
+        "line": 43,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\permissions.js",
+        "line": 7,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "lib\\posts.js",
+        "line": 6,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "lib\\posts.js",
+        "line": 53,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\redirects.js",
+        "line": 8,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "lib\\redirects.js",
+        "line": 7,
+        "reason": "Utility function — low risk, widely used",
+        "severity": "LOW",
+        "suggested_fix": "Keep pure; add unit tests for edge cases"
+      },
+      {
+        "file": "lib\\redirects.js",
+        "line": 5,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\schedulerAuth.js",
+        "line": 17,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\seo.js",
+        "line": 5,
+        "reason": "Utility function — low risk, widely used",
+        "severity": "LOW",
+        "suggested_fix": "Keep pure; add unit tests for edge cases"
+      },
+      {
+        "file": "lib\\seo.js",
+        "line": 20,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\store.js",
+        "line": 35,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "lib\\store.js",
+        "line": 34,
+        "reason": "Constants/enums — changes affect dependent code",
+        "severity": "LOW",
+        "suggested_fix": "Update all references; consider deprecation strategy"
+      },
+      {
+        "file": "lib\\store.js",
+        "line": 32,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\theme.js",
+        "line": 5,
+        "reason": "Utility function — low risk, widely used",
+        "severity": "LOW",
+        "suggested_fix": "Keep pure; add unit tests for edge cases"
+      },
+      {
+        "file": "scripts\\agent-seed.mjs",
+        "line": 44,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "scripts\\check-duplicates.mjs",
+        "line": 42,
+        "reason": "Documentation — low risk",
+        "severity": "LOW",
+        "suggested_fix": "Keep accurate; review for stale info"
+      },
+      {
+        "file": "scripts\\fix_html_refs.py",
+        "line": 5,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "scripts\\fix_routing.py",
+        "line": 2,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "scripts\\fix_routing.py",
+        "line": 39,
+        "reason": "Utility function — low risk, widely used",
+        "severity": "LOW",
+        "suggested_fix": "Keep pure; add unit tests for edge cases"
+      },
+      {
+        "file": "scripts\\unify_nav.py",
+        "line": 2,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "scripts\\unify_nav.py",
+        "line": 8,
+        "reason": "Style sheet — visual changes",
+        "severity": "LOW",
+        "suggested_fix": "Use CSS variables for theming; avoid !important"
+      },
+      {
+        "file": "scripts\\unify_nav.py",
+        "line": 4,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "src\\content.config.ts",
+        "line": 2,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "src\\data\\locations.ts",
+        "line": 1,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "tests\\agentCodingClient.test.js",
+        "line": 53,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "tests\\cronTrigger.test.js",
+        "line": 27,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "tests\\gitPublish.test.js",
+        "line": 63,
+        "reason": "Constants/enums — changes affect dependent code",
+        "severity": "LOW",
+        "suggested_fix": "Update all references; consider deprecation strategy"
+      },
+      {
+        "file": "tests\\mediaR2.test.js",
+        "line": 5,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "tests\\phase2.test.js",
+        "line": 5,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "tests\\phase2.test.js",
+        "line": 6,
+        "reason": "Style sheet — visual changes",
+        "severity": "LOW",
+        "suggested_fix": "Use CSS variables for theming; avoid !important"
+      },
+      {
+        "file": "tests\\posts.test.js",
+        "line": 49,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "tests\\scheduler.test.js",
+        "line": 32,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      }
+    ],
+    "critical": [
+      {
+        "file": "build.mjs",
+        "line": 27,
+        "reason": "Shell execution or eval — high security risk if input is not sanitized",
+        "severity": "CRITICAL",
+        "suggested_fix": "Validate and sanitize all inputs; prefer safe alternatives"
+      },
+      {
+        "file": "functions\\api\\agent\\jobs.js",
+        "line": 44,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\agent\\jobs.js",
+        "line": 5,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\agent\\status.js",
+        "line": 6,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\agent\\status.js",
+        "line": 6,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\agent\\webhook.js",
+        "line": 17,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\preview.js",
+        "line": 28,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\preview.js",
+        "line": 6,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\publish.js",
+        "line": 30,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\publish.js",
+        "line": 5,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\schedule.js",
+        "line": 29,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\schedule.js",
+        "line": 6,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\transition.js",
+        "line": 24,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\transition.js",
+        "line": 6,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id].js",
+        "line": 29,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id].js",
+        "line": 30,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\content\\posts.js",
+        "line": 47,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\content\\posts.js",
+        "line": 46,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\content\\publish.js",
+        "line": 11,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\content\\publish.js",
+        "line": 6,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\media\\upload.js",
+        "line": 51,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\media\\upload.js",
+        "line": 9,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\menu\\categories.js",
+        "line": 41,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\menu\\categories.js",
+        "line": 42,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\menu\\items\\[id].js",
+        "line": 38,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\menu\\items\\[id].js",
+        "line": 39,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\menu\\items.js",
+        "line": 44,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\menu\\items.js",
+        "line": 45,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\menu\\publish.js",
+        "line": 10,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\menu\\publish.js",
+        "line": 6,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\pages\\pages.js",
+        "line": 43,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\pages\\pages.js",
+        "line": 44,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\pages\\versions.js",
+        "line": 32,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\pages\\versions.js",
+        "line": 33,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\scheduler\\run.js",
+        "line": 5,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\scheduler\\run.js",
+        "line": 5,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\site\\analytics.js",
+        "line": 34,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\site\\analytics.js",
+        "line": 35,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\site\\redirects.js",
+        "line": 43,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\site\\redirects.js",
+        "line": 44,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\site\\seo.js",
+        "line": 29,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\site\\seo.js",
+        "line": 30,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\site\\theme.js",
+        "line": 28,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\site\\theme.js",
+        "line": 29,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\system\\export.js",
+        "line": 22,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\system\\export.js",
+        "line": 10,
+        "reason": "Security/permissions logic — vulnerabilities cause unauthorized access",
+        "severity": "CRITICAL",
+        "suggested_fix": "Least privilege principle; test all edge cases"
+      },
+      {
+        "file": "functions\\api\\system\\import.js",
+        "line": 23,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\system\\import.js",
+        "line": 11,
+        "reason": "Security/permissions logic — vulnerabilities cause unauthorized access",
+        "severity": "CRITICAL",
+        "suggested_fix": "Least privilege principle; test all edge cases"
+      },
+      {
+        "file": "functions\\api\\system\\validate.js",
+        "line": 23,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\api\\system\\validate.js",
+        "line": 11,
+        "reason": "Security/permissions logic — vulnerabilities cause unauthorized access",
+        "severity": "CRITICAL",
+        "suggested_fix": "Least privilege principle; test all edge cases"
+      },
+      {
+        "file": "functions\\api\\_rateLimit.js",
+        "line": 8,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\api\\_rateLimit.js",
+        "line": 6,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "functions\\_scheduled.js",
+        "line": 36,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "functions\\_scheduled.js",
+        "line": 25,
+        "reason": "Shell execution or eval — high security risk if input is not sanitized",
+        "severity": "CRITICAL",
+        "suggested_fix": "Validate and sanitize all inputs; prefer safe alternatives"
+      },
+      {
+        "file": "lib\\agentCodingClient.js",
+        "line": 12,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "lib\\agentCodingClient.js",
+        "line": 12,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "lib\\analytics.js",
+        "line": 17,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "lib\\auditLog.js",
+        "line": 61,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "lib\\auditLog.js",
+        "line": 68,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "lib\\config.js",
+        "line": 22,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "lib\\gitPublish.js",
+        "line": 8,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "lib\\jobs.js",
+        "line": 5,
+        "reason": "Shell execution or eval — high security risk if input is not sanitized",
+        "severity": "CRITICAL",
+        "suggested_fix": "Validate and sanitize all inputs; prefer safe alternatives"
+      },
+      {
+        "file": "lib\\permissions.js",
+        "line": 2,
+        "reason": "Security/permissions logic — vulnerabilities cause unauthorized access",
+        "severity": "CRITICAL",
+        "suggested_fix": "Least privilege principle; test all edge cases"
+      },
+      {
+        "file": "lib\\schedulerAuth.js",
+        "line": 2,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "lib\\schedulerAuth.js",
+        "line": 2,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "lib\\seo.js",
+        "line": 15,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "scripts\\agent-status.mjs",
+        "line": 31,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "scripts\\unify_nav.py",
+        "line": 23,
+        "reason": "Security/permissions logic — vulnerabilities cause unauthorized access",
+        "severity": "CRITICAL",
+        "suggested_fix": "Least privilege principle; test all edge cases"
+      },
+      {
+        "file": "tests\\agentCodingClient.test.js",
+        "line": 19,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "tests\\agentCodingClient.test.js",
+        "line": 40,
+        "reason": "Authentication logic — incorrect implementation leads to security breaches",
+        "severity": "CRITICAL",
+        "suggested_fix": "Use framework-standard auth; keep dependencies updated"
+      },
+      {
+        "file": "tests\\cronTrigger.test.js",
+        "line": 47,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      },
+      {
+        "file": "tests\\gitPublish.test.js",
+        "line": 5,
+        "reason": "May contain hardcoded credentials",
+        "severity": "CRITICAL",
+        "suggested_fix": "Replace with environment variables or vault reference"
+      }
+    ],
+    "high": [
+      {
+        "file": "astro.config.mjs",
+        "line": 1,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\agent\\jobs.js",
+        "line": 11,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "functions\\api\\agent\\jobs.js",
+        "line": 15,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\agent\\status.js",
+        "line": 14,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\agent\\webhook.js",
+        "line": 2,
+        "reason": "Webhook handlers process external callbacks — must validate signatures",
+        "severity": "HIGH",
+        "suggested_fix": "Verify webhook signatures; idempotent processing"
+      },
+      {
+        "file": "functions\\api\\agent\\webhook.js",
+        "line": 22,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\content\\blog.js",
+        "line": 13,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\preview.js",
+        "line": 10,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\publish.js",
+        "line": 15,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\schedule.js",
+        "line": 2,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\schedule.js",
+        "line": 14,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\transition.js",
+        "line": 5,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\transition.js",
+        "line": 9,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id].js",
+        "line": 6,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\content\\posts.js",
+        "line": 14,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\content\\publish.js",
+        "line": 45,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "functions\\api\\content\\publish.js",
+        "line": 11,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\media\\upload.js",
+        "line": 25,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\menu\\categories.js",
+        "line": 10,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\menu\\items\\[id].js",
+        "line": 6,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\menu\\items.js",
+        "line": 10,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\menu\\publish.js",
+        "line": 10,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\pages\\pages.js",
+        "line": 11,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\pages\\versions.js",
+        "line": 8,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\scheduler\\run.js",
+        "line": 2,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "functions\\api\\scheduler\\run.js",
+        "line": 17,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\site\\analytics.js",
+        "line": 4,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\site\\redirects.js",
+        "line": 12,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\site\\seo.js",
+        "line": 4,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\site\\theme.js",
+        "line": 8,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\system\\export.js",
+        "line": 7,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\system\\import.js",
+        "line": 8,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\system\\validate.js",
+        "line": 8,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\api\\_rateLimit.js",
+        "line": 8,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "functions\\api\\_rateLimit.js",
+        "line": 4,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "functions\\_scheduled.js",
+        "line": 2,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "functions\\_scheduled.js",
+        "line": 14,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\agentCodingClient.js",
+        "line": 7,
+        "reason": "Webhook handlers process external callbacks — must validate signatures",
+        "severity": "HIGH",
+        "suggested_fix": "Verify webhook signatures; idempotent processing"
+      },
+      {
+        "file": "lib\\agentCodingClient.js",
+        "line": 16,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\analytics.js",
+        "line": 4,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\auditLog.js",
+        "line": 8,
+        "reason": "Webhook handlers process external callbacks — must validate signatures",
+        "severity": "HIGH",
+        "suggested_fix": "Verify webhook signatures; idempotent processing"
+      },
+      {
+        "file": "lib\\auditLog.js",
+        "line": 4,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "lib\\config.js",
+        "line": 57,
+        "reason": "Webhook handlers process external callbacks — must validate signatures",
+        "severity": "HIGH",
+        "suggested_fix": "Verify webhook signatures; idempotent processing"
+      },
+      {
+        "file": "lib\\config.js",
+        "line": 2,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\contentPolicy.js",
+        "line": 4,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\jobs.js",
+        "line": 15,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "lib\\jobs.js",
+        "line": 24,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\mediaR2.js",
+        "line": 8,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\pages.js",
+        "line": 5,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "lib\\permissions.js",
+        "line": 23,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "lib\\posts.js",
+        "line": 6,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "lib\\scheduler.js",
+        "line": 2,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "lib\\scheduler.js",
+        "line": 12,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\schedulerAuth.js",
+        "line": 2,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "lib\\schedulerAuth.js",
+        "line": 5,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\seo.js",
+        "line": 4,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\store.js",
+        "line": 35,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "lib\\store.js",
+        "line": 6,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "lib\\theme.js",
+        "line": 4,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "scripts\\agent-seed.mjs",
+        "line": 3,
+        "reason": "Data migrations — data loss risk",
+        "severity": "HIGH",
+        "suggested_fix": "Test on staging first; ensure rollback capability"
+      },
+      {
+        "file": "scripts\\agent-status.mjs",
+        "line": 32,
+        "reason": "Webhook handlers process external callbacks — must validate signatures",
+        "severity": "HIGH",
+        "suggested_fix": "Verify webhook signatures; idempotent processing"
+      },
+      {
+        "file": "scripts\\agent-status.mjs",
+        "line": 25,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "scripts\\check-duplicates.mjs",
+        "line": 44,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "src\\content.config.ts",
+        "line": null,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "src\\data\\config.ts",
+        "line": null,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "tests\\agentCodingClient.test.js",
+        "line": 20,
+        "reason": "Webhook handlers process external callbacks — must validate signatures",
+        "severity": "HIGH",
+        "suggested_fix": "Verify webhook signatures; idempotent processing"
+      },
+      {
+        "file": "tests\\agentCodingClient.test.js",
+        "line": 15,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "tests\\contentPolicy.test.js",
+        "line": 10,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "tests\\cronTrigger.test.js",
+        "line": 2,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "tests\\jobs.test.js",
+        "line": 19,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      },
+      {
+        "file": "tests\\jobs.test.js",
+        "line": 12,
+        "reason": "Configuration file — misconfiguration causes outages",
+        "severity": "HIGH",
+        "suggested_fix": "Validate config schema; use typed config objects"
+      },
+      {
+        "file": "tests\\scheduler.test.js",
+        "line": 2,
+        "reason": "Scheduled jobs — failure may go unnoticed",
+        "severity": "HIGH",
+        "suggested_fix": "Add monitoring and alerting; idempotent execution"
+      }
+    ],
+    "medium": [
+      {
+        "file": "astro.config.mjs",
+        "line": 11,
+        "reason": "Middleware — affects request pipeline globally",
+        "severity": "MEDIUM",
+        "suggested_fix": "Test middleware independently; document side effects"
+      },
+      {
+        "file": "astro.config.mjs",
+        "line": 1,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "build.mjs",
+        "line": 17,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\agent\\jobs.js",
+        "line": 2,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "functions\\api\\agent\\jobs.js",
+        "line": 15,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\agent\\status.js",
+        "line": 5,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "functions\\api\\agent\\status.js",
+        "line": 14,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\agent\\webhook.js",
+        "line": 7,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "functions\\api\\agent\\webhook.js",
+        "line": 22,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\content\\blog.js",
+        "line": 13,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\preview.js",
+        "line": 10,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\publish.js",
+        "line": 9,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\schedule.js",
+        "line": 14,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id]\\transition.js",
+        "line": 9,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id].js",
+        "line": 6,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\content\\posts.js",
+        "line": 14,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\content\\publish.js",
+        "line": 15,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\media\\upload.js",
+        "line": 2,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\menu\\categories.js",
+        "line": 10,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\menu\\items\\[id].js",
+        "line": 6,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\menu\\items.js",
+        "line": 10,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\menu\\publish.js",
+        "line": 14,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\pages\\pages.js",
+        "line": 11,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\pages\\versions.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\scheduler\\run.js",
+        "line": 17,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\site\\analytics.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\site\\redirects.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\site\\seo.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\site\\theme.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\system\\export.js",
+        "line": 2,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\system\\import.js",
+        "line": 2,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\system\\validate.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\api\\_rateLimit.js",
+        "line": 8,
+        "reason": "Service layer — contains business logic",
+        "severity": "MEDIUM",
+        "suggested_fix": "Unit test thoroughly; handle error states"
+      },
+      {
+        "file": "functions\\api\\_rateLimit.js",
+        "line": 2,
+        "reason": "Middleware — affects request pipeline globally",
+        "severity": "MEDIUM",
+        "suggested_fix": "Test middleware independently; document side effects"
+      },
+      {
+        "file": "functions\\api\\_rateLimit.js",
+        "line": 7,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\_middleware.js",
+        "line": null,
+        "reason": "Middleware — affects request pipeline globally",
+        "severity": "MEDIUM",
+        "suggested_fix": "Test middleware independently; document side effects"
+      },
+      {
+        "file": "functions\\_middleware.js",
+        "line": 7,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "functions\\_scheduled.js",
+        "line": 4,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\agentCodingClient.js",
+        "line": 2,
+        "reason": "Service layer — contains business logic",
+        "severity": "MEDIUM",
+        "suggested_fix": "Unit test thoroughly; handle error states"
+      },
+      {
+        "file": "lib\\agentCodingClient.js",
+        "line": 5,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "lib\\agentCodingClient.js",
+        "line": 16,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\analytics.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\auditLog.js",
+        "line": 5,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\config.js",
+        "line": 14,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\contentPolicy.js",
+        "line": 5,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\disasterRecovery.js",
+        "line": 2,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\gitPublish.js",
+        "line": 52,
+        "reason": "Notification system — delivery failures impact users",
+        "severity": "MEDIUM",
+        "suggested_fix": "Queue notifications; handle provider failures"
+      },
+      {
+        "file": "lib\\gitPublish.js",
+        "line": 4,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\jobs.js",
+        "line": 2,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "lib\\jobs.js",
+        "line": 17,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\mediaR2.js",
+        "line": 12,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\pages.js",
+        "line": 15,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\permissions.js",
+        "line": 16,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\posts.js",
+        "line": 11,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\redirects.js",
+        "line": 2,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\scheduler.js",
+        "line": 17,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\schedulerAuth.js",
+        "line": 2,
+        "reason": "Service layer — contains business logic",
+        "severity": "MEDIUM",
+        "suggested_fix": "Unit test thoroughly; handle error states"
+      },
+      {
+        "file": "lib\\schedulerAuth.js",
+        "line": 5,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\seo.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\store.js",
+        "line": 30,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "lib\\store.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "lib\\theme.js",
+        "line": 10,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "scripts\\agent-export.mjs",
+        "line": 37,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "scripts\\agent-export.mjs",
+        "line": 3,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "scripts\\agent-seed.mjs",
+        "line": 11,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "scripts\\agent-status.mjs",
+        "line": 9,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "scripts\\agent-status.mjs",
+        "line": 13,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "scripts\\check-duplicates.mjs",
+        "line": 5,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "scripts\\fix_html_refs.py",
+        "line": 2,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "scripts\\fix_routing.py",
+        "line": 7,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "scripts\\fix_routing.py",
+        "line": 24,
+        "reason": "Caching — stale data causes inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Set appropriate TTL; implement cache invalidation"
+      },
+      {
+        "file": "scripts\\unify_nav.py",
+        "line": 14,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "src\\content.config.ts",
+        "line": 1,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "src\\data\\config.ts",
+        "line": 1,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "src\\data\\locations.ts",
+        "line": 19,
+        "reason": "Notification system — delivery failures impact users",
+        "severity": "MEDIUM",
+        "suggested_fix": "Queue notifications; handle provider failures"
+      },
+      {
+        "file": "src\\data\\locations.ts",
+        "line": 1,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\agentCodingClient.test.js",
+        "line": 33,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "tests\\agentCodingClient.test.js",
+        "line": 9,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\agentCodingClient.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "tests\\contentPolicy.test.js",
+        "line": 5,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\contentPolicy.test.js",
+        "line": 8,
+        "reason": "Caching — stale data causes inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Set appropriate TTL; implement cache invalidation"
+      },
+      {
+        "file": "tests\\contentPolicy.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "tests\\cronTrigger.test.js",
+        "line": 5,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\cronTrigger.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "tests\\gitPublish.test.js",
+        "line": 6,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\gitPublish.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "tests\\jobs.test.js",
+        "line": 2,
+        "reason": "Async job — failure may cause data inconsistency",
+        "severity": "MEDIUM",
+        "suggested_fix": "Implement retry logic; dead-letter queue for failures"
+      },
+      {
+        "file": "tests\\jobs.test.js",
+        "line": 5,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\jobs.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "tests\\mediaR2.test.js",
+        "line": 6,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\mediaR2.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "tests\\phase2.test.js",
+        "line": 8,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\phase2.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "tests\\posts.test.js",
+        "line": 5,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\posts.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "tests\\scheduler.test.js",
+        "line": 10,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\scheduler.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      },
+      {
+        "file": "tests\\store.test.js",
+        "line": 6,
+        "reason": "File operations — path traversal and size risks",
+        "severity": "MEDIUM",
+        "suggested_fix": "Validate file types and sizes; use safe paths"
+      },
+      {
+        "file": "tests\\store.test.js",
+        "line": null,
+        "reason": "Test file — modify with caution to avoid false passes",
+        "severity": "MEDIUM",
+        "suggested_fix": "Run full test suite after changes"
+      }
+    ],
+    "low": [
+      {
+        "file": "astro.config.mjs",
+        "line": 3,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "astro.config.mjs",
+        "line": 9,
+        "reason": "Style sheet — visual changes",
+        "severity": "LOW",
+        "suggested_fix": "Use CSS variables for theming; avoid !important"
+      },
+      {
+        "file": "astro.config.mjs",
+        "line": 13,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "build.mjs",
+        "line": 14,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "functions\\api\\agent\\jobs.js",
+        "line": 8,
+        "reason": "Constants/enums — changes affect dependent code",
+        "severity": "LOW",
+        "suggested_fix": "Update all references; consider deprecation strategy"
+      },
+      {
+        "file": "functions\\api\\agent\\status.js",
+        "line": 10,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "functions\\api\\content\\blog.js",
+        "line": 53,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\preview.js",
+        "line": 2,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\preview.js",
+        "line": 24,
+        "reason": "Utility function — low risk, widely used",
+        "severity": "LOW",
+        "suggested_fix": "Keep pure; add unit tests for edge cases"
+      },
+      {
+        "file": "functions\\api\\content\\posts\\[id].js",
+        "line": 48,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "functions\\api\\media\\upload.js",
+        "line": 5,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "functions\\api\\menu\\categories.js",
+        "line": 19,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "functions\\api\\menu\\items\\[id].js",
+        "line": 15,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "functions\\api\\menu\\items.js",
+        "line": 19,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "functions\\api\\pages\\pages.js",
+        "line": 2,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "functions\\api\\pages\\versions.js",
+        "line": 2,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "functions\\api\\scheduler\\run.js",
+        "line": 40,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "functions\\api\\site\\analytics.js",
+        "line": 11,
+        "reason": "Style sheet — visual changes",
+        "severity": "LOW",
+        "suggested_fix": "Use CSS variables for theming; avoid !important"
+      },
+      {
+        "file": "functions\\api\\site\\redirects.js",
+        "line": 35,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "functions\\api\\site\\theme.js",
+        "line": 10,
+        "reason": "Style sheet — visual changes",
+        "severity": "LOW",
+        "suggested_fix": "Use CSS variables for theming; avoid !important"
+      },
+      {
+        "file": "functions\\_scheduled.js",
+        "line": 49,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\analytics.js",
+        "line": 77,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "lib\\analytics.js",
+        "line": 5,
+        "reason": "Utility function — low risk, widely used",
+        "severity": "LOW",
+        "suggested_fix": "Keep pure; add unit tests for edge cases"
+      },
+      {
+        "file": "lib\\analytics.js",
+        "line": 67,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\auditLog.js",
+        "line": 2,
+        "reason": "Utility function — low risk, widely used",
+        "severity": "LOW",
+        "suggested_fix": "Keep pure; add unit tests for edge cases"
+      },
+      {
+        "file": "lib\\auditLog.js",
+        "line": 15,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\config.js",
+        "line": 5,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "lib\\config.js",
+        "line": 17,
+        "reason": "Utility function — low risk, widely used",
+        "severity": "LOW",
+        "suggested_fix": "Keep pure; add unit tests for edge cases"
+      },
+      {
+        "file": "lib\\config.js",
+        "line": 29,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\disasterRecovery.js",
+        "line": 45,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\jobs.js",
+        "line": 46,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "lib\\jobs.js",
+        "line": 61,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\mediaR2.js",
+        "line": 12,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\pages.js",
+        "line": 2,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "lib\\pages.js",
+        "line": 43,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\permissions.js",
+        "line": 7,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "lib\\posts.js",
+        "line": 6,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "lib\\posts.js",
+        "line": 53,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\redirects.js",
+        "line": 8,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "lib\\redirects.js",
+        "line": 7,
+        "reason": "Utility function — low risk, widely used",
+        "severity": "LOW",
+        "suggested_fix": "Keep pure; add unit tests for edge cases"
+      },
+      {
+        "file": "lib\\redirects.js",
+        "line": 5,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\schedulerAuth.js",
+        "line": 17,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\seo.js",
+        "line": 5,
+        "reason": "Utility function — low risk, widely used",
+        "severity": "LOW",
+        "suggested_fix": "Keep pure; add unit tests for edge cases"
+      },
+      {
+        "file": "lib\\seo.js",
+        "line": 20,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\store.js",
+        "line": 35,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "lib\\store.js",
+        "line": 34,
+        "reason": "Constants/enums — changes affect dependent code",
+        "severity": "LOW",
+        "suggested_fix": "Update all references; consider deprecation strategy"
+      },
+      {
+        "file": "lib\\store.js",
+        "line": 32,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "lib\\theme.js",
+        "line": 5,
+        "reason": "Utility function — low risk, widely used",
+        "severity": "LOW",
+        "suggested_fix": "Keep pure; add unit tests for edge cases"
+      },
+      {
+        "file": "scripts\\agent-seed.mjs",
+        "line": 44,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "scripts\\check-duplicates.mjs",
+        "line": 42,
+        "reason": "Documentation — low risk",
+        "severity": "LOW",
+        "suggested_fix": "Keep accurate; review for stale info"
+      },
+      {
+        "file": "scripts\\fix_html_refs.py",
+        "line": 5,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "scripts\\fix_routing.py",
+        "line": 2,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "scripts\\fix_routing.py",
+        "line": 39,
+        "reason": "Utility function — low risk, widely used",
+        "severity": "LOW",
+        "suggested_fix": "Keep pure; add unit tests for edge cases"
+      },
+      {
+        "file": "scripts\\unify_nav.py",
+        "line": 2,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "scripts\\unify_nav.py",
+        "line": 8,
+        "reason": "Style sheet — visual changes",
+        "severity": "LOW",
+        "suggested_fix": "Use CSS variables for theming; avoid !important"
+      },
+      {
+        "file": "scripts\\unify_nav.py",
+        "line": 4,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "src\\content.config.ts",
+        "line": 2,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "src\\data\\locations.ts",
+        "line": 1,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "tests\\agentCodingClient.test.js",
+        "line": 53,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "tests\\cronTrigger.test.js",
+        "line": 27,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "tests\\gitPublish.test.js",
+        "line": 63,
+        "reason": "Constants/enums — changes affect dependent code",
+        "severity": "LOW",
+        "suggested_fix": "Update all references; consider deprecation strategy"
+      },
+      {
+        "file": "tests\\mediaR2.test.js",
+        "line": 5,
+        "reason": "Type definition — changes may break compilation",
+        "severity": "LOW",
+        "suggested_fix": "Update all implementations"
+      },
+      {
+        "file": "tests\\phase2.test.js",
+        "line": 5,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "tests\\phase2.test.js",
+        "line": 6,
+        "reason": "Style sheet — visual changes",
+        "severity": "LOW",
+        "suggested_fix": "Use CSS variables for theming; avoid !important"
+      },
+      {
+        "file": "tests\\posts.test.js",
+        "line": 49,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      },
+      {
+        "file": "tests\\scheduler.test.js",
+        "line": 32,
+        "reason": "View/template — UI changes affect user experience",
+        "severity": "LOW",
+        "suggested_fix": "Test rendering across supported browsers"
+      }
+    ],
+    "summary": {
+      "critical": 72,
+      "high": 72,
+      "medium": 99,
+      "low": 66
+    }
+  },
+  "qaCommands": {
+    "test": "npm test"
+  },
+  "buildCommands": {
+    "build": "npm run build",
+    "dev": "npm run dev"
+  },
+  "deployNotes": [
+    ".env.example found: copy to .env and configure"
+  ]
+}

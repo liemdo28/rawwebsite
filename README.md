@@ -28,6 +28,38 @@
 The website serves as: brand landing page, location pages, menu (JSON-driven), blog (12 articles), SEO pages, online ordering (Toast Tab) & delivery (DoorDash), and Schema.org JSON-LD markup.
 
 **Domain:** `www.rawsushibar.com`
+
+---
+
+## Agent-coding management layer
+
+In addition to the static marketing site, this repository includes an
+**Agent-coding bridge** + **Admin CMS** that lets an external Agent-coding
+service create, approve, schedule, and publish posts, edit menu items,
+and upload images, all from the `/admin/` dashboard or a signed webhook.
+
+- **Admin UI**: `public/admin/index.html` (Cloudflare Pages-compatible
+  single-page app).
+- **REST API**: `functions/api/*` (Cloudflare Pages Functions).
+- **Server lib**: `lib/*` (MemoryStore / FileStore / KVStore + content
+  policy + job queue + audit log).
+- **Content policy**: `config/content_policy.json` is now actually
+  enforced on every `content.post.create` / `.update`.
+- **Tests**: `npm test` — 31 / 31 unit tests pass.
+- **Docs**: `docs/ADMIN_CMS_GUIDE.md` and `docs/AGENT_CODING_BRIDGE.md`.
+- **Reports**: `reports/RAWWEBSITE_SOURCE_AUDIT.md`,
+  `reports/AGENT_CODING_INTEGRATION_PLAN.md`,
+  `reports/QA_STRESS_TEST_REPORT.md`.
+
+Quick start:
+
+```bash
+npm ci
+npm test
+npm run build
+node scripts/agent-seed.mjs
+node scripts/agent-status.mjs
+```
 **Social Media:** Facebook `/rawsushibar/`, Instagram `/rawsushibistro/`
 
 ---

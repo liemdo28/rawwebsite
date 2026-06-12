@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "last_sync_at": null,
+  "applied_migrations": [
+    "001_init"
+  ]
+}

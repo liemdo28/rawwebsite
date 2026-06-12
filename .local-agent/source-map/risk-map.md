@@ -1,0 +1,634 @@
+# Risk Map
+
+## Summary
+- **CRITICAL**: 72
+- **HIGH**: 72
+- **MEDIUM**: 99
+- **LOW**: 66
+
+## CRITICAL
+- **build.mjs** (line 27): Shell execution or eval — high security risk if input is not sanitized
+  - *Suggested fix*: Validate and sanitize all inputs; prefer safe alternatives
+- **functions\api\agent\jobs.js** (line 44): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\agent\jobs.js** (line 5): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\agent\status.js** (line 6): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\agent\status.js** (line 6): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\agent\webhook.js** (line 17): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\content\posts\preview.js** (line 28): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\content\posts\preview.js** (line 6): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\content\posts\[id]\publish.js** (line 30): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\content\posts\[id]\publish.js** (line 5): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\content\posts\[id]\schedule.js** (line 29): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\content\posts\[id]\schedule.js** (line 6): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\content\posts\[id]\transition.js** (line 24): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\content\posts\[id]\transition.js** (line 6): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\content\posts\[id].js** (line 29): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\content\posts\[id].js** (line 30): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\content\posts.js** (line 47): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\content\posts.js** (line 46): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\content\publish.js** (line 11): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\content\publish.js** (line 6): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\media\upload.js** (line 51): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\media\upload.js** (line 9): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\menu\categories.js** (line 41): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\menu\categories.js** (line 42): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\menu\items\[id].js** (line 38): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\menu\items\[id].js** (line 39): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\menu\items.js** (line 44): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\menu\items.js** (line 45): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\menu\publish.js** (line 10): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\menu\publish.js** (line 6): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\pages\pages.js** (line 43): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\pages\pages.js** (line 44): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\pages\versions.js** (line 32): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\pages\versions.js** (line 33): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\scheduler\run.js** (line 5): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\scheduler\run.js** (line 5): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\site\analytics.js** (line 34): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\site\analytics.js** (line 35): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\site\redirects.js** (line 43): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\site\redirects.js** (line 44): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\site\seo.js** (line 29): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\site\seo.js** (line 30): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\site\theme.js** (line 28): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\site\theme.js** (line 29): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\system\export.js** (line 22): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\system\export.js** (line 10): Security/permissions logic — vulnerabilities cause unauthorized access
+  - *Suggested fix*: Least privilege principle; test all edge cases
+- **functions\api\system\import.js** (line 23): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\system\import.js** (line 11): Security/permissions logic — vulnerabilities cause unauthorized access
+  - *Suggested fix*: Least privilege principle; test all edge cases
+- **functions\api\system\validate.js** (line 23): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\api\system\validate.js** (line 11): Security/permissions logic — vulnerabilities cause unauthorized access
+  - *Suggested fix*: Least privilege principle; test all edge cases
+- **functions\api\_rateLimit.js** (line 8): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\api\_rateLimit.js** (line 6): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **functions\_scheduled.js** (line 36): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **functions\_scheduled.js** (line 25): Shell execution or eval — high security risk if input is not sanitized
+  - *Suggested fix*: Validate and sanitize all inputs; prefer safe alternatives
+- **lib\agentCodingClient.js** (line 12): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **lib\agentCodingClient.js** (line 12): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **lib\analytics.js** (line 17): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **lib\auditLog.js** (line 61): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **lib\auditLog.js** (line 68): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **lib\config.js** (line 22): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **lib\gitPublish.js** (line 8): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **lib\jobs.js** (line 5): Shell execution or eval — high security risk if input is not sanitized
+  - *Suggested fix*: Validate and sanitize all inputs; prefer safe alternatives
+- **lib\permissions.js** (line 2): Security/permissions logic — vulnerabilities cause unauthorized access
+  - *Suggested fix*: Least privilege principle; test all edge cases
+- **lib\schedulerAuth.js** (line 2): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **lib\schedulerAuth.js** (line 2): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **lib\seo.js** (line 15): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **scripts\agent-status.mjs** (line 31): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **scripts\unify_nav.py** (line 23): Security/permissions logic — vulnerabilities cause unauthorized access
+  - *Suggested fix*: Least privilege principle; test all edge cases
+- **tests\agentCodingClient.test.js** (line 19): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **tests\agentCodingClient.test.js** (line 40): Authentication logic — incorrect implementation leads to security breaches
+  - *Suggested fix*: Use framework-standard auth; keep dependencies updated
+- **tests\cronTrigger.test.js** (line 47): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+- **tests\gitPublish.test.js** (line 5): May contain hardcoded credentials
+  - *Suggested fix*: Replace with environment variables or vault reference
+
+## HIGH
+- **astro.config.mjs** (line 1): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\agent\jobs.js** (line 11): Scheduled jobs — failure may go unnoticed
+  - *Suggested fix*: Add monitoring and alerting; idempotent execution
+- **functions\api\agent\jobs.js** (line 15): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\agent\status.js** (line 14): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\agent\webhook.js** (line 2): Webhook handlers process external callbacks — must validate signatures
+  - *Suggested fix*: Verify webhook signatures; idempotent processing
+- **functions\api\agent\webhook.js** (line 22): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\content\blog.js** (line 13): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\content\posts\preview.js** (line 10): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\content\posts\[id]\publish.js** (line 15): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\content\posts\[id]\schedule.js** (line 2): Scheduled jobs — failure may go unnoticed
+  - *Suggested fix*: Add monitoring and alerting; idempotent execution
+- **functions\api\content\posts\[id]\schedule.js** (line 14): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\content\posts\[id]\transition.js** (line 5): Scheduled jobs — failure may go unnoticed
+  - *Suggested fix*: Add monitoring and alerting; idempotent execution
+- **functions\api\content\posts\[id]\transition.js** (line 9): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\content\posts\[id].js** (line 6): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\content\posts.js** (line 14): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\content\publish.js** (line 45): Scheduled jobs — failure may go unnoticed
+  - *Suggested fix*: Add monitoring and alerting; idempotent execution
+- **functions\api\content\publish.js** (line 11): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\media\upload.js** (line 25): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\menu\categories.js** (line 10): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\menu\items\[id].js** (line 6): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\menu\items.js** (line 10): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\menu\publish.js** (line 10): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\pages\pages.js** (line 11): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\pages\versions.js** (line 8): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\scheduler\run.js** (line 2): Scheduled jobs — failure may go unnoticed
+  - *Suggested fix*: Add monitoring and alerting; idempotent execution
+- **functions\api\scheduler\run.js** (line 17): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\site\analytics.js** (line 4): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\site\redirects.js** (line 12): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\site\seo.js** (line 4): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\site\theme.js** (line 8): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\system\export.js** (line 7): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\system\import.js** (line 8): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\system\validate.js** (line 8): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\api\_rateLimit.js** (line 8): Scheduled jobs — failure may go unnoticed
+  - *Suggested fix*: Add monitoring and alerting; idempotent execution
+- **functions\api\_rateLimit.js** (line 4): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **functions\_scheduled.js** (line 2): Scheduled jobs — failure may go unnoticed
+  - *Suggested fix*: Add monitoring and alerting; idempotent execution
+- **functions\_scheduled.js** (line 14): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **lib\agentCodingClient.js** (line 7): Webhook handlers process external callbacks — must validate signatures
+  - *Suggested fix*: Verify webhook signatures; idempotent processing
+- **lib\agentCodingClient.js** (line 16): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **lib\analytics.js** (line 4): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **lib\auditLog.js** (line 8): Webhook handlers process external callbacks — must validate signatures
+  - *Suggested fix*: Verify webhook signatures; idempotent processing
+- **lib\auditLog.js** (line 4): Scheduled jobs — failure may go unnoticed
+  - *Suggested fix*: Add monitoring and alerting; idempotent execution
+- **lib\config.js** (line 57): Webhook handlers process external callbacks — must validate signatures
+  - *Suggested fix*: Verify webhook signatures; idempotent processing
+- **lib\config.js** (line 2): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **lib\contentPolicy.js** (line 4): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **lib\jobs.js** (line 15): Scheduled jobs — failure may go unnoticed
+  - *Suggested fix*: Add monitoring and alerting; idempotent execution
+- **lib\jobs.js** (line 24): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **lib\mediaR2.js** (line 8): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **lib\pages.js** (line 5): Scheduled jobs — failure may go unnoticed
+  - *Suggested fix*: Add monitoring and alerting; idempotent execution
+- **lib\permissions.js** (line 23): Scheduled jobs — failure may go unnoticed
+  - *Suggested fix*: Add monitoring and alerting; idempotent execution
+- **lib\posts.js** (line 6): Scheduled jobs — failure may go unnoticed
+  - *Suggested fix*: Add monitoring and alerting; idempotent execution
+- **lib\scheduler.js** (line 2): Scheduled jobs — failure may go unnoticed
+  - *Suggested fix*: Add monitoring and alerting; idempotent execution
+- **lib\scheduler.js** (line 12): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **lib\schedulerAuth.js** (line 2): Scheduled jobs — failure may go unnoticed
+  - *Suggested fix*: Add monitoring and alerting; idempotent execution
+- **lib\schedulerAuth.js** (line 5): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **lib\seo.js** (line 4): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **lib\store.js** (line 35): Scheduled jobs — failure may go unnoticed
+  - *Suggested fix*: Add monitoring and alerting; idempotent execution
+- **lib\store.js** (line 6): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **lib\theme.js** (line 4): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **scripts\agent-seed.mjs** (line 3): Data migrations — data loss risk
+  - *Suggested fix*: Test on staging first; ensure rollback capability
+- **scripts\agent-status.mjs** (line 32): Webhook handlers process external callbacks — must validate signatures
+  - *Suggested fix*: Verify webhook signatures; idempotent processing
+- **scripts\agent-status.mjs** (line 25): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **scripts\check-duplicates.mjs** (line 44): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **src\content.config.ts**: Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **src\data\config.ts**: Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **tests\agentCodingClient.test.js** (line 20): Webhook handlers process external callbacks — must validate signatures
+  - *Suggested fix*: Verify webhook signatures; idempotent processing
+- **tests\agentCodingClient.test.js** (line 15): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **tests\contentPolicy.test.js** (line 10): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **tests\cronTrigger.test.js** (line 2): Scheduled jobs — failure may go unnoticed
+  - *Suggested fix*: Add monitoring and alerting; idempotent execution
+- **tests\jobs.test.js** (line 19): Scheduled jobs — failure may go unnoticed
+  - *Suggested fix*: Add monitoring and alerting; idempotent execution
+- **tests\jobs.test.js** (line 12): Configuration file — misconfiguration causes outages
+  - *Suggested fix*: Validate config schema; use typed config objects
+- **tests\scheduler.test.js** (line 2): Scheduled jobs — failure may go unnoticed
+  - *Suggested fix*: Add monitoring and alerting; idempotent execution
+
+## MEDIUM
+- **astro.config.mjs** (line 11): Middleware — affects request pipeline globally
+  - *Suggested fix*: Test middleware independently; document side effects
+- **astro.config.mjs** (line 1): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **build.mjs** (line 17): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\agent\jobs.js** (line 2): Async job — failure may cause data inconsistency
+  - *Suggested fix*: Implement retry logic; dead-letter queue for failures
+- **functions\api\agent\jobs.js** (line 15): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\agent\status.js** (line 5): Async job — failure may cause data inconsistency
+  - *Suggested fix*: Implement retry logic; dead-letter queue for failures
+- **functions\api\agent\status.js** (line 14): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\agent\webhook.js** (line 7): Async job — failure may cause data inconsistency
+  - *Suggested fix*: Implement retry logic; dead-letter queue for failures
+- **functions\api\agent\webhook.js** (line 22): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\content\blog.js** (line 13): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\content\posts\preview.js** (line 10): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\content\posts\[id]\publish.js** (line 9): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\content\posts\[id]\schedule.js** (line 14): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\content\posts\[id]\transition.js** (line 9): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\content\posts\[id].js** (line 6): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\content\posts.js** (line 14): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\content\publish.js** (line 15): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\media\upload.js** (line 2): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\menu\categories.js** (line 10): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\menu\items\[id].js** (line 6): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\menu\items.js** (line 10): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\menu\publish.js** (line 14): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\pages\pages.js** (line 11): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\pages\versions.js** (line 8): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\scheduler\run.js** (line 17): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\site\analytics.js** (line 8): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\site\redirects.js** (line 8): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\site\seo.js** (line 8): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\site\theme.js** (line 8): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\system\export.js** (line 2): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\system\import.js** (line 2): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\system\validate.js** (line 8): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\api\_rateLimit.js** (line 8): Service layer — contains business logic
+  - *Suggested fix*: Unit test thoroughly; handle error states
+- **functions\api\_rateLimit.js** (line 2): Middleware — affects request pipeline globally
+  - *Suggested fix*: Test middleware independently; document side effects
+- **functions\api\_rateLimit.js** (line 7): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\_middleware.js**: Middleware — affects request pipeline globally
+  - *Suggested fix*: Test middleware independently; document side effects
+- **functions\_middleware.js** (line 7): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **functions\_scheduled.js** (line 4): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **lib\agentCodingClient.js** (line 2): Service layer — contains business logic
+  - *Suggested fix*: Unit test thoroughly; handle error states
+- **lib\agentCodingClient.js** (line 5): Async job — failure may cause data inconsistency
+  - *Suggested fix*: Implement retry logic; dead-letter queue for failures
+- **lib\agentCodingClient.js** (line 16): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **lib\analytics.js** (line 8): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **lib\auditLog.js** (line 5): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **lib\config.js** (line 14): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **lib\contentPolicy.js** (line 5): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **lib\disasterRecovery.js** (line 2): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **lib\gitPublish.js** (line 52): Notification system — delivery failures impact users
+  - *Suggested fix*: Queue notifications; handle provider failures
+- **lib\gitPublish.js** (line 4): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **lib\jobs.js** (line 2): Async job — failure may cause data inconsistency
+  - *Suggested fix*: Implement retry logic; dead-letter queue for failures
+- **lib\jobs.js** (line 17): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **lib\mediaR2.js** (line 12): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **lib\pages.js** (line 15): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **lib\permissions.js** (line 16): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **lib\posts.js** (line 11): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **lib\redirects.js** (line 2): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **lib\scheduler.js** (line 17): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **lib\schedulerAuth.js** (line 2): Service layer — contains business logic
+  - *Suggested fix*: Unit test thoroughly; handle error states
+- **lib\schedulerAuth.js** (line 5): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **lib\seo.js** (line 8): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **lib\store.js** (line 30): Async job — failure may cause data inconsistency
+  - *Suggested fix*: Implement retry logic; dead-letter queue for failures
+- **lib\store.js** (line 8): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **lib\theme.js** (line 10): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **scripts\agent-export.mjs** (line 37): Async job — failure may cause data inconsistency
+  - *Suggested fix*: Implement retry logic; dead-letter queue for failures
+- **scripts\agent-export.mjs** (line 3): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **scripts\agent-seed.mjs** (line 11): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **scripts\agent-status.mjs** (line 9): Async job — failure may cause data inconsistency
+  - *Suggested fix*: Implement retry logic; dead-letter queue for failures
+- **scripts\agent-status.mjs** (line 13): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **scripts\check-duplicates.mjs** (line 5): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **scripts\fix_html_refs.py** (line 2): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **scripts\fix_routing.py** (line 7): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **scripts\fix_routing.py** (line 24): Caching — stale data causes inconsistency
+  - *Suggested fix*: Set appropriate TTL; implement cache invalidation
+- **scripts\unify_nav.py** (line 14): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **src\content.config.ts** (line 1): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **src\data\config.ts** (line 1): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **src\data\locations.ts** (line 19): Notification system — delivery failures impact users
+  - *Suggested fix*: Queue notifications; handle provider failures
+- **src\data\locations.ts** (line 1): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **tests\agentCodingClient.test.js** (line 33): Async job — failure may cause data inconsistency
+  - *Suggested fix*: Implement retry logic; dead-letter queue for failures
+- **tests\agentCodingClient.test.js** (line 9): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **tests\agentCodingClient.test.js**: Test file — modify with caution to avoid false passes
+  - *Suggested fix*: Run full test suite after changes
+- **tests\contentPolicy.test.js** (line 5): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **tests\contentPolicy.test.js** (line 8): Caching — stale data causes inconsistency
+  - *Suggested fix*: Set appropriate TTL; implement cache invalidation
+- **tests\contentPolicy.test.js**: Test file — modify with caution to avoid false passes
+  - *Suggested fix*: Run full test suite after changes
+- **tests\cronTrigger.test.js** (line 5): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **tests\cronTrigger.test.js**: Test file — modify with caution to avoid false passes
+  - *Suggested fix*: Run full test suite after changes
+- **tests\gitPublish.test.js** (line 6): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **tests\gitPublish.test.js**: Test file — modify with caution to avoid false passes
+  - *Suggested fix*: Run full test suite after changes
+- **tests\jobs.test.js** (line 2): Async job — failure may cause data inconsistency
+  - *Suggested fix*: Implement retry logic; dead-letter queue for failures
+- **tests\jobs.test.js** (line 5): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **tests\jobs.test.js**: Test file — modify with caution to avoid false passes
+  - *Suggested fix*: Run full test suite after changes
+- **tests\mediaR2.test.js** (line 6): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **tests\mediaR2.test.js**: Test file — modify with caution to avoid false passes
+  - *Suggested fix*: Run full test suite after changes
+- **tests\phase2.test.js** (line 8): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **tests\phase2.test.js**: Test file — modify with caution to avoid false passes
+  - *Suggested fix*: Run full test suite after changes
+- **tests\posts.test.js** (line 5): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **tests\posts.test.js**: Test file — modify with caution to avoid false passes
+  - *Suggested fix*: Run full test suite after changes
+- **tests\scheduler.test.js** (line 10): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **tests\scheduler.test.js**: Test file — modify with caution to avoid false passes
+  - *Suggested fix*: Run full test suite after changes
+- **tests\store.test.js** (line 6): File operations — path traversal and size risks
+  - *Suggested fix*: Validate file types and sizes; use safe paths
+- **tests\store.test.js**: Test file — modify with caution to avoid false passes
+  - *Suggested fix*: Run full test suite after changes
+
+## LOW
+- **astro.config.mjs** (line 3): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **astro.config.mjs** (line 9): Style sheet — visual changes
+  - *Suggested fix*: Use CSS variables for theming; avoid !important
+- **astro.config.mjs** (line 13): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **build.mjs** (line 14): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **functions\api\agent\jobs.js** (line 8): Constants/enums — changes affect dependent code
+  - *Suggested fix*: Update all references; consider deprecation strategy
+- **functions\api\agent\status.js** (line 10): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **functions\api\content\blog.js** (line 53): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **functions\api\content\posts\preview.js** (line 2): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **functions\api\content\posts\preview.js** (line 24): Utility function — low risk, widely used
+  - *Suggested fix*: Keep pure; add unit tests for edge cases
+- **functions\api\content\posts\[id].js** (line 48): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **functions\api\media\upload.js** (line 5): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **functions\api\menu\categories.js** (line 19): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **functions\api\menu\items\[id].js** (line 15): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **functions\api\menu\items.js** (line 19): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **functions\api\pages\pages.js** (line 2): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **functions\api\pages\versions.js** (line 2): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **functions\api\scheduler\run.js** (line 40): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **functions\api\site\analytics.js** (line 11): Style sheet — visual changes
+  - *Suggested fix*: Use CSS variables for theming; avoid !important
+- **functions\api\site\redirects.js** (line 35): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **functions\api\site\theme.js** (line 10): Style sheet — visual changes
+  - *Suggested fix*: Use CSS variables for theming; avoid !important
+- **functions\_scheduled.js** (line 49): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **lib\analytics.js** (line 77): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **lib\analytics.js** (line 5): Utility function — low risk, widely used
+  - *Suggested fix*: Keep pure; add unit tests for edge cases
+- **lib\analytics.js** (line 67): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **lib\auditLog.js** (line 2): Utility function — low risk, widely used
+  - *Suggested fix*: Keep pure; add unit tests for edge cases
+- **lib\auditLog.js** (line 15): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **lib\config.js** (line 5): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **lib\config.js** (line 17): Utility function — low risk, widely used
+  - *Suggested fix*: Keep pure; add unit tests for edge cases
+- **lib\config.js** (line 29): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **lib\disasterRecovery.js** (line 45): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **lib\jobs.js** (line 46): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **lib\jobs.js** (line 61): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **lib\mediaR2.js** (line 12): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **lib\pages.js** (line 2): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **lib\pages.js** (line 43): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **lib\permissions.js** (line 7): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **lib\posts.js** (line 6): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **lib\posts.js** (line 53): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **lib\redirects.js** (line 8): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **lib\redirects.js** (line 7): Utility function — low risk, widely used
+  - *Suggested fix*: Keep pure; add unit tests for edge cases
+- **lib\redirects.js** (line 5): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **lib\schedulerAuth.js** (line 17): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **lib\seo.js** (line 5): Utility function — low risk, widely used
+  - *Suggested fix*: Keep pure; add unit tests for edge cases
+- **lib\seo.js** (line 20): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **lib\store.js** (line 35): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **lib\store.js** (line 34): Constants/enums — changes affect dependent code
+  - *Suggested fix*: Update all references; consider deprecation strategy
+- **lib\store.js** (line 32): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **lib\theme.js** (line 5): Utility function — low risk, widely used
+  - *Suggested fix*: Keep pure; add unit tests for edge cases
+- **scripts\agent-seed.mjs** (line 44): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **scripts\check-duplicates.mjs** (line 42): Documentation — low risk
+  - *Suggested fix*: Keep accurate; review for stale info
+- **scripts\fix_html_refs.py** (line 5): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **scripts\fix_routing.py** (line 2): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **scripts\fix_routing.py** (line 39): Utility function — low risk, widely used
+  - *Suggested fix*: Keep pure; add unit tests for edge cases
+- **scripts\unify_nav.py** (line 2): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **scripts\unify_nav.py** (line 8): Style sheet — visual changes
+  - *Suggested fix*: Use CSS variables for theming; avoid !important
+- **scripts\unify_nav.py** (line 4): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **src\content.config.ts** (line 2): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **src\data\locations.ts** (line 1): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **tests\agentCodingClient.test.js** (line 53): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **tests\cronTrigger.test.js** (line 27): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **tests\gitPublish.test.js** (line 63): Constants/enums — changes affect dependent code
+  - *Suggested fix*: Update all references; consider deprecation strategy
+- **tests\mediaR2.test.js** (line 5): Type definition — changes may break compilation
+  - *Suggested fix*: Update all implementations
+- **tests\phase2.test.js** (line 5): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **tests\phase2.test.js** (line 6): Style sheet — visual changes
+  - *Suggested fix*: Use CSS variables for theming; avoid !important
+- **tests\posts.test.js** (line 49): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+- **tests\scheduler.test.js** (line 32): View/template — UI changes affect user experience
+  - *Suggested fix*: Test rendering across supported browsers
+
