@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" id="meta-description" content="Fresh sushi stories and dining guides from Raw Sushi Bar.">
+    <meta name="robots" content="index, follow">
+
+    <title id="page-title">Raw Sushi Bar Blog</title>
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.rawsushibar.com/blog-posts.html">
+    <meta property="og:title" id="og-title" content="Raw Sushi Bar Blog">
+    <meta property="og:description" id="og-desc" content="Fresh sushi stories from Stockton, CA.">
+
+    <link rel="canonical" id="canonical-url" href="https://www.rawsushibar.com/blog-posts.html">
+
+    <link rel="apple-touch-icon" href="https://static.wixstatic.com/media/401243_d65d2b6fde216c976b09b4520417899d.png/v1/fill/w_180,h_180,al_c,q_85/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-red: #C41E3A;
+            --deep-red: #a01829;
+            --charcoal: #2b2b2b;
+            --cream: #f9f7f4;
+            --warm-cream: #f5f0ea;
+            --gold: #d4af37;
+            --text-dark: #2c2824;
+            --text-medium: #5a544e;
+            --text-light: #8a847e;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-dark); line-height: 1.6; background: var(--cream); }
+        a { color: var(--primary-red); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .skip-link { position: absolute; top: -100px; left: 0; background: var(--primary-red); color: var(--white); padding: 10px 15px; z-index: 100000; font-weight: bold; transition: top 0.2s; text-decoration: none; }
+        .skip-link:focus { top: 0; }
+
+        /* ── Navigation ── */
+        .nav-container { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(26,26,26,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(0,0,0,0.15); }
+        nav { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 3rem; }
+        .logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+        .logo svg { height: 44px; width: auto; display: block; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; align-items: center; }
+        .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: all 0.3s ease; position: relative; letter-spacing: 0.5px; text-transform: uppercase; }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.3s ease; }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* ── Blog Index ── */
+        .blog-hero { background: linear-gradient(135deg, var(--charcoal) 0%, #1a1a1a 100%); color: var(--white); padding: 7rem 2rem 4rem; text-align: center; }
+        .blog-hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 1rem; color: var(--white); }
+        .blog-hero p { font-size: 1.1rem; opacity: 0.8; max-width: 600px; margin: 0 auto; }
+
+        .blog-container { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
+
+        .blog-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; text-decoration: none; display: block; }
+        .blog-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); text-decoration: none; }
+        .blog-card-img { width: 100%; height: 200px; object-fit: cover; background: var(--warm-cream); display: block; }
+        .blog-card-body { padding: 1.5rem; }
+        .blog-card-type { display: inline-block; background: var(--primary-red); color: var(--white); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; }
+        .blog-card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--text-dark); margin-bottom: 0.5rem; line-height: 1.3; }
+        .blog-card p { font-size: 0.9rem; color: var(--text-medium); line-height: 1.6; }
+        .blog-card-meta { margin-top: 1rem; font-size: 0.8rem; color: var(--text-light); }
+
+        /* ── Post Detail ── */
+        .post-container { max-width: 860px; margin: 0 auto; padding: 8rem 2rem 4rem; }
+        .post-header { text-align: center; margin-bottom: 3rem; }
+        .post-type-label { display: inline-block; background: var(--primary-red); color: var(--white); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.25rem; }
+        .post-title { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--text-dark); margin-bottom: 1rem; line-height: 1.2; }
+        .post-meta { display: flex; justify-content: center; gap: 2rem; font-size: 0.85rem; color: var(--text-light); flex-wrap: wrap; }
+        .post-meta span { display: flex; align-items: center; gap: 0.4rem; }
+        .post-featured-image { width: 100%; border-radius: 12px; margin-bottom: 2.5rem; overflow: hidden; }
+        .post-featured-image img { width: 100%; height: auto; display: block; border-radius: 12px; }
+        .post-body { font-size: 1.05rem; line-height: 1.8; color: var(--text-medium); }
+        .post-body h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--text-dark); margin: 2.5rem 0 1rem; }
+        .post-body h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text-dark); margin: 2rem 0 0.75rem; }
+        .post-body p { margin-bottom: 1.5rem; }
+        .post-body ul, .post-body ol { margin: 1rem 0 1.5rem 1.5rem; }
+        .post-body li { margin-bottom: 0.5rem; }
+        .post-body blockquote { border-left: 4px solid var(--gold); padding: 1rem 1.5rem; margin: 2rem 0; background: var(--warm-cream); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-dark); }
+        .post-body strong { color: var(--text-dark); }
+        .post-body a { color: var(--primary-red); }
+
+        .post-cta { background: linear-gradient(135deg, var(--primary-red) 0%, #8b1528 100%); color: var(--white); padding: 3rem; border-radius: 12px; text-align: center; margin: 3rem 0; }
+        .post-cta h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.75rem; }
+        .post-cta p { opacity: 0.9; margin-bottom: 1.5rem; }
+        .post-cta a { display: inline-block; background: var(--gold); color: var(--text-dark); padding: 0.85rem 2rem; border-radius: 6px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; }
+        .post-cta a:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(212,175,55,0.4); text-decoration: none; }
+
+        .post-share { display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.08); }
+        .share-btn { padding: 0.6rem 1.25rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: all 0.3s ease; }
+        .share-btn:hover { transform: translateY(-2px); text-decoration: none; }
+
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary-red); font-weight: 500; margin-bottom: 2rem; text-decoration: none; }
+        .back-link:hover { text-decoration: none; border-bottom: 1px solid var(--primary-red); }
+
+        /* ── Loading / Error states ── */
+        .loading { text-align: center; padding: 4rem; color: var(--text-light); font-size: 1.1rem; }
+        .error-state { text-align: center; padding: 4rem 2rem; }
+        .error-state h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--text-dark); margin-bottom: 1rem; }
+        .error-state p { color: var(--text-medium); margin-bottom: 2rem; }
+        .error-state a { display: inline-block; background: var(--primary-red); color: var(--white); padding: 0.85rem 2rem; border-radius: 6px; font-weight: 600; text-decoration: none; }
+
+        /* ── Footer ── */
+        footer { background: var(--charcoal); color: rgba(255,255,255,0.8); padding: 3rem 2rem 1.5rem; text-align: center; margin-top: 4rem; }
+        footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+        footer a:hover { color: var(--white); }
+        footer p { font-size: 0.85rem; opacity: 0.5; margin-top: 0.5rem; }
+
+        @media (max-width: 768px) {
+            nav { padding: 0.75rem 1.5rem; }
+            .blog-hero h1 { font-size: 2rem; }
+            .blog-hero { padding: 6rem 1.5rem 3rem; }
+            .blog-container { padding: 3rem 1.5rem; }
+            .post-container { padding: 6rem 1.5rem 3rem; }
+            .post-title { font-size: 2rem; }
+        }
+    </style>
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" id="json-ld"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <header class="nav-container" role="banner">
+        <nav aria-label="Main navigation">
+            <a href="/" class="logo" aria-label="Raw Sushi Bar - Home">
+                <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Raw Sushi Bar logo">
+                    <circle cx="25" cy="25" r="22" fill="#1a1a1a" stroke="#C41E3A" stroke-width="1.5"/>
+                    <text x="25" y="33" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-style="italic" font-weight="700" font-size="28" fill="#C41E3A">R</text>
+                    <text x="60" y="24" font-family="'Playfair Display',Georgia,serif" font-style="italic" font-weight="700" font-size="24" fill="#C41E3A" letter-spacing="2">aw</text>
+                    <text x="60" y="42" font-family="'Inter','Helvetica Neue',sans-serif" font-weight="300" font-size="11" fill="rgba(255,255,255,0.9)" letter-spacing="3">SUSHI BAR</text>
+                </svg>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/menu-stockton.html">Menu</a></li>
+                <li><a href="/#locations">Locations</a></li>
+                <li><a href="https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d" target="_blank" rel="noopener">Order Online</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <div id="blog-content">
+            <!-- Content loaded here by JS -->
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; <span id="footer-year"></span> <a href="/">Raw Sushi Bar</a>. All rights reserved. | <a href="mailto:info@rawsushibar.com">info@rawsushibar.com</a></p>
+    </footer>
+
+    <script>
+    (function() {
+        "use strict";
+
+        // ── Config ──────────────────────────────────────────────────────────────
+        var POSTS_BASE = "content/posts/";
+        var ORDER_URL  = "https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d";
+        var FACEBOOK   = "https://www.facebook.com/rawsushibar/";
+        var INSTAGRAM  = "https://instagram.com/rawsushibistro/";
+
+        // ── Utils ──────────────────────────────────────────────────────────────
+        function qs(sel) { return document.querySelector(sel); }
+
+        function getParam(name) {
+            var m = location.search.match(new RegExp("[?&]" + name + "=([^&]+)"));
+            return m ? decodeURIComponent(m[1]) : null;
+        }
+
+        function formatDate(iso) {
+            try {
+                var d = new Date(iso);
+                return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+            } catch(e) { return iso; }
+        }
+
+        function estimateReadingTime(markdown) {
+            var words = markdown.replace(/[#*`_\[\]()]/g, "").split(/\s+/).length;
+            return Math.max(1, Math.round(words / 200));
+        }
+
+        // ── YAML frontmatter parser ───────────────────────────────────────────
+        // Minimal parser: handles quoted strings, arrays, and plain values.
+        function parseFrontmatter(raw) {
+            var fm = {};
+            var lines = raw.split("\n");
+            var inFM = false;
+            var currentKey = null;
+            var linesBuffer = [];
+
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+
+                if (i === 0 && line.trim() === "---") { inFM = true; continue; }
+                if (i > 0 && line.trim() === "---") { inFM = false; continue; }
+                if (!inFM) break;
+
+                var colonIdx = line.indexOf(":");
+                if (colonIdx === -1) {
+                    if (currentKey && line.match(/^\s{2}/)) {
+                        linesBuffer.push(line.trim().replace(/^["']|["']$/g, ""));
+                    }
+                    continue;
+                }
+
+                if (currentKey) {
+                    fm[currentKey] = linesBuffer.join(", ");
+                }
+                currentKey = line.substring(0, colonIdx).trim();
+                var val = line.substring(colonIdx + 1).trim();
+
+                if (val === "" || val === "[]") {
+                    linesBuffer = [];
+                } else if (val.startsWith('"') || val.startsWith("'")) {
+                    // Quoted single-line value
+                    fm[currentKey] = val.replace(/^["']|["']$/g, "");
+                    currentKey = null;
+                } else if (val.startsWith("[")) {
+                    // Inline array: [a, b, c]
+                    var inner = val.replace(/^\[|\]$/g, "");
+                    fm[currentKey] = inner.split(",").map(function(s) { return s.trim().replace(/^["']|["']$/g, ""); });
+                    currentKey = null;
+                } else {
+                    linesBuffer = [val];
+                }
+            }
+            if (currentKey) fm[currentKey] = linesBuffer.join(", ");
+
+            // Body = everything after the closing ---
+            var bodyStart = raw.indexOf("---", 4);
+            fm._body = bodyStart !== -1 ? raw.substring(bodyStart + 3).trim() : raw;
+            return fm;
+        }
+
+        // ── Markdown → HTML converter ───────────────────────────────────────────
+        // Handles: headings, bold, italic, links, images, blockquotes, lists, hr
+        function mdToHtml(md) {
+            if (!md) return "<p>Content coming soon.</p>";
+            var lines = md.split("\n");
+            var html = [], i = 0;
+            var inBlockquote = false, inUl = false, inOl = false;
+
+            function closeUl() { if (inUl) { html.push("</ul>"); inUl = false; } }
+            function closeOl() { if (inOl) { html.push("</ol>"); inOl = false; } }
+            function closeAll() { closeUl(); closeOl(); }
+
+            while (i < lines.length) {
+                var line = lines[i];
+                var trimmed = line.trim();
+
+                // Headings
+                if (/^#{1,3}\s/.test(trimmed)) {
+                    closeAll();
+                    var level = trimmed.match(/^(#{1,3})/)[1].length;
+                    var text  = trimmed.replace(/^#{1,3}\s+/, "");
+                    text = text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+                    text = text.replace(/\*(.+?)\*/g, "<em>$1</em>");
+                    text = text.replace(/`(.+?)`/g, "<code>$1</code>");
+                    html.push("<h" + level + ">" + text + "</h" + level + ">");
+                    i++; continue;
+                }
+
+                // HR
+                if (/^---+$/.test(trimmed)) { closeAll(); html.push("<hr>"); i++; continue; }
+
+                // Blockquote
+                if (/^>\s/.test(trimmed)) {
+                    closeAll();
+                    var qt = trimmed.replace(/^>\s*/, "").replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+                    if (!inBlockquote) html.push("<blockquote>");
+                    html.push(qt);
+                    inBlockquote = true;
+                    i++; continue;
+                } else if (inBlockquote) {
+                    html.push("</blockquote>");
+                    inBlockquote = false;
+                }
+
+                // UL
+                if (/^-\s/.test(trimmed)) {
+                    closeOl();
+                    if (!inUl) html.push("<ul>");
+                    inUl = true;
+                    var item = trimmed.replace(/^-\s+/, "");
+                    item = item.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+                    item = item.replace(/\*(.+?)\*/g, "<em>$1</em>");
+                    item = item.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>');
+                    html.push("<li>" + item + "</li>");
+                    i++; continue;
+                }
+
+                // OL
+                if (/^\d+\.\s/.test(trimmed)) {
+                    closeUl();
+                    if (!inOl) html.push("<ol>");
+                    inOl = true;
+                    var oitem = trimmed.replace(/^\d+\.\s+/, "");
+                    oitem = oitem.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+                    oitem = oitem.replace(/\*(.+?)\*/g, "<em>$1</em>");
+                    html.push("<li>" + oitem + "</li>");
+                    i++; continue;
+                }
+
+                // Blank line → paragraph break
+                if (trimmed === "") {
+                    closeAll();
+                    html.push("");
+                    i++; continue;
+                }
+
+                // Paragraph
+                closeAll();
+                var para = trimmed;
+                para = para.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+                para = para.replace(/\*(.+?)\*/g, "<em>$1</em>");
+                para = para.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>');
+                para = para.replace(/!\[(.+?)\]\((.+?)\)/g, '<img src="$2" alt="$1" style="max-width:100%;border-radius:8px;">');
+                para = para.replace(/`(.+?)`/g, "<code>$1</code>");
+                // Bold in links: [**text**](url) → <strong><a href="url">text</a></strong>
+                para = para.replace(/\*\*(\[.+?\]\(.+?\))\*\*/g, function(m, link) {
+                    return "<strong>" + link + "</strong>";
+                });
+                html.push("<p>" + para + "</p>");
+                i++;
+            }
+
+            closeAll();
+            if (inBlockquote) html.push("</blockquote>");
+
+            // Collapse blank lines and remove consecutive paragraph pairs
+            var result = html.join("\n").replace(/\n{3,}/g, "\n\n").trim();
+            return result;
+        }
+
+        // ── Post type labels ────────────────────────────────────────────────────
+        var TYPE_LABELS = {
+            "viral_attention":    "Dining Guide",
+            "conversion_order":   "Special Offer",
+            "local_discovery":    "Local Dining",
+            "tourist_discovery":  "Visitor Guide",
+            "menu_highlight":     "Menu",
+            "blog":               "Blog",
+        };
+        function typeLabel(t) { return TYPE_LABELS[t] || t.charAt(0).toUpperCase() + t.slice(1); }
+
+        // ── Fallback images ────────────────────────────────────────────────────
+        var FALLBACK_IMAGES = {
+            "default":  "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800",
+            "sushi_roll": "https://images.unsplash.com/photo-1553621042-f6e147245254?w=800",
+            "menu_item": "https://images.unsplash.com/photo-1582450871972-a5f63d77ce2d?w=800",
+            "interior":  "https://images.unsplash.com/photo-1559329007-40df8a9355a6?w=800",
+            "storefront": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800",
+            "dining":    "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800",
+        };
+
+        // ── Render: blog index ──────────────────────────────────────────────────
+        function renderIndex(posts) {
+            var cards = posts.map(function(p) {
+                var img = p.image && p.image.trim() ? p.image : FALLBACK_IMAGES["default"];
+                var url  = "blog-posts.html?slug=" + encodeURIComponent(p.slug);
+                return [
+                    '<a href="' + url + '" class="blog-card">',
+                    '  <img src="' + img + '" alt="' + (p.title || "") + '" class="blog-card-img" loading="lazy">',
+                    '  <div class="blog-card-body">',
+                    '    <span class="blog-card-type">' + typeLabel(p.post_type || "blog") + '</span>',
+                    '    <h3>' + (p.title || "Untitled") + '</h3>',
+                    '    <p>' + (p.excerpt || "").substring(0, 120) + '</p>',
+                    '    <div class="blog-card-meta">' + (p.date ? formatDate(p.date) : "") + '</div>',
+                    '  </div>',
+                    '</a>'
+                ].join("\n");
+            }).join("\n");
+
+            return [
+                '<div class="blog-hero">',
+                '  <h1>Fresh Sushi Stories</h1>',
+                '  <p>Dining guides, seasonal specials, and local discoveries from Raw Sushi Bar, Stockton, CA.</p>',
+                '</div>',
+                '<div class="blog-container">',
+                (cards ? '<div class="blog-grid">' + cards + "</div>" : "<p>No posts yet — check back soon.</p>"),
+                '</div>'
+            ].join("\n");
+        }
+
+        // ── Render: single post ────────────────────────────────────────────────
+        function renderPost(fm, htmlBody, slug) {
+            var postType = fm.post_type || "blog";
+            var readingTime = estimateReadingTime(htmlBody);
+            var img = fm.image && fm.image.trim() ? fm.image : FALLBACK_IMAGES["default"];
+            var canonical = "https://www.rawsushibar.com/blog-posts.html?slug=" + slug;
+
+            // CTA block
+            var ctaBlock = "";
+            if (fm.cta_url || ORDER_URL) {
+                ctaBlock = [
+                    '<div class="post-cta">',
+                    '  <h3>' + (fm.cta_text || "Ready to Order?") + '</h3>',
+                    '  <p>Experience authentic Japanese cuisine at Raw Sushi Bar, Stockton, CA.</p>',
+                    '  <a href="' + (fm.cta_url || ORDER_URL) + '" target="_blank" rel="noopener">Order Now</a>',
+                    '</div>'
+                ].join("\n");
+            }
+
+            // Update JSON-LD
+            var jsonLd = {
+                "@context": "https://schema.org",
+                "@type": "BlogPosting",
+                "headline": fm.title || "",
+                "description": fm.meta_description || fm.excerpt || "",
+                "datePublished": fm.date || "",
+                "author": { "@type": "Organization", "name": "Raw Sushi Bar" },
+                "publisher": { "@type": "Organization", "name": "Raw Sushi Bar" },
+                "mainEntityOfPage": { "@type": "WebPage", "@id": canonical },
+            };
+            qs("#json-ld").textContent = JSON.stringify(jsonLd);
+
+            // Update meta
+            document.title = fm.seo_title || fm.title || "Raw Sushi Bar Blog";
+            qs("#page-title") && (qs("#page-title").textContent = fm.seo_title || fm.title || "");
+            qs("#meta-description") && (qs("#meta-description").content = fm.meta_description || fm.excerpt || "");
+            qs("#og-title") && (qs("#og-title").content = fm.seo_title || fm.title || "");
+            qs("#og-desc") && (qs("#og-desc").content = fm.meta_description || fm.excerpt || "");
+            qs("#canonical-url") && (qs("#canonical-url").href = canonical);
+            qs("meta[property='og:url']") && (qs("meta[property='og:url']").content = canonical);
+
+            return [
+                '<div class="post-container">',
+                '  <a href="blog-posts.html" class="back-link">← Back to Blog</a>',
+                '  <header class="post-header">',
+                '    <span class="post-type-label">' + typeLabel(postType) + '</span>',
+                '    <h1 class="post-title">' + (fm.title || "Untitled") + '</h1>',
+                '    <div class="post-meta">',
+                '      <span>By Raw Sushi Bar</span>',
+                '      <span>' + (fm.date ? formatDate(fm.date) : "") + '</span>',
+                '      <span>' + readingTime + ' min read</span>',
+                '    </div>',
+                '  </header>',
+                fm.image && fm.image.trim() ? '<div class="post-featured-image"><img src="' + fm.image + '" alt="' + (fm.title || "") + '" loading="lazy"></div>' : '',
+                '  <div class="post-body">' + htmlBody + '</div>',
+                ctaBlock,
+                '  <div class="post-share">',
+                '    <a href="' + FACEBOOK + '" target="_blank" rel="noopener" class="share-btn" style="background:#3b5998;color:#fff;">Facebook</a>',
+                '    <a href="' + INSTAGRAM + '" target="_blank" rel="noopener" class="share-btn" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;">Instagram</a>',
+                '  </div>',
+                '</div>'
+            ].join("\n");
+        }
+
+        // ── Blog index JSON ────────────────────────────────────────────────────
+        function loadIndex(callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "content/index.json");
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    try {
+                        var data = JSON.parse(xhr.responseText);
+                        callback(data.posts || []);
+                    } catch(e) {
+                        callback([]);
+                    }
+                } else {
+                    callback([]);
+                }
+            };
+            xhr.onerror = function() { callback([]); };
+            xhr.send();
+        }
+
+        // ── Load single post ───────────────────────────────────────────────────
+        function loadPost(slug, callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", POSTS_BASE + slug + ".md");
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    try {
+                        var fm = parseFrontmatter(xhr.responseText);
+                        callback(fm);
+                    } catch(e) {
+                        callback(null);
+                    }
+                } else {
+                    callback(null);
+                }
+            };
+            xhr.onerror = function() { callback(null); };
+            xhr.send();
+        }
+
+        // ── Main ───────────────────────────────────────────────────────────────
+        var slug = getParam("slug");
+
+        if (slug) {
+            // Single post view
+            loadPost(slug, function(fm) {
+                var container = qs("#blog-content");
+                if (!fm) {
+                    container.innerHTML = [
+                        '<div class="post-container error-state">',
+                        '  <h2>Post Not Found</h2>',
+                        '  <p>This post could not be loaded. It may still be in draft status.</p>',
+                        '  <a href="blog-posts.html">← Back to Blog</a>',
+                        '</div>'
+                    ].join("\n");
+                    return;
+                }
+                var htmlBody = mdToHtml(fm._body || "");
+                container.innerHTML = renderPost(fm, htmlBody, slug);
+            });
+        } else {
+            // Blog index
+            loadIndex(function(posts) {
+                var container = qs("#blog-content");
+                container.innerHTML = renderIndex(posts);
+            });
+        }
+
+        // Footer year
+        qs("#footer-year").textContent = new Date().getFullYear();
+    })();
+    </script>
+</body>
+</html>

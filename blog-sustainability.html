@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Learn about Raw Sushi Bistro's commitment to sustainable seafood, ocean conservation, and responsible sourcing practices in the sushi industry.">
+    <meta name="keywords"
+        content="sustainable sushi, sustainable seafood, ocean conservation, responsible fishing, eco-friendly restaurant, sustainable dining">
+    <title>Sustainable Seafood: Our Commitment | Raw Sushi Bistro Blog</title>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.rawsushibar.com/blog-sustainability.html"
+      },
+      "headline": "Sustainable Seafood: Our Commitment to the Ocean",
+      "description": "Learn about Raw Sushi Bistro's commitment to sustainable seafood, ocean conservation, and responsible sourcing practices in the sushi industry.",
+      "author": {
+        "@type": "Organization",
+        "name": "Raw Sushi Bistro Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Raw Sushi Bistro",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.rawsushibar.com/images/logo.png"
+        }
+      },
+      "datePublished": "2025-02-05"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* A11y Base Rules */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 10px 15px;
+            z-index: 100000;
+            transition: top 0.2s;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        *:focus-visible {
+            outline: 3px solid var(--primary-red) !important;
+            outline-offset: 3px !important;
+        }
+
+        :root {
+            --primary-red: #C41E3A;
+            --deep-teal: #1a4d4d;
+            --charcoal: #2b2b2b;
+            --cream: #f9f7f4;
+            --gold: #d4af37;
+            --white: #ffffff;
+            --ocean-blue: #2c5f7c;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.7;
+            background: var(--cream);
+        }
+
+        .nav-bar {
+            background: linear-gradient(135deg, var(--deep-teal) 0%, #0d3333 100%);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-bar a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .nav-bar a:hover {
+            color: var(--gold);
+        }
+
+        .blog-header {
+            background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--deep-teal) 100%);
+            color: var(--white);
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .blog-category {
+            display: inline-block;
+            background: var(--primary-red);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .blog-meta {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 1.5rem;
+        }
+
+        .blog-content {
+            max-width: 800px;
+            margin: -2rem auto 4rem;
+            background: var(--white);
+            padding: 4rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--charcoal);
+            margin: 3rem 0 1.5rem;
+        }
+
+        .blog-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--ocean-blue);
+            margin: 2rem 0 1rem;
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: #444;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e8f4f8 0%, #d4e9f0 100%);
+            border-left: 4px solid var(--ocean-blue);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-style: italic;
+            color: var(--charcoal);
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--deep-teal) 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+
+        .principle-card {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-top: 3px solid var(--ocean-blue);
+        }
+
+        .principle-card h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .principle-card p {
+            margin: 0;
+        }
+
+        .partner-logo {
+            display: inline-block;
+            background: var(--cream);
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--ocean-blue);
+            border: 2px solid var(--ocean-blue);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--deep-teal) 0%, #0d3333 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #a01829;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(196, 30, 58, 0.4);
+        }
+
+        footer {
+            background: var(--charcoal);
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .blog-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .blog-content {
+                padding: 2rem;
+                margin: 1rem 1rem 2rem;
+            }
+
+            .stat-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" href="cookie-consent.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="nav-bar">
+        <a href="index.html">← Back to Home</a>
+    </div>
+
+    <header class="blog-header">
+        <div class="blog-category">🌊 SUSTAINABILITY</div>
+        <h1>Sustainable Seafood: Our Commitment to the Ocean</h1>
+        <div class="blog-meta">
+            Published February 5, 2025 | By Raw Sushi Bistro Team | 12 min read
+        </div>
+    </header>
+
+    <article id="main-content" class="blog-content">
+        <p>At Raw Sushi Bistro, we believe that serving exceptional sushi and protecting our oceans aren't mutually
+            exclusive—they're inseparable. As a restaurant built on the bounty of the sea, we have a profound
+            responsibility to ensure those waters remain vibrant and abundant for generations to come.</p>
+
+        <p>Today, I want to share our approach to sustainable seafood, the partnerships that make it possible, and why
+            this commitment matters more than ever.</p>
+
+        <h2>The Wake-Up Call</h2>
+
+        <p>Twelve years ago, I attended a marine biology conference that changed how I viewed our restaurant. A
+            scientist presented data on global fish stocks, showing that 34% of fisheries were being harvested at
+            unsustainable levels. Bluefin tuna populations had plummeted by over 90% since the 1970s. Species we served
+            daily were in crisis.</p>
+
+        <p>I returned to Raw Sushi Bistro with a question: How could we continue serving sushi while contributing to the
+            problem?</p>
+
+        <p>This reality launched our sustainability initiative—a complete reimagining of how we source, serve, and think
+            about seafood.</p>
+
+        <div class="highlight-box">
+            <p>"We don't own the ocean—we're temporary custodians. Every purchasing decision is a vote for the kind of
+                marine ecosystem we want to leave behind."</p>
+        </div>
+
+        <h2>Our Sustainability Principles</h2>
+
+        <p>Our approach rests on five core principles that guide every decision:</p>
+
+        <div class="principle-card">
+            <h4>🐟 1. Know Your Source</h4>
+            <p>We trace every piece of fish back to its origin—not just the supplier, but the specific boat, fishing
+                method, and catch location. If we can't verify sustainable practices, we don't serve it.</p>
+        </div>
+
+        <div class="principle-card">
+            <h4>🌊 2. Respect Wild Populations</h4>
+            <p>We avoid overfished species entirely, even when they're available. No bluefin tuna. No Chilean sea bass
+                (Patagonian toothfish). No shark fin, ever. Our menu reflects what the ocean can sustainably provide,
+                not just what diners might request.</p>
+        </div>
+
+        <div class="principle-card">
+            <h4>🎣 3. Method Matters</h4>
+            <p>How fish is caught is as important as what is caught. We prioritize pole-and-line fishing, trap-caught
+                seafood, and low-bycatch methods. Destructive practices like bottom trawling or gillnetting have no
+                place in our supply chain.</p>
+        </div>
+
+        <div class="principle-card">
+            <h4>🌱 4. Embrace Aquaculture Responsibly</h4>
+            <p>Not all farmed fish is bad. We work with sustainable aquaculture operations that minimize environmental
+                impact—closed-system farms, vegetarian-fed fish, and operations that don't harm wild populations or
+                ecosystems.</p>
+        </div>
+
+        <div class="principle-card">
+            <h4>📚 5. Educate & Inspire</h4>
+            <p>We're transparent with guests about our sourcing. Our menu notes sustainable choices, our staff is
+                trained to discuss ocean health, and we partner with conservation organizations to amplify awareness.
+            </p>
+        </div>
+
+        <h2>By the Numbers: Our Impact</h2>
+
+        <p>Since implementing our sustainability program in 2012, we've achieved measurable results:</p>
+
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Sustainable Sourcing</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">85%</div>
+                <div class="stat-label">Reduced Food Waste</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">12+</div>
+                <div class="stat-label">Partner Fisheries</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$50K</div>
+                <div class="stat-label">Ocean Conservation Donations</div>
+            </div>
+        </div>
+
+        <h2>Meet Our Partners</h2>
+
+        <p>Sustainable seafood isn't something we can achieve alone. We've built relationships with organizations and
+            suppliers who share our values:</p>
+
+        <h3>Monterey Bay Aquarium Seafood Watch</h3>
+        <p>We align our menu with Seafood Watch recommendations, using their extensive research to guide purchasing
+            decisions. Every item on our menu meets their "Best Choice" or "Good Alternative" standards.</p>
+
+        <h3>Local Fishermen Cooperatives</h3>
+        <p>We source from California fishermen who use sustainable methods and practice selective harvesting. These
+            partnerships support our local economy while ensuring responsible catches.</p>
+
+        <h3>Certified Aquaculture Operations</h3>
+        <p>Our farmed fish comes exclusively from operations certified by the Aquaculture Stewardship Council (ASC) or
+            Best Aquaculture Practices (BAP), ensuring environmental and social responsibility.</p>
+
+        <div style="text-align: center; margin: 2rem 0;">
+            <span class="partner-logo">Seafood Watch</span>
+            <span class="partner-logo">Ocean Conservancy</span>
+            <span class="partner-logo">ASC Certified</span>
+            <span class="partner-logo">BAP Certified</span>
+        </div>
+
+        <h2>Species We Choose (And Why)</h2>
+
+        <p>Our menu evolves with ocean health, but here are current favorites that showcase sustainable seafood:</p>
+
+        <h3>🐟 Pacific Sardines & Anchovies</h3>
+        <p>Small, fast-reproducing fish that are abundant and caught with minimal environmental impact. They're also
+            nutritious and delicious—perfect for nigiri or as flavoring agents.</p>
+
+        <h3>🦑 California Squid</h3>
+        <p>One of the most sustainable fisheries in the world, with strict quotas and low bycatch. Squid reproduce
+            quickly and are abundant in California waters.</p>
+
+        <h3>🐚 Farmed Oysters & Mussels</h3>
+        <p>These bivalves actually improve water quality as they grow, filtering pollutants and providing habitat for
+            other species. They're also incredibly sustainable to farm.</p>
+
+        <h3>🐟 Albacore Tuna (Pole-Caught)</h3>
+        <p>When caught with pole-and-line methods by U.S. West Coast fishermen, albacore is one of the most sustainable
+            tuna options. No drift nets, minimal bycatch.</p>
+
+        <h3>🐟 Farmed Rainbow Trout</h3>
+        <p>U.S. farmed trout operations are closed-system and highly sustainable, producing delicious fish without
+            environmental harm.</p>
+
+        <h3>🦐 Spot Prawns</h3>
+        <p>Trap-caught spot prawns from California are a sustainable alternative to imported shrimp, which often comes
+            with significant environmental and social costs.</p>
+
+        <h2>Species We've Removed</h2>
+
+        <p>Making sustainable choices sometimes means saying no to popular items:</p>
+
+        <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
+            <li style="margin-bottom: 0.75rem;"><strong>Bluefin Tuna:</strong> Critically endangered. We removed it from
+                our menu in 2012 despite customer demand.</li>
+            <li style="margin-bottom: 0.75rem;"><strong>Chilean Sea Bass:</strong> Slow to mature, often caught using
+                destructive methods, and commonly mislabeled.</li>
+            <li style="margin-bottom: 0.75rem;"><strong>Imported Shrimp:</strong> Most imported shrimp involves habitat
+                destruction and poor labor practices. We use only domestic, sustainable alternatives.</li>
+            <li style="margin-bottom: 0.75rem;"><strong>Atlantic Cod:</strong> Historically overfished, many stocks
+                haven't recovered. We offer sustainable white fish alternatives.</li>
+            <li style="margin-bottom: 0.75rem;"><strong>Shark Fin:</strong> Absolutely never. Shark finning is cruel,
+                wasteful, and devastating to marine ecosystems.</li>
+        </ul>
+
+        <h2>Beyond the Fish: Holistic Sustainability</h2>
+
+        <p>Our commitment extends beyond seafood selection:</p>
+
+        <h3>Zero-Waste Kitchen</h3>
+        <p>We use every part of the fish. Scraps become stocks, bones are used for dashi, and what we truly can't use
+            goes to composting. Our food waste has decreased 85% since implementing comprehensive zero-waste practices.
+        </p>
+
+        <h3>Local & Organic Produce</h3>
+        <p>The vegetables, rice, and garnishes that accompany our fish are sourced from local, organic farms whenever
+            possible. This reduces carbon footprint and supports our agricultural community.</p>
+
+        <h3>Sustainable Operations</h3>
+        <p>LED lighting, water-saving fixtures, composting programs, and minimal single-use plastics—our entire
+            operation reflects our values.</p>
+
+        <h3>Education Programs</h3>
+        <p>We host quarterly "Sustainable Sushi" workshops where guests learn about ocean health, sustainable fishing,
+            and how to make conscious seafood choices at home and when dining out.</p>
+
+        <h2>The Business Case for Sustainability</h2>
+
+        <p>Some restaurateurs worry that sustainability is expensive or unprofitable. Our experience proves otherwise:
+        </p>
+
+        <p><strong>Customer Loyalty:</strong> Diners increasingly care about sustainability. By being transparent and
+            committed, we've built deep loyalty with conscious consumers.</p>
+
+        <p><strong>Quality Assurance:</strong> Sustainable fishing often means better quality. Fish caught carefully and
+            handled properly tastes better.</p>
+
+        <p><strong>Future-Proofing:</strong> By building relationships with sustainable fisheries now, we're ensuring
+            long-term access to seafood as other sources decline.</p>
+
+        <p><strong>Differentiation:</strong> In a competitive market, our sustainability commitment sets us apart and
+            attracts media attention and awards.</p>
+
+        <h2>Challenges We Face</h2>
+
+        <p>Honesty is important—sustainable seafood isn't always easy:</p>
+
+        <p><strong>Cost:</strong> Sustainable fish often costs more. Pole-caught tuna is more expensive than net-caught.
+            We absorb some costs and pass others to diners who value the difference.</p>
+
+        <p><strong>Availability:</strong> Sustainable options fluctuate with seasons and populations. Our menu must be
+            flexible, and sometimes we can't offer what guests request.</p>
+
+        <p><strong>Education:</strong> Not everyone understands why we don't serve bluefin tuna. Some guests push back.
+            Patient education is constant.</p>
+
+        <p><strong>Verification:</strong> Seafood fraud is rampant—up to 30% of fish is mislabeled. We work hard to
+            verify sources, but it requires vigilance and trusted partnerships.</p>
+
+        <h2>What You Can Do</h2>
+
+        <p>Whether you're dining with us or anywhere else, you can support ocean health:</p>
+
+        <ol style="margin-left: 2rem; margin-bottom: 1.5rem;">
+            <li style="margin-bottom: 0.75rem;"><strong>Ask Questions:</strong> Where is this fish from? How was it
+                caught? Restaurants that care will happily answer.</li>
+            <li style="margin-bottom: 0.75rem;"><strong>Use Seafood Watch:</strong> Download the app for easy reference
+                when shopping or dining.</li>
+            <li style="margin-bottom: 0.75rem;"><strong>Embrace Variety:</strong> Try species you haven't heard of.
+                Delicious, sustainable options beyond salmon and tuna exist.</li>
+            <li style="margin-bottom: 0.75rem;"><strong>Support Sustainable Restaurants:</strong> Vote with your wallet.
+                Patronize establishments committed to responsible sourcing.</li>
+            <li style="margin-bottom: 0.75rem;"><strong>Reduce Waste:</strong> Don't over-order. Take leftovers home.
+                Every bit helps.</li>
+        </ol>
+
+        <h2>Looking Forward</h2>
+
+        <p>Our ocean faces unprecedented challenges—climate change, acidification, plastic pollution, overfishing. But I
+            remain optimistic.</p>
+
+        <p>Every day, more restaurants, suppliers, and diners prioritize sustainability. Fisheries recover when given
+            the chance. Consumer awareness grows. Technology improves traceability.</p>
+
+        <p>At Raw Sushi Bistro, we're committed to being part of the solution. In our next twenty years, we'll continue
+            innovating, partnering, and advocating for practices that allow everyone—humans and marine life—to thrive.
+        </p>
+
+        <div class="highlight-box">
+            <p>"The ocean gave us our livelihood. The least we can do is give back—through conscious choices, relentless
+                advocacy, and a refusal to compromise on what matters."</p>
+        </div>
+
+        <h2>Join Us in Protecting Our Oceans</h2>
+
+        <p>When you dine at Raw, you're not just enjoying exceptional sushi—you're supporting a model of dining that
+            respects and protects marine ecosystems.</p>
+
+        <p>Every sustainable choice matters. Every educated consumer makes a difference. Together, we can ensure healthy
+            oceans for generations to come.</p>
+
+        <p
+            style="margin-top: 3rem; font-style: italic; text-align: center; color: var(--ocean-blue); font-size: 1.2rem;">
+            For the love of sushi. For the health of our oceans.</p>
+
+        <p style="text-align: center; margin-top: 1rem;">— The Raw Sushi Bistro Team</p>
+    </article>
+
+    <div class="cta-section">
+        <h2>Dine Sustainably</h2>
+        <p>Experience exceptional sushi that's good for you and good for the ocean</p>
+        <a href="index.html#order" class="btn">Make a Reservation</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Raw Sushi Bistro. Celebrating 20 Years of Excellence.</p>
+    </footer>
+    <!-- Cookie Consent -->
+    <script src="cookie-consent.js"></script>
+</body>
+
+</html>

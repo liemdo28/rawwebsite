@@ -256,79 +256,41 @@
             font-style: italic;
         }
 
-        /* Menu Intro (premium content block under hero) */
-        .menu-intro {
-            text-align: center;
-            max-width: 850px;
-            margin: 3rem auto 0.5rem;
-            padding: 0 1.25rem;
-        }
-        .menu-intro h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.75rem, 4vw, 2.75rem);
-            color: var(--text-dark);
-            margin-bottom: 0.75rem;
-            line-height: 1.15;
-        }
-        .menu-intro p {
-            font-size: 1.1rem;
-            color: #555;
-            line-height: 1.65;
+        /* Menu Navigation */
+        .menu-nav {
+            position: sticky;
+            top: 52px;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            z-index: 50;
         }
 
-        /* Menu Category Grid (premium clickable cards) */
-        .menu-category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 0.85rem;
-            max-width: 1100px;
-            margin: 1.75rem auto 2.5rem;
-            padding: 0 0.25rem;
-        }
-        .menu-category-grid a {
-            position: relative;
+        .menu-nav ul {
+            list-style: none;
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             justify-content: center;
-            gap: 0.4rem;
-            background: var(--white);
-            border: 1px solid rgba(196, 30, 58, 0.18);
-            border-radius: 14px;
-            padding: 1rem 1.1rem;
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-align: center;
+        }
+
+        .menu-nav a {
             color: var(--text-dark);
             text-decoration: none;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-            transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-        }
-        .menu-category-grid a::before {
-            content: '';
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.4rem 0.85rem;
+            border-radius: 5px;
+            transition: all 0.2s ease;
             display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--primary-red);
-            opacity: 0.8;
-            flex-shrink: 0;
-        }
-        .menu-category-grid a:hover {
-            transform: translateY(-2px);
-            border-color: var(--primary-red);
-            color: var(--primary-red);
-            box-shadow: 0 12px 28px rgba(196, 30, 58, 0.14);
-        }
-        @media (max-width: 600px) {
-            .menu-category-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.6rem;
-            }
-            .menu-category-grid a { padding: 0.85rem 0.5rem; font-size: 0.85rem; }
         }
 
-        /* Legacy .menu-nav kept for non-Modesto menu pages — hidden on this one */
-        .menu-nav { display: none; }
+        .menu-nav a:hover {
+            background: var(--cream);
+            color: var(--primary-red);
+        }
 
         /* Menu Sections */
         .menu-section {
@@ -354,38 +316,6 @@
             font-size: 0.9rem;
             margin-bottom: 1rem;
         }
-
-        /* Call/visit note for current pricing */
-        .menu-note {
-            max-width: 900px;
-            margin: 1.25rem auto 0;
-            padding: 1rem 1.25rem;
-            background: #fff8e6;
-            border: 1px solid #f1d98a;
-            border-radius: 8px;
-            color: #5a4a16;
-            font-size: 0.95rem;
-            text-align: center;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-        }
-        .menu-note strong { color: #3a2f0e; }
-        .menu-note .menu-note-call {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.5rem 1rem;
-            background: #C41E3A;
-            color: #fff;
-            font-weight: 700;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        .menu-note .menu-note-call:hover { background: #a01828; }
 
         .menu-items {
             display: grid;
@@ -783,62 +713,74 @@
               {
                 "@type": "MenuItem",
                 "name": "Edamame",
-                "description": "Boiled & Salted Soy Beans"
+                "description": "Boiled & Salted Soy Beans",
+                "offers": { "@type": "Offer", "price": "6.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Garlic Edamame",
-                "description": "Sauteed Edamame in our Special Garlic Sauces"
+                "description": "Sauteed Edamame in our Special Garlic Sauces",
+                "offers": { "@type": "Offer", "price": "11.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Hamachi Kama Shio Yaki",
-                "description": "Grilled Yellow Tail Collar Seasoned with Salt"
+                "description": "Grilled Yellow Tail Collar Seasoned with Salt",
+                "offers": { "@type": "Offer", "price": "21.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Fried Gyoza",
-                "description": "Japanese Style Pork Pot-stickers - 6 Pieces"
+                "description": "Japanese Style Pork Pot-stickers - 6 Pieces",
+                "offers": { "@type": "Offer", "price": "11.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Fried Shumai",
-                "description": "Japanese Style Shrimp Pot-stickers - 6 Pieces"
+                "description": "Japanese Style Shrimp Pot-stickers - 6 Pieces",
+                "offers": { "@type": "Offer", "price": "13.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Mixed Tempura",
-                "description": "Tempura Shrimp & Vegetables Served with Tempura Sauce"
+                "description": "Tempura Shrimp & Vegetables Served with Tempura Sauce",
+                "offers": { "@type": "Offer", "price": "20.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Ika Geso (Japanese Calamari)",
-                "description": "Fried Calamari Served with Tartar Sauce"
+                "description": "Fried Calamari Served with Tartar Sauce",
+                "offers": { "@type": "Offer", "price": "19.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Beef Asparagus",
-                "description": "Beef Wrapped Asparagus Served in Ponzu Sauce Topped with Tomatoes & Jalapenos"
+                "description": "Beef Wrapped Asparagus Served in Ponzu Sauce Topped with Tomatoes & Jalapenos",
+                "offers": { "@type": "Offer", "price": "21.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Fried Oyster",
-                "description": "Fried Breaded Oysters Served with Tartar Sauce"
+                "description": "Fried Breaded Oysters Served with Tartar Sauce",
+                "offers": { "@type": "Offer", "price": "17.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Beef Carpaccio",
-                "description": "Thinly Sliced Beef Carpaccio Topped with Jalapenos Served in Ponzu Sauce"
+                "description": "Thinly Sliced Beef Carpaccio Topped with Jalapenos Served in Ponzu Sauce",
+                "offers": { "@type": "Offer", "price": "22.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Sesame Chicken Appetizer",
-                "description": "Battered & Fried Chicken with Teriyaki Sauce & Sesame Seeds"
+                "description": "Battered & Fried Chicken with Teriyaki Sauce & Sesame Seeds",
+                "offers": { "@type": "Offer", "price": "16.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Chicken Yakitori",
-                "description": "Grilled Chicken Skewers"
+                "description": "Grilled Chicken Skewers",
+                "offers": { "@type": "Offer", "price": "15.50", "priceCurrency": "USD" }
               }
             ]
           },
@@ -849,77 +791,92 @@
               {
                 "@type": "MenuItem",
                 "name": "Albacore Carpaccio",
-                "description": "Seared White Tuna with Jalapeno in Ponzu Sauce"
+                "description": "Seared White Tuna with Jalapeno in Ponzu Sauce",
+                "offers": { "@type": "Offer", "price": "20.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Yellowtail Razor",
-                "description": "Thinly Sliced Yellowtail Sashimi Topped with Jalapenos Served in Ponzu"
+                "description": "Thinly Sliced Yellowtail Sashimi Topped with Jalapenos Served in Ponzu",
+                "offers": { "@type": "Offer", "price": "20.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Escolar Razor",
-                "description": "Thinly Sliced Escolar Sashimi Topped with Jalapenos Served in Ponzu"
+                "description": "Thinly Sliced Escolar Sashimi Topped with Jalapenos Served in Ponzu",
+                "offers": { "@type": "Offer", "price": "20.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Tuna Ceviche",
-                "description": "Spicy Tuna Ceviche Served with Fried Wonton Chips"
+                "description": "Spicy Tuna Ceviche Served with Fried Wonton Chips",
+                "offers": { "@type": "Offer", "price": "21.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Salmon Ceviche",
-                "description": "Spicy Salmon Ceviche Served with Fried Wonton Chips"
+                "description": "Spicy Salmon Ceviche Served with Fried Wonton Chips",
+                "offers": { "@type": "Offer", "price": "22.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Dante Inferno Appetizer",
-                "description": "Seared Sesame Tuna Served on Tempura Jalapenos"
+                "description": "Seared Sesame Tuna Served on Tempura Jalapenos",
+                "offers": { "@type": "Offer", "price": "23.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Assorted Sashimi Appetizer",
-                "description": "Tuna, Salmon & Yellow Tail (9 Pieces)"
+                "description": "Tuna, Salmon & Yellow Tail (9 Pieces)",
+                "offers": { "@type": "Offer", "price": "22.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Spicy Lomi Lomi",
-                "description": "Fresh Salmon & Sliced Onion Served with Chili Sesame Oil"
+                "description": "Fresh Salmon & Sliced Onion Served with Chili Sesame Oil",
+                "offers": { "@type": "Offer", "price": "20.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Spicy Sesame Tuna",
-                "description": "Seared Tuna Served with Chili Oil in Ponzu Sauce"
+                "description": "Seared Tuna Served with Chili Oil in Ponzu Sauce",
+                "offers": { "@type": "Offer", "price": "22.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Tako Kimchee",
-                "description": "Octopus, Cucumbers & Tomatoes Tossed in Kimchee Sauce"
+                "description": "Octopus, Cucumbers & Tomatoes Tossed in Kimchee Sauce",
+                "offers": { "@type": "Offer", "price": "22.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Ahi Tuna Taco",
-                "description": "Served in Wonton Taco Shell (Three Pieces)"
+                "description": "Served in Wonton Taco Shell (Three Pieces)",
+                "offers": { "@type": "Offer", "price": "20.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Ahi Poke Martini",
-                "description": "Tuna Poke Served in a Martini Glass"
+                "description": "Tuna Poke Served in a Martini Glass",
+                "offers": { "@type": "Offer", "price": "21.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Tuna Bruschetta",
-                "description": "Marinated Tuna on Toasted Bread Served with Tomato, Micro Green & Tobiko"
+                "description": "Marinated Tuna on Toasted Bread Served with Tomato, Micro Green & Tobiko",
+                "offers": { "@type": "Offer", "price": "18.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Kumamoto Oysters in a Half Shell",
-                "description": "Seasonal, 2 Pieces - Oysters Served with Tobiko, Scallion & Spicy Sauce in Ponzu on Ice"
+                "description": "Seasonal, 2 Pieces - Oysters Served with Tobiko, Scallion & Spicy Sauce in Ponzu on Ice",
+                "offers": { "@type": "Offer", "price": "8.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Oyster Shooter",
-                "description": "A Shot of Oyster in Chilled Sake with our Special Sauce (Seasonal)"
+                "description": "A Shot of Oyster in Chilled Sake with our Special Sauce (Seasonal)",
+                "offers": { "@type": "Offer", "price": "11.50", "priceCurrency": "USD" }
               }
             ]
           },
@@ -930,47 +887,56 @@
               {
                 "@type": "MenuItem",
                 "name": "Green Salad",
-                "description": "Mixed Greens with House Dressing"
+                "description": "Mixed Greens with House Dressing",
+                "offers": { "@type": "Offer", "price": "8.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Sunomono",
-                "description": "Cucumber Salad with Tomato, Daikon Radish in Ponzu & Olive Oil"
+                "description": "Cucumber Salad with Tomato, Daikon Radish in Ponzu & Olive Oil",
+                "offers": { "@type": "Offer", "price": "12.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Wakame Salad",
-                "description": "Marinated Seaweed with Sesame Oil"
+                "description": "Marinated Seaweed with Sesame Oil",
+                "offers": { "@type": "Offer", "price": "10.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Sashimi Salad",
-                "description": "Assortment of Sashimi Served on Mixed Greens with Vinaigrette Dressing"
+                "description": "Assortment of Sashimi Served on Mixed Greens with Vinaigrette Dressing",
+                "offers": { "@type": "Offer", "price": "26.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Spicy Sesame Seared Tuna Salad",
-                "description": "Spicy Sesame Tuna Served on Mixed Greens with Vinaigrette Dressing"
+                "description": "Spicy Sesame Tuna Served on Mixed Greens with Vinaigrette Dressing",
+                "offers": { "@type": "Offer", "price": "28.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Soba Salad",
-                "description": "Buckwheat Noodle Salad with Assorted Sashimi"
+                "description": "Buckwheat Noodle Salad with Assorted Sashimi",
+                "offers": { "@type": "Offer", "price": "28.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Miso Soup",
-                "description": "Traditional Japanese Miso Soup"
+                "description": "Traditional Japanese Miso Soup",
+                "offers": { "@type": "Offer", "price": "5.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Udon",
-                "description": "Thick Noodles, Fish Cake, Scallion & Seaweed in Dashi Broth"
+                "description": "Thick Noodles, Fish Cake, Scallion & Seaweed in Dashi Broth",
+                "offers": { "@type": "Offer", "price": "15.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Tempura Udon",
-                "description": "Udon Served with a Side of Mixed Tempura"
+                "description": "Udon Served with a Side of Mixed Tempura",
+                "offers": { "@type": "Offer", "price": "24.95", "priceCurrency": "USD" }
               }
             ]
           },
@@ -982,52 +948,62 @@
               {
                 "@type": "MenuItem",
                 "name": "Beef Teriyaki",
-                "description": "Grilled & Stir Fried Sliced Beef, Mushrooms, Zucchini & Onions with Teriyaki Sauce"
+                "description": "Grilled & Stir Fried Sliced Beef, Mushrooms, Zucchini & Onions with Teriyaki Sauce",
+                "offers": { "@type": "Offer", "price": "21.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Chicken Katsu",
-                "description": "Panko Breaded & Fried Chicken Breast Served with Tonkatsu Sauce"
+                "description": "Panko Breaded & Fried Chicken Breast Served with Tonkatsu Sauce",
+                "offers": { "@type": "Offer", "price": "20.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Chicken Teriyaki",
-                "description": "Grilled & Stir Fried Chicken, Mushrooms, Zucchini & Onions with Teriyaki Sauce"
+                "description": "Grilled & Stir Fried Chicken, Mushrooms, Zucchini & Onions with Teriyaki Sauce",
+                "offers": { "@type": "Offer", "price": "19.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Sesame Chicken",
-                "description": "Battered & Fried Chicken with Teriyaki Sauce & Sesame Seeds"
+                "description": "Battered & Fried Chicken with Teriyaki Sauce & Sesame Seeds",
+                "offers": { "@type": "Offer", "price": "19.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Grilled Salmon",
-                "description": "2 Pieces of Fresh Salmon Lightly Salted & Grilled"
+                "description": "2 Pieces of Fresh Salmon Lightly Salted & Grilled",
+                "offers": { "@type": "Offer", "price": "27.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Salmon Teriyaki",
-                "description": "2 Pieces of Pan Fried Fresh Salmon Cooked with Onions, Mushrooms, & Teriyaki Sauce"
+                "description": "2 Pieces of Pan Fried Fresh Salmon Cooked with Onions, Mushrooms, & Teriyaki Sauce",
+                "offers": { "@type": "Offer", "price": "28.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Vegetarian Teriyaki",
-                "description": "Seasonal Vegetables in Teriyaki Sauce"
+                "description": "Seasonal Vegetables in Teriyaki Sauce",
+                "offers": { "@type": "Offer", "price": "17.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Beef Teriyaki Bowl",
-                "description": "Grilled & Stir Fried Sliced Beef, Mushrooms, Zucchini & Onions with Teriyaki Sauce Served w/ Rice (No Green Salad)"
+                "description": "Grilled & Stir Fried Sliced Beef, Mushrooms, Zucchini & Onions with Teriyaki Sauce Served w/ Rice (No Green Salad)",
+                "offers": { "@type": "Offer", "price": "18.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Chicken Teriyaki Bowl",
-                "description": "Grilled & Stir Fried Chicken, Mushrooms, Zucchini & Onions with Teriyaki Sauce Served w/ Rice (No Green Salad)"
+                "description": "Grilled & Stir Fried Chicken, Mushrooms, Zucchini & Onions with Teriyaki Sauce Served w/ Rice (No Green Salad)",
+                "offers": { "@type": "Offer", "price": "17.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Tomahawk Steak",
-                "description": "Served with Seasonal Vegetables, Fried Onions, and Garlic Sauce (No Green Salad) *Allow 30-40 min prep time"
+                "description": "Served with Seasonal Vegetables, Fried Onions, and Garlic Sauce (No Green Salad) *Allow 30-40 min prep time",
+                "offers": { "@type": "Offer", "price": "125.95", "priceCurrency": "USD" }
               }
             ]
           },
@@ -1038,32 +1014,38 @@
               {
                 "@type": "MenuItem",
                 "name": "Nigiri Mix",
-                "description": "8 Pieces of Chef's Choice"
+                "description": "8 Pieces of Chef's Choice",
+                "offers": { "@type": "Offer", "price": "27.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Nigiri and Roll Combination",
-                "description": "5 Pieces of Nigiri & a Choice of BBQ Eel Roll, California Roll, or Spicy Tuna Roll"
+                "description": "5 Pieces of Nigiri & a Choice of BBQ Eel Roll, California Roll, or Spicy Tuna Roll",
+                "offers": { "@type": "Offer", "price": "29.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Sashimi Mix",
-                "description": "Assortment of Fresh Sashimi Served with Rice (15 Pieces)"
+                "description": "Assortment of Fresh Sashimi Served with Rice (15 Pieces)",
+                "offers": { "@type": "Offer", "price": "32.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Tuna Sashimi",
-                "description": "Fresh Tuna Sashimi Served with Rice (15 Pieces)"
+                "description": "Fresh Tuna Sashimi Served with Rice (15 Pieces)",
+                "offers": { "@type": "Offer", "price": "33.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Sashimi and Nigiri Mix",
-                "description": "Assortment of Fresh Sashimi and 6 Pieces of Chef's Choice Nigiri"
+                "description": "Assortment of Fresh Sashimi and 6 Pieces of Chef's Choice Nigiri",
+                "offers": { "@type": "Offer", "price": "33.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Chirashi",
-                "description": "Chef's Choice of Assorted Sashimi over Sushi Rice"
+                "description": "Chef's Choice of Assorted Sashimi over Sushi Rice",
+                "offers": { "@type": "Offer", "price": "35.50", "priceCurrency": "USD" }
               }
             ]
           },
@@ -1074,75 +1056,93 @@
             "hasMenuItem": [
               {
                 "@type": "MenuItem",
-                "name": "Ami Ebi (Sweet Shrimp)"
+                "name": "Ami Ebi (Sweet Shrimp)",
+                "offers": { "@type": "Offer", "price": "12.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
-                "name": "Ebi (Shrimp)"
+                "name": "Ebi (Shrimp)",
+                "offers": { "@type": "Offer", "price": "7.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
-                "name": "Fresh Sake (Salmon)"
+                "name": "Fresh Sake (Salmon)",
+                "offers": { "@type": "Offer", "price": "8.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
-                "name": "Hamachi (Yellow Tail)"
+                "name": "Hamachi (Yellow Tail)",
+                "offers": { "@type": "Offer", "price": "8.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
-                "name": "Hotate (Giant Scallop)"
+                "name": "Hotate (Giant Scallop)",
+                "offers": { "@type": "Offer", "price": "8.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
-                "name": "Kani (Snow Crab)"
+                "name": "Kani (Snow Crab)",
+                "offers": { "@type": "Offer", "price": "9.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
-                "name": "Lomi Lomi (Salmon with Chili Oil)"
+                "name": "Lomi Lomi (Salmon with Chili Oil)",
+                "offers": { "@type": "Offer", "price": "8.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
-                "name": "Wagyu (Japanese A5)"
+                "name": "Wagyu (Japanese A5)",
+                "offers": { "@type": "Offer", "price": "19.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
-                "name": "Escolar"
+                "name": "Escolar",
+                "offers": { "@type": "Offer", "price": "8.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
-                "name": "Maguro (Tuna)"
+                "name": "Maguro (Tuna)",
+                "offers": { "@type": "Offer", "price": "8.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
-                "name": "Spicy Sesame Seared Tuna"
+                "name": "Spicy Sesame Seared Tuna",
+                "offers": { "@type": "Offer", "price": "9.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
-                "name": "Shiro Maguro (Albacore)"
+                "name": "Shiro Maguro (Albacore)",
+                "offers": { "@type": "Offer", "price": "7.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
-                "name": "Spicy Tempura Scallop (4pcs)"
+                "name": "Spicy Tempura Scallop (4pcs)",
+                "offers": { "@type": "Offer", "price": "11.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
-                "name": "Tako (Octopus)"
+                "name": "Tako (Octopus)",
+                "offers": { "@type": "Offer", "price": "8.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
-                "name": "Tobiko (Fish Roe)"
+                "name": "Tobiko (Fish Roe)",
+                "offers": { "@type": "Offer", "price": "7.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
-                "name": "Unagi (BBQ Eel)"
+                "name": "Unagi (BBQ Eel)",
+                "offers": { "@type": "Offer", "price": "8.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
-                "name": "Bluefin (Toro Fatty Tuna)"
+                "name": "Bluefin (Toro Fatty Tuna)",
+                "offers": { "@type": "Offer", "price": "17.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
-                "name": "Uni (Sea Urchin)"
+                "name": "Uni (Sea Urchin)",
+                "offers": { "@type": "Offer", "price": "18.95", "priceCurrency": "USD" }
               }
             ]
           },
@@ -1153,32 +1153,38 @@
               {
                 "@type": "MenuItem",
                 "name": "California",
-                "description": "Imitation Crab, Cucumber, Avocado, Scallion & Tobiko"
+                "description": "Imitation Crab, Cucumber, Avocado, Scallion & Tobiko",
+                "offers": { "@type": "Offer", "price": "9.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Ebi Mayo",
-                "description": "Shrimp, Tomato, Cucumber & Avocado"
+                "description": "Shrimp, Tomato, Cucumber & Avocado",
+                "offers": { "@type": "Offer", "price": "10.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Snow Crab",
-                "description": "Snow Crab, Avocado, Cucumber, Scallion & Tobiko"
+                "description": "Snow Crab, Avocado, Cucumber, Scallion & Tobiko",
+                "offers": { "@type": "Offer", "price": "11.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Spicy Negihama",
-                "description": "Yellow Tail, Cucumber, Avocado, Scallion & Tobiko"
+                "description": "Yellow Tail, Cucumber, Avocado, Scallion & Tobiko",
+                "offers": { "@type": "Offer", "price": "10.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Spicy Tuna",
-                "description": "Spicy Tuna, Cucumber & Avocado"
+                "description": "Spicy Tuna, Cucumber & Avocado",
+                "offers": { "@type": "Offer", "price": "10.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Unagi",
-                "description": "BBQ Eel, Cucumber & Avocado"
+                "description": "BBQ Eel, Cucumber & Avocado",
+                "offers": { "@type": "Offer", "price": "10.50", "priceCurrency": "USD" }
               }
             ]
           },
@@ -1189,107 +1195,128 @@
               {
                 "@type": "MenuItem",
                 "name": "Albacore Tataki Roll",
-                "description": "(Avocado & Cucumber Roll) Topped with Seared Albacore, Onion, Tobiko & Tataki Sauce"
+                "description": "(Avocado & Cucumber Roll) Topped with Seared Albacore, Onion, Tobiko & Tataki Sauce",
+                "offers": { "@type": "Offer", "price": "22.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Asparagus Roll",
-                "description": "(Asparagus, Avocado, Cucumber & Imitation Crab Roll)"
+                "description": "(Asparagus, Avocado, Cucumber & Imitation Crab Roll)",
+                "offers": { "@type": "Offer", "price": "22.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Caterpillar Roll",
-                "description": "(BBQ Eel & Cucumber Roll) Topped with Sliced Avocado, Teriyaki Sauce & Tempura Bits"
+                "description": "(BBQ Eel & Cucumber Roll) Topped with Sliced Avocado, Teriyaki Sauce & Tempura Bits",
+                "offers": { "@type": "Offer", "price": "20.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Chicken Teriyaki Roll",
-                "description": "(Avocado, Chicken & Lettuce Roll) Topped with Teriyaki Sauce"
+                "description": "(Avocado, Chicken & Lettuce Roll) Topped with Teriyaki Sauce",
+                "offers": { "@type": "Offer", "price": "22.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Crunchy Rainbow Roll",
-                "description": "(Tempura Shrimp & Avocado Roll) Topped with Assorted Sashimi & Sprinkled with Tobiko"
+                "description": "(Tempura Shrimp & Avocado Roll) Topped with Assorted Sashimi & Sprinkled with Tobiko",
+                "offers": { "@type": "Offer", "price": "23.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Dragon Roll",
-                "description": "(Tempura Shrimp & Avocado Roll) Topped with BBQ Eel, Teriyaki Sauce & Tempura Bits"
+                "description": "(Tempura Shrimp & Avocado Roll) Topped with BBQ Eel, Teriyaki Sauce & Tempura Bits",
+                "offers": { "@type": "Offer", "price": "22.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Fried Philadelphia Roll",
-                "description": "(Cream Cheese & Smoked Salmon Roll)"
+                "description": "(Cream Cheese & Smoked Salmon Roll)",
+                "offers": { "@type": "Offer", "price": "16.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Golden Shrimp Roll",
-                "description": "(Avocado, Cucumber & Fried Shrimp Roll with Spicy Sauce)"
+                "description": "(Avocado, Cucumber & Fried Shrimp Roll with Spicy Sauce)",
+                "offers": { "@type": "Offer", "price": "15.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Lomi Lomi Roll",
-                "description": "(Avocado & Cucumber Roll) Topped with Fresh Salmon, Onion & a Dash of Chili Oil"
+                "description": "(Avocado & Cucumber Roll) Topped with Fresh Salmon, Onion & a Dash of Chili Oil",
+                "offers": { "@type": "Offer", "price": "22.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Philadelphia Roll",
-                "description": "(Cream Cheese, Cucumber & Avocado Roll) Topped with Smoked Salmon"
+                "description": "(Cream Cheese, Cucumber & Avocado Roll) Topped with Smoked Salmon",
+                "offers": { "@type": "Offer", "price": "20.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Rainbow Roll",
-                "description": "(California Roll) Topped with Albacore, BBQ Eel, Salmon, Tuna, Yellow Tail & Tobiko"
+                "description": "(California Roll) Topped with Albacore, BBQ Eel, Salmon, Tuna, Yellow Tail & Tobiko",
+                "offers": { "@type": "Offer", "price": "22.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Salmon Tataki Roll",
-                "description": "(Avocado & Cucumber Roll) Topped with Seared Salmon, Onion, Tobiko & Tataki Sauce"
+                "description": "(Avocado & Cucumber Roll) Topped with Seared Salmon, Onion, Tobiko & Tataki Sauce",
+                "offers": { "@type": "Offer", "price": "23.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Snow Crab California Roll",
-                "description": "(Cucumber, Avocado, & Snow Crab Roll) Topped with Tobiko"
+                "description": "(Cucumber, Avocado, & Snow Crab Roll) Topped with Tobiko",
+                "offers": { "@type": "Offer", "price": "17.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Snow Crab Rainbow Roll",
-                "description": "(Snow Crab California Roll) Topped with Albacore, BBQ Eel, Salmon, Tuna & Yellow Tail"
+                "description": "(Snow Crab California Roll) Topped with Albacore, BBQ Eel, Salmon, Tuna & Yellow Tail",
+                "offers": { "@type": "Offer", "price": "24.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Spicy Dragon Roll",
-                "description": "(Tempura Shrimp & Avocado Roll) Topped with Spicy Tuna & BBQ Eel with Spicy Sauce"
+                "description": "(Tempura Shrimp & Avocado Roll) Topped with Spicy Tuna & BBQ Eel with Spicy Sauce",
+                "offers": { "@type": "Offer", "price": "22.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Spicy Salmon Roll",
-                "description": "(Avocado & Cucumber Roll) Fresh Salmon, Green Onion & Tobiko with Spicy Sauce"
+                "description": "(Avocado & Cucumber Roll) Fresh Salmon, Green Onion & Tobiko with Spicy Sauce",
+                "offers": { "@type": "Offer", "price": "19.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Spicy Tuna Roll",
-                "description": "(Tuna with Spicy Sauce & Cucumber Roll)"
+                "description": "(Tuna with Spicy Sauce & Cucumber Roll)",
+                "offers": { "@type": "Offer", "price": "16.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Spider Roll",
-                "description": "(Avocado, Fried Soft-Shell Crab & Lettuce Roll) Topped with Tobiko"
+                "description": "(Avocado, Fried Soft-Shell Crab & Lettuce Roll) Topped with Tobiko",
+                "offers": { "@type": "Offer", "price": "20.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Tempura Roll",
-                "description": "(Avocado, Lettuce & Tempura Shrimp) Topped with Teriyaki Sauce"
+                "description": "(Avocado, Lettuce & Tempura Shrimp) Topped with Teriyaki Sauce",
+                "offers": { "@type": "Offer", "price": "15.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Tiger Roll",
-                "description": "(Tempura Shrimp & Avocado Roll) Topped with Ebi, BBQ Eel & Tobiko with Spicy Sauce"
+                "description": "(Tempura Shrimp & Avocado Roll) Topped with Ebi, BBQ Eel & Tobiko with Spicy Sauce",
+                "offers": { "@type": "Offer", "price": "22.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Vegetarian Roll",
-                "description": "(Asparagus & Cucumber Roll) Topped with Sliced Avocado, Tomato & Spring Mix"
+                "description": "(Asparagus & Cucumber Roll) Topped with Sliced Avocado, Tomato & Spring Mix",
+                "offers": { "@type": "Offer", "price": "18.50", "priceCurrency": "USD" }
               }
             ]
           },
@@ -1300,57 +1327,68 @@
               {
                 "@type": "MenuItem",
                 "name": "BTS Roll",
-                "description": "(Fried Smoked Salmon & Cream Cheese Roll) Topped with Tuna, Hamachi, Salmon, Tomato, Onions, Jalapenos, Tobiko & a Dash of Chili Oil"
+                "description": "(Fried Smoked Salmon & Cream Cheese Roll) Topped with Tuna, Hamachi, Salmon, Tomato, Onions, Jalapenos, Tobiko & a Dash of Chili Oil",
+                "offers": { "@type": "Offer", "price": "27.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Beef Cilantro Roll",
-                "description": "(Cucumber, Asparagus, Avocado & Cilantro Roll) Topped with Sauteed Beef & Onions, Topped with Crispy Rice"
+                "description": "(Cucumber, Asparagus, Avocado & Cilantro Roll) Topped with Sauteed Beef & Onions, Topped with Crispy Rice",
+                "offers": { "@type": "Offer", "price": "28.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Dante's Inferno Roll",
-                "description": "(Tempura Shrimp & Avocado Roll) Topped with Sesame Seared Tuna, Fresh Salmon, Tempura Jalapenos & Tobiko"
+                "description": "(Tempura Shrimp & Avocado Roll) Topped with Sesame Seared Tuna, Fresh Salmon, Tempura Jalapenos & Tobiko",
+                "offers": { "@type": "Offer", "price": "27.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Dark Horse Roll",
-                "description": "(Spicy Tuna, Asparagus & Avocado Roll) Sesame Tuna, Salmon, Vinaigrette Salad & Tobiko"
+                "description": "(Spicy Tuna, Asparagus & Avocado Roll) Sesame Tuna, Salmon, Vinaigrette Salad & Tobiko",
+                "offers": { "@type": "Offer", "price": "27.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Goodi Roll",
-                "description": "(Shrimp & Crab Fried Roll) Lightly Tempura Roll Topped with BBQ Eel, Teriyaki Sauce, Spicy Sauce & Tobiko"
+                "description": "(Shrimp & Crab Fried Roll) Lightly Tempura Roll Topped with BBQ Eel, Teriyaki Sauce, Spicy Sauce & Tobiko",
+                "offers": { "@type": "Offer", "price": "27.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Grilled Salmon Roll",
-                "description": "(Imitation Crab & Avocado Roll) Served with a Side of Grilled Salmon & Asparagus"
+                "description": "(Imitation Crab & Avocado Roll) Served with a Side of Grilled Salmon & Asparagus",
+                "offers": { "@type": "Offer", "price": "28.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Neff Roll",
-                "description": "(Tempura Shrimp, Cucumber, & Avocado Roll) Topped with Sesame Tuna, Spicy Imitation Crab, Red Onion, Tempura Jalapenos & Tobiko"
+                "description": "(Tempura Shrimp, Cucumber, & Avocado Roll) Topped with Sesame Tuna, Spicy Imitation Crab, Red Onion, Tempura Jalapenos & Tobiko",
+                "offers": { "@type": "Offer", "price": "29.95", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Roadkill Roll",
-                "description": "(Spicy Tuna, Avocado & Asparagus Roll) Topped with BBQ Eel, Sesame Tuna, Crab Salad, Tempura Bits & Tobiko"
+                "description": "(Spicy Tuna, Avocado & Asparagus Roll) Topped with BBQ Eel, Sesame Tuna, Crab Salad, Tempura Bits & Tobiko",
+                "offers": { "@type": "Offer", "price": "28.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "SCS Roll",
-                "description": "(Tempura Asparagus & Spicy Tuna Roll) Topped with Tempura Scallops, Spicy Tuna, Avocado, Spring Mix & Tobiko"
+                "description": "(Tempura Asparagus & Spicy Tuna Roll) Topped with Tempura Scallops, Spicy Tuna, Avocado, Spring Mix & Tobiko",
+                "offers": { "@type": "Offer", "price": "28.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Shark Bite Roll",
-                "description": "(Tempura Mint, Shrimp, Cucumber & Avocado Roll) Topped with a House Blend Ahi Tuna, Tempura Jalapenos, Japanese Sprout & Tobiko"
+                "description": "(Tempura Mint, Shrimp, Cucumber & Avocado Roll) Topped with a House Blend Ahi Tuna, Tempura Jalapenos, Japanese Sprout & Tobiko",
+                "offers": { "@type": "Offer", "price": "28.50", "priceCurrency": "USD" }
               },
               {
                 "@type": "MenuItem",
                 "name": "Tuna Steak Roll",
-                "description": "(Tempura Scallops & Avocado Roll) Topped with Spicy Tuna, BBQ Albacore, Tomatoes, Asparagus & Tobiko"
+                "description": "(Tempura Scallops & Avocado Roll) Topped with Spicy Tuna, BBQ Albacore, Tomatoes, Asparagus & Tobiko",
+                "offers": { "@type": "Offer", "price": "28.95", "priceCurrency": "USD" }
               }
             ]
           }
@@ -1361,7 +1399,6 @@
 
     <!-- Cookie Consent -->
     <link rel="stylesheet" href="cookie-consent.css">
-    <script src="location-phone.js" defer></script>
 </head>
 
 <body>
@@ -1369,8 +1406,8 @@
     <div class="nav-bar">
         <a href="index.html">&larr; Home</a>
         <div class="nav-bar-right">
-            <a href="tel:+12095669560" style="color: var(--gold);" data-location-phone="display">(209) 566-9560</a>
-            <a href="tel:+12095669560" class="order-btn" data-location-phone="link">Call to Order</a>
+            <a href="tel:2095669560" style="color: var(--gold);">(209) 566-9560</a>
+            <a href="tel:2095669560" class="order-btn">Call to Order</a>
         </div>
     </div>
 
@@ -1393,29 +1430,19 @@
 
     <main id="main-content" class="menu-container">
 
-        <!-- Menu Intro -->
-        <section class="menu-intro" aria-label="Modesto menu introduction">
-            <h2>Fresh Japanese Favorites in Modesto</h2>
-            <p>Explore sushi, sashimi, rolls, appetizers, and chef-crafted favorites — made fresh daily at our Downtown Modesto location.</p>
-        </section>
-
-        <!-- Pricing & specials note -->
-        <div class="menu-note" role="note">
-            <span><strong>Note:</strong> Pricing and specials may change. Call your location for today's menu details and availability.</span>
-            <a href="tel:+12095669560" class="menu-note-call" data-track="menu_call_click_modesto">📞 Call (209) 566-9560</a>
-        </div>
-
-        <!-- Menu Category Grid (premium card layout) -->
-        <nav class="menu-category-grid" aria-label="Menu sections">
-            <a href="#kitchen-apps" data-track="menu_cat_click_modesto">Kitchen Appetizers</a>
-            <a href="#sushi-apps" data-track="menu_cat_click_modesto">Sushi Appetizers</a>
-            <a href="#salads" data-track="menu_cat_click_modesto">Salad / Soup</a>
-            <a href="#entrees" data-track="menu_cat_click_modesto">Entrees</a>
-            <a href="#sushi-sashimi" data-track="menu_cat_click_modesto">Sushi &amp; Sashimi</a>
-            <a href="#nigiri" data-track="menu_cat_click_modesto">Nigiri</a>
-            <a href="#temaki" data-track="menu_cat_click_modesto">Hand Rolls</a>
-            <a href="#rolls" data-track="menu_cat_click_modesto">Rolls</a>
-            <a href="#special-rolls" data-track="menu_cat_click_modesto">Special Rolls</a>
+        <!-- Menu Navigation -->
+        <nav class="menu-nav" aria-label="Menu sections">
+            <ul>
+                <li><a href="#kitchen-apps">Kitchen Appetizers</a></li>
+                <li><a href="#sushi-apps">Sushi Appetizers</a></li>
+                <li><a href="#salads">Salad / Soup</a></li>
+                <li><a href="#entrees">Entrees</a></li>
+                <li><a href="#sushi-sashimi">Sushi & Sashimi</a></li>
+                <li><a href="#nigiri">Nigiri</a></li>
+                <li><a href="#temaki">Hand Rolls</a></li>
+                <li><a href="#rolls">Rolls</a></li>
+                <li><a href="#special-rolls">Special Rolls</a></li>
+            </ul>
         </nav>
 
         <!-- Kitchen Appetizers -->
@@ -1427,72 +1454,84 @@
                         <div class="item-name"><span class="item-heart">&#10084;</span>Edamame</div>
                         <div class="item-description">Boiled & Salted Soy Beans</div>
                     </div>
+                    <div class="item-price">$6.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Garlic Edamame</div>
                         <div class="item-description">Sauteed Edamame in our Special Garlic Sauces</div>
                     </div>
+                    <div class="item-price">$11.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Hamachi Kama Shio Yaki</div>
                         <div class="item-description">Grilled Yellow Tail Collar Seasoned with Salt</div>
                     </div>
+                    <div class="item-price">$21.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Fried Gyoza</div>
                         <div class="item-description">Japanese Style Pork Pot-stickers - 6 Pieces</div>
                     </div>
+                    <div class="item-price">$11.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Fried Shumai</div>
                         <div class="item-description">Japanese Style Shrimp Pot-stickers - 6 Pieces</div>
                     </div>
+                    <div class="item-price">$13.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;</span>Mixed Tempura</div>
                         <div class="item-description">Tempura Shrimp & Vegetables Served with Tempura Sauce</div>
                     </div>
+                    <div class="item-price">$20.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Ika Geso (Japanese Calamari)</div>
                         <div class="item-description">Fried Calamari Served with Tartar Sauce</div>
                     </div>
+                    <div class="item-price">$19.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Beef Asparagus</div>
                         <div class="item-description">Beef Wrapped Asparagus Served in Ponzu Sauce Topped with Tomatoes & Jalapenos</div>
                     </div>
+                    <div class="item-price">$21.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Fried Oyster</div>
                         <div class="item-description">Fried Breaded Oysters Served with Tartar Sauce</div>
                     </div>
+                    <div class="item-price">$17.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Beef Carpaccio</div>
                         <div class="item-description">Thinly Sliced Beef Carpaccio Topped with Jalapenos Served in Ponzu Sauce</div>
                     </div>
+                    <div class="item-price">$22.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Sesame Chicken Appetizer</div>
                         <div class="item-description">Battered & Fried Chicken with Teriyaki Sauce & Sesame Seeds</div>
                     </div>
+                    <div class="item-price">$16.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Chicken Yakitori</div>
                         <div class="item-description">Grilled Chicken Skewers</div>
                     </div>
+                    <div class="item-price">$15.50</div>
                 </div>
             </div>
         </section>
@@ -1506,90 +1545,105 @@
                         <div class="item-name">Albacore Carpaccio</div>
                         <div class="item-description">Seared White Tuna with Jalapeno in Ponzu Sauce</div>
                     </div>
+                    <div class="item-price">$20.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Yellowtail Razor</div>
                         <div class="item-description">Thinly Sliced Yellowtail Sashimi Topped with Jalapenos Served in Ponzu</div>
                     </div>
+                    <div class="item-price">$20.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Escolar Razor</div>
                         <div class="item-description">Thinly Sliced Escolar Sashimi Topped with Jalapenos Served in Ponzu</div>
                     </div>
+                    <div class="item-price">$20.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Tuna Ceviche</div>
                         <div class="item-description">Spicy Tuna Ceviche Served with Fried Wonton Chips</div>
                     </div>
+                    <div class="item-price">$21.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Salmon Ceviche</div>
                         <div class="item-description">Spicy Salmon Ceviche Served with Fried Wonton Chips</div>
                     </div>
+                    <div class="item-price">$22.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Dante Inferno Appetizer</div>
                         <div class="item-description">Seared Sesame Tuna Served on Tempura Jalapenos</div>
                     </div>
+                    <div class="item-price">$23.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;</span>Assorted Sashimi Appetizer</div>
                         <div class="item-description">Tuna, Salmon & Yellow Tail (9 Pieces)</div>
                     </div>
+                    <div class="item-price">$22.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Spicy Lomi Lomi</div>
                         <div class="item-description">Fresh Salmon & Sliced Onion Served with Chili Sesame Oil</div>
                     </div>
+                    <div class="item-price">$20.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Spicy Sesame Tuna</div>
                         <div class="item-description">Seared Tuna Served with Chili Oil in Ponzu Sauce</div>
                     </div>
+                    <div class="item-price">$22.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;</span>Tako Kimchee</div>
                         <div class="item-description">Octopus, Cucumbers & Tomatoes Tossed in Kimchee Sauce</div>
                     </div>
+                    <div class="item-price">$22.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Ahi Tuna Taco</div>
                         <div class="item-description">Served in Wonton Taco Shell (Three Pieces)</div>
                     </div>
+                    <div class="item-price">$20.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Ahi Poke Martini</div>
                         <div class="item-description">Tuna Poke Served in a Martini Glass</div>
                     </div>
+                    <div class="item-price">$21.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Tuna Bruschetta</div>
                         <div class="item-description">Marinated Tuna on Toasted Bread Served with Tomato, Micro Green & Tobiko</div>
                     </div>
+                    <div class="item-price">$18.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Kumamoto Oysters in a Half Shell</div>
                         <div class="item-description">Seasonal, 2 Pieces - Oysters Served with Tobiko, Scallion & Spicy Sauce in Ponzu on Ice</div>
                     </div>
+                    <div class="item-price">$8.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Oyster Shooter</div>
                         <div class="item-description">A Shot of Oyster in Chilled Sake with our Special Sauce (Seasonal)</div>
                     </div>
+                    <div class="item-price">$11.50</div>
                 </div>
             </div>
         </section>
@@ -1603,54 +1657,63 @@
                         <div class="item-name">Green Salad</div>
                         <div class="item-description">Mixed Greens with House Dressing</div>
                     </div>
+                    <div class="item-price">$8.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Sunomono</div>
                         <div class="item-description">Cucumber Salad with Tomato, Daikon Radish in Ponzu & Olive Oil</div>
                     </div>
+                    <div class="item-price">$12.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Wakame Salad</div>
                         <div class="item-description">Marinated Seaweed with Sesame Oil</div>
                     </div>
+                    <div class="item-price">$10.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Sashimi Salad</div>
                         <div class="item-description">Assortment of Sashimi Served on Mixed Greens with Vinaigrette Dressing</div>
                     </div>
+                    <div class="item-price">$26.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Spicy Sesame Seared Tuna Salad</div>
                         <div class="item-description">Spicy Sesame Tuna Served on Mixed Greens with Vinaigrette Dressing</div>
                     </div>
+                    <div class="item-price">$28.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Soba Salad</div>
                         <div class="item-description">Buckwheat Noodle Salad with Assorted Sashimi</div>
                     </div>
+                    <div class="item-price">$28.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Miso Soup</div>
                         <div class="item-description">Traditional Japanese Miso Soup</div>
                     </div>
+                    <div class="item-price">$5.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Udon</div>
                         <div class="item-description">Thick Noodles, Fish Cake, Scallion & Seaweed in Dashi Broth</div>
                     </div>
+                    <div class="item-price">$15.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Tempura Udon</div>
                         <div class="item-description">Udon Served with a Side of Mixed Tempura</div>
                     </div>
+                    <div class="item-price">$24.95</div>
                 </div>
             </div>
         </section>
@@ -1665,60 +1728,70 @@
                         <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Beef Teriyaki</div>
                         <div class="item-description">Grilled & Stir Fried Sliced Beef, Mushrooms, Zucchini & Onions with Teriyaki Sauce</div>
                     </div>
+                    <div class="item-price">$21.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;</span>Chicken Katsu</div>
                         <div class="item-description">Panko Breaded & Fried Chicken Breast Served with Tonkatsu Sauce</div>
                     </div>
+                    <div class="item-price">$20.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Chicken Teriyaki</div>
                         <div class="item-description">Grilled & Stir Fried Chicken, Mushrooms, Zucchini & Onions with Teriyaki Sauce</div>
                     </div>
+                    <div class="item-price">$19.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Sesame Chicken</div>
                         <div class="item-description">Battered & Fried Chicken with Teriyaki Sauce & Sesame Seeds</div>
                     </div>
+                    <div class="item-price">$19.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Grilled Salmon</div>
                         <div class="item-description">2 Pieces of Fresh Salmon Lightly Salted & Grilled</div>
                     </div>
+                    <div class="item-price">$27.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Salmon Teriyaki</div>
                         <div class="item-description">2 Pieces of Pan Fried Fresh Salmon Cooked with Onions, Mushrooms, & Teriyaki Sauce</div>
                     </div>
+                    <div class="item-price">$28.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Vegetarian Teriyaki</div>
                         <div class="item-description">Seasonal Vegetables in Teriyaki Sauce</div>
                     </div>
+                    <div class="item-price">$17.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Beef Teriyaki Bowl</div>
                         <div class="item-description">Grilled & Stir Fried Sliced Beef, Mushrooms, Zucchini & Onions with Teriyaki Sauce Served w/ Rice (No Green Salad)</div>
                     </div>
+                    <div class="item-price">$18.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Chicken Teriyaki Bowl</div>
                         <div class="item-description">Grilled & Stir Fried Chicken, Mushrooms, Zucchini & Onions with Teriyaki Sauce Served w/ Rice (No Green Salad)</div>
                     </div>
+                    <div class="item-price">$17.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Tomahawk Steak</div>
                         <div class="item-description">Served with Seasonal Vegetables, Fried Onions, and Garlic Sauce (No Green Salad) *Allow 30-40 min prep time</div>
                     </div>
+                    <div class="item-price">$125.95</div>
                 </div>
             </div>
         </section>
@@ -1732,36 +1805,42 @@
                         <div class="item-name">Nigiri Mix</div>
                         <div class="item-description">8 Pieces of Chef's Choice</div>
                     </div>
+                    <div class="item-price">$27.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Nigiri and Roll Combination</div>
                         <div class="item-description">5 Pieces of Nigiri & a Choice of BBQ Eel Roll, California Roll, or Spicy Tuna Roll</div>
                     </div>
+                    <div class="item-price">$29.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Sashimi Mix</div>
                         <div class="item-description">Assortment of Fresh Sashimi Served with Rice (15 Pieces)</div>
                     </div>
+                    <div class="item-price">$32.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Tuna Sashimi</div>
                         <div class="item-description">Fresh Tuna Sashimi Served with Rice (15 Pieces)</div>
                     </div>
+                    <div class="item-price">$33.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Sashimi and Nigiri Mix</div>
                         <div class="item-description">Assortment of Fresh Sashimi and 6 Pieces of Chef's Choice Nigiri</div>
                     </div>
+                    <div class="item-price">$33.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Chirashi</div>
                         <div class="item-description">Chef's Choice of Assorted Sashimi over Sushi Rice</div>
                     </div>
+                    <div class="item-price">$35.50</div>
                 </div>
             </div>
         </section>
@@ -1773,57 +1852,75 @@
             <div class="menu-items nigiri-grid">
                 <div class="menu-item">
                     <div class="item-name">Ami Ebi (Sweet Shrimp)</div>
+                    <div class="item-price">$12.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-name">Ebi (Shrimp)</div>
+                    <div class="item-price">$7.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-name">Fresh Sake (Salmon)</div>
+                    <div class="item-price">$8.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-name">Hamachi (Yellow Tail)</div>
+                    <div class="item-price">$8.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-name">Hotate (Giant Scallop)</div>
+                    <div class="item-price">$8.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-name">Kani (Snow Crab)</div>
+                    <div class="item-price">$9.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-name">Lomi Lomi (Salmon with Chili Oil)</div>
+                    <div class="item-price">$8.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Wagyu (Japanese A5)</div>
+                    <div class="item-price">$19.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-name">Escolar</div>
+                    <div class="item-price">$8.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-name">Maguro (Tuna)</div>
+                    <div class="item-price">$8.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-name">Spicy Sesame Seared Tuna</div>
+                    <div class="item-price">$9.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-name">Shiro Maguro (Albacore)</div>
+                    <div class="item-price">$7.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-name"><span class="item-heart">&#10084;</span>Spicy Tempura Scallop (4pcs)</div>
+                    <div class="item-price">$11.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-name">Tako (Octopus)</div>
+                    <div class="item-price">$8.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-name">Tobiko (Fish Roe)</div>
+                    <div class="item-price">$7.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-name">Unagi (BBQ Eel)</div>
+                    <div class="item-price">$8.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-name"><span class="item-heart">&#10084;</span>Bluefin (Toro Fatty Tuna)</div>
+                    <div class="item-price">$17.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-name">Uni (Sea Urchin)</div>
+                    <div class="item-price">$18.95</div>
                 </div>
             </div>
         </section>
@@ -1837,36 +1934,42 @@
                         <div class="item-name">California</div>
                         <div class="item-description">Imitation Crab, Cucumber, Avocado, Scallion & Tobiko</div>
                     </div>
+                    <div class="item-price">$9.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Ebi Mayo</div>
                         <div class="item-description">Shrimp, Tomato, Cucumber & Avocado</div>
                     </div>
+                    <div class="item-price">$10.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Snow Crab</div>
                         <div class="item-description">Snow Crab, Avocado, Cucumber, Scallion & Tobiko</div>
                     </div>
+                    <div class="item-price">$11.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Spicy Negihama</div>
                         <div class="item-description">Yellow Tail, Cucumber, Avocado, Scallion & Tobiko</div>
                     </div>
+                    <div class="item-price">$10.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Spicy Tuna</div>
                         <div class="item-description">Spicy Tuna, Cucumber & Avocado</div>
                     </div>
+                    <div class="item-price">$10.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Unagi</div>
                         <div class="item-description">BBQ Eel, Cucumber & Avocado</div>
                     </div>
+                    <div class="item-price">$10.50</div>
                 </div>
             </div>
         </section>
@@ -1880,126 +1983,147 @@
                         <div class="item-name">Albacore Tataki Roll</div>
                         <div class="item-description">(Avocado & Cucumber Roll) Topped with Seared Albacore, Onion, Tobiko & Tataki Sauce</div>
                     </div>
+                    <div class="item-price">$22.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Asparagus Roll</div>
                         <div class="item-description">(Asparagus, Avocado, Cucumber & Imitation Crab Roll)</div>
                     </div>
+                    <div class="item-price">$22.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Caterpillar Roll</div>
                         <div class="item-description">(BBQ Eel & Cucumber Roll) Topped with Sliced Avocado, Teriyaki Sauce & Tempura Bits</div>
                     </div>
+                    <div class="item-price">$20.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Chicken Teriyaki Roll</div>
                         <div class="item-description">(Avocado, Chicken & Lettuce Roll) Topped with Teriyaki Sauce</div>
                     </div>
+                    <div class="item-price">$22.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Crunchy Rainbow Roll</div>
                         <div class="item-description">(Tempura Shrimp & Avocado Roll) Topped with Assorted Sashimi & Sprinkled with Tobiko</div>
                     </div>
+                    <div class="item-price">$23.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Dragon Roll</div>
                         <div class="item-description">(Tempura Shrimp & Avocado Roll) Topped with BBQ Eel, Teriyaki Sauce & Tempura Bits</div>
                     </div>
+                    <div class="item-price">$22.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Fried Philadelphia Roll</div>
                         <div class="item-description">(Cream Cheese & Smoked Salmon Roll)</div>
                     </div>
+                    <div class="item-price">$16.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;</span>Golden Shrimp Roll</div>
                         <div class="item-description">(Avocado, Cucumber & Fried Shrimp Roll with Spicy Sauce)</div>
                     </div>
+                    <div class="item-price">$15.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Lomi Lomi Roll</div>
                         <div class="item-description">(Avocado & Cucumber Roll) Topped with Fresh Salmon, Onion & a Dash of Chili Oil</div>
                     </div>
+                    <div class="item-price">$22.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Philadelphia Roll</div>
                         <div class="item-description">(Cream Cheese, Cucumber & Avocado Roll) Topped with Smoked Salmon</div>
                     </div>
+                    <div class="item-price">$20.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Rainbow Roll</div>
                         <div class="item-description">(California Roll) Topped with Albacore, BBQ Eel, Salmon, Tuna, Yellow Tail & Tobiko</div>
                     </div>
+                    <div class="item-price">$22.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Salmon Tataki Roll</div>
                         <div class="item-description">(Avocado & Cucumber Roll) Topped with Seared Salmon, Onion, Tobiko & Tataki Sauce</div>
                     </div>
+                    <div class="item-price">$23.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Snow Crab California Roll</div>
                         <div class="item-description">(Cucumber, Avocado, & Snow Crab Roll) Topped with Tobiko</div>
                     </div>
+                    <div class="item-price">$17.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Snow Crab Rainbow Roll</div>
                         <div class="item-description">(Snow Crab California Roll) Topped with Albacore, BBQ Eel, Salmon, Tuna & Yellow Tail</div>
                     </div>
+                    <div class="item-price">$24.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Spicy Dragon Roll</div>
                         <div class="item-description">(Tempura Shrimp & Avocado Roll) Topped with Spicy Tuna & BBQ Eel with Spicy Sauce</div>
                     </div>
+                    <div class="item-price">$22.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Spicy Salmon Roll</div>
                         <div class="item-description">(Avocado & Cucumber Roll) Fresh Salmon, Green Onion & Tobiko with Spicy Sauce</div>
                     </div>
+                    <div class="item-price">$19.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Spicy Tuna Roll</div>
                         <div class="item-description">(Tuna with Spicy Sauce & Cucumber Roll)</div>
                     </div>
+                    <div class="item-price">$16.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Spider Roll</div>
                         <div class="item-description">(Avocado, Fried Soft-Shell Crab & Lettuce Roll) Topped with Tobiko</div>
                     </div>
+                    <div class="item-price">$20.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Tempura Roll</div>
                         <div class="item-description">(Avocado, Lettuce & Tempura Shrimp) Topped with Teriyaki Sauce</div>
                     </div>
+                    <div class="item-price">$15.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Tiger Roll</div>
                         <div class="item-description">(Tempura Shrimp & Avocado Roll) Topped with Ebi, BBQ Eel & Tobiko with Spicy Sauce</div>
                     </div>
+                    <div class="item-price">$22.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Vegetarian Roll</div>
                         <div class="item-description">(Asparagus & Cucumber Roll) Topped with Sliced Avocado, Tomato & Spring Mix</div>
                     </div>
+                    <div class="item-price">$18.50</div>
                 </div>
             </div>
         </section>
@@ -2013,66 +2137,77 @@
                         <div class="item-name"><span class="item-heart">&#10084;</span>BTS Roll</div>
                         <div class="item-description">(Fried Smoked Salmon & Cream Cheese Roll) Topped with Tuna, Hamachi, Salmon, Tomato, Onions, Jalapenos, Tobiko & a Dash of Chili Oil</div>
                     </div>
+                    <div class="item-price">$27.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;</span>Beef Cilantro Roll</div>
                         <div class="item-description">(Cucumber, Asparagus, Avocado & Cilantro Roll) Topped with Sauteed Beef & Onions, Topped with Crispy Rice</div>
                     </div>
+                    <div class="item-price">$28.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Dante's Inferno Roll</div>
                         <div class="item-description">(Tempura Shrimp & Avocado Roll) Topped with Sesame Seared Tuna, Fresh Salmon, Tempura Jalapenos & Tobiko</div>
                     </div>
+                    <div class="item-price">$27.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Dark Horse Roll</div>
                         <div class="item-description">(Spicy Tuna, Asparagus & Avocado Roll) Sesame Tuna, Salmon, Vinaigrette Salad & Tobiko</div>
                     </div>
+                    <div class="item-price">$27.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;</span>Goodi Roll</div>
                         <div class="item-description">(Shrimp & Crab Fried Roll) Lightly Tempura Roll Topped with BBQ Eel, Teriyaki Sauce, Spicy Sauce & Tobiko</div>
                     </div>
+                    <div class="item-price">$27.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Grilled Salmon Roll</div>
                         <div class="item-description">(Imitation Crab & Avocado Roll) Served with a Side of Grilled Salmon & Asparagus</div>
                     </div>
+                    <div class="item-price">$28.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Neff Roll</div>
                         <div class="item-description">(Tempura Shrimp, Cucumber, & Avocado Roll) Topped with Sesame Tuna, Spicy Imitation Crab, Red Onion, Tempura Jalapenos & Tobiko</div>
                     </div>
+                    <div class="item-price">$29.95</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Roadkill Roll</div>
                         <div class="item-description">(Spicy Tuna, Avocado & Asparagus Roll) Topped with BBQ Eel, Sesame Tuna, Crab Salad, Tempura Bits & Tobiko</div>
                     </div>
+                    <div class="item-price">$28.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>SCS Roll</div>
                         <div class="item-description">(Tempura Asparagus & Spicy Tuna Roll) Topped with Tempura Scallops, Spicy Tuna, Avocado, Spring Mix & Tobiko</div>
                     </div>
+                    <div class="item-price">$28.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Shark Bite Roll</div>
                         <div class="item-description">(Tempura Mint, Shrimp, Cucumber & Avocado Roll) Topped with a House Blend Ahi Tuna, Tempura Jalapenos, Japanese Sprout & Tobiko</div>
                     </div>
+                    <div class="item-price">$28.50</div>
                 </div>
                 <div class="menu-item">
                     <div class="item-info">
                         <div class="item-name">Tuna Steak Roll</div>
                         <div class="item-description">(Tempura Scallops & Avocado Roll) Topped with Spicy Tuna, BBQ Albacore, Tomatoes, Asparagus & Tobiko</div>
                     </div>
+                    <div class="item-price">$28.95</div>
                 </div>
             </div>
         </section>
@@ -2083,8 +2218,10 @@
             <ul>
                 <li>Sales tax will be added to all transactions</li>
                 <li>Automatic 20% gratuity for parties of 5 or more</li>
+                <li>Cake fee: $16 / Corkage fee: $19 per bottle</li>
                 <li>We can only split checks for parties of 4 or less</li>
                 <li>No outside food or beverages</li>
+                <li>Prices subject to change without notice</li>
             </ul>
             <div class="warning-box">
                 <strong>Warning:</strong> The consumption of raw or undercooked eggs, meat, poultry, seafood or
