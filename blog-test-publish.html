@@ -80,38 +80,39 @@
         .nav-links a:hover { color: var(--gold); }
         .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.3s ease; }
         .nav-links a:hover::after { width: 100%; }
-        .blog-container { max-width: 860px; margin: 0 auto; padding: 8rem 2rem 4rem; }
-        .blog-header { text-align: center; margin-bottom: 3rem; }
-        .blog-category { display: inline-block; background: var(--primary-red); color: var(--white); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.25rem; }
-        .blog-title { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--text-dark); margin-bottom: 1rem; line-height: 1.2; }
-        .blog-meta { display: flex; justify-content: center; gap: 2rem; font-size: 0.85rem; color: var(--text-light); flex-wrap: wrap; }
-        .blog-meta span { display: flex; align-items: center; gap: 0.4rem; }
-        .blog-featured-image { width: 100%; border-radius: 12px; margin-bottom: 2.5rem; overflow: hidden; }
-        .blog-featured-image img { width: 100%; height: auto; display: block; border-radius: 12px; }
-        .blog-content { font-size: 1.05rem; line-height: 1.8; color: var(--text-medium); }
-        .blog-content h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--text-dark); margin: 2.5rem 0 1rem; }
-        .blog-content h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text-dark); margin: 2rem 0 0.75rem; }
-        .blog-content p { margin-bottom: 1.5rem; }
-        .blog-content ul, .blog-content ol { margin: 1rem 0 1.5rem 1.5rem; }
-        .blog-content li { margin-bottom: 0.5rem; }
-        .blog-content blockquote { border-left: 4px solid var(--gold); padding: 1rem 1.5rem; margin: 2rem 0; background: var(--warm-cream); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-dark); }
-        .blog-content strong { color: var(--text-dark); }
-        .blog-content img { max-width: 100%; border-radius: 8px; }
-        .blog-content a { color: var(--primary-red); }
+        .story-container { max-width: 860px; margin: 0 auto; padding: 8rem 2rem 4rem; }
+        .story-header { text-align: center; margin-bottom: 3rem; }
+        .story-category { display: inline-block; background: var(--primary-red); color: var(--white); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.25rem; }
+        .story-title { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--text-dark); margin-bottom: 1rem; line-height: 1.2; }
+        .story-meta { display: flex; justify-content: center; gap: 2rem; font-size: 0.85rem; color: var(--text-light); flex-wrap: wrap; }
+        .story-meta span { display: flex; align-items: center; gap: 0.4rem; }
+        .story-featured-image { width: 100%; border-radius: 12px; margin-bottom: 2.5rem; overflow: hidden; }
+        .story-featured-image img { width: 100%; height: auto; display: block; border-radius: 12px; }
+        .story-content { font-size: 1.05rem; line-height: 1.8; color: var(--text-medium); }
+        .story-content h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--text-dark); margin: 2.5rem 0 1rem; }
+        .story-content h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text-dark); margin: 2rem 0 0.75rem; }
+        .story-content p { margin-bottom: 1.5rem; }
+        .story-content ul, .story-content ol { margin: 1rem 0 1.5rem 1.5rem; }
+        .story-content li { margin-bottom: 0.5rem; }
+        .story-content blockquote { border-left: 4px solid var(--gold); padding: 1rem 1.5rem; margin: 2rem 0; background: var(--warm-cream); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-dark); }
+        .story-content strong { color: var(--text-dark); }
+        .story-content img { max-width: 100%; border-radius: 8px; }
+        .story-content a { color: var(--primary-red); }
         .cta-section { background: linear-gradient(135deg, var(--primary-red) 0%, #8b1528 100%); color: var(--white); padding: 3rem; border-radius: 12px; text-align: center; margin: 3rem 0; }
         .cta-section h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.75rem; }
         .cta-section p { opacity: 0.9; margin-bottom: 1.5rem; }
         .cta-btn { display: inline-block; background: var(--gold); color: var(--warm-black, #1a1a1a); padding: 0.85rem 2rem; border-radius: 6px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; }
         .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(212,175,55,0.4); text-decoration: none; }
-        .blog-share { display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.08); }
+        .story-share { display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.08); }
         .share-btn { padding: 0.6rem 1.25rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: all 0.3s ease; }
         .share-btn:hover { transform: translateY(-2px); text-decoration: none; }
         footer { background: var(--charcoal); color: rgba(255,255,255,0.8); padding: 3rem 2rem 1.5rem; text-align: center; }
         footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
         footer a:hover { color: var(--white); }
         footer p { font-size: 0.85rem; opacity: 0.5; margin-top: 0.5rem; }
-        @media (max-width: 768px) { nav { padding: 0.75rem 1.5rem; } .blog-title { font-size: 2rem; } .blog-container { padding-top: 6rem; } }
+        @media (max-width: 768px) { nav { padding: 0.75rem 1.5rem; } .story-title { font-size: 2rem; } .story-container { padding-top: 6rem; } }
     </style>
+    <script src="location-phone.js" defer></script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -137,11 +138,11 @@
     </header>
 
     <main id="main-content">
-        <article class="blog-container" itemscope itemtype="https://schema.org/BlogPosting">
-            <header class="blog-header">
-                <span class="blog-category">Blog</span>
-                <h1 class="blog-title" itemprop="headline">The Ultimate Guide to Finding the Best Sushi in Stockton, California</h1>
-                <div class="blog-meta">
+        <article class="story-container" itemscope itemtype="https://schema.org/BlogPosting">
+            <header class="story-header">
+                <span class="story-category">Stories</span>
+                <h1 class="story-title" itemprop="headline">The Ultimate Guide to Finding the Best Sushi in Stockton, California</h1>
+                <div class="story-meta">
                     <span itemprop="author">By agentai-test</span>
                     <span itemprop="datePublished">April 13, 2026</span>
                     <span>1 min read</span>
@@ -150,13 +151,13 @@
 
             
 
-            <div class="blog-content" itemprop="articleBody">
+            <div class="story-content" itemprop="articleBody">
 <h2>Why Stockton for Sushi?</h2>            <p>Stockton, California, is becoming a surprising destination for sushi lovers.</p>            <h3>What Makes Great Sushi?</h3>            <ul><li>Freshness of fish</li>            <li>Skill of the chef</li>            <li>Quality of rice</li>            </ul>            <h2>Top Sushi Restaurants in Stockton</h2>            <p>Stockton has several standout sushi restaurants, with Raw Sushi Bar leading the pack.</p>
             </div>
 
             <div class="cta-section"><h3>Order Fresh Sushi Now</h3><p>Experience authentic Japanese cuisine at Raw Sushi Bar.</p><a href="https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d" class="cta-btn" target="_blank" rel="noopener">Order Now</a></div>
 
-            <div class="blog-share">
+            <div class="story-share">
                 <a href="https://www.facebook.com/rawsushibar/" target="_blank" rel="noopener" class="share-btn" style="background:#3b5998;color:#fff;">Facebook</a>
                 <a href="https://instagram.com/rawsushibistro/" target="_blank" rel="noopener" class="share-btn" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;">Instagram</a>
             </div>

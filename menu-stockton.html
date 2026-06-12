@@ -7,7 +7,7 @@
     <meta name="description"
         content="View the full menu at Raw Sushi Bistro Stockton — sushi rolls, sashimi, nigiri, appetizers, Japanese entrees, ramen & happy hour specials. Order online or dine in at 10742 Trinity Pkwy, Stockton, CA.">
     <meta name="keywords"
-        content="Raw Sushi Bistro menu, sushi menu Stockton, Stockton sushi rolls, sashimi menu Stockton CA, Japanese restaurant menu Stockton , happy hour sushi Stockton">
+        content="Raw Sushi Bistro menu, sushi menu Stockton, Stockton sushi rolls, sashimi menu Stockton CA, Japanese restaurant menu Stockton, sushi prices Stockton, happy hour sushi Stockton">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.rawsushibar.com/menu-stockton.html">
     <title>Stockton Sushi Menu | Raw Sushi Bistro | Rolls, Sashimi & Nigiri</title>
@@ -325,7 +325,7 @@
 
         .menu-item {
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: flex-start;
             gap: 1rem;
             padding: 0.85rem 1rem;
@@ -366,6 +366,19 @@
             color: var(--text-light);
             margin-top: 0.15rem;
             font-style: italic;
+        }
+
+        .item-price {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--primary-red);
+            white-space: nowrap;
+            font-family: 'Playfair Display', serif;
+            transition: color 0.3s ease;
+        }
+
+        .menu-item:hover .item-price {
+            color: var(--deep-red);
         }
 
         /* Nigiri grid */
@@ -936,6 +949,48 @@
           },
           {
             "@type": "MenuSection",
+            "name": "Sushi",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Nigiri Mix",
+                "description": "8 Pieces of Chef's Choice"
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Nigiri and Roll Combination",
+                "description": "5 Pieces of Nigiri & a Choice of BBQ Eel Roll, California Roll, or Spicy Tuna Roll"
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Chirashi",
+                "description": "Chef's Choice of Assorted Sashimi over Sushi Rice"
+              }
+            ]
+          },
+          {
+            "@type": "MenuSection",
+            "name": "Sashimi",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Sashimi Mix",
+                "description": "Assortment of Fresh Sashimi Served with Rice (15 Pieces)"
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Tuna Sashimi",
+                "description": "Fresh Tuna Sashimi Served with Rice (15 Pieces)"
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Sashimi and Nigiri Mix",
+                "description": "Assortment of Fresh Sashimi and 6 Pieces of Chef's Choice Nigiri"
+              }
+            ]
+          },
+          {
+            "@type": "MenuSection",
             "name": "Nigiri",
             "description": "2 pieces per order",
             "hasMenuItem": [
@@ -1145,6 +1200,7 @@
 
     <!-- Cookie Consent -->
     <link rel="stylesheet" href="cookie-consent.css">
+    <script src="location-phone.js" defer></script>
 </head>
 
 <body>
@@ -1152,7 +1208,7 @@
     <div class="nav-bar">
         <a href="index.html">&larr; Home</a>
         <div class="nav-bar-right">
-            <a href="tel:2099549729" style="color: var(--gold);">(209) 954-9729</a>
+            <a href="tel:+12099549729" style="color: var(--gold);" data-location-phone="display">(209) 954-9729</a>
             <a href="https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d" target="_blank"
                 rel="noopener" class="order-btn">Order Online</a>
         </div>
@@ -1184,20 +1240,20 @@
             </div>
             <div class="hh-grid">
                 <div class="hh-section">
-                    <h3></h3>
+                    <h3>Drinks</h3>
                     <div class="hh-item">Sake Bomb</div>
                     <div class="hh-item">Hot Sake (Small)</div>
                     <div class="hh-item">Sapporo Draft</div>
                     <div class="hh-item">Domestic Beer</div>
                 </div>
                 <div class="hh-section">
-                    <h3></h3>
+                    <h3>Light Bites</h3>
                     <div class="hh-item">Edamame</div>
                     <div class="hh-item">Wakame Salad</div>
                     <div class="hh-item">House Wine (Glass)</div>
                 </div>
                 <div class="hh-section">
-                    <h3></h3>
+                    <h3>Bites & Rolls</h3>
                     <div class="hh-item">Fried Gyoza (6pcs)</div>
                     <div class="hh-item">Fried Shumai</div>
                     <div class="hh-item">California Roll</div>
@@ -1205,16 +1261,12 @@
                     <div class="hh-item">Hand Roll (Spicy Tuna/Cali)</div>
                 </div>
                 <div class="hh-section">
-                    <h3></h3>
+                    <h3>Rolls & Cocktails</h3>
                     <div class="hh-item">Spicy Tuna Roll</div>
                     <div class="hh-item">Fried California Roll</div>
                     <div class="hh-item">Tsunami Margarita</div>
                     <div class="hh-item">Mule</div>
                 </div>
-            </div>
-            <div class="special-note">
-                <strong>TUESDAY:</strong>  Hand Rolls &nbsp;&bull;&nbsp;
-                <strong>WEDNESDAY:</strong> 50% Off Selected Wine Bottles (while supplies last)
             </div>
         </div>
 
@@ -1224,10 +1276,10 @@
                 <li><a href="#small-bites">Small Bites</a></li>
                 <li><a href="#hot-apps">Hot Appetizers</a></li>
                 <li><a href="#sushi-apps">Sushi Appetizers</a></li>
-                <li><a href="#sushi">Sushi</a></li>
-                <li><a href="#sashimi">Sashimi</a></li>
                 <li><a href="#salads">Salads</a></li>
                 <li><a href="#entrees">Entrees</a></li>
+                <li><a href="#sushi">Sushi</a></li>
+                <li><a href="#sashimi">Sashimi</a></li>
                 <li><a href="#nigiri">Nigiri</a></li>
                 <li><a href="#rolls">Sushi Rolls</a></li>
                 <li><a href="#special-rolls">Special Rolls</a></li>
@@ -1434,45 +1486,6 @@
             </div>
         </section>
 
-
-
-        <!-- Sushi -->
-        <section id="sushi" class="menu-section">
-            <h2>Sushi</h2>
-            <div class="menu-items">
-                <div class="menu-item"><div class="item-name">Maguro (Tuna)</div></div>
-                <div class="menu-item"><div class="item-name">Fresh Sake (Salmon)</div></div>
-                <div class="menu-item"><div class="item-name">Hamachi (Yellow Tail)</div></div>
-                <div class="menu-item"><div class="item-name">Ebi (Shrimp)</div></div>
-                <div class="menu-item"><div class="item-name">Unagi (BBQ Eel)</div></div>
-            </div>
-        </section>
-
-        <!-- Sashimi -->
-        <section id="sashimi" class="menu-section">
-            <h2>Sashimi</h2>
-            <div class="menu-items">
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Assorted Sashimi</div>
-                        <div class="item-description">9 Pieces of Tuna, Salmon & Yellowtail</div>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Assorted Sashimi Ponzu</div>
-                        <div class="item-description">Assorted Sashimi in Ponzu & Garlic Chips</div>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Yellowtail Razor</div>
-                        <div class="item-description">Thinly Sliced Yellowtail Sashimi with Jalapenos in Ponzu</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Salads -->
         <section id="salads" class="menu-section">
             <h2>Salads</h2>
@@ -1563,6 +1576,57 @@
                     <div class="item-info">
                         <div class="item-name">Vegetarian Teriyaki</div>
                         <div class="item-description">Seasonal Vegetables in Teriyaki Sauce</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sushi -->
+        <!-- Items mirrored from approved Modesto menu; confirm with CEO for Stockton-specific listing. -->
+        <section id="sushi" class="menu-section">
+            <h2>Sushi</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Nigiri Mix</div>
+                        <div class="item-description">8 Pieces of Chef's Choice</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Nigiri and Roll Combination</div>
+                        <div class="item-description">5 Pieces of Nigiri & a Choice of BBQ Eel Roll, California Roll, or Spicy Tuna Roll</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name"><span class="item-heart">&#10084;&#10084;</span>Chirashi</div>
+                        <div class="item-description">Chef's Choice of Assorted Sashimi over Sushi Rice</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sashimi -->
+        <section id="sashimi" class="menu-section">
+            <h2>Sashimi</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Sashimi Mix</div>
+                        <div class="item-description">Assortment of Fresh Sashimi Served with Rice (15 Pieces)</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Tuna Sashimi</div>
+                        <div class="item-description">Fresh Tuna Sashimi Served with Rice (15 Pieces)</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <div class="item-name">Sashimi and Nigiri Mix</div>
+                        <div class="item-description">Assortment of Fresh Sashimi and 6 Pieces of Chef's Choice Nigiri</div>
                     </div>
                 </div>
             </div>
@@ -1771,12 +1835,9 @@
             <h3>Our Policies</h3>
             <ul>
                 <li>Sales tax will be added to all transactions</li>
-                <li>Cake fee: </li>
                 <li>No checks accepted (business or personal)</li>
                 <li>Check splitting available for parties of 4 or less</li>
                 <li>No outside food or beverages</li>
-                <li>Prices subject to change without notice</li>
-                <li>Corkage fee:  per bottle</li>
                 <li>We are not responsible for lost or stolen items</li>
             </ul>
             <div class="warning-box">

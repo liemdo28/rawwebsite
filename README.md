@@ -25,7 +25,9 @@
 | **Stockton** | 1105 San Joaquin Ave, Stockton, CA 95203 | (209) 954-9729 |
 | **Modesto** | 1200 I Street, Modesto, CA 95354 | (209) 566-9560 |
 
-The website serves as: brand landing page, location pages, menu (JSON-driven), blog (12 articles), SEO pages, online ordering (Toast Tab) & delivery (DoorDash), and Schema.org JSON-LD markup.
+The website serves as: brand landing page, location pages, menu (JSON-driven), Stories & Insights (article pages, 11 articles), SEO pages, online ordering (Toast Tab) & delivery (DoorDash), and Schema.org JSON-LD markup.
+
+> **Naming convention:** the homepage discovery surface and all user-facing wording is "Stories & Insights". Article HTML files keep the legacy `blog-*.html` filenames for SEO continuity (existing inbound links, search-engine indexing, customer bookmarks) — do not introduce a `/blog` listing page or "Blog" UI wording. JSON-LD `@type: BlogPosting` is retained because that is the schema.org type search engines understand.
 
 **Domain:** `www.rawsushibar.com`
 
@@ -110,7 +112,7 @@ RawWebsite/
 │   ├── stockton-sushi.html
 │   └── date-night-stockton.html
 │
-├── 📝  Blog (12 articles)
+├── 📝  Stories & Insights (11 articles — filenames retained for SEO)
 │   ├── blog-20-years.html
 │   ├── blog-nigiri-art.html
 │   ├── blog-sashimi-guide.html

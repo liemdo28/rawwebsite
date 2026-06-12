@@ -7,7 +7,7 @@
     <meta name="description"
         content="View the full menu at Raw Sushi Bistro Modesto — sushi rolls, sashimi, nigiri, appetizers & Japanese entrees. Dine in at 1200 I Street, Modesto, CA. Call (209) 566-9560.">
     <meta name="keywords"
-        content="Raw Sushi Bistro Modesto menu, sushi menu Modesto, Modesto sushi rolls, sashimi Modesto CA, Japanese restaurant menu Modesto">
+        content="Raw Sushi Bistro Modesto menu, sushi menu Modesto, Modesto sushi rolls, sashimi Modesto CA, Japanese restaurant menu Modesto, sushi prices Modesto">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.rawsushibar.com/menu-modesto.html">
     <title>Modesto Sushi Menu | Raw Sushi Bistro | Rolls, Sashimi & Nigiri</title>
@@ -325,7 +325,7 @@
 
         .menu-item {
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: flex-start;
             gap: 1rem;
             padding: 0.85rem 1rem;
@@ -366,6 +366,19 @@
             color: var(--text-light);
             margin-top: 0.15rem;
             font-style: italic;
+        }
+
+        .item-price {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--primary-red);
+            white-space: nowrap;
+            font-family: 'Playfair Display', serif;
+            transition: color 0.3s ease;
+        }
+
+        .menu-item:hover .item-price {
+            color: var(--deep-red);
         }
 
         /* Nigiri grid */
@@ -1278,6 +1291,7 @@
 
     <!-- Cookie Consent -->
     <link rel="stylesheet" href="cookie-consent.css">
+    <script src="location-phone.js" defer></script>
 </head>
 
 <body>
@@ -1285,8 +1299,8 @@
     <div class="nav-bar">
         <a href="index.html">&larr; Home</a>
         <div class="nav-bar-right">
-            <a href="tel:2095669560" style="color: var(--gold);">(209) 566-9560</a>
-            <a href="tel:2095669560" class="order-btn">Call to Order</a>
+            <a href="tel:+12095669560" style="color: var(--gold);" data-location-phone="display">(209) 566-9560</a>
+            <a href="tel:+12095669560" class="order-btn" data-location-phone="link">Call to Order</a>
         </div>
     </div>
 
@@ -1989,10 +2003,8 @@
             <ul>
                 <li>Sales tax will be added to all transactions</li>
                 <li>Automatic 20% gratuity for parties of 5 or more</li>
-                <li>Cake fee:  / Corkage fee:  per bottle</li>
                 <li>We can only split checks for parties of 4 or less</li>
                 <li>No outside food or beverages</li>
-                <li>Prices subject to change without notice</li>
             </ul>
             <div class="warning-box">
                 <strong>Warning:</strong> The consumption of raw or undercooked eggs, meat, poultry, seafood or

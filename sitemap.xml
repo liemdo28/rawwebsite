@@ -64,15 +64,7 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- Blog Index (auto-generated posts) -->
-  <url>
-    <loc>https://www.rawsushibar.com/blog-posts.html</loc>
-    <lastmod>2026-04-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Blog: 20 Years -->
+  <!-- Stories & Insights: 20 Years -->
   <url>
     <loc>https://www.rawsushibar.com/blog-20-years.html</loc>
     <lastmod>2025-02-15</lastmod>
@@ -80,7 +72,7 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Blog: Nigiri Art -->
+  <!-- Story:Nigiri Art -->
   <url>
     <loc>https://www.rawsushibar.com/blog-nigiri-art.html</loc>
     <lastmod>2025-02-10</lastmod>
@@ -88,7 +80,7 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Blog: Sustainability -->
+  <!-- Story:Sustainability -->
   <url>
     <loc>https://www.rawsushibar.com/blog-sustainability.html</loc>
     <lastmod>2025-02-05</lastmod>
@@ -160,7 +152,7 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Blog Posts (New) -->
+  <!-- Stories (article pages — filenames retained for SEO continuity) -->
   <url>
     <loc>https://www.rawsushibar.com/blog-top-sushi-rolls.html</loc>
     <lastmod>2026-04-10</lastmod>

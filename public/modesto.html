@@ -17,7 +17,7 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="restaurant">
-    <meta property="og:url" content="https://www.rawsushibar.com/modesto/">
+    <meta property="og:url" content="https://www.rawsushibar.com/modesto.html">
     <meta property="og:title" content="Best Sushi in Modesto CA | Raw Sushi Bar">
     <meta property="og:description"
         content="Discover fresh sushi in Modesto, CA at Raw Sushi Bar. Dine-in, takeout, and online ordering available.">
@@ -29,14 +29,14 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://www.rawsushibar.com/modesto/">
+    <meta name="twitter:url" content="https://www.rawsushibar.com/modesto.html">
     <meta name="twitter:title" content="Best Sushi in Modesto CA | Raw Sushi Bar">
     <meta name="twitter:description"
         content="Discover fresh sushi in Modesto, CA at Raw Sushi Bar. Dine-in, takeout, and online ordering available.">
     <meta name="twitter:image" content="https://static.wixstatic.com/media/a8971f_ea6b5008fe434ac3a5d4b665cbfd668a~mv2.jpg/v1/fill/w_1200,h_630,al_c,q_90/og-image.jpg">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.rawsushibar.com/modesto/">
+    <link rel="canonical" href="https://www.rawsushibar.com/modesto.html">
 
     <title>Best Sushi in Modesto CA | Raw Sushi Bar</title>
 
@@ -61,7 +61,7 @@
       "alternateName": ["Raw Sushi Bistro Modesto", "Raw Sushi Bar"],
       "image": "https://static.wixstatic.com/media/a8971f_ea6b5008fe434ac3a5d4b665cbfd668a~mv2.jpg/v1/fill/w_1200,h_630,al_c,q_90/og-image.jpg",
       "description": "Raw Sushi Bar is a Japanese sushi restaurant in downtown Modesto, California, serving fresh sushi, sashimi, nigiri, and signature rolls for dine-in and takeout.",
-      "@id": "https://www.rawsushibar.com/modesto/#restaurant",
+      "@id": "https://www.rawsushibar.com/modesto.html#restaurant",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "1200 I Street",
@@ -81,16 +81,15 @@
         "sameAs": "https://en.wikipedia.org/wiki/Modesto,_California"
       },
       "servesCuisine": ["Japanese", "Sushi", "Sashimi", "Asian Fusion"],
-      "menu": "https://www.rawsushibar.com/menu/modesto/",
-      "priceRange": "$$",
+      "menu": "https://www.rawsushibar.com/menu-modesto.html",
       "telephone": "+12095669560",
-      "url": "https://www.rawsushibar.com/modesto/",
+      "url": "https://www.rawsushibar.com/modesto.html",
       "foundingDate": "2005",
       "founder": {
         "@type": "Person",
         "name": "Hoang"
       },
-      "hasMenu": "https://www.rawsushibar.com/menu/modesto/",
+      "hasMenu": "https://www.rawsushibar.com/menu-modesto.html",
       "acceptsReservations": "True",
       "paymentAccepted": "Cash, Credit Card, Debit Card",
       "currenciesAccepted": "USD",
@@ -170,7 +169,7 @@
           "@type": "ListItem",
           "position": 2,
           "name": "Modesto",
-          "item": "https://www.rawsushibar.com/modesto/"
+          "item": "https://www.rawsushibar.com/modesto.html"
         }
       ]
     }
@@ -961,75 +960,6 @@
             color: var(--text-light);
         }
 
-        /* ===== BLOG ===== */
-        .blog-section {
-            background: var(--white);
-        }
-
-        .blog-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .blog-card {
-            background: var(--cream);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .blog-image {
-            height: 220px;
-            overflow: hidden;
-        }
-
-        .blog-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .blog-card:hover .blog-image img {
-            transform: scale(1.05);
-        }
-
-        .blog-content {
-            padding: 1.75rem;
-        }
-
-        .blog-date {
-            color: var(--primary-red);
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .blog-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-dark);
-            line-height: 1.3;
-        }
-
-        .blog-card p {
-            color: var(--text-medium);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
         .read-more {
             color: var(--primary-red);
             text-decoration: none;
@@ -1613,7 +1543,6 @@
             }
 
             .features-grid,
-            .blog-grid,
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
@@ -1896,6 +1825,7 @@
     </style>
     <!-- Cookie Consent -->
     <link rel="stylesheet" href="cookie-consent.css">
+    <script src="location-phone.js" defer></script>
 </head>
 
 <body>
@@ -1921,7 +1851,7 @@
     <!-- Navigation -->
     <header class="nav-container" role="banner">
         <nav aria-label="Main navigation">
-            <a href="/" class="logo" aria-label="Raw Sushi Bar - Home">
+            <a href="index.html" class="logo" aria-label="Raw Sushi Bar - Home">
                 <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Raw Sushi Bar logo">
                     <circle cx="25" cy="25" r="22" fill="#1a1a1a" stroke="#C41E3A" stroke-width="1.5"/>
                     <text x="25" y="33" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-style="italic" font-weight="700" font-size="28" fill="#C41E3A">R</text>
@@ -1929,13 +1859,11 @@
                     <text x="60" y="42" font-family="'Inter','Helvetica Neue',sans-serif" font-weight="300" font-size="11" fill="rgba(255,255,255,0.9)" letter-spacing="3">SUSHI BAR</text>
                 </svg>
             </a>
-                        <ul class="nav-links" id="navLinks" role="menubar">
-                <li role="none"><a href="/" role="menuitem">Home</a></li>
-                <li role="none"><a href="/stockton/" role="menuitem">Stockton</a></li>
-                <li role="none"><a href="/modesto/" role="menuitem">Modesto</a></li>
-                <li role="none"><a href="/menu/stockton/" role="menuitem">Menu</a></li>
-
-                <li role="none"><a href="tel:2099549729" class="nav-phone" role="menuitem">(209) 954-9729</a></li>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li role="none"><a href="menu-modesto.html" role="menuitem">Menu</a></li>
+                <li role="none"><a href="tel:+12095669560" class="nav-phone" role="menuitem" data-location-phone="display">(209) 566-9560</a></li>
+                <li role="none"><a href="tel:+12095669560" class="nav-cta" role="menuitem" data-location-phone="link">Call to Order</a></li>
             </ul>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
                 <span></span>
@@ -1957,7 +1885,7 @@
                 <p>Enjoy delicious sushi, sashimi, and Japanese dishes at Raw Sushi Bar in Modesto.</p>
                 <div class="hero-buttons">
                     <a href="tel:2095669560" class="btn btn-primary">Call to Order</a>
-                    <a href="/menu/modesto/" class="btn btn-secondary">View Menu</a>
+                    <a href="menu-modesto.html" class="btn btn-secondary">View Menu</a>
                     <a href="https://www.google.com/maps/search/?api=1&query=1200+I+Street+Modesto+CA+95354" target="_blank" rel="noopener" class="btn btn-gold">Get Directions</a>
                 </div>
             </div>
@@ -2049,24 +1977,24 @@
                 <p class="section-subtitle">Fresh sushi and Japanese dishes crafted with care</p>
             </div>
             <div class="menu-categories" style="grid-template-columns: repeat(3, 1fr);">
-                <a href="/menu/modesto/" class="menu-cat-card">
+                <a href="menu-modesto.html" class="menu-cat-card">
                     <div class="menu-cat-icon" aria-hidden="true">&#x1F363;</div>
                     <h4>Signature Rolls</h4>
                     <p>Creative house specialties</p>
                 </a>
-                <a href="/menu/modesto/" class="menu-cat-card">
+                <a href="menu-modesto.html" class="menu-cat-card">
                     <div class="menu-cat-icon" aria-hidden="true">&#x1F41F;</div>
                     <h4>Sashimi &amp; Nigiri</h4>
                     <p>Fresh cuts daily</p>
                 </a>
-                <a href="/menu/modesto/" class="menu-cat-card">
+                <a href="menu-modesto.html" class="menu-cat-card">
                     <div class="menu-cat-icon" aria-hidden="true">&#x1F371;</div>
                     <h4>Sushi Combos</h4>
                     <p>Perfect sampler plates</p>
                 </a>
             </div>
             <div style="text-align: center;">
-                <a href="/menu/modesto/" class="btn btn-primary">View Menu Modesto</a>
+                <a href="menu-modesto.html" class="btn btn-primary">View Menu Modesto</a>
             </div>
         </section>
 
@@ -2133,7 +2061,7 @@
                 <p>Call us to place your order for dine-in or takeout. Delivery also available through DoorDash.</p>
                 <div class="hero-buttons">
                     <a href="tel:2095669560" class="btn btn-primary">Call to Order</a>
-                    <a href="/menu/modesto/" class="btn btn-secondary">View Menu</a>
+                    <a href="menu-modesto.html" class="btn btn-secondary">View Menu</a>
                 </div>
             </div>
         </section>
@@ -2198,10 +2126,10 @@
     </main>
 
     <!-- Footer -->
-        <footer role="contentinfo">
+    <footer role="contentinfo">
         <div class="footer-content">
             <div class="footer-brand">
-                <a href="/" class="logo" style="margin-bottom:1rem;">
+                <a href="index.html" class="logo" style="margin-bottom: 1rem;">
                     <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Raw Sushi Bar logo">
                         <circle cx="25" cy="25" r="22" fill="#1a1a1a" stroke="#C41E3A" stroke-width="1.5"/>
                         <text x="25" y="33" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-style="italic" font-weight="700" font-size="28" fill="#C41E3A">R</text>
@@ -2209,35 +2137,33 @@
                         <text x="60" y="42" font-family="'Inter','Helvetica Neue',sans-serif" font-weight="300" font-size="11" fill="rgba(255,255,255,0.9)" letter-spacing="3">SUSHI BAR</text>
                     </svg>
                 </a>
-                <p>Fresh sushi and authentic Japanese cuisine since 2005. Explore our California locations for dine-in, takeout, and ordering details.</p>
+                <p>Stockton &amp; Modesto's premier sushi destination since 2005. Authentic Japanese cuisine crafted with
+                    passion and the freshest ingredients.</p>
                 <div class="footer-social">
-                    <a href="https://www.facebook.com/rawsushibar/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">FB</a>
-                    <a href="https://instagram.com/rawsushibistro/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">IG</a>
-                    <a href="https://www.yelp.com/biz/raw-sushi-bistro-stockton-2" target="_blank" rel="noopener" class="social-link" aria-label="Yelp">Y!</a>
+                    <a href="https://www.facebook.com/rawsushibar/" target="_blank" rel="noopener" class="social-link"
+                        aria-label="Facebook">FB</a>
+                    <a href="https://instagram.com/rawsushibistro/" target="_blank" rel="noopener" class="social-link"
+                        aria-label="Instagram">IG</a>
+                    <a href="https://www.yelp.com/biz/raw-sushi-bistro-modesto" target="_blank" rel="noopener"
+                        class="social-link" aria-label="Yelp">Y!</a>
                 </div>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/stockton/">Stockton</a></li>
-                    <li><a href="/modesto/">Modesto</a></li>
-                    <li><a href="/menu/stockton/">Stockton Menu</a></li>
-                    <li><a href="/menu/modesto/">Modesto Menu</a></li>
-                    <li><a href="/#blog">Stories &amp; Insights</a></li>
-                    <li><a href="mailto:info@rawsushibar.com">Catering</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu-modesto.html">Menu</a></li>
+                    <li><a href="index.html">Locations</a></li>
+                    <li><a href="tel:2095669560">Order</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Stockton</h3>
                 <ul>
-                    <li>10742 Trinity Pkwy, Suite D</li>
+                    <li>10742 Trinity Pkwy, Ste D</li>
                     <li>Stockton, CA 95219</li>
                     <li><a href="tel:2099549729">(209) 954-9729</a></li>
-                    <li>Mon–Thu: 4:30 PM – 8:30 PM</li>
-                    <li>Fri: 11:30 AM – 9:00 PM</li>
-                    <li>Sat: 12:00 PM – 9:00 PM</li>
-                    <li>Sun: 12:00 PM – 8:00 PM</li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -2246,16 +2172,13 @@
                     <li>1200 I Street</li>
                     <li>Modesto, CA 95354</li>
                     <li><a href="tel:2095669560">(209) 566-9560</a></li>
-                    <li>Mon: 5:00 PM – 9:00 PM</li>
-                    <li>Tue–Thu: 11:30 AM – 9:00 PM</li>
-                    <li>Fri: 11:30 AM – 10:00 PM</li>
-                    <li>Sat: 5:00 PM – 10:00 PM</li>
-                    <li>Sun: Closed</li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Raw Sushi Bar. All rights reserved. | Celebrating 20 Years (2005–2025) | <a href="mailto:info@rawsushibar.com" style="color:rgba(255,255,255,0.5);">info@rawsushibar.com</a></p>
+            <p>&copy; 2025 Raw Sushi Bar. All rights reserved. | <a
+                    href="mailto:info@rawsushibar.com" style="color: rgba(255,255,255,0.5);">info@rawsushibar.com</a>
+            </p>
         </div>
     </footer>
 

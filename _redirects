@@ -1,0 +1,8 @@
+# Cloudflare Pages redirects — see https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Legacy /blog routes — the listing page was removed on rawsushibar branch.
+# Send any inbound traffic to the homepage Stories & Insights section.
+/blog              /index.html#stories  301
+/blog/             /index.html#stories  301
+/blog-posts.html   /index.html#stories  301
+/blog/*            /index.html#stories  301
