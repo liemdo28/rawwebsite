@@ -33,6 +33,15 @@
 /blog-stockton-restaurants.html                 /#blog                  301
 /blog-modesto-dining.html                       /#blog                  301
 /blog-catering-guide.html                       /#blog                  301
+# Extensionless forms (Cloudflare Pages serves .html files without extension)
+/blog-posts                                     /#blog                  301
+/blog-top-sushi-rolls                           /#blog                  301
+/blog-date-night-guide                          /#blog                  301
+/blog-sushi-etiquette                           /#blog                  301
+/blog-sashimi-guide                             /#blog                  301
+/blog-stockton-restaurants                      /#blog                  301
+/blog-modesto-dining                            /#blog                  301
+/blog-catering-guide                            /#blog                  301
 # The 5 approved article pages served as static files — NO redirect:
 # blog-20-years.html, blog-nigiri-art.html, blog-sustainability.html
 # blog-menu-deep-dive.html, blog-what-to-order.html
