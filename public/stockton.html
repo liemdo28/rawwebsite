@@ -360,6 +360,93 @@
             font-size: 0.85rem !important;
         }
 
+        /* ===== CONVERSION CTAs (Order Now / Call Now) ===== */
+        .nav-links .cta-order,
+        .nav-links .cta-call {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.55rem 1.1rem !important;
+            border-radius: 6px !important;
+            font-weight: 700 !important;
+            font-size: 0.85rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            transition: all 0.2s ease !important;
+            text-decoration: none !important;
+        }
+        .nav-links .cta-order::after,
+        .nav-links .cta-call::after { display: none !important; }
+
+        .nav-links .cta-order {
+            background: #1a1a1a !important;
+            color: #fff !important;
+            border: 1px solid #1a1a1a !important;
+        }
+        .nav-links .cta-order:hover {
+            background: #000 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .nav-links .cta-call {
+            background: var(--deep-red, #C41E3A) !important;
+            color: #fff !important;
+            border: 1px solid var(--deep-red, #C41E3A) !important;
+        }
+        .nav-links .cta-call:hover {
+            background: #a01828 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(196,30,58,0.4);
+        }
+
+        /* Hero CTAs (larger) */
+        .cta-hero {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        .cta-hero.cta-order { background:#1a1a1a; color:#fff; border:1px solid #1a1a1a; }
+        .cta-hero.cta-order:hover { background:#000; transform: translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,0.4); }
+        .cta-hero.cta-call { background: var(--deep-red, #C41E3A); color:#fff; border:1px solid var(--deep-red, #C41E3A); }
+        .cta-hero.cta-call:hover { background:#a01828; transform: translateY(-2px); box-shadow:0 6px 18px rgba(196,30,58,0.4); }
+
+        /* Mobile sticky CTA bar (Order + Call) */
+        .mobile-cta-bar {
+            display: none;
+            position: fixed;
+            left: 0; right: 0; bottom: 0;
+            z-index: 999;
+            background: #fff;
+            border-top: 1px solid #eee;
+            padding: 0.6rem 0.75rem;
+            gap: 0.5rem;
+            box-shadow: 0 -6px 18px rgba(0,0,0,0.12);
+        }
+        .mobile-cta-bar a {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem 0.5rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .mobile-cta-bar .mcta-order { background:#1a1a1a; color:#fff; }
+        .mobile-cta-bar .mcta-call  { background: var(--deep-red, #C41E3A); color:#fff; }
+
         /* Mobile menu */
         .mobile-menu-btn {
             display: none;
@@ -1588,8 +1675,12 @@
                 gap: 1.5rem;
             }
 
-            .mobile-order-bar {
-                display: block;
+            .mobile-cta-bar {
+                display: flex;
+            }
+
+            body {
+                padding-bottom: 80px;
             }
 
             footer {
@@ -1868,9 +1959,13 @@
             <ul class="nav-links" id="navLinks" role="menubar">
                 <li role="none"><a href="index.html" role="menuitem">Home</a></li>
                 <li role="none"><a href="menu-stockton.html" role="menuitem">Menu</a></li>
-                <li role="none"><a href="order-sushi-stockton.html" role="menuitem">Order Online</a></li>
-                <li role="none"><a href="tel:+12099549729" class="nav-phone" role="menuitem" data-location-phone="display">(209) 954-9729</a></li>
-                <li role="none"><a href="order-sushi-stockton.html" class="nav-cta" role="menuitem">Order Online</a></li>
+                <li role="none"><a href="modesto.html" role="menuitem">Modesto</a></li>
+                <li role="none">
+                    <a href="order-sushi-stockton.html" class="cta-order" role="menuitem" data-track="header_order_click_stockton">Order Now</a>
+                </li>
+                <li role="none">
+                    <a href="tel:+12099549729" class="cta-call" role="menuitem" data-track="header_call_click_stockton">📞 Call Now</a>
+                </li>
             </ul>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
                 <span></span>
@@ -1886,13 +1981,13 @@
             <div class="hero-bg-image" role="img" aria-label="Fresh sushi at Raw Sushi Bar Stockton"></div>
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h1>Best Sushi in Stockton, CA</h1>
-                <p class="hero-subtitle">Fresh Sushi in Stockton</p>
-                <p>Visit Raw Sushi Bar in Stockton for premium sushi, signature rolls, and authentic Japanese cuisine.</p>
-                <div class="hero-buttons">
-                    <a href="order-sushi-stockton.html" class="btn btn-primary">Order Online</a>
+                <h1>Fresh Sushi in Stockton, CA</h1>
+                <p class="hero-subtitle">Premium sushi, sashimi, and rolls made fresh daily.</p>
+                <p>Visit Raw Sushi Bar in Stockton for signature rolls and authentic Japanese cuisine.</p>
+                <div class="hero-buttons hero-cta">
+                    <a href="order-sushi-stockton.html" class="cta-hero cta-order" data-track="hero_order_click_stockton">Order Online</a>
+                    <a href="tel:+12099549729" class="cta-hero cta-call" data-track="hero_call_click_stockton">📞 Call Now</a>
                     <a href="menu-stockton.html" class="btn btn-secondary">View Menu</a>
-                    <a href="tel:2099549729" class="btn btn-gold">Call Now</a>
                 </div>
             </div>
         </section>
@@ -2187,12 +2282,10 @@
         <span class="cta-icon">&#x1F371;</span> Order Now
     </a>
 
-    <!-- Sticky Mobile Order Bar -->
-    <div class="mobile-order-bar" aria-label="Quick order options">
-        <div class="mobile-order-bar-inner">
-            <a href="order-sushi-stockton.html" class="mob-btn mob-btn-order">Order Online</a>
-            <a href="tel:2099549729" class="mob-btn mob-btn-call">Call Us</a>
-        </div>
+    <!-- Sticky Mobile CTA Bar (Order + Call) -->
+    <div class="mobile-cta-bar" aria-label="Quick actions">
+        <a href="order-sushi-stockton.html" class="mcta-order" data-track="mobile_order_click_stockton">Order</a>
+        <a href="tel:+12099549729" class="mcta-call" data-track="mobile_call_click_stockton">📞 Call</a>
     </div>
 
     <script>
@@ -2301,5 +2394,7 @@
     <script src="cookie-consent.js"></script>
     <!-- Analytics & Event Tracking -->
     <script src="analytics.js"></script>
+    <!-- A/B Test Framework -->
+    <script src="ab-test.js"></script>
 </body>
 </html>

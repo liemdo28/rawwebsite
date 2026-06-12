@@ -201,9 +201,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <!-- Story: Summer Sushi -->
   <url>
-    <loc>https://www.rawsushibar.com/blog-posts.html?slug=memorable-date-night-sushi-stockton</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://www.rawsushibar.com/blog-summer-sushi.html</loc>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>

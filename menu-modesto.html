@@ -256,41 +256,79 @@
             font-style: italic;
         }
 
-        /* Menu Navigation */
-        .menu-nav {
-            position: sticky;
-            top: 52px;
-            background: var(--white);
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-            margin-bottom: 2rem;
-            z-index: 50;
+        /* Menu Intro (premium content block under hero) */
+        .menu-intro {
+            text-align: center;
+            max-width: 850px;
+            margin: 3rem auto 0.5rem;
+            padding: 0 1.25rem;
+        }
+        .menu-intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.75rem, 4vw, 2.75rem);
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+            line-height: 1.15;
+        }
+        .menu-intro p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.65;
         }
 
-        .menu-nav ul {
-            list-style: none;
+        /* Menu Category Grid (premium clickable cards) */
+        .menu-category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.85rem;
+            max-width: 1100px;
+            margin: 1.75rem auto 2.5rem;
+            padding: 0 0.25rem;
+        }
+        .menu-category-grid a {
+            position: relative;
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            align-items: center;
             justify-content: center;
-        }
-
-        .menu-nav a {
+            gap: 0.4rem;
+            background: var(--white);
+            border: 1px solid rgba(196, 30, 58, 0.18);
+            border-radius: 14px;
+            padding: 1rem 1.1rem;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-align: center;
             color: var(--text-dark);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            padding: 0.4rem 0.85rem;
-            border-radius: 5px;
-            transition: all 0.2s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .menu-category-grid a::before {
+            content: '';
             display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary-red);
+            opacity: 0.8;
+            flex-shrink: 0;
+        }
+        .menu-category-grid a:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-red);
+            color: var(--primary-red);
+            box-shadow: 0 12px 28px rgba(196, 30, 58, 0.14);
+        }
+        @media (max-width: 600px) {
+            .menu-category-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.6rem;
+            }
+            .menu-category-grid a { padding: 0.85rem 0.5rem; font-size: 0.85rem; }
         }
 
-        .menu-nav a:hover {
-            background: var(--cream);
-            color: var(--primary-red);
-        }
+        /* Legacy .menu-nav kept for non-Modesto menu pages — hidden on this one */
+        .menu-nav { display: none; }
 
         /* Menu Sections */
         .menu-section {
@@ -316,6 +354,38 @@
             font-size: 0.9rem;
             margin-bottom: 1rem;
         }
+
+        /* Call/visit note for current pricing */
+        .menu-note {
+            max-width: 900px;
+            margin: 1.25rem auto 0;
+            padding: 1rem 1.25rem;
+            background: #fff8e6;
+            border: 1px solid #f1d98a;
+            border-radius: 8px;
+            color: #5a4a16;
+            font-size: 0.95rem;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        .menu-note strong { color: #3a2f0e; }
+        .menu-note .menu-note-call {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            background: #C41E3A;
+            color: #fff;
+            font-weight: 700;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .menu-note .menu-note-call:hover { background: #a01828; }
 
         .menu-items {
             display: grid;
@@ -1323,19 +1393,29 @@
 
     <main id="main-content" class="menu-container">
 
-        <!-- Menu Navigation -->
-        <nav class="menu-nav" aria-label="Menu sections">
-            <ul>
-                <li><a href="#kitchen-apps">Kitchen Appetizers</a></li>
-                <li><a href="#sushi-apps">Sushi Appetizers</a></li>
-                <li><a href="#salads">Salad / Soup</a></li>
-                <li><a href="#entrees">Entrees</a></li>
-                <li><a href="#sushi-sashimi">Sushi & Sashimi</a></li>
-                <li><a href="#nigiri">Nigiri</a></li>
-                <li><a href="#temaki">Hand Rolls</a></li>
-                <li><a href="#rolls">Rolls</a></li>
-                <li><a href="#special-rolls">Special Rolls</a></li>
-            </ul>
+        <!-- Menu Intro -->
+        <section class="menu-intro" aria-label="Modesto menu introduction">
+            <h2>Fresh Japanese Favorites in Modesto</h2>
+            <p>Explore sushi, sashimi, rolls, appetizers, and chef-crafted favorites — made fresh daily at our Downtown Modesto location.</p>
+        </section>
+
+        <!-- Pricing & specials note -->
+        <div class="menu-note" role="note">
+            <span><strong>Note:</strong> Pricing and specials may change. Call your location for today's menu details and availability.</span>
+            <a href="tel:+12095669560" class="menu-note-call" data-track="menu_call_click_modesto">📞 Call (209) 566-9560</a>
+        </div>
+
+        <!-- Menu Category Grid (premium card layout) -->
+        <nav class="menu-category-grid" aria-label="Menu sections">
+            <a href="#kitchen-apps" data-track="menu_cat_click_modesto">Kitchen Appetizers</a>
+            <a href="#sushi-apps" data-track="menu_cat_click_modesto">Sushi Appetizers</a>
+            <a href="#salads" data-track="menu_cat_click_modesto">Salad / Soup</a>
+            <a href="#entrees" data-track="menu_cat_click_modesto">Entrees</a>
+            <a href="#sushi-sashimi" data-track="menu_cat_click_modesto">Sushi &amp; Sashimi</a>
+            <a href="#nigiri" data-track="menu_cat_click_modesto">Nigiri</a>
+            <a href="#temaki" data-track="menu_cat_click_modesto">Hand Rolls</a>
+            <a href="#rolls" data-track="menu_cat_click_modesto">Rolls</a>
+            <a href="#special-rolls" data-track="menu_cat_click_modesto">Special Rolls</a>
         </nav>
 
         <!-- Kitchen Appetizers -->
