@@ -481,8 +481,8 @@
     <div class="cta-section">
         <h2>Visit Raw Sushi Bar Modesto</h2>
         <p>Fresh sushi and Japanese cuisine in the heart of downtown</p>
-        <a href="menu-modesto.html" class="cta-btn">Modesto Menu</a>
-        <a href="tel:2095669560" class="cta-btn">Call (209) 566-9560</a>
+        <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-modesto.html" class="cta-btn">Modesto Menu</a>
+        <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" class="cta-btn">Call (209) 566-9560</a>
     </div>
 
     <div class="back-link">

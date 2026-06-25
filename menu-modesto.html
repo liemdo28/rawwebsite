@@ -1406,8 +1406,8 @@
     <div class="nav-bar">
         <a href="index.html">&larr; Home</a>
         <div class="nav-bar-right">
-            <a href="tel:2095669560" style="color: var(--gold);">(209) 566-9560</a>
-            <a href="tel:2095669560" class="order-btn">Call to Order</a>
+            <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" style="color: var(--gold);">(209) 566-9560</a>
+            <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" class="order-btn">Call to Order</a>
         </div>
     </div>
 
@@ -2234,9 +2234,9 @@
             <h3>Ready to Order?</h3>
             <p>Dine with us, order takeout, or get it delivered right to your door.</p>
             <div class="cta-buttons">
-                <a href="tel:2095669560" class="btn btn-primary">Call to Order</a>
-                <a href="tel:2095669560" class="btn btn-gold">Call to Reserve</a>
-                <a href="tel:2095669560" class="btn"
+                <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" class="btn btn-primary">Call to Order</a>
+                <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" class="btn btn-gold">Call to Reserve</a>
+                <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" class="btn"
                     style="background: rgba(255,255,255,0.15); color: var(--white);">Call (209) 566-9560</a>
             </div>
         </div>
@@ -2247,20 +2247,20 @@
         <h2 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 0.5rem;">Ready to Order?</h2>
         <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;">Fresh sushi from Raw Sushi Bar — dine-in or takeout in Modesto</p>
         <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-            <a href="tel:2095669560" style="background: #C41E3A; color: white; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600;">Call (209) 566-9560</a>
+            <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" style="background: #C41E3A; color: white; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600;">Call (209) 566-9560</a>
             <a href="index.html" style="border: 2px solid white; color: white; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600;">Back to Home</a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Raw Sushi Bar &bull; <a href="index.html">Home</a> &bull; <a href="menu-modesto.html">Menu</a> &bull; <a href="modesto.html">Location</a> &bull; <a href="terms.html">Terms</a> &bull; <a href="tel:2095669560">(209) 566-9560</a></p>
+        <p>&copy; 2025 Raw Sushi Bar &bull; <a href="index.html">Home</a> &bull; <a href="menu-modesto.html">Menu</a> &bull; <a href="modesto.html">Location</a> &bull; <a href="terms.html">Terms</a> &bull; <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560">(209) 566-9560</a></p>
     </footer>
 
     <!-- Sticky Mobile Order Bar -->
     <div class="mobile-order-bar">
         <div class="mobile-order-bar-inner">
-            <a href="tel:2095669560" class="mob-btn mob-btn-order">Call to Order</a>
-            <a href="tel:2095669560" class="mob-btn mob-btn-call">Call Us</a>
+            <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" class="mob-btn mob-btn-order">Call to Order</a>
+            <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" class="mob-btn mob-btn-call">Call Us</a>
         </div>
     </div>
     <!-- Cookie Consent -->

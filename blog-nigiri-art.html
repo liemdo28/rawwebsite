@@ -276,6 +276,8 @@
     </style>
     <!-- Cookie Consent -->
     <link rel="stylesheet" href="cookie-consent.css">
+    <!-- Analytics & Event Tracking -->
+    <script src="analytics.js"></script>
 </head>
 
 <body>
@@ -511,7 +513,7 @@
     <div class="cta-section">
         <h2>Experience Masterful Nigiri</h2>
         <p>Reserve a seat at our sushi bar and watch the art unfold</p>
-        <a href="index.html#order" class="btn">Book Your Experience</a>
+        <a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="index.html#order" class="btn">Book Your Experience</a>
     </div>
 
     <footer>

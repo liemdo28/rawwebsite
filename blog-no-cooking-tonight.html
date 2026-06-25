@@ -299,16 +299,16 @@
                     <strong>📍 Stockton</strong>
                     5757 Pacific Ave
                     <div>
-                        <a href="tel:+12099549729" data-track="blog_call_click_stockton">📞 (209) 954-9729</a>
-                        <a class="outline" href="order-sushi-stockton.html" data-track="blog_order_click_stockton">Order Online</a>
+                        <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:+12099549729" data-track="blog_call_click_stockton">📞 (209) 954-9729</a>
+                        <a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" class="outline" href="order-sushi-stockton.html" data-track="blog_order_click_stockton">Order Online</a>
                     </div>
                 </div>
                 <div class="loc-card">
                     <strong>📍 Modesto</strong>
                     1200 I Street
                     <div>
-                        <a href="tel:+12095669560" data-track="blog_call_click_modesto">📞 (209) 566-9560</a>
-                        <a class="outline" href="order-sushi-modesto.html" data-track="blog_order_click_modesto">Order Online</a>
+                        <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:+12095669560" data-track="blog_call_click_modesto">📞 (209) 566-9560</a>
+                        <a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" class="outline" href="order-sushi-modesto.html" data-track="blog_order_click_modesto">Order Online</a>
                     </div>
                 </div>
             </div>
@@ -327,9 +327,9 @@
         <h2>Ready for dinner tonight?</h2>
         <p style="margin-bottom: 1.5rem;">Tap to call your closest spot — or order online and skip the wait.</p>
         <div class="btn-row">
-            <a href="tel:+12099549729" class="btn" data-track="blog_cta_call_stockton">📞 Stockton (209) 954-9729</a>
-            <a href="tel:+12095669560" class="btn" data-track="blog_cta_call_modesto">📞 Modesto (209) 566-9560</a>
-            <a href="index.html#order" class="btn secondary" data-track="blog_cta_order_online">Order Online</a>
+            <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:+12099549729" class="btn" data-track="blog_cta_call_stockton">📞 Stockton (209) 954-9729</a>
+            <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:+12095669560" class="btn" data-track="blog_cta_call_modesto">📞 Modesto (209) 566-9560</a>
+            <a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="index.html#order" class="btn secondary" data-track="blog_cta_order_online">Order Online</a>
         </div>
     </div>
 

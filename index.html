@@ -1937,7 +1937,7 @@
                 <li role="none"><a href="#home" role="menuitem">Home</a></li>
                 <li role="none"><a href="#" onclick="openLocationModal('menu'); return false;" role="menuitem">Menu</a></li>
                 <li role="none"><a href="#locations" role="menuitem">Locations</a></li>
-                <li role="none"><a href="#" onclick="openLocationModal('order'); return false;" class="nav-cta"
+                <li role="none"><a href="#" onclick="openLocationModal('order'); trackEvent('order_click',{'event_category':'conversion','event_label':'nav_order_online','brand':'rawsushi'}); return false;" class="nav-cta"
                         role="menuitem">Order Online</a></li>
             </ul>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
@@ -1979,8 +1979,8 @@
                 <p class="hero-subtitle">Fresh Sushi. Authentic Japanese Flavor.</p>
                 <p>Discover a California sushi destination built around fresh fish, thoughtful hospitality, and Japanese cuisine made to share. Choose your nearest location for menus, hours, and ordering details.</p>
                 <div class="hero-buttons">
-                    <a href="#" onclick="openLocationModal('order'); return false;" class="btn btn-primary">Order Online</a>
-                    <a href="#" onclick="openLocationModal('menu'); return false;" class="btn btn-gold">View Menu</a>
+                    <a href="#" onclick="openLocationModal('order'); trackEvent('order_click',{'event_category':'conversion','event_label':'hero_order_online','brand':'rawsushi'}); return false;" class="btn btn-primary">Order Online</a>
+                    <a href="#" onclick="openLocationModal('menu'); trackEvent('menu_click',{'event_category':'conversion','event_label':'hero_view_menu','brand':'rawsushi'}); return false;" class="btn btn-gold">View Menu</a>
                     <a href="#locations" class="btn btn-secondary">Find a Location</a>
                 </div>
             </div>
@@ -2103,7 +2103,7 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 2.5rem;">
-                <a href="#" onclick="openLocationModal('menu'); return false;" class="btn btn-gold">View Full Menu</a>
+                <a href="#" onclick="openLocationModal('menu'); trackEvent('menu_click',{'event_category':'conversion','event_label':'menu_section_view_full','brand':'rawsushi'}); return false;" class="btn btn-gold">View Full Menu</a>
             </div>
         </section>
 
@@ -2182,7 +2182,7 @@
                         <p style="color: var(--text-medium); line-height: 1.7; margin-bottom: 1.5rem;">Visit the Stockton page for local hours, happy hour details, directions, ordering, and menu access.</p>
                         <div class="location-actions">
                             <a href="stockton.html" class="loc-btn loc-btn-primary">Visit Stockton</a>
-                            <a href="menu-stockton.html" class="loc-btn loc-btn-secondary">View Menu</a>
+                            <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-stockton.html" class="loc-btn loc-btn-secondary">View Menu</a>
                         </div>
                     </div>
                 </div>
@@ -2196,7 +2196,7 @@
                         <p style="color: var(--text-medium); line-height: 1.7; margin-bottom: 1.5rem;">Visit the Modesto page for local hours, directions, call-to-order details, and the full Modesto menu.</p>
                         <div class="location-actions">
                             <a href="modesto.html" class="loc-btn loc-btn-primary">Visit Modesto</a>
-                            <a href="menu-modesto.html" class="loc-btn loc-btn-secondary">View Menu</a>
+                            <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-modesto.html" class="loc-btn loc-btn-secondary">View Menu</a>
                         </div>
                     </div>
                 </div>
@@ -2245,7 +2245,7 @@
             <h2>Order Your Favorite Sushi Today</h2>
             <p>Choose your location for the right ordering path, menu, and contact details before checkout.</p>
             <div style="text-align: center;">
-                <a href="#" onclick="openLocationModal('order'); return false;" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Order Now</a>
+                <a href="#" onclick="openLocationModal('order'); trackEvent('order_click',{'event_category':'conversion','event_label':'signup_section_order_now','brand':'rawsushi'}); return false;" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Order Now</a>
             </div>
         </section>
 
@@ -2257,7 +2257,7 @@
                 <h2>Ready to Enjoy Fresh Sushi?</h2>
                 <p>Experience authentic Japanese cuisine crafted with the freshest ingredients at Raw Sushi Bar.</p>
                 <div class="hero-buttons">
-                    <a href="#" onclick="openLocationModal('order'); return false;" class="btn btn-primary">Order Online</a>
+                    <a href="#" onclick="openLocationModal('order'); trackEvent('order_click',{'event_category':'conversion','event_label':'cta_section_order_online','brand':'rawsushi'}); return false;" class="btn btn-primary">Order Online</a>
                     <a href="#locations" class="btn btn-secondary">Find a Location</a>
                 </div>
             </div>

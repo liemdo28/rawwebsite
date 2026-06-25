@@ -1938,9 +1938,9 @@
             <ul class="nav-links" id="navLinks" role="menubar">
                 <li role="none"><a href="index.html" role="menuitem">Home</a></li>
                 <li role="none"><a href="menu-stockton.html" role="menuitem">Menu</a></li>
-                <li role="none"><a href="order-sushi-stockton.html" role="menuitem">Order Online</a></li>
-                <li role="none"><a href="tel:2099549729" class="nav-phone" role="menuitem">(209) 954-9729</a></li>
-                <li role="none"><a href="order-sushi-stockton.html" class="nav-cta" role="menuitem">Order Online</a></li>
+                <li role="none"><a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="order-sushi-stockton.html" role="menuitem">Order Online</a></li>
+                <li role="none"><a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2099549729" class="nav-phone" role="menuitem">(209) 954-9729</a></li>
+                <li role="none"><a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="order-sushi-stockton.html" class="nav-cta" role="menuitem">Order Online</a></li>
             </ul>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
                 <span></span>
@@ -1960,9 +1960,9 @@
                 <p class="hero-subtitle">Fresh Sushi in Stockton</p>
                 <p>Visit Raw Sushi Bar in Stockton for premium sushi, signature rolls, and authentic Japanese cuisine.</p>
                 <div class="hero-buttons">
-                    <a href="order-sushi-stockton.html" class="btn btn-primary">Order Online</a>
-                    <a href="menu-stockton.html" class="btn btn-secondary">View Menu</a>
-                    <a href="tel:2099549729" class="btn btn-gold">Call Now</a>
+                    <a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="order-sushi-stockton.html" class="btn btn-primary">Order Online</a>
+                    <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-stockton.html" class="btn btn-secondary">View Menu</a>
+                    <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2099549729" class="btn btn-gold">Call Now</a>
                 </div>
             </div>
         </section>
@@ -2003,7 +2003,7 @@
                         </div>
                         <div class="loc-info">
                             <h4>Phone</h4>
-                            <a href="tel:2099549729">(209) 954-9729</a>
+                            <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2099549729">(209) 954-9729</a>
                         </div>
                         <div class="loc-info">
                             <h4>Hours</h4>
@@ -2049,24 +2049,24 @@
                 <p class="section-subtitle">From signature rolls to fresh sashimi combos</p>
             </div>
             <div class="menu-categories" style="grid-template-columns: repeat(3, 1fr);">
-                <a href="menu-stockton.html" class="menu-cat-card">
+                <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-stockton.html" class="menu-cat-card">
                     <div class="menu-cat-icon" aria-hidden="true">&#x1F363;</div>
                     <h4>Signature Sushi Rolls</h4>
                     <p>Creative house specialties</p>
                 </a>
-                <a href="menu-stockton.html" class="menu-cat-card">
+                <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-stockton.html" class="menu-cat-card">
                     <div class="menu-cat-icon" aria-hidden="true">&#x1F41F;</div>
                     <h4>Fresh Nigiri &amp; Sashimi</h4>
                     <p>Cut to order daily</p>
                 </a>
-                <a href="menu-stockton.html" class="menu-cat-card">
+                <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-stockton.html" class="menu-cat-card">
                     <div class="menu-cat-icon" aria-hidden="true">&#x1F371;</div>
                     <h4>Sushi Combos</h4>
                     <p>Perfect sampler platters</p>
                 </a>
             </div>
             <div style="text-align: center;">
-                <a href="menu-stockton.html" class="btn btn-primary">View Menu Stockton</a>
+                <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-stockton.html" class="btn btn-primary">View Menu Stockton</a>
             </div>
         </section>
 
@@ -2129,7 +2129,7 @@
             <h2>Order Sushi in Stockton Today</h2>
             <p>Fresh sushi, signature rolls, and Japanese cuisine ready for pickup or delivery. Order online now!</p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="order-sushi-stockton.html" class="btn btn-primary">Order Online</a>
+                <a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="order-sushi-stockton.html" class="btn btn-primary">Order Online</a>
             </div>
         </section>
 
@@ -2147,7 +2147,7 @@
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            Yes! Call us at <a href="tel:2099549729">(209) 954-9729</a> or <a href="order-sushi-stockton.html">order online</a> for convenient takeout from our Stockton location.
+                            Yes! Call us at <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2099549729">(209) 954-9729</a> or <a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="order-sushi-stockton.html">order online</a> for convenient takeout from our Stockton location.
                         </div>
                     </div>
                 </div>
@@ -2158,7 +2158,7 @@
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            Yes! Walk-ins are welcome. Reservations are recommended on weekends. Call <a href="tel:2099549729">(209) 954-9729</a> to reserve your table.
+                            Yes! Walk-ins are welcome. Reservations are recommended on weekends. Call <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2099549729">(209) 954-9729</a> to reserve your table.
                         </div>
                     </div>
                 </div>
@@ -2187,8 +2187,8 @@
                 <h2>Visit Raw Sushi Bar Stockton Today</h2>
                 <p>Fresh sushi, signature rolls, and authentic Japanese cuisine await you.</p>
                 <div class="hero-buttons">
-                    <a href="order-sushi-stockton.html" class="btn btn-primary">Order Online</a>
-                    <a href="tel:2099549729" class="btn btn-gold">Call Now</a>
+                    <a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="order-sushi-stockton.html" class="btn btn-primary">Order Online</a>
+                    <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2099549729" class="btn btn-gold">Call Now</a>
                 </div>
             </div>
         </section>
@@ -2219,7 +2219,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="menu-stockton.html">Menu</a></li>
                     <li><a href="modesto.html">Locations</a></li>
-                    <li><a href="order-sushi-stockton.html">Order Online</a></li>
+                    <li><a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="order-sushi-stockton.html">Order Online</a></li>
                     <li><a href="terms.html">Terms of Service</a></li>
                 </ul>
             </div>
@@ -2228,7 +2228,7 @@
                 <ul>
                     <li>10742 Trinity Pkwy, Ste D</li>
                     <li>Stockton, CA 95219</li>
-                    <li><a href="tel:2099549729">(209) 954-9729</a></li>
+                    <li><a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2099549729">(209) 954-9729</a></li>
                     <li style="margin-top: 0.5rem;">Mon-Thu: 4:30-8:30 PM</li>
                     <li>Fri: 11:30 AM-9 PM</li>
                     <li>Sat: 12-9 PM &bull; Sun: 12-8 PM</li>
@@ -2239,7 +2239,7 @@
                 <ul>
                     <li>1200 I Street</li>
                     <li>Modesto, CA 95354</li>
-                    <li><a href="tel:2095669560">(209) 566-9560</a></li>
+                    <li><a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560">(209) 566-9560</a></li>
                     <li style="margin-top: 0.5rem;">Mon: 5-9 PM</li>
                     <li>Tue-Thu: 11:30-2, 5-9 PM</li>
                     <li>Fri: 11:30-2, 5-10 PM</li>
@@ -2253,15 +2253,15 @@
     </footer>
 
     <!-- Floating Desktop CTA -->
-    <a href="order-sushi-stockton.html" class="floating-cta" aria-label="Order Now">
+    <a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="order-sushi-stockton.html" class="floating-cta" aria-label="Order Now">
         <span class="cta-icon">&#x1F371;</span> Order Now
     </a>
 
     <!-- Sticky Mobile Order Bar -->
     <div class="mobile-order-bar" aria-label="Quick order options">
         <div class="mobile-order-bar-inner">
-            <a href="order-sushi-stockton.html" class="mob-btn mob-btn-order">Order Online</a>
-            <a href="tel:2099549729" class="mob-btn mob-btn-call">Call Us</a>
+            <a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="order-sushi-stockton.html" class="mob-btn mob-btn-order">Order Online</a>
+            <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2099549729" class="mob-btn mob-btn-call">Call Us</a>
         </div>
     </div>
 
@@ -2371,5 +2371,6 @@
     <script src="cookie-consent.js"></script>
     <!-- Analytics & Event Tracking -->
     <script src="analytics.js"></script>
+    <script>trackEvent('location_view',{'event_category':'engagement','event_label':'stockton_page','brand':'rawsushi','location':'stockton'});</script>
 </body>
 </html>

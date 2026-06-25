@@ -519,8 +519,8 @@
     <div class="cta-section">
         <h2>Ready to Try Them All?</h2>
         <p>View our full menu or call ahead to place your order</p>
-        <a href="menu-stockton.html" class="btn">Stockton Menu</a>
-        <a href="menu-modesto.html" class="btn">Modesto Menu</a>
+        <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-stockton.html" class="btn">Stockton Menu</a>
+        <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-modesto.html" class="btn">Modesto Menu</a>
         <p style="margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.8;">
             Stockton: (209) 954-9729 &nbsp;|&nbsp; Modesto: (209) 566-9560
         </p>

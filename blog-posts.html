@@ -126,6 +126,8 @@
 
     <!-- JSON-LD -->
     <script type="application/ld+json" id="json-ld"></script>
+    <!-- Analytics & Event Tracking -->
+    <script src="analytics.js"></script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -145,7 +147,7 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/menu-stockton.html">Menu</a></li>
                 <li><a href="/#locations">Locations</a></li>
-                <li><a href="https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d" target="_blank" rel="noopener">Order Online</a></li>
+                <li><a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d" target="_blank" rel="noopener">Order Online</a></li>
             </ul>
         </nav>
     </header>

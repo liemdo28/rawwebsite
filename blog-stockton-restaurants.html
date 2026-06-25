@@ -467,8 +467,8 @@
     <div class="cta-section">
         <h2>Visit Raw Sushi Bar</h2>
         <p>Stockton's top-rated sushi restaurant for over 20 years</p>
-        <a href="menu-stockton.html" class="cta-btn">Stockton Menu</a>
-        <a href="tel:2099549729" class="cta-btn">Call (209) 954-9729</a>
+        <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-stockton.html" class="cta-btn">Stockton Menu</a>
+        <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2099549729" class="cta-btn">Call (209) 954-9729</a>
     </div>
 
     <div class="back-link">

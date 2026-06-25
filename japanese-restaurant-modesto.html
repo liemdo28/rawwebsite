@@ -220,7 +220,7 @@
         <a href="index.html">&larr; Home</a>
         <div class="nav-bar-right">
             <a href="menu-modesto.html">Menu</a>
-            <a href="tel:2095669560" style="color: var(--gold);">Call to Order</a>
+            <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" style="color: var(--gold);">Call to Order</a>
         </div>
     </div>
 
@@ -237,7 +237,7 @@
                 <strong>Raw Sushi Bar Modesto</strong><br>
                 1200 I Street<br>
                 Modesto, CA 95354<br><br>
-                Phone: <a href="tel:2095669560" style="color: var(--primary-red); font-weight: 600;">(209) 566-9560</a><br>
+                Phone: <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" style="color: var(--primary-red); font-weight: 600;">(209) 566-9560</a><br>
                 Email: <a href="mailto:info@rawsushibar.com" style="color: var(--primary-red);">info@rawsushibar.com</a>
             </p>
             <p style="margin-top: 1rem; font-size: 0.85rem; color: #888;">Located in the heart of downtown Modesto on I Street.</p>
@@ -290,9 +290,9 @@
         <h2>Experience Authentic Japanese Cuisine in Modesto</h2>
         <p>Call ahead for takeout or visit us for dine-in at 1200 I Street.</p>
         <div class="cta-buttons">
-            <a href="tel:2095669560" class="cta-btn cta-btn-red" data-track="location_call_order">Call to Order</a>
-            <a href="tel:2095669560" class="cta-btn cta-btn-gold" data-track="location_call">(209) 566-9560</a>
-            <a href="menu-modesto.html" class="cta-btn cta-btn-outline">View Menu</a>
+            <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" class="cta-btn cta-btn-red" data-track="location_call_order">Call to Order</a>
+            <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" class="cta-btn cta-btn-gold" data-track="location_call">(209) 566-9560</a>
+            <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-modesto.html" class="cta-btn cta-btn-outline">View Menu</a>
         </div>
     </section>
 

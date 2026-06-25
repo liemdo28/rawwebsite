@@ -112,6 +112,8 @@
         footer p { font-size: 0.85rem; opacity: 0.5; margin-top: 0.5rem; }
         @media (max-width: 768px) { nav { padding: 0.75rem 1.5rem; } .blog-title { font-size: 2rem; } .blog-container { padding-top: 6rem; } }
     </style>
+    <!-- Analytics & Event Tracking -->
+    <script src="analytics.js"></script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -131,7 +133,7 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/menu-stockton.html">Menu</a></li>
                 <li><a href="/#locations">Locations</a></li>
-                <li><a href="https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d" target="_blank" rel="noopener">Order Online</a></li>
+                <li><a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d" target="_blank" rel="noopener">Order Online</a></li>
             </ul>
         </nav>
     </header>
@@ -154,7 +156,7 @@
 <h2>Why Stockton for Sushi?</h2>            <p>Stockton, California, is becoming a surprising destination for sushi lovers.</p>            <h3>What Makes Great Sushi?</h3>            <ul><li>Freshness of fish</li>            <li>Skill of the chef</li>            <li>Quality of rice</li>            </ul>            <h2>Top Sushi Restaurants in Stockton</h2>            <p>Stockton has several standout sushi restaurants, with Raw Sushi Bar leading the pack.</p>
             </div>
 
-            <div class="cta-section"><h3>Order Fresh Sushi Now</h3><p>Experience authentic Japanese cuisine at Raw Sushi Bar.</p><a href="https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d" class="cta-btn" target="_blank" rel="noopener">Order Now</a></div>
+            <div class="cta-section"><h3>Order Fresh Sushi Now</h3><p>Experience authentic Japanese cuisine at Raw Sushi Bar.</p><a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d" class="cta-btn" target="_blank" rel="noopener">Order Now</a></div>
 
             <div class="blog-share">
                 <a href="https://www.facebook.com/rawsushibar/" target="_blank" rel="noopener" class="share-btn" style="background:#3b5998;color:#fff;">Facebook</a>

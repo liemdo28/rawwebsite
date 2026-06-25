@@ -234,7 +234,7 @@
         <a href="index.html">&larr; Home</a>
         <div class="nav-bar-right">
             <a href="menu-stockton.html">Menu</a>
-            <a href="order-sushi-stockton.html" style="color: var(--gold);">Order Online</a>
+            <a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="order-sushi-stockton.html" style="color: var(--gold);">Order Online</a>
         </div>
     </div>
 
@@ -251,7 +251,7 @@
                 <strong>Raw Sushi Bar</strong><br>
                 10742 Trinity Parkway, Suite D<br>
                 Stockton, CA 95219<br><br>
-                Phone: <a href="tel:2099549729" style="color: var(--primary-red); font-weight: 600;">(209) 954-9729</a><br>
+                Phone: <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2099549729" style="color: var(--primary-red); font-weight: 600;">(209) 954-9729</a><br>
                 Email: <a href="mailto:info@rawsushibar.com" style="color: var(--primary-red);">info@rawsushibar.com</a>
             </p>
             <p style="margin-top: 1rem; font-size: 0.85rem; color: #888;">Located in Park West Place shopping center, off Pacific Ave near I-5.</p>
@@ -287,7 +287,7 @@
             <h2>Customer Favorites &amp; Must-Try Rolls</h2>
             <p>Our guests have spoken, and these are the dishes that keep Stockton coming back. The BTS Roll, loaded with spicy tuna, avocado, and our signature crunch, is one of the most popular items on the <a href="menu-stockton.html" style="color: var(--primary-red);">menu</a>. For something with heat, the Dante's Inferno Roll delivers bold flavor with every bite. Sashimi lovers swear by our Chef's Choice Sashimi Platter, featuring the freshest cuts of the day.</p>
             <p>If you are new to sushi, our staff is happy to guide you through the menu and recommend rolls that match your taste. We also offer teriyaki bowls, tempura plates, and udon noodles for guests who want authentic <a href="japanese-restaurant-stockton.html" style="color: var(--primary-red);">Japanese cuisine</a> beyond sushi. And do not miss our Happy Hour specials, available Monday through Thursday from 4:30 to 6:00 PM and Friday through Sunday from 2:30 to 5:30 PM, for discounted rolls and drinks.</p>
-            <p>Ready to taste the best sushi Stockton has to offer? <a href="order-sushi-stockton.html" style="color: var(--primary-red);">Order online</a> for pickup, call us at (209) 954-9729, or stop by 10742 Trinity Parkway, Suite D. We look forward to serving you.</p>
+            <p>Ready to taste the best sushi Stockton has to offer? <a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="order-sushi-stockton.html" style="color: var(--primary-red);">Order online</a> for pickup, call us at (209) 954-9729, or stop by 10742 Trinity Parkway, Suite D. We look forward to serving you.</p>
         </div>
     </div>
 
@@ -295,9 +295,9 @@
         <h2>Taste the Best Sushi in Stockton</h2>
         <p>Order online, call ahead, or walk in — we're ready to serve you.</p>
         <div class="cta-buttons">
-            <a href="order-sushi-stockton.html" class="cta-btn cta-btn-red" data-track="location_order">Order Online</a>
-            <a href="tel:2099549729" class="cta-btn cta-btn-gold" data-track="location_call">(209) 954-9729</a>
-            <a href="menu-stockton.html" class="cta-btn cta-btn-outline">View Full Menu</a>
+            <a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="order-sushi-stockton.html" class="cta-btn cta-btn-red" data-track="location_order">Order Online</a>
+            <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2099549729" class="cta-btn cta-btn-gold" data-track="location_call">(209) 954-9729</a>
+            <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-stockton.html" class="cta-btn cta-btn-outline">View Full Menu</a>
         </div>
     </section>
 

@@ -166,21 +166,21 @@
             <div class="icon">&#x1F4F1;</div>
             <h3>Order Online for Pickup</h3>
             <p>Order directly through our online menu. Fresh sushi prepared when you order, ready for pickup at 10742 Trinity Pkwy, Stockton.</p>
-            <a href="https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d" target="_blank" rel="noopener" class="order-btn btn-red" data-track="order_online_pickup">Order Now</a>
+            <a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d" target="_blank" rel="noopener" class="order-btn btn-red" data-track="order_online_pickup">Order Now</a>
         </div>
 
         <div class="order-card">
             <div class="icon">&#x1F6F5;</div>
             <h3>Delivery via DoorDash</h3>
             <p>Get Raw Sushi Bar delivered to your door in Stockton. Fresh sushi rolls, entrees, and more — delivered fast.</p>
-            <a href="https://www.doordash.com/store/raw-sushi-bistro-892006/" target="_blank" rel="noopener" class="order-btn btn-gold" data-track="order_doordash">Order Delivery</a>
+            <a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="https://www.doordash.com/store/raw-sushi-bistro-892006/" target="_blank" rel="noopener" class="order-btn btn-gold" data-track="order_doordash">Order Delivery</a>
         </div>
 
         <div class="order-card">
             <div class="icon">&#x260E;&#xFE0F;</div>
             <h3>Call to Order</h3>
             <p>Call us directly to place your order. Our team will have your fresh sushi ready when you arrive.</p>
-            <a href="tel:2099549729" class="order-btn btn-outline" data-track="order_call">(209) 954-9729</a>
+            <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2099549729" class="order-btn btn-outline" data-track="order_call">(209) 954-9729</a>
         </div>
     </div>
 
@@ -192,7 +192,7 @@
     <section class="info-section">
         <h2>Raw Sushi Bar Stockton Location</h2>
         <p><strong>10742 Trinity Parkway, Suite D, Stockton, CA 95219</strong><br>
-        Phone: <a href="tel:2099549729" style="color: var(--primary-red);">(209) 954-9729</a><br><br>
+        Phone: <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2099549729" style="color: var(--primary-red);">(209) 954-9729</a><br><br>
         Mon-Thu: 4:30-8:30 PM | Fri: 11:30 AM-9 PM | Sat: 12-9 PM | Sun: 12-8 PM</p>
     </section>
 

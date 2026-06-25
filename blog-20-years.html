@@ -236,6 +236,8 @@
     </style>
     <!-- Cookie Consent -->
     <link rel="stylesheet" href="cookie-consent.css">
+    <!-- Analytics & Event Tracking -->
+    <script src="analytics.js"></script>
 </head>
 
 <body>
@@ -399,7 +401,7 @@
     <div class="cta-section">
         <h2>Be Part of Our Celebration</h2>
         <p>Reserve your table for our 20th Anniversary Tasting Menu</p>
-        <a href="index.html#order" class="btn">Make a Reservation</a>
+        <a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="index.html#order" class="btn">Make a Reservation</a>
     </div>
 
     <footer>

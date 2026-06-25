@@ -1932,8 +1932,8 @@
             <ul class="nav-links" id="navLinks" role="menubar">
                 <li role="none"><a href="index.html" role="menuitem">Home</a></li>
                 <li role="none"><a href="menu-modesto.html" role="menuitem">Menu</a></li>
-                <li role="none"><a href="tel:2095669560" class="nav-phone" role="menuitem">(209) 566-9560</a></li>
-                <li role="none"><a href="tel:2095669560" class="nav-cta" role="menuitem">Call to Order</a></li>
+                <li role="none"><a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" class="nav-phone" role="menuitem">(209) 566-9560</a></li>
+                <li role="none"><a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" class="nav-cta" role="menuitem">Call to Order</a></li>
             </ul>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
                 <span></span>
@@ -1954,8 +1954,8 @@
                 <p class="hero-subtitle">Fresh Sushi in Modesto</p>
                 <p>Enjoy delicious sushi, sashimi, and Japanese dishes at Raw Sushi Bar in Modesto.</p>
                 <div class="hero-buttons">
-                    <a href="tel:2095669560" class="btn btn-primary">Call to Order</a>
-                    <a href="menu-modesto.html" class="btn btn-secondary">View Menu</a>
+                    <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" class="btn btn-primary">Call to Order</a>
+                    <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-modesto.html" class="btn btn-secondary">View Menu</a>
                     <a href="https://www.google.com/maps/search/?api=1&query=1200+I+Street+Modesto+CA+95354" target="_blank" rel="noopener" class="btn btn-gold">Get Directions</a>
                 </div>
             </div>
@@ -2002,7 +2002,7 @@
                         </div>
                         <div class="loc-info">
                             <h4>Phone</h4>
-                            <a href="tel:2095669560">(209) 566-9560</a>
+                            <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560">(209) 566-9560</a>
                         </div>
                         <div class="loc-info">
                             <h4>Hours</h4>
@@ -2028,7 +2028,7 @@
                                     aria-label="Get directions to Modesto location">
                                     Get Directions
                                 </a>
-                                <a href="tel:2095669560" class="loc-btn loc-btn-secondary"
+                                <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" class="loc-btn loc-btn-secondary"
                                     aria-label="Call Modesto location">
                                     Call
                                 </a>
@@ -2047,24 +2047,24 @@
                 <p class="section-subtitle">Fresh sushi and Japanese dishes crafted with care</p>
             </div>
             <div class="menu-categories" style="grid-template-columns: repeat(3, 1fr);">
-                <a href="menu-modesto.html" class="menu-cat-card">
+                <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-modesto.html" class="menu-cat-card">
                     <div class="menu-cat-icon" aria-hidden="true">&#x1F363;</div>
                     <h4>Signature Rolls</h4>
                     <p>Creative house specialties</p>
                 </a>
-                <a href="menu-modesto.html" class="menu-cat-card">
+                <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-modesto.html" class="menu-cat-card">
                     <div class="menu-cat-icon" aria-hidden="true">&#x1F41F;</div>
                     <h4>Sashimi &amp; Nigiri</h4>
                     <p>Fresh cuts daily</p>
                 </a>
-                <a href="menu-modesto.html" class="menu-cat-card">
+                <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-modesto.html" class="menu-cat-card">
                     <div class="menu-cat-icon" aria-hidden="true">&#x1F371;</div>
                     <h4>Sushi Combos</h4>
                     <p>Perfect sampler plates</p>
                 </a>
             </div>
             <div style="text-align: center;">
-                <a href="menu-modesto.html" class="btn btn-primary">View Menu Modesto</a>
+                <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-modesto.html" class="btn btn-primary">View Menu Modesto</a>
             </div>
         </section>
 
@@ -2130,8 +2130,8 @@
                 <h2>Order Sushi in Modesto Today</h2>
                 <p>Call us to place your order for dine-in or takeout. Delivery also available through DoorDash.</p>
                 <div class="hero-buttons">
-                    <a href="tel:2095669560" class="btn btn-primary">Call to Order</a>
-                    <a href="menu-modesto.html" class="btn btn-secondary">View Menu</a>
+                    <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" class="btn btn-primary">Call to Order</a>
+                    <a onclick="trackEvent('menu_click',{source:'website',page:location.pathname})" href="menu-modesto.html" class="btn btn-secondary">View Menu</a>
                 </div>
             </div>
         </section>
@@ -2150,7 +2150,7 @@
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            Yes! Call us at <a href="tel:2095669560">(209) 566-9560</a> to place a takeout order at our Modesto location.
+                            Yes! Call us at <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560">(209) 566-9560</a> to place a takeout order at our Modesto location.
                         </div>
                     </div>
                 </div>
@@ -2161,7 +2161,7 @@
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            Yes! Walk-ins are welcome and reservations are recommended, especially on weekends. Call <a href="tel:2095669560">(209) 566-9560</a> to reserve your table.
+                            Yes! Walk-ins are welcome and reservations are recommended, especially on weekends. Call <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560">(209) 566-9560</a> to reserve your table.
                         </div>
                     </div>
                 </div>
@@ -2188,7 +2188,7 @@
             <h2>Visit Raw Sushi Bar Modesto Today</h2>
             <p>Fresh sushi, friendly service, and a convenient downtown location. We look forward to serving you.</p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="tel:2095669560" class="btn btn-primary">Call to Order</a>
+                <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" class="btn btn-primary">Call to Order</a>
                 <a href="https://www.google.com/maps/search/?api=1&query=1200+I+Street+Modesto+CA+95354" target="_blank" rel="noopener" class="btn btn-gold">Get Directions</a>
             </div>
         </section>
@@ -2224,7 +2224,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="menu-modesto.html">Menu</a></li>
                     <li><a href="index.html">Locations</a></li>
-                    <li><a href="tel:2095669560">Order</a></li>
+                    <li><a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560">Order</a></li>
                     <li><a href="terms.html">Terms of Service</a></li>
                 </ul>
             </div>
@@ -2233,7 +2233,7 @@
                 <ul>
                     <li>10742 Trinity Pkwy, Ste D</li>
                     <li>Stockton, CA 95219</li>
-                    <li><a href="tel:2099549729">(209) 954-9729</a></li>
+                    <li><a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2099549729">(209) 954-9729</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -2241,7 +2241,7 @@
                 <ul>
                     <li>1200 I Street</li>
                     <li>Modesto, CA 95354</li>
-                    <li><a href="tel:2095669560">(209) 566-9560</a></li>
+                    <li><a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560">(209) 566-9560</a></li>
                 </ul>
             </div>
         </div>
@@ -2253,15 +2253,15 @@
     </footer>
 
     <!-- Floating Desktop CTA -->
-    <a href="tel:2095669560" class="floating-cta" aria-label="Call to Order">
+    <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" class="floating-cta" aria-label="Call to Order">
         <span class="cta-icon">&#x1F4DE;</span> Call to Order
     </a>
 
     <!-- Sticky Mobile Order Bar -->
     <div class="mobile-order-bar" aria-label="Quick order options">
         <div class="mobile-order-bar-inner">
-            <a href="tel:2095669560" class="mob-btn mob-btn-order">Call to Order</a>
-            <a href="tel:2095669560" class="mob-btn mob-btn-call">Call Us</a>
+            <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" class="mob-btn mob-btn-order">Call to Order</a>
+            <a onclick="trackEvent('phone_click',{source:'website',page:location.pathname})" href="tel:2095669560" class="mob-btn mob-btn-call">Call Us</a>
         </div>
     </div>
 
@@ -2371,6 +2371,7 @@
     <script src="cookie-consent.js"></script>
     <!-- Analytics & Event Tracking -->
     <script src="analytics.js"></script>
+    <script>trackEvent('location_view',{'event_category':'engagement','event_label':'modesto_page','brand':'rawsushi','location':'modesto'});</script>
 </body>
 
 </html>

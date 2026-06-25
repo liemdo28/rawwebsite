@@ -297,6 +297,8 @@
     </style>
     <!-- Cookie Consent -->
     <link rel="stylesheet" href="cookie-consent.css">
+    <!-- Analytics & Event Tracking -->
+    <script src="analytics.js"></script>
 </head>
 
 <body>
@@ -575,7 +577,7 @@
     <div class="cta-section">
         <h2>Dine Sustainably</h2>
         <p>Experience exceptional sushi that's good for you and good for the ocean</p>
-        <a href="index.html#order" class="btn">Make a Reservation</a>
+        <a onclick="trackEvent('order_click',{source:'website',page:location.pathname})" href="index.html#order" class="btn">Make a Reservation</a>
     </div>
 
     <footer>
