@@ -57,14 +57,12 @@ function trackEvent(name, params) {
  */
 function getLocationContext() {
     var path = location.pathname;
-    if (path.indexOf('modesto') !== -1) return 'modesto';
     if (path.indexOf('stockton') !== -1) return 'stockton';
     if (path === '/' || path.indexOf('index') !== -1) return 'brand';
     return 'unknown';
 }
 
 function getLocationFromPhone(phone) {
-    if (phone.indexOf('5669560') !== -1) return 'modesto';
     if (phone.indexOf('9549729') !== -1) return 'stockton';
     return getLocationContext();
 }
@@ -78,7 +76,6 @@ function getPageType() {
     if (path.indexOf('order-') !== -1) return 'order';
     if (path.indexOf('blog-') !== -1) return 'story';
     if (path === '/' || path.indexOf('index') !== -1) return 'brand_home';
-    if (path.indexOf('modesto') !== -1 && path.indexOf('menu') === -1) return 'landing';
     return 'page';
 }
 
@@ -144,7 +141,7 @@ document.addEventListener('click', function(e) {
 
     // Auto-detect: menu page views
     if (href.indexOf('menu-') !== -1 || href.indexOf('menu') !== -1) {
-        var menuLoc = href.indexOf('modesto') !== -1 ? 'modesto' : href.indexOf('stockton') !== -1 ? 'stockton' : loc;
+        var menuLoc = href.indexOf('stockton') !== -1 ? 'stockton' : loc;
         trackEvent('menu_click', { link_text: text, link_url: href, location: menuLoc, page_type: pageType });
         return;
     }

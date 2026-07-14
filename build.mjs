@@ -25,7 +25,7 @@
  */
 
 import { spawnSync } from 'node:child_process';
-import { existsSync, rmSync, cpSync, mkdirSync, readdirSync, statSync } from 'node:fs';
+import { existsSync, rmSync, cpSync, mkdirSync, readdirSync, statSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve, join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -33,6 +33,37 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = __dirname;
 const PUBLIC_DIR = resolve(ROOT, 'public');
 const DIST_DIR = resolve(ROOT, 'dist');
+const MODESTO_PATTERN = /(^|[\\/])modesto($|[\\/])|modesto/i;
+
+function shouldOmitPublicPath(filePath) {
+  const relative = filePath.replace(PUBLIC_DIR, '');
+  return MODESTO_PATTERN.test(relative);
+}
+
+function sanitizeSingleLocationContent(contents) {
+  return contents
+    .replace(/Stockton\s*&amp;\s*Modesto/gi, 'Stockton')
+    .replace(/Stockton\s*&\s*Modesto/gi, 'Stockton')
+    .replace(/Stockton\s+and\s+Modesto/gi, 'Stockton')
+    .replace(/Stockton\/Modesto/gi, 'Stockton')
+    .replace(/\s*\|\s*Modesto:[^<\n\r]*/gi, '')
+    .replace(/<li[^>]*>\s*<a[^>]+href=["'][^"']*modesto[^"']*["'][^>]*>.*?<\/a>\s*<\/li>/gis, '')
+    .replace(/<a[^>]+href=["'][^"']*modesto[^"']*["'][^>]*>.*?<\/a>/gis, '')
+    .replace(/<h3>\s*Modesto\s*<\/h3>\s*<ul>.*?<\/ul>/gis, '')
+    .replace(/Modesto/gi, 'Stockton')
+    .replace(/209\)?\s*566-9560/g, '209) 954-9729')
+    .replace(/2095669560/g, '2099549729');
+}
+
+function copyFileWithSingleLocationPolicy(src, dest) {
+  if (shouldOmitPublicPath(src)) return;
+  if (/\.(html|js|xml|txt|json|css)$/i.test(src)) {
+    const contents = readFileSync(src, 'utf8');
+    writeFileSync(dest, sanitizeSingleLocationContent(contents));
+    return;
+  }
+  cpSync(src, dest);
+}
 
 function copyDir(src, dest) {
   if (!existsSync(src)) return;
@@ -40,11 +71,16 @@ function copyDir(src, dest) {
   for (const name of readdirSync(src)) {
     const sp = join(src, name);
     const dp = join(dest, name);
+    if (sp.startsWith(PUBLIC_DIR) && shouldOmitPublicPath(sp)) continue;
     const st = statSync(sp);
     if (st.isDirectory()) {
       copyDir(sp, dp);
     } else {
-      cpSync(sp, dp);
+      if (sp.startsWith(PUBLIC_DIR)) {
+        copyFileWithSingleLocationPolicy(sp, dp);
+      } else {
+        cpSync(sp, dp);
+      }
     }
   }
 }

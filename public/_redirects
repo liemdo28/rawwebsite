@@ -2,22 +2,22 @@
 /index.html                         /                                   301
 /stockton-sushi.html                /stockton/                          301
 /stockton.html                      /stockton/                          301
-/modesto.html                       /modesto/                           301
+/modesto.html                       /stockton/                          301
 /menu-stockton.html                 /menu/stockton/                     301
-/menu-modesto.html                  /menu/modesto/                      301
+/menu-modesto.html                  /menu/stockton/                     301
 /order-sushi-stockton.html          /order/stockton/                    301
-/order-sushi-modesto.html           /order/modesto/                     301
+/order-sushi-modesto.html           /order/stockton/                    301
 
 # ── SEO page redirects ────────────────────────────────────────────────────────
 /best-sushi-stockton.html           /stockton/best-sushi/               301
-/best-sushi-modesto.html            /modesto/best-sushi/                301
+/best-sushi-modesto.html            /stockton/best-sushi/               301
 /japanese-restaurant-stockton.html  /stockton/japanese-restaurant/      301
-/japanese-restaurant-modesto.html   /modesto/japanese-restaurant/       301
+/japanese-restaurant-modesto.html   /stockton/japanese-restaurant/      301
 /date-night-stockton.html           /stockton/date-night/               301
 /sushi-catering-stockton.html       /stockton/sushi-catering/           301
-/sushi-catering-modesto.html        /modesto/sushi-catering/            301
+/sushi-catering-modesto.html        /stockton/sushi-catering/           301
 /sushi-delivery-stockton.html       /stockton/sushi-delivery/           301
-/sushi-downtown-modesto.html        /modesto/downtown-sushi/            301
+/sushi-downtown-modesto.html        /stockton/                          301
 
 # ── Stories & Insights (blog) — all blog-module URLs → homepage section ──────
 # There is no separate /blog/ page. The blog system lives at /#blog on homepage.
@@ -32,6 +32,12 @@
 /blog-sashimi-guide.html                        /#blog                  301
 /blog-stockton-restaurants.html                 /#blog                  301
 /blog-modesto-dining.html                       /#blog                  301
+
+# Legacy Modesto clean routes are retired. Raw Sushi production is Stockton-only.
+/modesto/                          /stockton/                          301
+/modesto/*                         /stockton/                          301
+/menu/modesto/                     /menu/stockton/                     301
+/order/modesto/                    /order/stockton/                    301
 /blog-catering-guide.html                       /#blog                  301
 # The 5 approved article pages served as static files — NO redirect:
 # blog-20-years.html, blog-nigiri-art.html, blog-sustainability.html

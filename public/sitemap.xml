@@ -3,22 +3,14 @@
   <!-- Core pages -->
   <url><loc>https://www.rawsushibar.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://www.rawsushibar.com/stockton/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.rawsushibar.com/modesto/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.rawsushibar.com/menu/stockton/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.rawsushibar.com/menu/modesto/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.rawsushibar.com/order/stockton/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.rawsushibar.com/order/modesto/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <!-- Stockton SEO pages -->
   <url><loc>https://www.rawsushibar.com/stockton/best-sushi/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.rawsushibar.com/stockton/japanese-restaurant/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.rawsushibar.com/stockton/sushi-delivery/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.rawsushibar.com/stockton/sushi-catering/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.rawsushibar.com/stockton/date-night/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <!-- Modesto SEO pages -->
-  <url><loc>https://www.rawsushibar.com/modesto/best-sushi/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.rawsushibar.com/modesto/japanese-restaurant/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.rawsushibar.com/modesto/downtown-sushi/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.rawsushibar.com/modesto/sushi-catering/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <!-- Blog articles (served extensionless by Cloudflare Pages) -->
   <url><loc>https://www.rawsushibar.com/blog-20-years</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>https://www.rawsushibar.com/blog-nigiri-art</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
