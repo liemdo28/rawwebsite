@@ -199,7 +199,6 @@
           <div class="field"><label>Location</label>
             <select id="newPostLocation">
               <option value="raw_stockton">Stockton</option>
-              <option value="raw_modesto">Modesto</option>
             </select>
           </div>
           <div class="field"><label>Primary keyword</label><input id="newPostKw"></div>
@@ -265,7 +264,7 @@
     <!-- MENU -->
     <section class="view" data-view="menu">
       <h2>Menu</h2>
-      <p class="lead">Edit menu categories and items per location.</p>
+      <p class="lead">Edit menu categories and items for Stockton.</p>
       <div class="panel">
         <h3>Categories</h3>
         <table>
@@ -276,7 +275,7 @@
         <div class="field-row">
           <div class="field"><label>Name</label><input id="newCatName"></div>
           <div class="field"><label>Location</label>
-            <select id="newCatLocation"><option value="raw_stockton">Stockton</option><option value="raw_modesto">Modesto</option></select>
+            <select id="newCatLocation"><option value="raw_stockton">Stockton</option></select>
           </div>
           <div class="field"><label>Sort</label><input id="newCatSort" type="number" value="0"></div>
           <div class="field" style="display:flex;align-items:flex-end;"><button class="btn btn-primary" id="addCatBtn">Add</button></div>
@@ -293,7 +292,7 @@
         <div class="field-row">
           <div class="field"><label>Name</label><input id="newItemName"></div>
           <div class="field"><label>Location</label>
-            <select id="newItemLocation"><option value="raw_stockton">Stockton</option><option value="raw_modesto">Modesto</option></select>
+            <select id="newItemLocation"><option value="raw_stockton">Stockton</option></select>
           </div>
           <div class="field"><label>Price</label><input id="newItemPrice" type="number" step="0.01"></div>
           <div class="field" style="display:flex;align-items:flex-end;"><button class="btn btn-primary" id="addItemBtn">Add</button></div>
@@ -704,4 +703,3 @@ viewHandlers.settings = loadSettings;
 </script>
 </body>
 </html>
-       

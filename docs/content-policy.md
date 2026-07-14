@@ -10,7 +10,6 @@
 | Location | Style | Reading Level | Emoji Usage |
 |---|---|---|---|
 | Stockton | friendly, modern, local, premium-casual | Simple | Light (1–2 per post) |
-| Modesto | friendly, local, warm, casual | Simple | Light (1–2 per post) |
 
 - Write conversational, **mobile-first** copy.
 - Max **3 exclamation marks** per post.
@@ -27,8 +26,7 @@ Every post must name the city explicitly.
 | Location | City to mention |
 |---|---|
 | raw_stockton | Stockton |
-| raw_modesto | Modesto |
-
+| raw_stockton
 ### Primary SEO keywords (required — +20 pts)
 Include **1–2 naturally** from the list for the location.
 
@@ -37,16 +35,12 @@ Include **1–2 naturally** from the list for the location.
 - best sushi in Stockton
 - Japanese restaurant Stockton
 
-**Modesto**
-- sushi Modesto
-- best sushi in Modesto
-- Japanese restaurant Modesto
 
 ### Secondary keywords (use when relevant)
 
 **Stockton:** fresh sushi near me · sushi rolls Stockton · sashimi Stockton · Japanese food Stockton
 
-**Modesto:** fresh sushi near me · sushi Modesto CA · Japanese food Modesto
+**Stockton:** fresh sushi near me
 
 ### Call-to-action (required — +15 pts)
 Every post needs at least one CTA verb: **order · visit · call · reserve · check · try · book**
@@ -56,20 +50,18 @@ Every post needs at least one CTA verb: **order · visit · call · reserve · c
 | Location | Preferred actions |
 |---|---|
 | Stockton | visit, order, reserve |
-| Modesto | visit, reserve |
 
 **CTA URLs**
 
 | Location | Order URL | Menu URL | Location URL |
 |---|---|---|---|
 | Stockton | https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d | https://www.rawsushibar.com/menu/stockton/ | https://www.rawsushibar.com/stockton/ |
-| Modesto | *(no online ordering)* | https://www.rawsushibar.com/menu/modesto/ | https://www.rawsushibar.com/modesto/ |
 
 ### Post length (required — +10 pts)
 Body text must be **50–280 characters** (generator targets 50–150 words for the full post).
 
 ### Hashtags
-Include **3–5 hashtags** with at least one location tag (e.g. `#StocktonCA`, `#ModestoCA`).
+Include **3–5 hashtags** with at least one location tag (e.g. `#StocktonCA`, `#StocktonCA`).
 
 ---
 
@@ -136,8 +128,8 @@ No fabricated facts. Light emoji use (1–2 max).]
 
 Posts are generated twice daily at the scheduled posting hours (store local time).
 
-| Weekday | Content Type | Business Goal | Stockton Posts | Modesto Posts |
-|---|---|---|---|---|
+| Weekday | Content Type | Business Goal | Stockton Posts |
+|---|---|---|---|
 | **Monday** | Freshness Push | Drive online orders | 11:30, 18:00 | 11:30, 17:30 |
 | **Tuesday** | Local SEO Post | Local SEO | 11:30, 18:00 | 11:30, 17:30 |
 | **Wednesday** | Order CTA Post | Drive online orders | 11:30, 18:00 | 11:30, 17:30 |

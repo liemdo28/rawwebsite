@@ -1,8 +1,7 @@
 {
   "brand": "Raw Sushi Bar",
   "version": "1.0",
-  "updated_at": "2026-04-22",
-
+  "updated_at": "2026-07-14",
   "stores": {
     "raw_stockton": {
       "name": "Raw Sushi Bar Stockton",
@@ -15,27 +14,21 @@
       "order_url": "https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d",
       "menu_url": "https://www.rawsushibar.com/menu/stockton/",
       "location_url": "https://www.rawsushibar.com/stockton/",
-      "platforms": ["facebook", "instagram"],
-      "posting_hours": ["11:30", "18:00"],
-      "target_actions": ["visit", "order", "reserve"]
-    },
-    "raw_modesto": {
-      "name": "Raw Sushi Bar Modesto",
-      "city": "Modesto",
-      "state": "CA",
-      "country": "US",
-      "timezone": "America/Los_Angeles",
-      "address": "1200 I Street, Modesto, CA 95354",
-      "phone": "(209) 526-8700",
-      "order_url": null,
-      "menu_url": "https://www.rawsushibar.com/menu/modesto/",
-      "location_url": "https://www.rawsushibar.com/modesto/",
-      "platforms": ["facebook", "instagram"],
-      "posting_hours": ["11:30", "17:30"],
-      "target_actions": ["visit", "reserve"]
+      "platforms": [
+        "facebook",
+        "instagram"
+      ],
+      "posting_hours": [
+        "11:30",
+        "18:00"
+      ],
+      "target_actions": [
+        "visit",
+        "order",
+        "reserve"
+      ]
     }
   },
-
   "tone": {
     "style": "friendly, modern, local, premium-casual",
     "reading_level": "simple",
@@ -56,7 +49,6 @@
       "use offensive or inappropriate language"
     ]
   },
-
   "seo": {
     "raw_stockton": {
       "primary_keywords": [
@@ -71,18 +63,6 @@
         "Japanese food Stockton"
       ]
     },
-    "raw_modesto": {
-      "primary_keywords": [
-        "sushi Modesto",
-        "best sushi in Modesto",
-        "Japanese restaurant Modesto"
-      ],
-      "secondary_keywords": [
-        "fresh sushi near me",
-        "sushi Modesto CA",
-        "Japanese food Modesto"
-      ]
-    },
     "rules": {
       "require_location_mention": true,
       "require_primary_keyword": true,
@@ -93,7 +73,6 @@
       "max_body_chars": 280
     }
   },
-
   "safety": {
     "hard_blocks": [
       "hate_speech",
@@ -103,9 +82,19 @@
       "violent_language"
     ],
     "blocked_terms": [
-      "kill", "murder", "shoot", "bomb", "attack",
-      "weed", "marijuana", "cannabis", "cocaine", "drug",
-      "cure cancer", "prevent disease", "treat diabetes"
+      "kill",
+      "murder",
+      "shoot",
+      "bomb",
+      "attack",
+      "weed",
+      "marijuana",
+      "cannabis",
+      "cocaine",
+      "drug",
+      "cure cancer",
+      "prevent disease",
+      "treat diabetes"
     ],
     "fake_claim_terms": [
       "best in the world",
@@ -114,7 +103,6 @@
     ],
     "strict_block": true
   },
-
   "scoring": {
     "pass_threshold": 60,
     "weights": {
@@ -127,13 +115,14 @@
       "no_fake_claims": 10
     }
   },
-
   "approval": {
     "mode": "required",
-    "reviewers": ["ceo", "marketing_manager"],
+    "reviewers": [
+      "ceo",
+      "marketing_manager"
+    ],
     "auto_approve_threshold": null
   },
-
   "stories_and_insights": {
     "publish_dir": "public",
     "url_prefix": "/blog-",

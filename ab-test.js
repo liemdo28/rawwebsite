@@ -4,7 +4,7 @@
  * Variants:
  *   A — Current Clean CTA Version (default visible elements)
  *   B — Revenue Push (top promo banner, stronger Order CTA, story CTA)
- *   C — Location First (alt hero with Stockton/Modesto chooser)
+ *   C — Location First (alt hero with Stockton chooser)
  *
  * Persistence: localStorage key "raw_ab_variant"
  * Override:    ?ab=A|B|C in URL forces variant (and persists)

@@ -13,7 +13,7 @@ import {
 function validateItem(b) {
   const e = [];
   if (typeof b.name !== 'string' || b.name.trim().length < 1) e.push('name_required');
-  if (b.location && !['raw_stockton', 'raw_modesto'].includes(String(b.location))) {
+  if (b.location && String(b.location) !== 'raw_stockton') {
     e.push('location_invalid');
   }
   if (b.price !== undefined && b.price !== null && (typeof b.price !== 'number' || b.price < 0)) {

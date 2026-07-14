@@ -19,27 +19,7 @@
       "description": "Seed item — edit me.",
       "updated_at": "2026-06-05T04:55:21.318Z",
       "created_at": "2026-06-05T04:55:21.318Z"
-    },
-    {
-      "id": "menu-1780635321319-ditk2o",
-      "name": "Edamame",
-      "location": "raw_modesto",
-      "price": 5.95,
-      "active": true,
-      "description": "Seed item — edit me.",
-      "updated_at": "2026-06-05T04:55:21.319Z",
-      "created_at": "2026-06-05T04:55:21.319Z"
-    },
-    {
-      "id": "menu-1780635321321-acnbe4",
-      "name": "Bento Box",
-      "location": "raw_modesto",
-      "price": 14.5,
-      "active": true,
-      "description": "Seed item — edit me.",
-      "updated_at": "2026-06-05T04:55:21.321Z",
-      "created_at": "2026-06-05T04:55:21.321Z"
     }
   ],
-  "updated_at": "2026-06-05T04:55:21.321Z"
+  "updated_at": "2026-07-14T08:44:28.579Z"
 }

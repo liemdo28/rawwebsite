@@ -40,14 +40,12 @@ export async function onRequest(context) {
   // Map API location to file location
   const locationMap = {
     'raw_stockton': 'stockton',
-    'raw_modesto': 'modesto',
     'stockton': 'stockton',
-    'modesto': 'modesto',
   };
 
   const fileLocation = locationMap[location];
   if (!fileLocation) {
-    return withCors(err('location_invalid', 'location must be stockton or modesto', 400));
+    return withCors(err('location_invalid', 'location must be stockton', 400));
   }
 
   try {
@@ -55,10 +53,10 @@ export async function onRequest(context) {
     const allCategories = await store.list('menu_categories');
     const allItems = await store.list('menu_items');
 
-    const categories = allCategories.filter(c => 
+    const categories = allCategories.filter(c =>
       c.location === location || c.location === `raw_${fileLocation}`
     );
-    const items = allItems.filter(i => 
+    const items = allItems.filter(i =>
       i.location === location || i.location === `raw_${fileLocation}`
     );
 
@@ -66,7 +64,7 @@ export async function onRequest(context) {
       location: fileLocation,
       updated_at: new Date().toISOString(),
       categories: categories.sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0)),
-      items: items.filter(i => i.active !== false).sort((a, b) => 
+      items: items.filter(i => i.active !== false).sort((a, b) =>
         String(a.name || '').localeCompare(String(b.name || ''))
       ),
     };

@@ -77,11 +77,6 @@
           "@type": "Restaurant",
           "name": "Raw Sushi Bar Stockton",
           "url": "https://www.rawsushibar.com/stockton.html"
-        },
-        {
-          "@type": "Restaurant",
-          "name": "Raw Sushi Bar Modesto",
-          "url": "https://www.rawsushibar.com/modesto.html"
         }
       ],
       "sameAs": [
@@ -96,19 +91,13 @@
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
-      "name": "Raw Sushi Bar Locations",
+      "name": "Raw Sushi Bar Location",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
           "name": "Stockton",
           "url": "https://www.rawsushibar.com/stockton.html"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Modesto",
-          "url": "https://www.rawsushibar.com/modesto.html"
         }
       ]
     }
@@ -125,7 +114,7 @@
           "name": "Does Raw Sushi Bar offer delivery?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes! We offer delivery through DoorDash and takeout at both locations. Visit our Stockton or Modesto location page for ordering details."
+            "text": "Yes. We offer delivery through DoorDash and takeout for the Stockton location. Visit the Stockton page for ordering details."
           }
         },
         {
@@ -133,7 +122,7 @@
           "name": "Does Raw Sushi Bar take reservations?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, reservations are available at both locations. Walk-ins are also welcome. Visit our location pages for contact details."
+            "text": "Yes, reservations are available at the Stockton location. Walk-ins are also welcome. Visit our location pages for contact details."
           }
         },
         {
@@ -157,7 +146,7 @@
           "name": "How many locations does Raw Sushi Bar have?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We have two locations in California — Stockton and Modesto. Visit our location pages for addresses, hours, and directions."
+            "text": "Raw Sushi Bar serves Stockton, California. Visit the Stockton page for address, hours, and directions."
           }
         }
       ]
@@ -507,7 +496,7 @@
         }
 
         body.ab-c #navMenuStockton,
-        body.ab-c #navMenuModesto,
+        body.ab-c #navMenuStockton,
         body.ab-c #navMenuOrder,
         body.ab-c #navMenuCall {
             display: none;
@@ -2398,7 +2387,7 @@
             <ul class="nav-links" id="navLinks" role="menubar">
                 <li role="none"><a href="#" onclick="openLocationModal('menu'); return false;" role="menuitem">Menu</a></li>
                 <li role="none"><a href="/stockton.html" role="menuitem">Stockton</a></li>
-                <li role="none"><a href="/modesto.html" role="menuitem">Modesto</a></li>
+
                 <li role="none"><a href="#stories" role="menuitem">Stories</a></li>
                 <li role="none">
                     <a href="#" onclick="openLocationModal('order'); return false;" class="cta-order" role="menuitem" data-track="order_now_homepage">Order Now</a>
@@ -2407,7 +2396,7 @@
                     <a href="#" id="callNowBtn" class="cta-call" role="menuitem" aria-haspopup="true" aria-expanded="false" data-track="call_now_homepage_open">📞 Call Now</a>
                     <div class="call-dropdown" id="callDropdown" role="menu" aria-label="Choose location to call">
                         <a href="tel:+12099549729" role="menuitem" data-track="call_click_homepage_stockton">Stockton — <strong>(209) 954-9729</strong></a>
-                        <a href="tel:+12095669560" role="menuitem" data-track="call_click_homepage_modesto">Modesto — <strong>(209) 566-9560</strong></a>
+
                     </div>
                 </li>
             </ul>
@@ -2424,16 +2413,16 @@
         <div class="order-modal-content" role="document">
             <button class="modal-close" aria-label="Close" onclick="closeLocationModal()">&times;</button>
 
-            <h2 id="locModalTitle">Choose Your Location</h2>
-            <p>Select a location to order or call.</p>
+            <h2 id="locModalTitle">Raw Sushi Bar Stockton</h2>
+            <p>Order online or call the Stockton restaurant.</p>
 
             <div class="order-actions">
                 <a id="locBtnStockton" class="order-primary" href="#" data-track="modal_action_stockton">📍 Order Online — Stockton</a>
-                <a id="locBtnModesto" class="order-secondary" href="#" data-track="modal_action_modesto">📍 Call to Order — Modesto</a>
+
             </div>
 
             <p class="modal-note" id="locModalNote">
-                Online ordering is currently available for Stockton. For Modesto, please call to order.
+                Online ordering and phone ordering are available for Stockton.
             </p>
 
             <button class="modal-later" type="button" onclick="closeLocationModal()" data-track="modal_maybe_later">Maybe Later</button>
@@ -2442,7 +2431,7 @@
 
     <!-- Variant B: top promo banner (hidden by default; body.ab-b shows it) -->
     <div class="top-promo" role="region" aria-label="Today's promo">
-        <span>Fresh Sushi Today — Order Online or Call Your Location</span>
+        <span>Fresh Sushi Today — Order Online or Call Stockton</span>
     </div>
 
     <main id="main-content">
@@ -2452,7 +2441,7 @@
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <div class="anniversary-badge">Since 2005</div>
-                <h1>Fresh Sushi in Stockton &amp; Modesto</h1>
+                <h1>Fresh Sushi in Stockton</h1>
                 <p class="hero-subtitle hero-subtitle-a">Premium sushi, sashimi, and rolls made fresh daily.</p>
                 <p class="hero-subtitle hero-subtitle-b">Order fresh sushi, sashimi, and rolls today.</p>
                 <div class="hero-buttons hero-cta">
@@ -2467,11 +2456,11 @@
             <div class="hero-bg-image" role="img" aria-label="Fresh sushi being prepared at Raw Sushi Bar"></div>
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h1>Choose Your Raw Sushi Bar</h1>
-                <p class="hero-subtitle">Pick your location to order, call, or view the right menu.</p>
+                <h1>Raw Sushi Bar Stockton</h1>
+                <p class="hero-subtitle">Order, call, or view the Stockton menu.</p>
                 <div class="location-actions">
                     <a href="/stockton.html" class="cta-order cta-hero" data-track="location_stockton_click">📍 Stockton</a>
-                    <a href="/modesto.html" class="cta-order cta-hero" data-track="location_modesto_click">📍 Modesto</a>
+
                 </div>
             </div>
         </section>
@@ -2587,9 +2576,9 @@
         <!-- Locations Section -->
         <section id="locations" class="locations-section fade-in" aria-label="Our locations">
             <div class="section-header">
-                <span class="section-label">2 Locations</span>
+                <span class="section-label">Stockton Location</span>
                 <h2 class="section-title">Choose Your Raw Sushi Bar</h2>
-                <p class="section-subtitle">Start with the location page for hours, directions, menus, and ordering details.</p>
+                <p class="section-subtitle">Start with the Stockton page for hours, directions, menu, and ordering details.</p>
             </div>
             <div class="locations-grid">
                 <!-- Stockton -->
@@ -2603,20 +2592,6 @@
                         <div class="location-actions">
                             <a href="stockton.html" class="loc-btn loc-btn-primary">Visit Stockton</a>
                             <a href="menu-stockton.html" class="loc-btn loc-btn-secondary">View Menu</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Modesto -->
-                <div class="location-card">
-                    <div class="location-header">
-                        <h3>Modesto</h3>
-                        <span class="location-badge">DOWNTOWN</span>
-                    </div>
-                    <div class="location-body">
-                        <p style="color: var(--text-medium); line-height: 1.7; margin-bottom: 1.5rem;">Visit the Modesto page for local hours, directions, call-to-order details, and the full Modesto menu.</p>
-                        <div class="location-actions">
-                            <a href="modesto.html" class="loc-btn loc-btn-primary">Visit Modesto</a>
-                            <a href="menu-modesto.html" class="loc-btn loc-btn-secondary">View Menu</a>
                         </div>
                     </div>
                 </div>
@@ -2666,7 +2641,7 @@
                 <div class="section-header" style="text-align:center; max-width:720px; margin:0 auto 3rem;">
                     <span class="section-label" style="display:block; color:var(--gold); letter-spacing:3px; font-size:0.85rem; text-transform:uppercase; margin-bottom:0.75rem;">From The Restaurant</span>
                     <h2 class="section-title" style="font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,2.75rem); color:var(--warm-black); margin-bottom:0.75rem;">Stories &amp; Insights</h2>
-                    <p class="section-subtitle" style="color:#555;">Chef notes, dining guides, and behind-the-scenes from Stockton and Modesto.</p>
+                    <p class="section-subtitle" style="color:#555;">Chef notes, dining guides, and behind-the-scenes from Stockton.</p>
                 </div>
                 <div class="stories-grid">
                     <article class="story-card">
@@ -2765,9 +2740,9 @@
                 <h3>Our Locations</h3>
                 <ul>
                     <li><a href="stockton.html" style="color: rgba(255,255,255,0.7);">Stockton Location</a></li>
-                    <li><a href="modesto.html" style="color: rgba(255,255,255,0.7);">Modesto Location</a></li>
+
                     <li><a href="menu-stockton.html" style="color: rgba(255,255,255,0.7);">Stockton Menu</a></li>
-                    <li><a href="menu-modesto.html" style="color: rgba(255,255,255,0.7);">Modesto Menu</a></li>
+
                 </ul>
             </div>
             <div class="footer-section">
@@ -2964,40 +2939,25 @@
         function openLocationModal(action, targetSection = '') {
             const modal = document.getElementById('locationChooserModal');
             const stBtn = document.getElementById('locBtnStockton');
-            const moBtn = document.getElementById('locBtnModesto');
+
             const note = document.getElementById('locModalNote');
 
             if (action === 'menu') {
                 stBtn.href = 'menu-stockton.html' + targetSection;
                 stBtn.innerHTML = '📍 Stockton Menu';
                 stBtn.target = '_self';
-
-                moBtn.href = 'menu-modesto.html' + targetSection;
-                moBtn.innerHTML = '📍 Modesto Menu';
-                moBtn.target = '_self';
-
-                if (note) note.textContent = 'Choose a location to view its full menu.';
+                if (note) note.textContent = 'View the Stockton menu.';
             } else if (action === 'order') {
                 stBtn.href = 'https://order.toasttab.com/online/raw-sushi-bistro-10742-trinity-pkwy-ste-d';
                 stBtn.innerHTML = '📍 Order Online — Stockton';
                 stBtn.target = '_blank';
                 stBtn.rel = 'noopener';
-
-                moBtn.href = 'tel:+12095669560';
-                moBtn.innerHTML = '📞 Call to Order — Modesto';
-                moBtn.target = '_self';
-
-                if (note) note.textContent = 'Online ordering is currently available for Stockton. For Modesto, please call to order.';
+                if (note) note.textContent = 'Online ordering and phone ordering are available for Stockton.';
             } else if (action === 'reserve') {
                 stBtn.href = 'tel:+12099549729';
                 stBtn.innerHTML = '📞 Call to Reserve — Stockton';
                 stBtn.target = '_self';
-
-                moBtn.href = 'tel:+12095669560';
-                moBtn.innerHTML = '📞 Call to Reserve — Modesto';
-                moBtn.target = '_self';
-
-                if (note) note.textContent = 'Reservations are taken by phone — call your closest location.';
+                if (note) note.textContent = 'Reservations are taken by phone at Stockton.';
             }
 
             __lastFocusedBeforeModal = document.activeElement;

@@ -33,7 +33,7 @@ header.
 | **Posts** | Create draft posts (with content-policy scoring preview), list all posts with filters, transition a post through the workflow. |
 | **Calendar** | Two tables: scheduled / approved posts grouped by `publish_at`, and recently published. |
 | **Media** | Upload images (with required `alt` text), browse the media library. |
-| **Menu** | Add/edit categories and items per location (`raw_stockton` / `raw_modesto`). |
+| **Menu** | Add/edit categories and items for Stockton (`raw_stockton`). |
 | **Agent-coding** | Bridge connection card, last 20 jobs, **Trigger site.sync** button. |
 | **Audit Log** | Append-only log of every state-changing action (admin + agent). |
 | **Settings** | Shows the current bridge configuration and the raw status response. |

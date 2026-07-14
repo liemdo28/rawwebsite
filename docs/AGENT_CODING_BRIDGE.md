@@ -75,7 +75,7 @@ operation; the bridge never chains commands.
 
 | Command | Payload shape |
 |---|---|
-| `content.post.create` | `{ title, slug, body, excerpt?, image?, primary_keyword?, secondary_keywords?, cta?, cta_url?, post_type?, target_audience?, location: 'raw_stockton' \| 'raw_modesto' }` |
+| `content.post.create` | `{ title, slug, body, excerpt?, image?, primary_keyword?, secondary_keywords?, cta?, cta_url?, post_type?, target_audience?, location: 'raw_stockton' \| 'raw_stockton' }` |
 | `content.post.update` | `{ id, patch: { ...same shape as create... } }` |
 | `content.post.approve` | `{ id }` |
 | `content.post.reject` | `{ id }` |
