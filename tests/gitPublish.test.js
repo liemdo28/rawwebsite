@@ -121,13 +121,15 @@ test('commitToGit: PUTs markdown to GitHub content API and returns commit hash',
     assert.deepEqual(r.files, [
       'content/posts/best-sushi-stockton.md',
       'content/index.json',
+      'public/best-sushi-stockton.html',
+      'public/sitemap.xml',
     ]);
     assert.equal(r.actor, 'admin:tester');
     assert.equal(r.action, 'create');
 
-    // We expect: 1 GET for SHA + 1 PUT for the markdown + 1 GET for index
-    // JSON SHA + 1 PUT for the index JSON = 4 calls.
-    assert.equal(observed.length, 4);
+    // We expect: (GET SHA + PUT) for markdown, index.json, the rendered page,
+    // and sitemap.xml = 4 * (GET + PUT) = 8 calls.
+    assert.equal(observed.length, 8);
 
     // First call: GET markdown SHA
     assert.equal(observed[0].method, 'GET');
@@ -157,6 +159,23 @@ test('commitToGit: PUTs markdown to GitHub content API and returns commit hash',
     assert.equal(decodedIndex.posts[0].slug, 'best-sushi-stockton');
     assert.equal(decodedIndex.posts[0].title, 'Best Sushi in Stockton');
     assert.equal(decodedIndex.posts[0].published, false, 'status was publishing, not yet published');
+
+    // Fifth/sixth call: GET + PUT the rendered static page — this is the
+    // actual routable HTML a visitor/crawler would hit.
+    assert.equal(observed[4].method, 'GET');
+    assert.match(observed[4].url, /\/contents\/public\/best-sushi-stockton\.html/);
+    assert.equal(observed[5].method, 'PUT');
+    assert.match(observed[5].url, /\/contents\/public\/best-sushi-stockton\.html/);
+    const decodedPage = Buffer.from(observed[5].body.content, 'base64').toString('utf8');
+    assert.match(decodedPage, /<title>Best Sushi in Stockton \| Raw Sushi Bar<\/title>/);
+    assert.match(decodedPage, /rel="canonical" href="https:\/\/www\.rawsushibar\.com\/best-sushi-stockton\.html"/);
+
+    // Seventh/eighth call: GET + PUT sitemap.xml with the new URL appended.
+    assert.equal(observed[6].method, 'GET');
+    assert.match(observed[6].url, /\/contents\/public\/sitemap\.xml/);
+    assert.equal(observed[7].method, 'PUT');
+    const decodedSitemap = Buffer.from(observed[7].body.content, 'base64').toString('utf8');
+    assert.match(decodedSitemap, /https:\/\/www\.rawsushibar\.com\/best-sushi-stockton\.html/);
   } finally {
     globalThis.fetch = origFetch;
   }
