@@ -53,7 +53,7 @@ export function toKvRecord(article, { now = new Date().toISOString() } = {}) {
     schema_type: article.schema_type || 'Article',
     status: 'scheduled',
     publish_at: article.publish_at,
-    created_by: 'ceo:campaign-seed',
+    created_by: 'website_owner_authorization',
     created_at: now,
     updated_at: now,
   };
