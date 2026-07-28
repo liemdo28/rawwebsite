@@ -31,37 +31,35 @@ function kv(args) {
   });
 }
 
-const now = new Date().toISOString();
+const CAMPAIGN_ID = 'seo-30-article-campaign-07ee9f3';
+// Deterministic id (not crypto.randomUUID()) so this script is safely
+// re-runnable: the same campaign always maps to the same entry id, which
+// doubles as the idempotency key below.
+const ENTRY_ID = `audit-campaign-authorization-${CAMPAIGN_ID}`;
 const recordIds = campaign.map(a => `campaign-${a.slug}`);
 
-// Same row shape as lib/auditLog.js's record(), built ahead of time so this
-// script can run outside the Workers runtime.
-const entry = {
-  id: (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : `audit-${Date.now()}`,
-  actor: 'website_owner_authorization',
-  action: 'campaign.publishing_authorized',
-  target_type: 'campaign',
-  target_id: 'seo-30-article-campaign-07ee9f3',
-  meta: {
-    campaign_id: 'seo-30-article-campaign-07ee9f3',
-    commit: '07ee9f3',
-    record_ids: recordIds,
-    record_count: recordIds.length,
-    authorization_scope: 'Explicit authorization to publish this specific 30-article SEO campaign (commit 07ee9f3) only, given by the website owner/operator in chat. Does not establish or imply the authorizing party holds the "ceo" or "marketing_manager" role named in config/content_policy.json.',
-    note: 'This is an explicit campaign-level publishing authorization, recorded because config/content_policy.json declares a two-reviewer (ceo + marketing_manager) approval requirement that is NOT currently enforced anywhere in code — lib/posts.js ALLOWED_TRANSITIONS and lib/scheduler.js processScheduledPosts have no check against that policy block. This entry documents the authorization that stands in for that unimplemented gate for this campaign only.',
-  },
-  created_at: now,
-};
+/** Build the entry fresh each run (created_at set only if/when actually written). */
+function buildEntry(createdAt) {
+  return {
+    id: ENTRY_ID,
+    actor: 'website_owner_authorization',
+    action: 'campaign.publishing_authorized',
+    target_type: 'campaign',
+    target_id: CAMPAIGN_ID,
+    meta: {
+      campaign_id: CAMPAIGN_ID,
+      commit: '07ee9f3',
+      record_ids: recordIds,
+      record_count: recordIds.length,
+      authorization_scope: 'Explicit authorization to publish this specific 30-article SEO campaign (commit 07ee9f3) only, given by the website owner/operator in chat. Does not establish or imply the authorizing party holds the "ceo" or "marketing_manager" role named in config/content_policy.json.',
+      note: 'This is an explicit campaign-level publishing authorization, recorded because config/content_policy.json declares a two-reviewer (ceo + marketing_manager) approval requirement that is NOT currently enforced anywhere in code — lib/posts.js ALLOWED_TRANSITIONS and lib/scheduler.js processScheduledPosts have no check against that policy block. This entry documents the authorization that stands in for that unimplemented gate for this campaign only.',
+    },
+    created_at: createdAt,
+  };
+}
 
 async function main() {
   const dryRun = process.argv.includes('--dry-run');
-  console.log('[record-campaign-authorization] Entry to append:');
-  console.log(JSON.stringify(entry, null, 2));
-
-  if (dryRun) {
-    console.log('[record-campaign-authorization] --dry-run: not writing. Exiting.');
-    return;
-  }
 
   console.log('[record-campaign-authorization] Fetching current table:audit_log...');
   let current;
@@ -73,6 +71,22 @@ async function main() {
   }
   console.log(`[record-campaign-authorization] Current audit_log has ${current.length} entries.`);
 
+  // Idempotency check: an entry for this campaign_id already exists.
+  const existing = current.find(e => e.action === 'campaign.publishing_authorized' && e.meta?.campaign_id === CAMPAIGN_ID);
+  if (existing) {
+    console.log(`[record-campaign-authorization] SKIP: an authorization entry for ${CAMPAIGN_ID} already exists (id=${existing.id}, created_at=${existing.created_at}). Not duplicating.`);
+    return { skipped: true, entry: existing };
+  }
+
+  const entry = buildEntry(new Date().toISOString());
+  console.log('[record-campaign-authorization] Entry to append:');
+  console.log(JSON.stringify(entry, null, 2));
+
+  if (dryRun) {
+    console.log('[record-campaign-authorization] --dry-run: not writing. Exiting.');
+    return { skipped: false, dryRun: true, entry };
+  }
+
   const updated = [...current, entry];
   const tmpDir = mkdtempSync(join(tmpdir(), 'rawwebsite-audit-'));
   const tmpFile = join(tmpDir, 'audit_log.json');
@@ -81,12 +95,13 @@ async function main() {
   console.log(`[record-campaign-authorization] Wrote table:audit_log with ${updated.length} entries (was ${current.length}).`);
 
   const verify = JSON.parse(kv(['key', 'get', 'table:audit_log']));
-  const found = verify.find(e => e.id === entry.id);
-  console.log('[record-campaign-authorization] Verified entry present:', !!found);
-  if (!found) {
-    console.error('[record-campaign-authorization] FAILED: entry not found after write.');
+  const matches = verify.filter(e => e.action === 'campaign.publishing_authorized' && e.meta?.campaign_id === CAMPAIGN_ID);
+  console.log('[record-campaign-authorization] Matching entries after write (must be exactly 1):', matches.length);
+  if (matches.length !== 1) {
+    console.error('[record-campaign-authorization] FAILED: expected exactly 1 matching entry, found', matches.length);
     process.exit(1);
   }
+  return { skipped: false, entry };
 }
 
 main().catch(e => { console.error('[record-campaign-authorization] FAILED:', e.message); process.exit(1); });
