@@ -149,7 +149,10 @@ test('commitToGit: returns ok:false on GitHub API authentication failure', async
   try {
     const r = await commitToGit(ENV, POST);
     assert.equal(r.ok, false);
-    assert.equal(r.error, 'github_api_error:401');
+    // The error now carries enough detail to diagnose which endpoint
+    // failed and GitHub's own message, not just a bare status code.
+    assert.match(r.error, /^github_api_error:401:GET:\/git\/ref\/heads\/main/);
+    assert.match(r.error, /Bad credentials/);
   } finally {
     mock.restore();
   }
@@ -160,7 +163,8 @@ test('commitToGit: returns ok:false on GitHub API write failure', async () => {
   try {
     const r = await commitToGit(ENV, POST);
     assert.equal(r.ok, false);
-    assert.equal(r.error, 'github_api_error:422');
+    assert.match(r.error, /^github_api_error:422:PATCH:\/git\/refs\/heads\/main/);
+    assert.match(r.error, /write failed/);
   } finally {
     mock.restore();
   }
