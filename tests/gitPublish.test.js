@@ -83,8 +83,6 @@ function gitDataRoutes({ identical = false, failPatchStatus = null, failReadStat
   const current = {
     'content/posts/best-sushi-stockton.md': identical ? null : '',
     'content/index.json': identical ? null : JSON.stringify({ posts: [] }, null, 2),
-    'best-sushi-stockton.html': identical ? null : '',
-    'sitemap.xml': identical ? null : '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n</urlset>\n',
     'public/best-sushi-stockton.html': identical ? null : '',
     'public/sitemap.xml': identical ? null : '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n</urlset>\n',
   };
@@ -103,8 +101,6 @@ function gitDataRoutes({ identical = false, failPatchStatus = null, failReadStat
         if (identical) {
           if (path === 'content/posts/best-sushi-stockton.md') return contentResponse(postToMarkdown(POST));
           if (path === 'content/index.json') return contentResponse(JSON.stringify({ posts: [{ slug: POST.slug, title: POST.title, excerpt: POST.excerpt, date: POST.date, post_type: 'blog', image: '', primary_keyword: POST.primary_keyword, secondary_keywords: POST.secondary_keywords, published: true }] }, null, 2));
-          if (path === 'best-sushi-stockton.html') return contentResponse(renderArticlePage(POST));
-          if (path === 'sitemap.xml') return contentResponse('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>https://www.rawsushibar.com/best-sushi-stockton.html</loc>\n    <lastmod>2026-06-05</lastmod>\n  </url>\n</urlset>\n');
           if (path === 'public/best-sushi-stockton.html') return contentResponse(renderArticlePage(POST));
           if (path === 'public/sitemap.xml') return contentResponse('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>https://www.rawsushibar.com/best-sushi-stockton.html</loc>\n    <lastmod>2026-06-05</lastmod>\n  </url>\n</urlset>\n');
         }
@@ -140,11 +136,14 @@ test('commitToGit: creates one publication commit with all required artifacts', 
     assert.deepEqual(r.files, [
       'content/posts/best-sushi-stockton.md',
       'content/index.json',
-      'best-sushi-stockton.html',
-      'sitemap.xml',
       'public/best-sushi-stockton.html',
       'public/sitemap.xml',
     ]);
+    // Only public/ is ever deployed (build.mjs never touches root-level loose
+    // files) — a root-level {slug}.html or root-level sitemap.xml must never
+    // be part of the publication commit.
+    assert.ok(!r.files.includes('best-sushi-stockton.html'), 'must not write a root-level page duplicate');
+    assert.ok(!r.files.includes('sitemap.xml'), 'must not write a root-level sitemap duplicate');
 
     const treeCalls = mock.observed.filter(o => o.method === 'POST' && o.path.endsWith('/git/trees'));
     const commitCalls = mock.observed.filter(o => o.method === 'POST' && o.path.endsWith('/git/commits'));

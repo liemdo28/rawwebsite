@@ -45,7 +45,7 @@ export const campaign = [
 <h2>Where do we park?</h2>
 <p>Raw Sushi Bar is in the Trinity Parkway retail corridor in Stockton, in a shared lot in front of the suite. It's a straightforward walk-up from parking to the door, which makes it easy for families and larger groups traveling in more than one car.</p>
 <h2>One more thing to know</h2>
-<p>Like any restaurant serving raw fish, we're required to note: the consumption of raw or undercooked eggs, meat, poultry, seafood, or shellfish may increase your risk of foodborne illness. If you'd rather stick to cooked dishes, our <a href="/never-had-sushi-cooked-options-at-raw-sushi-bar-stockton.html">cooked-menu guide</a> covers what's available.</p>
+<p>Like any restaurant serving raw fish, we're required to note: the consumption of raw or undercooked eggs, meat, poultry, seafood, or shellfish may increase your risk of foodborne illness. If you'd rather stick to cooked dishes, our <a href="/menu/stockton/">full menu</a> covers what's available.</p>
 <div class="cta"><h2>Ready to Plan Your Visit?</h2><p>Have a question we didn't cover, or want to book a table?</p><a class="button" href="tel:+12099549729">Call ${PHONE}</a></div>`,
 },
 {
@@ -202,7 +202,7 @@ export const campaign = [
   cta: 'Browse the menu together before you decide.', cta_url: MENU_URL,
   body: `<p>Manteca sits about 15 to 17 miles from Stockton, a drive of roughly 20 minutes up CA-99 and CA-4. For families deciding where to go for dinner, that's close enough to make Raw Sushi Bar a realistic option without an evening built entirely around driving.</p>
 <h2>Something for Everyone at the Table</h2>
-<p>Not every kid — or every adult — wants raw fish, and that's fine. The menu includes cooked entrees like Chicken Katsu, Chicken Teriyaki, and Vegetable Tempura alongside the sushi and sashimi, so a family with mixed preferences can order together without anyone settling for something they don't want. Our <a href="/never-had-sushi-cooked-options-at-raw-sushi-bar-stockton.html">cooked-menu guide</a> breaks these down further.</p>
+<p>Not every kid — or every adult — wants raw fish, and that's fine. The menu includes cooked entrees like Chicken Katsu, Chicken Teriyaki, and Vegetable Tempura alongside the sushi and sashimi, so a family with mixed preferences can order together without anyone settling for something they don't want. Our <a href="/menu/stockton/">full menu</a> breaks these down further.</p>
 <h2>Making Room for a Group</h2>
 <p>If your family is larger than a table for two, it's worth calling ${PHONE} ahead, especially for weekend evenings. Check splitting is available for parties of four or fewer, which helps if you're coordinating who's paying for what.</p>
 <h2>Worth the Short Drive</h2>
@@ -269,7 +269,7 @@ export const campaign = [
   cta: 'Order ahead so it is ready when you arrive.', cta_url: ORDER_URL,
   body: `<p>Tracy sits about 21 miles from Stockton, roughly 22 minutes via I-5 South and CA-4. For commuters running that stretch regularly, it's a realistic dinner stop rather than a special trip.</p>
 <h2>Timing It Around Your Commute</h2>
-<p>If you're heading home toward Tracy at the end of the day, or coming into Stockton for work, ordering ahead for pickup means dinner is ready without adding much to your evening. Our <a href="/dine-in-takeout-or-delivery-choosing-your-raw-sushi-bar-order.html">dine-in vs. takeout guide</a> walks through the ordering options if you're deciding between eating in or grabbing food to go.</p>
+<p>If you're heading home toward Tracy at the end of the day, or coming into Stockton for work, ordering ahead for pickup means dinner is ready without adding much to your evening. Our <a href="/how-to-order-sushi-online-in-stockton.html">guide to ordering online</a> walks through the ordering options if you're deciding between eating in or grabbing food to go.</p>
 <h2>Why Sushi Works for a Commute Stop</h2>
 <p>Rolls, nigiri, and sashimi travel well over a short drive since they're meant to be served cold — unlike a lot of hot takeout that doesn't hold up as well by the time you're home.</p>
 <h2>A Realistic Weeknight Option</h2>
@@ -336,7 +336,7 @@ export const campaign = [
   cta: 'Call ahead before you make the drive.', cta_url: 'tel:+12099549729',
   body: `<p>Modesto to Stockton is roughly 29 to 33 miles, about 35 to 40 minutes depending on traffic and route. That's a real drive, not a quick errand — so it's fair to ask whether it's worth it just for dinner.</p>
 <h2>When It Makes Sense</h2>
-<p>If you're already planning to be in Stockton for something else — visiting family, running an errand, catching a <a href="/stockton-kings-or-ports-game-night-dinner-guide.html">Stockton Kings or Ports game</a> — folding in dinner at Raw Sushi Bar adds very little extra time. It also makes more sense for a special occasion than a random Tuesday, simply because of the round trip.</p>
+<p>If you're already planning to be in Stockton for something else — visiting family, running an errand, catching a Stockton Kings or Ports game — folding in dinner at Raw Sushi Bar adds very little extra time. It also makes more sense for a special occasion than a random Tuesday, simply because of the round trip.</p>
 <h2>When It Might Not</h2>
 <p>If you're looking for a quick weeknight dinner and don't have another reason to be in Stockton, a 35-to-40-minute drive each way is a genuine ask. That's a fair trade-off to weigh honestly rather than pretend away.</p>
 <h2>Making It Worth the Trip</h2>

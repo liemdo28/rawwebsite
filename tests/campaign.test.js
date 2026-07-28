@@ -78,17 +78,68 @@ test('campaign: every article has a documented cannibalization rationale ("avoid
 
 test('campaign: internal links only point to slugs that exist either in this campaign or in the pre-existing site', () => {
   const campaignSlugs = new Set(campaign.map(a => `/${a.slug}.html`));
-  const linkPattern = /href="(\/[a-z0-9-]+\.html)"/g;
+  const linkPattern = /href="(\/[a-z0-9/-]+(?:\.html)?\/?)"/g;
   for (const a of campaign) {
     let m;
+    linkPattern.lastIndex = 0;
     while ((m = linkPattern.exec(a.body))) {
       const href = m[1];
+      if (href === '/') continue;
       const existsAsCampaignArticle = campaignSlugs.has(href);
-      const existsAsLegacyPage = existsSync(join(ROOT, 'public', href.replace(/^\//, '')));
+      const relPath = href.replace(/^\//, '');
+      const existsAsLegacyHtmlPage = existsSync(join(ROOT, 'public', relPath));
+      const existsAsLegacyDirPage = existsSync(join(ROOT, 'public', relPath, 'index.html'));
       assert.ok(
-        existsAsCampaignArticle || existsAsLegacyPage,
+        existsAsCampaignArticle || existsAsLegacyHtmlPage || existsAsLegacyDirPage,
         `${a.slug} links to ${href}, which is neither another campaign article nor an existing public/ page`,
       );
     }
   }
+});
+
+/**
+ * Publication-aware link validation (added after the 2026-07-28 soft-404
+ * incident): a source article must never link to a campaign article whose
+ * publish_at is later than the source's own publish_at. A reader following
+ * a link from an already-live article must always land on real, live
+ * content — never a not-yet-published slug. Legacy (pre-existing) pages are
+ * always fine to link to, since they're live for the whole campaign window.
+ */
+test('campaign: no article links to a campaign article scheduled to publish after it (no forward links)', () => {
+  const campaignBySlug = new Map(campaign.map(a => [a.slug, a]));
+  const linkPattern = /href="\/([a-z0-9-]+)\.html"/g;
+  const violations = [];
+  for (const a of campaign) {
+    let m;
+    linkPattern.lastIndex = 0;
+    while ((m = linkPattern.exec(a.body))) {
+      const targetSlug = m[1];
+      const target = campaignBySlug.get(targetSlug);
+      if (!target) continue; // legacy page, not subject to this rule
+      if (new Date(target.publish_at) > new Date(a.publish_at)) {
+        violations.push(`${a.slug} (due ${a.publish_at}) links to ${targetSlug} (due ${target.publish_at}), which is not yet published at that time`);
+      }
+    }
+  }
+  assert.deepEqual(violations, [], `Forward links found:\n${violations.join('\n')}`);
+});
+
+test('campaign: every campaign-to-campaign link points backward in time or is a same-article self-reference', () => {
+  const campaignBySlug = new Map(campaign.map(a => [a.slug, a]));
+  const linkPattern = /href="\/([a-z0-9-]+)\.html"/g;
+  let checkedAtLeastOne = false;
+  for (const a of campaign) {
+    let m;
+    linkPattern.lastIndex = 0;
+    while ((m = linkPattern.exec(a.body))) {
+      const target = campaignBySlug.get(m[1]);
+      if (!target) continue;
+      checkedAtLeastOne = true;
+      assert.ok(
+        new Date(target.publish_at).getTime() <= new Date(a.publish_at).getTime(),
+        `${a.slug} -> ${target.slug}: target publishes after source`,
+      );
+    }
+  }
+  assert.ok(checkedAtLeastOne, 'sanity check: expected at least one campaign-to-campaign link to exist and be checked');
 });
