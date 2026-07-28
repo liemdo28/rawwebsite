@@ -46,7 +46,7 @@ function installStatefulGitFetch() {
     const method = init.method || 'GET';
     const body = init.body ? JSON.parse(init.body) : null;
     observed.push({ method, path: u.pathname, body });
-    if (method === 'GET' && u.pathname.endsWith('/git/ref/heads/main')) return jsonResponse({ object: { sha: 'base-commit' } });
+    if (method === 'GET' && u.pathname.endsWith('/git/ref/heads/main')) return jsonResponse({ object: { sha: 'base-commit', type: 'commit' } });
     if (method === 'GET' && u.pathname.endsWith('/git/commits/base-commit')) return jsonResponse({ sha: 'base-commit', tree: { sha: 'base-tree' } });
     if (method === 'GET' && u.pathname.includes('/contents/')) {
       const path = decodeURIComponent(u.pathname.split('/contents/')[1]);
@@ -117,7 +117,7 @@ test('reconcileStalePublishing: a verified artifact reconciles to published, pre
 
   const result = await reconcileStalePublishing(store, {
     now: new Date(),
-    verifyArtifact: async () => ({ ok: true, commit: 'original-commit-sha', repository: 'acme/site', branch: 'main', files: ['public/stuck-post.html', 'public/sitemap.xml'] }),
+    verifyArtifact: async () => ({ verified: true, branchCommitSha: 'original-commit-sha', pageBlobSha: 'page-blob-sha', sitemapBlobSha: 'sitemap-blob-sha', repository: 'acme/site', branch: 'main', files: ['public/stuck-post.html', 'public/sitemap.xml'] }),
   });
 
   assert.deepEqual(result.reconciled, ['campaign-stuck-post-1']);

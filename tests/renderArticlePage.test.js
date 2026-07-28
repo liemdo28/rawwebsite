@@ -100,3 +100,38 @@ test('addUrlToSitemap: creates a minimal valid sitemap when none exists', () => 
   assert.match(created, /<urlset xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9">/);
   assert.match(created, /test-article-slug\.html/);
 });
+
+/**
+ * Deterministic rendering across scheduler state retries (2026-07-28
+ * duplicate-commit gap follow-up). The scheduler's own state machine
+ * (scheduled -> publishing -> scheduled on a failed retry -> publishing
+ * again) stamps a fresh updated_at on every write, even though the post's
+ * actual editorial content never changed. Before this fix, dateModified was
+ * derived from post.updated_at, so re-rendering the identical post after a
+ * retry produced different bytes — which made commitToGit's own idempotency
+ * check (byte-for-byte content comparison) wrongly conclude the page had
+ * changed, creating a second, redundant Git commit for content that was
+ * already correctly published.
+ */
+test('renderArticlePage: is byte-identical for the same post across simulated scheduler state retries (only status/updated_at differ)', () => {
+  const attempt1 = { ...POST, status: 'publishing', updated_at: '2026-07-28T06:00:00.000Z' };
+  const attempt2 = { ...POST, status: 'publishing', updated_at: '2026-07-28T06:15:00.000Z' }; // a later retry, different KV write timestamp
+  const html1 = renderArticlePage(attempt1);
+  const html2 = renderArticlePage(attempt2);
+  assert.equal(html1, html2, 'rendered HTML must not change merely because updated_at (a state-transition timestamp) differs between retries');
+});
+
+test('renderArticlePage: dateModified comes from content_updated_at when present, not the state-transition updated_at', () => {
+  const post = { ...POST, updated_at: '2026-07-28T09:00:00.000Z', content_updated_at: '2026-07-15T00:00:00.000Z' };
+  const html = renderArticlePage(post);
+  const ld = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
+  assert.equal(ld.dateModified, '2026-07-15T00:00:00.000Z');
+  assert.notEqual(ld.dateModified, post.updated_at);
+});
+
+test('renderArticlePage: falls back to publishedDate (not post.updated_at or the current time) when content_updated_at is absent — preserves compatibility with existing records like article #1', () => {
+  const post = { ...POST, updated_at: '2026-07-28T09:00:00.000Z' }; // no content_updated_at, as every currently-live record has
+  const html = renderArticlePage(post);
+  const ld = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
+  assert.equal(ld.dateModified, post.publish_at);
+});

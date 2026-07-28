@@ -81,7 +81,13 @@ export async function onRequest(context) {
     : null;
   const reconciliation = await reconcileStalePublishing(store, { verifyArtifact, now });
 
-  const result = await processScheduledPosts(store, { gitPublish, now });
+  // verifyArtifact is also passed to processScheduledPosts itself: for a due
+  // 'scheduled' post (not a stuck 'publishing' one — that's reconcileStalePublishing's
+  // job above), this closes the other half of the 2026-07-28 duplicate-commit
+  // gap — a prior run whose Git commit succeeded but whose published-transition
+  // KV write failed and *rolled back to 'scheduled'* would otherwise call
+  // commitToGit again on retry.
+  const result = await processScheduledPosts(store, { gitPublish, verifyArtifact, now });
 
   // Best-effort, matching the gitPublish audit write above: this run's real
   // outcome (result, used for the response below) is already final by this
@@ -114,8 +120,9 @@ export async function onRequest(context) {
           now: now.toISOString(),
           processed: result.processed,
           published: result.published,
+          reconciled_from_scheduled: result.reconciled,
           failed: result.failed,
-          reconciled: reconciliation.reconciled,
+          reconciled_from_stale_publishing: reconciliation.reconciled,
           reverted: reconciliation.reverted,
           source: 'github_actions',
           github_run_id: request.headers.get('X-GitHub-Run-Id') || null,

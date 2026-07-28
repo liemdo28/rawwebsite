@@ -394,81 +394,142 @@ test('verifyGitConfig: never includes the token or Authorization header value in
 });
 
 /**
- * verifyGitArtifact() — added for lib/scheduler.js's stale-'publishing'
- * reconciliation (2026-07-28 KV-quota hardening follow-up, Part 3/4). Reads
- * GitHub's Contents API directly, never the live site — a Cloudflare Pages
- * SPA-fallback false-200 (the 2026-07-28 soft-404 incident) must never be
- * mistaken for artifact proof. Read-only: makes no POST/PATCH calls, so it
- * can never create a duplicate commit.
+ * verifyGitArtifact() — added for lib/scheduler.js's stale-'publishing' and
+ * reconcile-before-publish reconciliation paths (2026-07-28 KV-quota
+ * hardening follow-ups). Reads GitHub's Contents API directly, never the
+ * live site — a Cloudflare Pages SPA-fallback false-200 (the 2026-07-28
+ * soft-404 incident) must never be mistaken for artifact proof. Deliberately
+ * strict: requires the page content to be byte-identical to
+ * renderArticlePage(post) computed right now (only meaningful because
+ * rendering is deterministic — see renderArticlePage.test.js), not just
+ * "a file exists" or "a substring matches." Read-only: makes no POST/PATCH
+ * calls, so it can never create a duplicate commit. Returns distinct
+ * pageBlobSha/sitemapBlobSha/branchCommitSha fields so a blob SHA is never
+ * confused with the real publication (branch/commit) SHA.
  */
-test('verifyGitArtifact: ok:true with the real commit sha when the page and sitemap entry both exist', async () => {
-  const origFetch = globalThis.fetch;
+function installVerifyFetch({ pageHtml, sitemapXml, refSha = 'verified-commit-sha', refType = 'commit' } = {}) {
   const calls = [];
+  const origFetch = globalThis.fetch;
   globalThis.fetch = async (url, init = {}) => {
     calls.push({ method: init.method || 'GET', url: String(url) });
     if (String(url).includes('/contents/public/best-sushi-stockton.html')) {
-      return contentResponse('<html>real page</html>');
+      return pageHtml === undefined ? jsonResponse({ message: 'Not Found' }, 404) : contentResponse(pageHtml);
     }
     if (String(url).includes('/contents/public/sitemap.xml')) {
-      return contentResponse('<urlset><url><loc>https://www.rawsushibar.com/best-sushi-stockton.html</loc></url></urlset>');
+      return sitemapXml === undefined ? jsonResponse({ message: 'Not Found' }, 404) : contentResponse(sitemapXml);
     }
     if (String(url).endsWith('/git/ref/heads/main')) {
-      return jsonResponse({ object: { sha: 'verified-commit-sha' } });
+      return jsonResponse({ object: { sha: refSha, type: refType } });
     }
     return jsonResponse({ message: 'Not Found' }, 404);
   };
+  return { calls, restore() { globalThis.fetch = origFetch; } };
+}
+
+test('verifyGitArtifact: verified:true with distinct pageBlobSha/sitemapBlobSha/branchCommitSha when the page is byte-identical and the sitemap has exactly one matching entry', async () => {
+  const expectedHtml = renderArticlePage(POST);
+  const sitemap = `<urlset><url><loc>https://www.rawsushibar.com/best-sushi-stockton.html</loc></url></urlset>`;
+  const mock = installVerifyFetch({ pageHtml: expectedHtml, sitemapXml: sitemap });
   try {
     const r = await verifyGitArtifact(ENV, POST);
-    assert.equal(r.ok, true);
-    assert.equal(r.commit, 'verified-commit-sha');
+    assert.equal(r.verified, true);
+    assert.equal(r.ok, true, 'backward-compat alias');
+    assert.equal(r.branchCommitSha, 'verified-commit-sha');
+    assert.equal(r.commit, 'verified-commit-sha', 'backward-compat alias, must equal branchCommitSha, never a blob sha');
+    assert.equal(typeof r.pageBlobSha, 'string');
+    assert.equal(typeof r.sitemapBlobSha, 'string');
+    assert.notEqual(r.pageBlobSha, r.branchCommitSha, 'a blob sha must never be confused with the branch commit sha');
     assert.equal(r.repository, 'acme/website');
     assert.equal(r.branch, 'main');
     assert.deepEqual(r.files, ['public/best-sushi-stockton.html', 'public/sitemap.xml']);
-    assert.ok(calls.every(c => c.method === 'GET'), 'verifyGitArtifact must never write — GET requests only');
+    assert.ok(mock.calls.every(c => c.method === 'GET'), 'verifyGitArtifact must never write — GET requests only');
   } finally {
-    globalThis.fetch = origFetch;
+    mock.restore();
   }
 });
 
-test('verifyGitArtifact: ok:false when the page file does not exist (no commit ever happened)', async () => {
-  const origFetch = globalThis.fetch;
-  globalThis.fetch = async () => jsonResponse({ message: 'Not Found' }, 404);
+test('verifyGitArtifact: mismatchReason artifact_missing_page when the page file does not exist (no commit ever happened)', async () => {
+  const mock = installVerifyFetch({}); // both page and sitemap undefined -> 404
   try {
     const r = await verifyGitArtifact(ENV, POST);
-    assert.equal(r.ok, false);
-    assert.equal(r.error, 'artifact_missing_page');
+    assert.equal(r.verified, false);
+    assert.equal(r.mismatchReason, 'artifact_missing_page');
   } finally {
-    globalThis.fetch = origFetch;
+    mock.restore();
   }
 });
 
-test('verifyGitArtifact: ok:false when the page exists but the sitemap has no matching entry', async () => {
-  const origFetch = globalThis.fetch;
-  globalThis.fetch = async (url) => {
-    if (String(url).includes('/contents/public/best-sushi-stockton.html')) {
-      return contentResponse('<html>real page</html>');
-    }
-    if (String(url).includes('/contents/public/sitemap.xml')) {
-      return contentResponse('<urlset></urlset>'); // no matching <loc> entry
-    }
-    return jsonResponse({ message: 'Not Found' }, 404);
-  };
+test('verifyGitArtifact: mismatchReason artifact_missing_canonical when the page exists but is not this post\'s canonical page (e.g. a stale/different page left at this path)', async () => {
+  const mock = installVerifyFetch({ pageHtml: '<html><body>unrelated content, no canonical link at all</body></html>' });
   try {
     const r = await verifyGitArtifact(ENV, POST);
-    assert.equal(r.ok, false);
-    assert.equal(r.error, 'artifact_missing_sitemap_entry');
+    assert.equal(r.verified, false);
+    assert.equal(r.mismatchReason, 'artifact_missing_canonical');
+    assert.equal(typeof r.pageBlobSha, 'string', 'the blob sha of the mismatched page should still be reported for diagnosis');
   } finally {
-    globalThis.fetch = origFetch;
+    mock.restore();
   }
 });
 
-test('verifyGitArtifact: returns ok:false without any network call when credentials are missing', async () => {
+test('verifyGitArtifact: mismatchReason artifact_content_mismatch when the page has the right canonical URL but stale/edited body content', async () => {
+  const stalePage = renderArticlePage(POST).replace('A long body about sushi in Stockton.', 'An OLD, since-edited body.');
+  const mock = installVerifyFetch({ pageHtml: stalePage });
+  try {
+    const r = await verifyGitArtifact(ENV, POST);
+    assert.equal(r.verified, false);
+    assert.equal(r.mismatchReason, 'artifact_content_mismatch');
+  } finally {
+    mock.restore();
+  }
+});
+
+test('verifyGitArtifact: mismatchReason artifact_missing_sitemap_entry when the page matches exactly but the sitemap has no entry for it', async () => {
+  const mock = installVerifyFetch({ pageHtml: renderArticlePage(POST), sitemapXml: '<urlset></urlset>' });
+  try {
+    const r = await verifyGitArtifact(ENV, POST);
+    assert.equal(r.verified, false);
+    assert.equal(r.mismatchReason, 'artifact_missing_sitemap_entry');
+    assert.equal(typeof r.sitemapBlobSha, 'string');
+  } finally {
+    mock.restore();
+  }
+});
+
+test('verifyGitArtifact: mismatchReason artifact_duplicate_sitemap_entry when the sitemap contains the URL more than once', async () => {
+  const dupeSitemap = '<urlset>' + '<url><loc>https://www.rawsushibar.com/best-sushi-stockton.html</loc></url>'.repeat(2) + '</urlset>';
+  const mock = installVerifyFetch({ pageHtml: renderArticlePage(POST), sitemapXml: dupeSitemap });
+  try {
+    const r = await verifyGitArtifact(ENV, POST);
+    assert.equal(r.verified, false);
+    assert.equal(r.mismatchReason, 'artifact_duplicate_sitemap_entry');
+  } finally {
+    mock.restore();
+  }
+});
+
+test('verifyGitArtifact: mismatchReason branch_commit_sha_unverifiable when the ref does not resolve to a commit object (fails closed, never invents a commit sha)', async () => {
+  const mock = installVerifyFetch({
+    pageHtml: renderArticlePage(POST),
+    sitemapXml: '<urlset><url><loc>https://www.rawsushibar.com/best-sushi-stockton.html</loc></url></urlset>',
+    refType: 'tag', // not 'commit' — e.g. a lightweight/annotated tag response shape
+  });
+  try {
+    const r = await verifyGitArtifact(ENV, POST);
+    assert.equal(r.verified, false);
+    assert.equal(r.mismatchReason, 'branch_commit_sha_unverifiable');
+    assert.equal(r.branchCommitSha, undefined, 'must never invent or return a commit sha when it cannot be verified as a real commit object');
+  } finally {
+    mock.restore();
+  }
+});
+
+test('verifyGitArtifact: verified:false without any network call when credentials are missing', async () => {
   const origFetch = globalThis.fetch;
   let called = false;
   globalThis.fetch = async () => { called = true; return jsonResponse({}); };
   try {
     const r = await verifyGitArtifact({}, POST);
-    assert.equal(r.ok, false);
+    assert.equal(r.verified, false);
     assert.equal(r.error, 'missing_github_credentials');
     assert.equal(called, false);
   } finally {
