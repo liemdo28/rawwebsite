@@ -19,14 +19,20 @@ id = "57a4e58e773445d590a658c7edecc853"
 # bucket_name = "rawwebsite-media"
 
 # ==============================================================================
-# Environment Variables (set via wrangler secret or .dev.vars)
+# Environment Variables
 # ==============================================================================
+# All of these — including STORE_BACKEND — are set via the Cloudflare Pages
+# dashboard (Settings -> Environment variables), not here. STORE_BACKEND is
+# deliberately NOT declared in a [vars] section: wrangler.toml only started
+# being read at all once the conflicting wrangler.jsonc (2026-07-28
+# deployment-routing incident) was removed, and a [vars] STORE_BACKEND here
+# collided with the dashboard's own STORE_BACKEND var ("Binding name
+# 'STORE_BACKEND' already in use"), failing the Function-publish step.
+#
 # ADMIN_SECRET        — Bearer token for admin API auth
 # GITHUB_TOKEN        — Personal access token for Git publish worker
 # GITHUB_OWNER        — Repository owner (e.g., "liemdo28")
 # GITHUB_REPO         — Repository name (e.g., "rawwebsite")
 # GITHUB_BRANCH       — Target branch (default: "main")
 # AGENT_CODING_SECRET — Webhook signature secret for Agent-coding
-
-[vars]
-STORE_BACKEND = "kv"
+# STORE_BACKEND       — "kv" in Production (dashboard-managed)
