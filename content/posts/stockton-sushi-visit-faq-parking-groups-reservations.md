@@ -10,8 +10,8 @@ primary_keyword: "raw sushi bar stockton questions"
 secondary_keywords: [raw sushi bar reservations, sushi restaurant policies stockton]
 post_type: seo_campaign
 location: raw_stockton
-status: publishing
-published: false
+status: published
+published: true
 ---
 
 <p>If you're planning a visit to Raw Sushi Bar at 10742 Trinity Parkway Suite D, Stockton, CA 95219, a few practical questions come up more than others. Here are direct answers, based on our actual house policies.</p>
