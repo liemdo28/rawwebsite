@@ -137,7 +137,7 @@ test('scheduled: calls injected gitPublish and publishes only after verified art
       commit: 'cron-commit',
       repository: 'acme/website',
       branch: 'main',
-      files: ['content/posts/git-cron-test.md', 'content/index.json', 'git-cron-test.html', 'sitemap.xml', 'public/git-cron-test.html', 'public/sitemap.xml'],
+      files: ['content/posts/git-cron-test.md', 'content/index.json', 'git-cron-test.html', 'sitemap.xml', 'public/git-cron-test.html', 'public/sitemap.xml', 'functions/_validPaths.mjs'],
     }),
   };
 
@@ -183,7 +183,7 @@ test('scheduled: full workflow — draft → scheduled → cron auto-publishes',
       commit: 'workflow-commit',
       repository: 'acme/website',
       branch: 'main',
-      files: ['content/posts/full-cron-workflow.md', 'content/index.json', 'full-cron-workflow.html', 'sitemap.xml', 'public/full-cron-workflow.html', 'public/sitemap.xml'],
+      files: ['content/posts/full-cron-workflow.md', 'content/index.json', 'full-cron-workflow.html', 'sitemap.xml', 'public/full-cron-workflow.html', 'public/sitemap.xml', 'functions/_validPaths.mjs'],
     }),
   };
 

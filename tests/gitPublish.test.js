@@ -15,7 +15,9 @@ import {
   verifyGitConfig,
 } from '../lib/gitPublish.js';
 import { postToMarkdown } from '../lib/posts.js';
-import { renderArticlePage } from '../lib/renderArticlePage.js';
+import { renderArticlePage, addPathsToValidPathsManifest } from '../lib/renderArticlePage.js';
+
+const DEFAULT_VALID_PATHS_MANIFEST = 'export const VALID_PATHS = new Set(["/"]);\n';
 
 const ENV = {
   GITHUB_TOKEN: 'ghp_test_123',
@@ -85,6 +87,7 @@ function gitDataRoutes({ identical = false, failPatchStatus = null, failReadStat
     'content/index.json': identical ? null : JSON.stringify({ posts: [] }, null, 2),
     'public/best-sushi-stockton.html': identical ? null : '',
     'public/sitemap.xml': identical ? null : '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n</urlset>\n',
+    'functions/_validPaths.mjs': identical ? null : DEFAULT_VALID_PATHS_MANIFEST,
   };
   return [
     Object.assign((method, u) => method === 'GET' && u.pathname.endsWith('/git/ref/heads/main'), {
@@ -103,6 +106,7 @@ function gitDataRoutes({ identical = false, failPatchStatus = null, failReadStat
           if (path === 'content/index.json') return contentResponse(JSON.stringify({ posts: [{ slug: POST.slug, title: POST.title, excerpt: POST.excerpt, date: POST.date, post_type: 'blog', image: '', primary_keyword: POST.primary_keyword, secondary_keywords: POST.secondary_keywords, published: true }] }, null, 2));
           if (path === 'public/best-sushi-stockton.html') return contentResponse(renderArticlePage(POST));
           if (path === 'public/sitemap.xml') return contentResponse('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>https://www.rawsushibar.com/best-sushi-stockton.html</loc>\n    <lastmod>2026-06-05</lastmod>\n  </url>\n</urlset>\n');
+          if (path === 'functions/_validPaths.mjs') return contentResponse(addPathsToValidPathsManifest(DEFAULT_VALID_PATHS_MANIFEST, POST));
         }
         return contentResponse(current[path]);
       },
@@ -138,6 +142,7 @@ test('commitToGit: creates one publication commit with all required artifacts', 
       'content/index.json',
       'public/best-sushi-stockton.html',
       'public/sitemap.xml',
+      'functions/_validPaths.mjs',
     ]);
     // Only public/ is ever deployed (build.mjs never touches root-level loose
     // files) — a root-level {slug}.html or root-level sitemap.xml must never
