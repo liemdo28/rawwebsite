@@ -92,3 +92,37 @@ test('_middleware: /api/* routes are never redirected to the 404 page, even when
   assert.equal(response.status, 200);
   assert.equal(await response.text(), 'NEXT() RESPONSE');
 });
+
+/**
+ * 2026-07-28 deployment-routing incident follow-up: VALID_PATHS is
+ * generated only from public/'s .html files (see
+ * scripts/generate-valid-paths.mjs) and was never meant to be an
+ * exhaustive manifest of every static asset. Gating every request against
+ * it — the original soft-404 fix — silently 404'd every CSS/JS/image/
+ * sitemap.xml/robots.txt request in Production, since none of those are
+ * (or should be) present in VALID_PATHS. Only page-shaped requests (a
+ * .html path, or an extensionless clean-URL path) are gated; anything with
+ * a non-.html file extension passes straight through to Cloudflare's own
+ * static-asset resolution.
+ */
+test('_middleware: a path with a non-.html extension (a real static asset) is never gated by VALID_PATHS, even when absent from the manifest', async () => {
+  assert.ok(!VALID_PATHS.has('/analytics.js'), 'precondition: asset paths are never added to VALID_PATHS');
+  const context = makeContext({ url: 'https://www.rawsushibar.com/analytics.js' });
+  const response = await onRequest(context);
+  assert.equal(response.status, 200, 'a real static asset must never be 404\'d by the page-routing manifest');
+  assert.equal(await response.text(), 'NEXT() RESPONSE');
+});
+
+test('_middleware: sitemap.xml and robots.txt pass through untouched, not gated as page-shaped requests', async () => {
+  for (const path of ['/sitemap.xml', '/robots.txt']) {
+    const context = makeContext({ url: `https://www.rawsushibar.com${path}` });
+    const response = await onRequest(context);
+    assert.equal(response.status, 200, `${path} must pass through to Cloudflare's asset resolution, not be gated`);
+  }
+});
+
+test('_middleware: an unknown extensionless path is still correctly gated and returns a real 404 (page-shaped detection still applies)', async () => {
+  const context = makeContext({ url: 'https://www.rawsushibar.com/this-page-does-not-exist-at-all' });
+  const response = await onRequest(context);
+  assert.equal(response.status, 404);
+});

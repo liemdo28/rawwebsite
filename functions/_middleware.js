@@ -24,12 +24,24 @@ export async function onRequest(context) {
     // fix this from inside a Function either — confirmed live (2026-07-28)
     // it applies the same SPA-fallback internally for BOTH existence checks
     // (never reports 404) and content fetches (ASSETS.fetch('/404.html')
-    // returned the homepage's own body, not 404.html's). So real/unknown
-    // paths are checked against _validPaths.mjs, and the 404 response body
-    // is served from _notFoundPage.mjs — both generated straight from
-    // public/ (see scripts/generate-valid-paths.mjs), with no dependency on
-    // Cloudflare's fetch-from-inside-a-Function behavior at all.
-    if (!url.pathname.startsWith('/api/') && !VALID_PATHS.has(url.pathname)) {
+    // returned the homepage's own body, not 404.html's).
+    //
+    // Only PAGE-shaped requests are checked against _validPaths.mjs — a
+    // request ending in .html, or with no file extension at all (a clean
+    // article/section URL like /menu/stockton/). Anything else (a path with
+    // a non-.html extension: .js, .css, .webp, .xml, .txt, .json, fonts,
+    // etc.) is a real static-asset request and is passed straight through
+    // to Cloudflare's own asset resolution untouched — _validPaths.mjs is
+    // generated only from public/'s .html files (see
+    // scripts/generate-valid-paths.mjs) and was never meant to be an
+    // exhaustive manifest of every asset on the site. Gating ALL paths
+    // against it (the original 2026-07-28 soft-404 fix) silently 404'd
+    // every CSS/JS/image/robots.txt/sitemap.xml request in production —
+    // found during the 2026-07-28 deployment-routing incident follow-up.
+    const isPageShapedRequest = !url.pathname.startsWith('/api/') &&
+        (url.pathname.endsWith('.html') || !/\.[a-z0-9]+$/i.test(url.pathname));
+
+    if (isPageShapedRequest && !VALID_PATHS.has(url.pathname)) {
         return new Response(NOT_FOUND_HTML, { status: 404, headers: { 'Content-Type': 'text/html; charset=utf-8' } });
     }
 
