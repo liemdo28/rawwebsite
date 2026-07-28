@@ -262,7 +262,7 @@ test('processScheduledPosts: calls gitPublish callback', async () => {
   const gitPublish = async (p) => {
     gitPublishCalled = true;
     gitPublishPost = p;
-    return { ok: true, commit: 'abc123', repository: 'acme/website', branch: 'main', files: ['content/posts/git-callback-test.md', 'content/index.json', 'public/git-callback-test.html', 'public/sitemap.xml'] };
+    return { ok: true, commit: 'abc123', repository: 'acme/website', branch: 'main', files: ['content/posts/git-callback-test.md', 'content/index.json', 'git-callback-test.html', 'sitemap.xml', 'public/git-callback-test.html', 'public/sitemap.xml'] };
   };
 
   const result = await processScheduledPosts(store, { gitPublish });
@@ -419,7 +419,7 @@ test('processScheduledPosts: successful commit publishes with git metadata', asy
       commit: 'commit-ok',
       repository: 'acme/site',
       branch: 'main',
-      files: ['content/posts/successful-commit.md', 'content/index.json', 'public/successful-commit.html', 'public/sitemap.xml'],
+      files: ['content/posts/successful-commit.md', 'content/index.json', 'successful-commit.html', 'sitemap.xml', 'public/successful-commit.html', 'public/sitemap.xml'],
     }),
   });
 
@@ -450,7 +450,7 @@ test('processScheduledPosts: retry after partial failure can publish later', asy
       commit: 'retry-commit',
       repository: 'acme/site',
       branch: 'main',
-      files: ['content/posts/partial-retry.md', 'content/index.json', 'public/partial-retry.html', 'public/sitemap.xml'],
+      files: ['content/posts/partial-retry.md', 'content/index.json', 'partial-retry.html', 'sitemap.xml', 'public/partial-retry.html', 'public/sitemap.xml'],
     }),
   });
   assert.deepEqual(second.published, [post.id]);
@@ -474,7 +474,7 @@ test('processScheduledPosts: already-published artifact idempotent retry can pub
       branch: 'main',
       action: 'noop',
       idempotent: true,
-      files: ['content/posts/idempotent-retry.md', 'content/index.json', 'public/idempotent-retry.html', 'public/sitemap.xml'],
+      files: ['content/posts/idempotent-retry.md', 'content/index.json', 'idempotent-retry.html', 'sitemap.xml', 'public/idempotent-retry.html', 'public/sitemap.xml'],
     }),
   });
 
