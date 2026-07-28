@@ -102,7 +102,7 @@ function gitDataRoutes({ identical = false, failPatchStatus = null, failReadStat
         if (!(path in current)) return jsonResponse({ message: 'Not Found' }, 404);
         if (identical) {
           if (path === 'content/posts/best-sushi-stockton.md') return contentResponse(postToMarkdown(POST));
-          if (path === 'content/index.json') return contentResponse(JSON.stringify({ posts: [{ slug: POST.slug, title: POST.title, excerpt: POST.excerpt, date: POST.date, post_type: 'blog', image: '', primary_keyword: POST.primary_keyword, secondary_keywords: POST.secondary_keywords, published: false }] }, null, 2));
+          if (path === 'content/index.json') return contentResponse(JSON.stringify({ posts: [{ slug: POST.slug, title: POST.title, excerpt: POST.excerpt, date: POST.date, post_type: 'blog', image: '', primary_keyword: POST.primary_keyword, secondary_keywords: POST.secondary_keywords, published: true }] }, null, 2));
           if (path === 'best-sushi-stockton.html') return contentResponse(renderArticlePage(POST));
           if (path === 'sitemap.xml') return contentResponse('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>https://www.rawsushibar.com/best-sushi-stockton.html</loc>\n    <lastmod>2026-06-05</lastmod>\n  </url>\n</urlset>\n');
           if (path === 'public/best-sushi-stockton.html') return contentResponse(renderArticlePage(POST));
@@ -153,6 +153,8 @@ test('commitToGit: creates one publication commit with all required artifacts', 
     assert.equal(commitCalls.length, 1);
     assert.equal(refUpdates.length, 1);
     assert.deepEqual(treeCalls[0].body.tree.map(item => item.path), r.files);
+    const indexEntry = JSON.parse(treeCalls[0].body.tree.find(item => item.path === 'content/index.json').content);
+    assert.equal(indexEntry.posts[0].published, true);
   } finally {
     mock.restore();
   }
