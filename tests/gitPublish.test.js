@@ -24,6 +24,8 @@ const ENV = {
   GITHUB_BRANCH: 'main',
 };
 
+const NodeBuffer = Buffer;
+
 const POST = {
   slug: 'best-sushi-stockton',
   title: 'Best Sushi in Stockton',
@@ -45,8 +47,17 @@ function jsonResponse(body, status = 200) {
   });
 }
 
+function plainJsonResponse(body, status = 200) {
+  return {
+    ok: status >= 200 && status < 300,
+    status,
+    async json() { return body; },
+    async text() { return JSON.stringify(body); },
+  };
+}
+
 function contentResponse(text) {
-  return jsonResponse({ sha: 'file-sha', content: Buffer.from(text).toString('base64') });
+  return jsonResponse({ sha: 'file-sha', content: NodeBuffer.from(text).toString('base64') });
 }
 
 function installGitFetch(routes) {
@@ -182,6 +193,48 @@ test('commitToGit: returns verified no-op when all artifacts already match', asy
     assert.equal(mock.observed.some(o => o.method === 'PATCH'), false);
   } finally {
     mock.restore();
+  }
+});
+
+test('commitToGit: decodes existing GitHub content in Workers where Buffer is unavailable', async () => {
+  const observed = [];
+  const originalFetch = globalThis.fetch;
+  const originalBuffer = globalThis.Buffer;
+  globalThis.fetch = async (url, init = {}) => {
+    const u = new URL(url);
+    const method = init.method || 'GET';
+    const body = init.body ? JSON.parse(init.body) : null;
+    observed.push({ method, path: u.pathname, search: u.search, body });
+    if (method === 'GET' && u.pathname.endsWith('/git/ref/heads/main')) {
+      return plainJsonResponse({ object: { sha: 'base-commit' } });
+    }
+    if (method === 'GET' && u.pathname.endsWith('/git/commits/base-commit')) {
+      return plainJsonResponse({ sha: 'base-commit', tree: { sha: 'base-tree' } });
+    }
+    if (method === 'GET' && u.pathname.includes('/contents/')) {
+      return plainJsonResponse({ sha: 'file-sha', content: NodeBuffer.from('').toString('base64') });
+    }
+    if (method === 'POST' && u.pathname.endsWith('/git/trees')) {
+      return plainJsonResponse({ sha: 'new-tree' });
+    }
+    if (method === 'POST' && u.pathname.endsWith('/git/commits')) {
+      return plainJsonResponse({ sha: 'single-publication-commit' });
+    }
+    if (method === 'PATCH' && u.pathname.endsWith('/git/refs/heads/main')) {
+      return plainJsonResponse({ ref: 'refs/heads/main' });
+    }
+    return plainJsonResponse({ message: 'Not Found' }, 404);
+  };
+
+  try {
+    globalThis.Buffer = undefined;
+    const r = await commitToGit(ENV, POST);
+    assert.equal(r.ok, true, `expected ok, got error: ${r.error}`);
+    assert.equal(r.commit, 'single-publication-commit');
+    assert.equal(observed.some(o => o.method === 'PATCH'), true);
+  } finally {
+    globalThis.Buffer = originalBuffer;
+    globalThis.fetch = originalFetch;
   }
 });
 
