@@ -66,21 +66,31 @@ export async function onRequest(context) {
 
   const result = await processScheduledPosts(store, { gitPublish, now });
 
-  await record(store, {
-    actor,
-    action: 'scheduler.run',
-    target_type: 'system',
-    target_id: 'scheduled-publish',
-    meta: {
-      now: now.toISOString(),
-      processed: result.processed,
-      published: result.published,
-      failed: result.failed,
-      source: 'github_actions',
-      github_run_id: request.headers.get('X-GitHub-Run-Id') || null,
-      github_actor: request.headers.get('X-GitHub-Actor') || null,
-    },
-  });
+  // Best-effort, matching the gitPublish audit write above: this run's real
+  // outcome (result, used for the response below) is already final by this
+  // point. A housekeeping audit-log write must never turn an otherwise-
+  // successful (or correctly fail-closed) scheduler run into a 500 — see the
+  // 2026-07-28 incident where a Cloudflare KV daily write-quota error here
+  // (KVStore._writeTable -> upsert -> record) surfaced as an uncaught
+  // exception (error 1101) even though processScheduledPosts had already
+  // completed with zero due posts and nothing left to publish.
+  try {
+    await record(store, {
+      actor,
+      action: 'scheduler.run',
+      target_type: 'system',
+      target_id: 'scheduled-publish',
+      meta: {
+        now: now.toISOString(),
+        processed: result.processed,
+        published: result.published,
+        failed: result.failed,
+        source: 'github_actions',
+        github_run_id: request.headers.get('X-GitHub-Run-Id') || null,
+        github_actor: request.headers.get('X-GitHub-Actor') || null,
+      },
+    });
+  } catch { /* best effort */ }
 
   if (result.failed.length > 0) {
     return withCors(err('scheduler_publish_failed', 'one or more due posts failed closed before publication', 424, {
