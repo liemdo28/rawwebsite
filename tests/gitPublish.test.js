@@ -13,6 +13,7 @@ import {
   commitMenuToGit,
   buildGitAuditEntry,
   verifyGitConfig,
+  verifyGitArtifact,
 } from '../lib/gitPublish.js';
 import { postToMarkdown } from '../lib/posts.js';
 import { renderArticlePage, addPathsToValidPathsManifest } from '../lib/renderArticlePage.js';
@@ -387,6 +388,89 @@ test('verifyGitConfig: never includes the token or Authorization header value in
     const serialized = JSON.stringify(r);
     assert.doesNotMatch(serialized, /ghp_test_123/);
     assert.doesNotMatch(serialized, /Bearer/);
+  } finally {
+    globalThis.fetch = origFetch;
+  }
+});
+
+/**
+ * verifyGitArtifact() — added for lib/scheduler.js's stale-'publishing'
+ * reconciliation (2026-07-28 KV-quota hardening follow-up, Part 3/4). Reads
+ * GitHub's Contents API directly, never the live site — a Cloudflare Pages
+ * SPA-fallback false-200 (the 2026-07-28 soft-404 incident) must never be
+ * mistaken for artifact proof. Read-only: makes no POST/PATCH calls, so it
+ * can never create a duplicate commit.
+ */
+test('verifyGitArtifact: ok:true with the real commit sha when the page and sitemap entry both exist', async () => {
+  const origFetch = globalThis.fetch;
+  const calls = [];
+  globalThis.fetch = async (url, init = {}) => {
+    calls.push({ method: init.method || 'GET', url: String(url) });
+    if (String(url).includes('/contents/public/best-sushi-stockton.html')) {
+      return contentResponse('<html>real page</html>');
+    }
+    if (String(url).includes('/contents/public/sitemap.xml')) {
+      return contentResponse('<urlset><url><loc>https://www.rawsushibar.com/best-sushi-stockton.html</loc></url></urlset>');
+    }
+    if (String(url).endsWith('/git/ref/heads/main')) {
+      return jsonResponse({ object: { sha: 'verified-commit-sha' } });
+    }
+    return jsonResponse({ message: 'Not Found' }, 404);
+  };
+  try {
+    const r = await verifyGitArtifact(ENV, POST);
+    assert.equal(r.ok, true);
+    assert.equal(r.commit, 'verified-commit-sha');
+    assert.equal(r.repository, 'acme/website');
+    assert.equal(r.branch, 'main');
+    assert.deepEqual(r.files, ['public/best-sushi-stockton.html', 'public/sitemap.xml']);
+    assert.ok(calls.every(c => c.method === 'GET'), 'verifyGitArtifact must never write — GET requests only');
+  } finally {
+    globalThis.fetch = origFetch;
+  }
+});
+
+test('verifyGitArtifact: ok:false when the page file does not exist (no commit ever happened)', async () => {
+  const origFetch = globalThis.fetch;
+  globalThis.fetch = async () => jsonResponse({ message: 'Not Found' }, 404);
+  try {
+    const r = await verifyGitArtifact(ENV, POST);
+    assert.equal(r.ok, false);
+    assert.equal(r.error, 'artifact_missing_page');
+  } finally {
+    globalThis.fetch = origFetch;
+  }
+});
+
+test('verifyGitArtifact: ok:false when the page exists but the sitemap has no matching entry', async () => {
+  const origFetch = globalThis.fetch;
+  globalThis.fetch = async (url) => {
+    if (String(url).includes('/contents/public/best-sushi-stockton.html')) {
+      return contentResponse('<html>real page</html>');
+    }
+    if (String(url).includes('/contents/public/sitemap.xml')) {
+      return contentResponse('<urlset></urlset>'); // no matching <loc> entry
+    }
+    return jsonResponse({ message: 'Not Found' }, 404);
+  };
+  try {
+    const r = await verifyGitArtifact(ENV, POST);
+    assert.equal(r.ok, false);
+    assert.equal(r.error, 'artifact_missing_sitemap_entry');
+  } finally {
+    globalThis.fetch = origFetch;
+  }
+});
+
+test('verifyGitArtifact: returns ok:false without any network call when credentials are missing', async () => {
+  const origFetch = globalThis.fetch;
+  let called = false;
+  globalThis.fetch = async () => { called = true; return jsonResponse({}); };
+  try {
+    const r = await verifyGitArtifact({}, POST);
+    assert.equal(r.ok, false);
+    assert.equal(r.error, 'missing_github_credentials');
+    assert.equal(called, false);
   } finally {
     globalThis.fetch = origFetch;
   }

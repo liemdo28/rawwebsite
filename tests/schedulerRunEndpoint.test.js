@@ -37,6 +37,50 @@ import { onRequest } from '../functions/api/scheduler/run.js';
 import { createStore, KVStore } from '../lib/store.js';
 
 const TOKEN = 'test-scheduler-token';
+const GIT_ENV = { GITHUB_TOKEN: 'ghp_test', GITHUB_OWNER: 'acme', GITHUB_REPO: 'site', GITHUB_BRANCH: 'main' };
+
+function jsonResponse(body, status = 200) {
+  return new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json' } });
+}
+
+/**
+ * Mocks the real GitHub REST API surface commitToGit() talks to, so tests
+ * can exercise run.js's actual GITHUB_TOKEN production branch (including
+ * the git.commit audit write it performs) instead of bypassing it via the
+ * env._gitPublish test-injection shortcut. Every /contents/ read returns
+ * 404 (nothing exists yet), which forces commitToGit to see all 5 files as
+ * changed and create a real commit — exactly the "first publish" case.
+ */
+function installGitFetch() {
+  const observed = [];
+  const origFetch = globalThis.fetch;
+  globalThis.fetch = async (url, init = {}) => {
+    const u = new URL(url);
+    const method = init.method || 'GET';
+    const body = init.body ? JSON.parse(init.body) : null;
+    observed.push({ method, path: u.pathname, body });
+    if (method === 'GET' && u.pathname.endsWith('/git/ref/heads/main')) {
+      return jsonResponse({ object: { sha: 'base-commit' } });
+    }
+    if (method === 'GET' && u.pathname.endsWith('/git/commits/base-commit')) {
+      return jsonResponse({ sha: 'base-commit', tree: { sha: 'base-tree' } });
+    }
+    if (method === 'GET' && u.pathname.includes('/contents/')) {
+      return jsonResponse({ message: 'Not Found' }, 404);
+    }
+    if (method === 'POST' && u.pathname.endsWith('/git/trees')) {
+      return jsonResponse({ sha: 'new-tree' });
+    }
+    if (method === 'POST' && u.pathname.endsWith('/git/commits')) {
+      return jsonResponse({ sha: 'real-commit-sha' });
+    }
+    if (method === 'PATCH' && u.pathname.endsWith('/git/refs/heads/main')) {
+      return jsonResponse({ ref: 'refs/heads/main' });
+    }
+    return jsonResponse({ message: 'Not Found' }, 404);
+  };
+  return { observed, restore() { globalThis.fetch = origFetch; } };
+}
 
 /** A KV namespace mock whose put() always throws, exactly like a Cloudflare
  * KV namespace that has exhausted its daily write quota. get() returns null
@@ -194,16 +238,21 @@ test('quota: repeating the no-due request does not mutate posts or audit_log', a
   assert.equal(kv.backing.size, 0, 'no table should have been created by no-op polling');
 });
 
-test('quota: one successful due publication makes only the required state/audit writes', async () => {
+/**
+ * NOTE on 6 vs 7 writes: this test uses env._gitPublish direct injection
+ * (same convention as tests/scheduler.test.js), which is a test-only
+ * shortcut that BYPASSES run.js's GITHUB_TOKEN branch entirely — including
+ * the git.commit audit write that branch performs after a real commitToGit()
+ * call. It therefore measures 6 writes, not the true production count. See
+ * 'quota: one successful due publication via the real GITHUB_TOKEN path
+ * makes exactly the 7 production writes' below for the authoritative count
+ * that exercises the actual code path GitHub Actions triggers in production.
+ */
+test('quota: one successful due publication (env._gitPublish injection shortcut) makes only the required state/audit writes', async () => {
   const kv = makeCallCountingKv({ initialTables: { posts: [DUE_POST] } });
   const env = {
     RAWWEBSITE_SCHEDULER_TOKEN: TOKEN,
     RAWWEBSITE_KV: kv,
-    // Test-only gitPublish injection (same convention as tests/scheduler.test.js) —
-    // bypasses the GITHUB_TOKEN-based wrapper in run.js, so no extra
-    // git.commit audit write is attempted; this test counts exactly the
-    // writes processScheduledPosts + transitionPost + the final scheduler.run
-    // audit entry perform for one due, successfully-publishing post.
     _gitPublish: async (post) => ({
       ok: true,
       commit: 'test-commit-sha',
@@ -220,9 +269,47 @@ test('quota: one successful due publication makes only the required state/audit 
   assert.equal(body.processed, 1);
   assert.deepEqual(body.published, [DUE_POST.id]);
   assert.deepEqual(body.failed, []);
-  // publishing->published transition (2 posts + 2 audit) + post.auto_publish
-  // audit (1) + the final scheduler.run audit (1, since processed > 0) = 6.
+  // publishing transition (post-table write + audit) + published transition
+  // (post-table write + audit) + post.auto_publish audit + the final
+  // scheduler.run audit (since processed > 0) = 6. No git.commit audit,
+  // because env._gitPublish bypasses the wrapper that writes it.
   assert.equal(kv.putCalls.length, 6, `expected exactly 6 KV put() calls, got ${kv.putCalls.length}: ${kv.putCalls.join(', ')}`);
+});
+
+test('quota: one successful due publication via the real GITHUB_TOKEN path makes exactly the 7 production writes', async () => {
+  const fetchMock = installGitFetch();
+  try {
+    const kv = makeCallCountingKv({ initialTables: { posts: [DUE_POST] } });
+    const env = { RAWWEBSITE_SCHEDULER_TOKEN: TOKEN, RAWWEBSITE_KV: kv, ...GIT_ENV };
+
+    const response = await onRequest({ request: makeRequest(), env });
+
+    assert.equal(response.status, 200, `expected 200, got ${response.status}`);
+    const body = await response.json();
+    assert.equal(body.processed, 1);
+    assert.deepEqual(body.published, [DUE_POST.id]);
+    assert.deepEqual(body.failed, []);
+
+    // A real commit must actually have been created via the GitHub API mock.
+    const commitCalls = fetchMock.observed.filter(o => o.method === 'POST' && o.path.endsWith('/git/commits'));
+    assert.equal(commitCalls.length, 1, 'expected exactly one real Git commit to be created');
+
+    // 1) posts: scheduled->publishing   2) post.transition audit
+    // 3) git.commit audit               4) posts: publishing->published
+    // 5) post.transition audit          6) post.auto_publish audit
+    // 7) scheduler.run audit (processed > 0)
+    assert.equal(kv.putCalls.length, 7, `expected exactly 7 KV put() calls in the real production path, got ${kv.putCalls.length}: ${kv.putCalls.join(', ')}`);
+
+    const auditRows = JSON.parse(kv.backing.get('table:audit_log'));
+    const actions = auditRows.map(r => r.action);
+    assert.deepEqual(
+      actions,
+      ['post.transition', 'git.commit', 'post.transition', 'post.auto_publish', 'scheduler.run'],
+      'expected exactly these 5 audit_log entries, in this order',
+    );
+  } finally {
+    fetchMock.restore();
+  }
 });
 
 test('quota: audit failure does not mask a publication failure', async () => {
