@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "slug": "stockton-sushi-visit-faq-parking-groups-reservations",
+      "title": "Visiting Raw Sushi Bar in Stockton: Your Questions Answered",
+      "excerpt": "Planning a visit to Raw Sushi Bar on Trinity Parkway in Stockton? Here are straight answers on reservations, groups, corkage, and more.",
+      "date": "2026-07-27",
+      "post_type": "seo_campaign",
+      "image": "campaign/faq-visit-hero.webp",
+      "primary_keyword": "raw sushi bar stockton questions",
+      "secondary_keywords": [
+        "raw sushi bar reservations",
+        "sushi restaurant policies stockton"
+      ],
+      "published": false
+    },
+    {
       "slug": "what-to-order-sushi-stockton-tonight",
       "title": "What to Order When You're Looking for Sushi in Stockton Tonight",
       "excerpt": "Not sure what to order tonight? Here's a simple way to enjoy sushi in Stockton without overthinking your meal.",
@@ -8,7 +22,10 @@
       "post_type": "conversion",
       "image": "https://images.unsplash.com/photo-1617196034183-421b4917c92d?w=800",
       "primary_keyword": "sushi in Stockton",
-      "secondary_keywords": ["sushi restaurant Stockton", "sushi near me Stockton"],
+      "secondary_keywords": [
+        "sushi restaurant Stockton",
+        "sushi near me Stockton"
+      ],
       "published": true
     },
     {
