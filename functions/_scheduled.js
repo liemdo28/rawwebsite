@@ -34,7 +34,9 @@ export async function scheduled(event, env, ctx) {
 
   try {
     // Build gitPublish function if GitHub credentials are available
-    const gitPublish = (env.GITHUB_TOKEN && env.GITHUB_OWNER && env.GITHUB_REPO)
+    const gitPublish = typeof env._gitPublish === 'function'
+      ? env._gitPublish
+      : (env.GITHUB_TOKEN && env.GITHUB_OWNER && env.GITHUB_REPO)
       ? async (post) => {
           return await commitToGit(env, post);
         }

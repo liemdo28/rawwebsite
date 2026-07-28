@@ -1,28 +1,20 @@
 /**
  * tests/gitPublish.test.js — Unit tests for the Git publish worker.
  *
- * Verifies that lib/gitPublish.js:
- *   - Returns ok:false when GitHub credentials are missing (no side-effects).
- *   - Calls the GitHub API: GET (to look up the existing file SHA) then PUT
- *     (to create/update the file with base64-encoded content).
- *   - Returns the commit hash from the API response.
- *   - Handles the 404 ("file does not exist") response from GET by sending
- *     a PUT without an sha.
- *   - Builds audit entries that record the commit hash, actor, and action.
- *
  * No real network calls. The global `fetch` is replaced with a stub for the
  * duration of each test.
  */
 
-import { test, afterEach } from 'node:test';
+import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { createServer } from 'node:http';
 
 import {
   commitToGit,
   commitMenuToGit,
   buildGitAuditEntry,
 } from '../lib/gitPublish.js';
+import { postToMarkdown } from '../lib/posts.js';
+import { renderArticlePage } from '../lib/renderArticlePage.js';
 
 const ENV = {
   GITHUB_TOKEN: 'ghp_test_123',
@@ -42,29 +34,77 @@ const POST = {
   secondary_keywords: ['sushi', 'stockton'],
   image: '',
   date: '2026-06-05',
+  publish_at: '2026-06-05T12:00:00.000Z',
 };
 
-let server = null;
-
-afterEach(async () => {
-  if (server) {
-    await new Promise(r => server.close(r));
-    server = null;
-  }
-});
-
-function startServer(handler) {
-  return new Promise((resolve) => {
-    server = createServer(handler);
-    server.listen(0, '127.0.0.1', () => {
-      const { port } = server.address();
-      // Build a base URL that points to our local stub.
-      // We override the GitHub base inside commitToGit by patching the
-      // module's GITHUB_API constant via dynamic import — easier to just
-      // intercept fetch entirely and assert on the URL the code called.
-      resolve({ port, base: `http://127.0.0.1:${port}` });
-    });
+function jsonResponse(body, status = 200) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { 'Content-Type': 'application/json' },
   });
+}
+
+function contentResponse(text) {
+  return jsonResponse({ sha: 'file-sha', content: Buffer.from(text).toString('base64') });
+}
+
+function installGitFetch(routes) {
+  const observed = [];
+  const origFetch = globalThis.fetch;
+  globalThis.fetch = async (url, init = {}) => {
+    const u = new URL(url);
+    const method = init.method || 'GET';
+    const body = init.body ? JSON.parse(init.body) : null;
+    observed.push({ method, path: u.pathname, search: u.search, body, auth: init.headers?.Authorization || init.headers?.authorization });
+    for (const route of routes) {
+      if (route(method, u, body)) return route.response(method, u, body);
+    }
+    return jsonResponse({ message: 'Not Found' }, 404);
+  };
+  return {
+    observed,
+    restore() { globalThis.fetch = origFetch; },
+  };
+}
+
+function gitDataRoutes({ identical = false, failPatchStatus = null, failReadStatus = null } = {}) {
+  const current = {
+    'content/posts/best-sushi-stockton.md': identical ? null : '',
+    'content/index.json': identical ? null : JSON.stringify({ posts: [] }, null, 2),
+    'public/best-sushi-stockton.html': identical ? null : '',
+    'public/sitemap.xml': identical ? null : '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n</urlset>\n',
+  };
+  return [
+    Object.assign((method, u) => method === 'GET' && u.pathname.endsWith('/git/ref/heads/main'), {
+      response: () => jsonResponse({ object: { sha: 'base-commit' } }),
+    }),
+    Object.assign((method, u) => method === 'GET' && u.pathname.endsWith('/git/commits/base-commit'), {
+      response: () => jsonResponse({ sha: 'base-commit', tree: { sha: 'base-tree' } }),
+    }),
+    Object.assign((method, u) => method === 'GET' && u.pathname.includes('/contents/'), {
+      response: (_method, u) => {
+        if (failReadStatus) return jsonResponse({ message: 'read failed' }, failReadStatus);
+        const path = decodeURIComponent(u.pathname.split('/contents/')[1]);
+        if (!(path in current)) return jsonResponse({ message: 'Not Found' }, 404);
+        if (identical) {
+          if (path === 'content/posts/best-sushi-stockton.md') return contentResponse(postToMarkdown(POST));
+          if (path === 'content/index.json') return contentResponse(JSON.stringify({ posts: [{ slug: POST.slug, title: POST.title, excerpt: POST.excerpt, date: POST.date, post_type: 'blog', image: '', primary_keyword: POST.primary_keyword, secondary_keywords: POST.secondary_keywords, published: false }] }, null, 2));
+          if (path === 'public/best-sushi-stockton.html') return contentResponse(renderArticlePage(POST));
+          if (path === 'public/sitemap.xml') return contentResponse('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>https://www.rawsushibar.com/best-sushi-stockton.html</loc>\n    <lastmod>2026-06-05</lastmod>\n  </url>\n</urlset>\n');
+        }
+        return contentResponse(current[path]);
+      },
+    }),
+    Object.assign((method, u) => method === 'POST' && u.pathname.endsWith('/git/trees'), {
+      response: () => jsonResponse({ sha: 'new-tree' }),
+    }),
+    Object.assign((method, u) => method === 'POST' && u.pathname.endsWith('/git/commits'), {
+      response: () => jsonResponse({ sha: 'single-publication-commit' }),
+    }),
+    Object.assign((method, u) => method === 'PATCH' && u.pathname.endsWith('/git/refs/heads/main'), {
+      response: () => failPatchStatus ? jsonResponse({ message: 'write failed' }, failPatchStatus) : jsonResponse({ ref: 'refs/heads/main' }),
+    }),
+  ];
 }
 
 test('commitToGit: returns ok:false when credentials are missing', async () => {
@@ -73,196 +113,83 @@ test('commitToGit: returns ok:false when credentials are missing', async () => {
   assert.equal(r.error, 'missing_github_credentials');
 });
 
-test('commitToGit: PUTs markdown to GitHub content API and returns commit hash', async () => {
-  const observed = [];
-  const { port } = await startServer((req, res) => {
-    let body = '';
-    req.on('data', chunk => { body += chunk; });
-    req.on('end', () => {
-      observed.push({
-        method: req.method,
-        url: req.url,
-        auth: req.headers.authorization,
-        accept: req.headers.accept,
-        body: body ? JSON.parse(body) : null,
-      });
-      // First call: GET contents → return 404 (file does not exist)
-      if (req.method === 'GET') {
-        res.writeHead(404, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ message: 'Not Found' }));
-        return;
-      }
-      // Second call: PUT contents → return commit
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({
-        commit: { sha: 'commitsha123' },
-        content: { sha: 'filesha456' },
-      }));
-    });
-  });
-
-  // Patch the GitHub API base by writing into process.env (the module uses
-  // a module-scope constant; we use a relative require hack by importing
-  // the module fresh — but the constant is hard-coded. To avoid that, we
-  // just verify the request URLs match the expected GitHub pattern by
-  // matching on the well-known content endpoint path).
-  const origFetch = globalThis.fetch;
-  globalThis.fetch = async (url, init) => {
-    // Re-target the GitHub URL to our local server.
-    const u = new URL(url);
-    const redirected = `http://127.0.0.1:${port}${u.pathname}${u.search}`;
-    return await origFetch(redirected, init);
-  };
-
+test('commitToGit: creates one publication commit with all required artifacts', async () => {
+  const mock = installGitFetch(gitDataRoutes());
   try {
     const r = await commitToGit(ENV, POST, { actor: 'admin:tester' });
     assert.equal(r.ok, true, `expected ok, got error: ${r.error}`);
-    assert.equal(r.commit, 'commitsha123');
+    assert.equal(r.commit, 'single-publication-commit');
+    assert.equal(r.repository, 'acme/website');
+    assert.equal(r.branch, 'main');
     assert.deepEqual(r.files, [
       'content/posts/best-sushi-stockton.md',
       'content/index.json',
       'public/best-sushi-stockton.html',
       'public/sitemap.xml',
     ]);
-    assert.equal(r.actor, 'admin:tester');
-    assert.equal(r.action, 'create');
 
-    // We expect: (GET SHA + PUT) for markdown, index.json, the rendered page,
-    // and sitemap.xml = 4 * (GET + PUT) = 8 calls.
-    assert.equal(observed.length, 8);
-
-    // First call: GET markdown SHA
-    assert.equal(observed[0].method, 'GET');
-    assert.match(observed[0].url, /\/repos\/acme\/website\/contents\/content\/posts\/best-sushi-stockton\.md/);
-    assert.equal(observed[0].auth, 'Bearer ghp_test_123');
-
-    // Second call: PUT markdown
-    assert.equal(observed[1].method, 'PUT');
-    assert.match(observed[1].url, /\/repos\/acme\/website\/contents\/content\/posts\/best-sushi-stockton\.md/);
-    assert.equal(observed[1].body.branch, 'main');
-    assert.equal(observed[1].body.message, 'Publish post: Best Sushi in Stockton');
-    assert.ok(observed[1].body.content, 'content (base64) should be set');
-    assert.equal(observed[1].body.sha, undefined, 'no sha → create, not update');
-    // base64 should decode to a markdown document that contains the title.
-    const decoded = Buffer.from(observed[1].body.content, 'base64').toString('utf8');
-    assert.match(decoded, /title: "Best Sushi in Stockton"/);
-    assert.match(decoded, /slug: best-sushi-stockton/);
-
-    // Third call: GET index.json SHA
-    assert.equal(observed[2].method, 'GET');
-    assert.match(observed[2].url, /\/contents\/content\/index\.json/);
-
-    // Fourth call: PUT index.json
-    assert.equal(observed[3].method, 'PUT');
-    const decodedIndex = JSON.parse(Buffer.from(observed[3].body.content, 'base64').toString('utf8'));
-    assert.ok(Array.isArray(decodedIndex.posts));
-    assert.equal(decodedIndex.posts[0].slug, 'best-sushi-stockton');
-    assert.equal(decodedIndex.posts[0].title, 'Best Sushi in Stockton');
-    assert.equal(decodedIndex.posts[0].published, false, 'status was publishing, not yet published');
-
-    // Fifth/sixth call: GET + PUT the rendered static page — this is the
-    // actual routable HTML a visitor/crawler would hit.
-    assert.equal(observed[4].method, 'GET');
-    assert.match(observed[4].url, /\/contents\/public\/best-sushi-stockton\.html/);
-    assert.equal(observed[5].method, 'PUT');
-    assert.match(observed[5].url, /\/contents\/public\/best-sushi-stockton\.html/);
-    const decodedPage = Buffer.from(observed[5].body.content, 'base64').toString('utf8');
-    assert.match(decodedPage, /<title>Best Sushi in Stockton \| Raw Sushi Bar<\/title>/);
-    assert.match(decodedPage, /rel="canonical" href="https:\/\/www\.rawsushibar\.com\/best-sushi-stockton\.html"/);
-
-    // Seventh/eighth call: GET + PUT sitemap.xml with the new URL appended.
-    assert.equal(observed[6].method, 'GET');
-    assert.match(observed[6].url, /\/contents\/public\/sitemap\.xml/);
-    assert.equal(observed[7].method, 'PUT');
-    const decodedSitemap = Buffer.from(observed[7].body.content, 'base64').toString('utf8');
-    assert.match(decodedSitemap, /https:\/\/www\.rawsushibar\.com\/best-sushi-stockton\.html/);
+    const treeCalls = mock.observed.filter(o => o.method === 'POST' && o.path.endsWith('/git/trees'));
+    const commitCalls = mock.observed.filter(o => o.method === 'POST' && o.path.endsWith('/git/commits'));
+    const refUpdates = mock.observed.filter(o => o.method === 'PATCH' && o.path.endsWith('/git/refs/heads/main'));
+    assert.equal(treeCalls.length, 1);
+    assert.equal(commitCalls.length, 1);
+    assert.equal(refUpdates.length, 1);
+    assert.deepEqual(treeCalls[0].body.tree.map(item => item.path), r.files);
   } finally {
-    globalThis.fetch = origFetch;
+    mock.restore();
   }
 });
 
-test('commitToGit: includes sha in PUT body when file already exists (update)', async () => {
-  const observed = [];
-  const { port } = await startServer((req, res) => {
-    let body = '';
-    req.on('data', chunk => { body += chunk; });
-    req.on('end', () => {
-      observed.push({ method: req.method, url: req.url, body: body ? JSON.parse(body) : null });
-      if (req.method === 'GET') {
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ sha: 'existing-sha-999' }));
-        return;
-      }
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ commit: { sha: 'updatesha111' }, content: { sha: 'updatesha111' } }));
-    });
-  });
-
-  const origFetch = globalThis.fetch;
-  globalThis.fetch = async (url, init) => {
-    const u = new URL(url);
-    return await origFetch(`http://127.0.0.1:${port}${u.pathname}${u.search}`, init);
-  };
-
-  try {
-    const r = await commitToGit(ENV, POST);
-    assert.equal(r.ok, true);
-    assert.equal(r.action, 'update');
-
-    // Find the PUT for the markdown (it's the first PUT after the GETs)
-    const putMarkdown = observed.find(o => o.method === 'PUT' && /best-sushi-stockton\.md/.test(o.url));
-    assert.ok(putMarkdown, 'expected PUT for the markdown file');
-    assert.equal(putMarkdown.body.sha, 'existing-sha-999');
-  } finally {
-    globalThis.fetch = origFetch;
-  }
-});
-
-test('commitToGit: returns ok:false when GitHub returns a non-OK status', async () => {
-  const { port } = await startServer((req, res) => {
-    if (req.method === 'GET') {
-      res.writeHead(404, { 'Content-Type': 'application/json' });
-      res.end('{}');
-      return;
-    }
-    res.writeHead(500, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ message: 'Internal server error' }));
-  });
-
-  const origFetch = globalThis.fetch;
-  globalThis.fetch = async (url, init) => {
-    const u = new URL(url);
-    return await origFetch(`http://127.0.0.1:${port}${u.pathname}${u.search}`, init);
-  };
-
+test('commitToGit: returns ok:false on GitHub API authentication failure', async () => {
+  const mock = installGitFetch([
+    Object.assign((method, u) => method === 'GET' && u.pathname.endsWith('/git/ref/heads/main'), {
+      response: () => jsonResponse({ message: 'Bad credentials' }, 401),
+    }),
+  ]);
   try {
     const r = await commitToGit(ENV, POST);
     assert.equal(r.ok, false);
-    assert.match(r.error, /GitHub API error: 500/);
+    assert.equal(r.error, 'github_api_error:401');
   } finally {
-    globalThis.fetch = origFetch;
+    mock.restore();
+  }
+});
+
+test('commitToGit: returns ok:false on GitHub API write failure', async () => {
+  const mock = installGitFetch(gitDataRoutes({ failPatchStatus: 422 }));
+  try {
+    const r = await commitToGit(ENV, POST);
+    assert.equal(r.ok, false);
+    assert.equal(r.error, 'github_api_error:422');
+  } finally {
+    mock.restore();
+  }
+});
+
+test('commitToGit: returns verified no-op when all artifacts already match', async () => {
+  const mock = installGitFetch(gitDataRoutes({ identical: true }));
+  try {
+    const r = await commitToGit(ENV, POST);
+    assert.equal(r.ok, true);
+    assert.equal(r.action, 'noop');
+    assert.equal(r.idempotent, true);
+    assert.equal(r.commit, 'base-commit');
+    assert.equal(mock.observed.some(o => o.method === 'PATCH'), false);
+  } finally {
+    mock.restore();
   }
 });
 
 test('commitMenuToGit: PUTs menu JSON to the right path', async () => {
   const observed = [];
-  const { port } = await startServer((req, res) => {
-    let body = '';
-    req.on('data', chunk => { body += chunk; });
-    req.on('end', () => {
-      observed.push({ method: req.method, url: req.url, body: body ? JSON.parse(body) : null });
-      if (req.method === 'GET') {
-        res.writeHead(404); res.end('{}'); return;
-      }
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ commit: { sha: 'menusha222' }, content: { sha: 'menusha222' } }));
-    });
-  });
-
   const origFetch = globalThis.fetch;
-  globalThis.fetch = async (url, init) => {
+  globalThis.fetch = async (url, init = {}) => {
     const u = new URL(url);
-    return await origFetch(`http://127.0.0.1:${port}${u.pathname}${u.search}`, init);
+    const method = init.method || 'GET';
+    const body = init.body ? JSON.parse(init.body) : null;
+    observed.push({ method, url: u.pathname, body });
+    if (method === 'GET') return jsonResponse({ message: 'Not Found' }, 404);
+    return jsonResponse({ commit: { sha: 'menusha222' }, content: { sha: 'menusha222' } });
   };
 
   try {
@@ -289,9 +216,9 @@ test('commitMenuToGit: returns ok:false when credentials missing', async () => {
   assert.equal(r.error, 'missing_github_credentials');
 });
 
-test('buildGitAuditEntry: records commit hash, actor, action', () => {
+test('buildGitAuditEntry: records commit hash, repository, branch, actor, action', () => {
   const entry = buildGitAuditEntry(
-    { ok: true, commit: 'abc123', files: ['content/posts/x.md'], action: 'create' },
+    { ok: true, commit: 'abc123', repository: 'acme/site', branch: 'main', files: ['content/posts/x.md'], action: 'commit' },
     { actor: 'admin:joe', targetType: 'post', targetId: 'post-1' }
   );
   assert.equal(entry.actor, 'admin:joe');
@@ -299,17 +226,19 @@ test('buildGitAuditEntry: records commit hash, actor, action', () => {
   assert.equal(entry.target_type, 'post');
   assert.equal(entry.target_id, 'post-1');
   assert.equal(entry.meta.commit, 'abc123');
-  assert.equal(entry.meta.action, 'create');
+  assert.equal(entry.meta.repository, 'acme/site');
+  assert.equal(entry.meta.branch, 'main');
+  assert.equal(entry.meta.action, 'commit');
   assert.equal(entry.meta.ok, true);
   assert.deepEqual(entry.meta.files, ['content/posts/x.md']);
 });
 
 test('buildGitAuditEntry: surfaces error in meta on failure', () => {
   const entry = buildGitAuditEntry(
-    { ok: false, error: 'GitHub API error: 401', commit: null },
+    { ok: false, error: 'github_api_error:401', commit: null },
     { actor: 'system', targetType: 'post', targetId: 'post-2' }
   );
   assert.equal(entry.meta.ok, false);
-  assert.equal(entry.meta.error, 'GitHub API error: 401');
+  assert.equal(entry.meta.error, 'github_api_error:401');
   assert.equal(entry.meta.commit, null);
 });

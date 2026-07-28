@@ -27,7 +27,7 @@ test('_scheduled exports a scheduled function', () => {
   assert.equal(typeof scheduledModule.scheduled, 'function');
 });
 
-test('scheduled: processes scheduled posts and records audit entry', async () => {
+test('scheduled: fails closed without GitHub publisher and records audit entry', async () => {
   const store = new MemoryStore();
 
   // Create a post that is already due for publishing
@@ -60,9 +60,9 @@ test('scheduled: processes scheduled posts and records audit entry', async () =>
 
   await scheduledModule.scheduled(mockEvent, env, ctx);
 
-  // Verify post was published
+  // Verify post was restored to a retryable state instead of falsely published.
   const updated = await store.get('posts', post.id);
-  assert.equal(updated.status, 'published');
+  assert.equal(updated.status, 'scheduled');
 
   // Verify audit log entry was recorded
   const auditRows = await store.list('audit_log');
@@ -72,7 +72,8 @@ test('scheduled: processes scheduled posts and records audit entry', async () =>
   assert.ok(schedulerRun, 'expected scheduler.run audit entry');
   assert.equal(schedulerRun.actor, 'cron');
   assert.ok(schedulerRun.meta.processed >= 1);
-  assert.ok(schedulerRun.meta.published >= 1);
+  assert.equal(schedulerRun.meta.published, 0);
+  assert.ok(schedulerRun.meta.failed >= 1);
 });
 
 test('scheduled: records audit entry even when no posts are due', async () => {
@@ -112,7 +113,7 @@ test('scheduled: records audit entry even when no posts are due', async () => {
   assert.equal(schedulerRun.meta.published, 0);
 });
 
-test('scheduled: calls gitPublish when GitHub credentials are present', async () => {
+test('scheduled: calls injected gitPublish and publishes only after verified artifact', async () => {
   const store = new MemoryStore();
 
   const post = await store.upsert('posts', {
@@ -131,6 +132,13 @@ test('scheduled: calls gitPublish when GitHub credentials are present', async ()
     GITHUB_OWNER: 'acme',
     GITHUB_REPO: 'website',
     GITHUB_BRANCH: 'main',
+    _gitPublish: async () => ({
+      ok: true,
+      commit: 'cron-commit',
+      repository: 'acme/website',
+      branch: 'main',
+      files: ['content/posts/git-cron-test.md', 'content/index.json', 'public/git-cron-test.html', 'public/sitemap.xml'],
+    }),
   };
 
   const mockEvent = {
@@ -140,13 +148,9 @@ test('scheduled: calls gitPublish when GitHub credentials are present', async ()
 
   const ctx = { waitUntil: () => {} };
 
-  // With fake credentials, commitToGit will call the real GitHub API and fail
-  // (network error or 401). The scheduler should catch that and still mark the
-  // post as published (git failure is non-fatal).
   await scheduledModule.scheduled(mockEvent, env, ctx);
 
   const updated = await store.get('posts', post.id);
-  // Post should still be published even if Git commit failed
   assert.equal(updated.status, 'published');
 });
 
@@ -174,9 +178,13 @@ test('scheduled: full workflow — draft → scheduled → cron auto-publishes',
     _store: store,
     STORE_BACKEND: 'memory',
     RAWWEBSITE_ADMIN_SECRET: 'dev-admin-secret',
-    GITHUB_TOKEN: undefined,
-    GITHUB_OWNER: undefined,
-    GITHUB_REPO: undefined,
+    _gitPublish: async () => ({
+      ok: true,
+      commit: 'workflow-commit',
+      repository: 'acme/website',
+      branch: 'main',
+      files: ['content/posts/full-cron-workflow.md', 'content/index.json', 'public/full-cron-workflow.html', 'public/sitemap.xml'],
+    }),
   };
 
   const mockEvent = {

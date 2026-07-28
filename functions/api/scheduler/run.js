@@ -48,7 +48,9 @@ export async function onRequest(context) {
     ? new Date(String(requestedNow))
     : new Date();
 
-  const gitPublish = (env.GITHUB_TOKEN && env.GITHUB_OWNER && env.GITHUB_REPO)
+  const gitPublish = typeof env._gitPublish === 'function'
+    ? env._gitPublish
+    : (env.GITHUB_TOKEN && env.GITHUB_OWNER && env.GITHUB_REPO)
     ? async (post) => {
         const result = await commitToGit(env, post, { actor });
         try {
@@ -59,7 +61,7 @@ export async function onRequest(context) {
           }));
         } catch { /* best effort */ }
         return result;
-      }
+    }
     : null;
 
   const result = await processScheduledPosts(store, { gitPublish, now });
@@ -79,6 +81,14 @@ export async function onRequest(context) {
       github_actor: request.headers.get('X-GitHub-Actor') || null,
     },
   });
+
+  if (result.failed.length > 0) {
+    return withCors(err('scheduler_publish_failed', 'one or more due posts failed closed before publication', 424, {
+      actor,
+      now: now.toISOString(),
+      ...result,
+    }));
+  }
 
   return withCors(ok({
     actor,
