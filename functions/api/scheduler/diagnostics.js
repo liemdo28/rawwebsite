@@ -28,5 +28,13 @@ export async function onRequest(context) {
   }
 
   const result = await verifyGitConfig(env);
+  if (!result.ok) {
+    const { error: git_error, ...safeResult } = result;
+    return withCors(err('git_config_invalid', 'GitHub publication configuration failed verification', 424, {
+      ...safeResult,
+      git_error,
+    }));
+  }
+
   return withCors(ok(result));
 }

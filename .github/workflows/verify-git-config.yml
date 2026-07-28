@@ -14,6 +14,8 @@ jobs:
         run: |
           set -euo pipefail
           echo "Calling https://rawwebsitenew.pages.dev/api/scheduler/diagnostics"
-          curl --fail-with-body \
+          response="$(curl --fail-with-body \
             -X GET "https://rawwebsitenew.pages.dev/api/scheduler/diagnostics" \
-            -H "Authorization: Bearer ${RAWWEBSITE_SCHEDULER_TOKEN}"
+            -H "Authorization: Bearer ${RAWWEBSITE_SCHEDULER_TOKEN}")"
+          echo "${response}"
+          RESPONSE="${response}" node -e "const r=JSON.parse(process.env.RESPONSE); if (r.ok !== true) { console.error('Git config verification failed'); process.exit(1); }"
