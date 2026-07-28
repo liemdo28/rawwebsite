@@ -74,23 +74,35 @@ export async function onRequest(context) {
   // (KVStore._writeTable -> upsert -> record) surfaced as an uncaught
   // exception (error 1101) even though processScheduledPosts had already
   // completed with zero due posts and nothing left to publish.
-  try {
-    await record(store, {
-      actor,
-      action: 'scheduler.run',
-      target_type: 'system',
-      target_id: 'scheduled-publish',
-      meta: {
-        now: now.toISOString(),
-        processed: result.processed,
-        published: result.published,
-        failed: result.failed,
-        source: 'github_actions',
-        github_run_id: request.headers.get('X-GitHub-Run-Id') || null,
-        github_actor: request.headers.get('X-GitHub-Actor') || null,
-      },
-    });
-  } catch { /* best effort */ }
+  //
+  // Skip the write entirely when there's nothing to report (processed:0):
+  // the GitHub Actions cron polls this endpoint every 5 minutes (288
+  // times/day), and on Cloudflare KV's free-tier daily write quota
+  // (1,000/day), an unconditional no-op audit write here alone would burn
+  // ~29% of the whole day's budget on runs where nothing happened — the
+  // proximate cause of the 2026-07-28 incident. Meaningful events (at least
+  // one due post processed, whether it published or failed) still always
+  // get an audit entry; only pure no-op polls are skipped. GitHub Actions'
+  // own run history remains the record of when no-op polls occurred.
+  if (result.processed > 0) {
+    try {
+      await record(store, {
+        actor,
+        action: 'scheduler.run',
+        target_type: 'system',
+        target_id: 'scheduled-publish',
+        meta: {
+          now: now.toISOString(),
+          processed: result.processed,
+          published: result.published,
+          failed: result.failed,
+          source: 'github_actions',
+          github_run_id: request.headers.get('X-GitHub-Run-Id') || null,
+          github_actor: request.headers.get('X-GitHub-Actor') || null,
+        },
+      });
+    } catch { /* best effort */ }
+  }
 
   if (result.failed.length > 0) {
     return withCors(err('scheduler_publish_failed', 'one or more due posts failed closed before publication', 424, {
