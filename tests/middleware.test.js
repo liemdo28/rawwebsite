@@ -5,40 +5,28 @@
  * static assets by default, which silently disables the platform's own
  * "public/404.html exists -> real 404" auto-detection for any request that
  * falls through _middleware.js's context.next(). context.env.ASSETS.fetch()
- * cannot be used to detect this from inside a Function either — it applies
- * the same SPA-fallback internally, returning 200 for missing paths too
- * (confirmed live on 2026-07-28: two deploys using ASSETS.fetch() as the
- * existence check both failed to produce a real 404 for unknown paths).
- *
- * The fix instead checks the request path against functions/_validPaths.mjs,
- * a manifest generated straight from public/'s actual file listing (see
- * scripts/generate-valid-paths.mjs), with no dependency on any
- * Cloudflare-internal fetch behavior. These tests verify that check.
+ * cannot be used to work around this from inside a Function either —
+ * confirmed live (2026-07-28) it applies the same SPA-fallback internally
+ * for BOTH existence checks (status was never 404 for a missing path) and
+ * content fetches (ASSETS.fetch('/404.html') returned the homepage's own
+ * body, not 404.html's, even though public/404.html is a real file). So
+ * _middleware.js no longer calls ASSETS.fetch at all — both the path-exists
+ * check (VALID_PATHS) and the 404 response body (NOT_FOUND_HTML) are
+ * self-contained manifests generated straight from public/ (see
+ * scripts/generate-valid-paths.mjs). These tests verify that check.
  */
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { onRequest } from '../functions/_middleware.js';
 import { VALID_PATHS } from '../functions/_validPaths.mjs';
+import { NOT_FOUND_HTML } from '../functions/_notFoundPage.mjs';
 
-function makeContext({ url, hasAssets = true, notFoundBody = 'NOT FOUND', nextBody = 'NEXT() RESPONSE' }) {
+function makeContext({ url, nextBody = 'NEXT() RESPONSE' }) {
   const request = new Request(url);
-  const env = hasAssets
-    ? {
-        ASSETS: {
-          fetch: async (input) => {
-            const target = typeof input === 'string' ? input : input.url;
-            if (target.endsWith('/404.html')) {
-              return new Response(notFoundBody, { status: 200, headers: { 'Content-Type': 'text/html' } });
-            }
-            return new Response('OK', { status: 200 });
-          },
-        },
-      }
-    : {};
   return {
     request,
-    env,
+    env: {},
     next: async () => new Response(nextBody, { status: 200, headers: { 'Content-Type': 'text/html' } }),
   };
 }
@@ -48,7 +36,12 @@ test('sanity: the generated manifest is non-empty and contains the homepage', ()
   assert.ok(VALID_PATHS.has('/'));
 });
 
-test('_middleware: redirects non-canonical hosts to www without consulting the manifest', async () => {
+test('sanity: the generated 404 body is non-empty and distinct from a homepage response', () => {
+  assert.ok(NOT_FOUND_HTML.length > 0);
+  assert.match(NOT_FOUND_HTML, /Page Not Found/);
+});
+
+test('_middleware: redirects non-canonical hosts to www without touching routing checks', async () => {
   const context = makeContext({ url: 'https://rawsushibar.com/some-page' });
   const response = await onRequest(context);
   assert.equal(response.status, 301);
@@ -78,11 +71,11 @@ test('_middleware: a real, published page (present in the manifest) passes throu
   assert.equal(await response.text(), 'NEXT() RESPONSE');
 });
 
-test('_middleware: an unknown path is served the real 404.html with a genuine 404 status, not the homepage', async () => {
-  const context = makeContext({ url: 'https://www.rawsushibar.com/this-does-not-exist', notFoundBody: 'REAL 404 PAGE' });
+test('_middleware: an unknown path is served the real, inlined 404 body with a genuine 404 status, not the homepage', async () => {
+  const context = makeContext({ url: 'https://www.rawsushibar.com/this-does-not-exist' });
   const response = await onRequest(context);
   assert.equal(response.status, 404);
-  assert.equal(await response.text(), 'REAL 404 PAGE');
+  assert.equal(await response.text(), NOT_FOUND_HTML);
 });
 
 test('_middleware: a not-yet-published campaign article slug returns a real 404, not a false 200', async () => {
@@ -98,10 +91,4 @@ test('_middleware: /api/* routes are never redirected to the 404 page, even when
   const response = await onRequest(context);
   assert.equal(response.status, 200);
   assert.equal(await response.text(), 'NEXT() RESPONSE');
-});
-
-test('_middleware: falls back to passing the response through if no ASSETS binding is present', async () => {
-  const context = makeContext({ url: 'https://www.rawsushibar.com/this-does-not-exist', hasAssets: false });
-  const response = await onRequest(context);
-  assert.equal(response.status, 200);
 });

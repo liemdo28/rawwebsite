@@ -22,8 +22,9 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildValidPaths } from '../scripts/generate-valid-paths.mjs';
+import { buildValidPaths, buildNotFoundPage } from '../scripts/generate-valid-paths.mjs';
 import { VALID_PATHS } from '../functions/_validPaths.mjs';
+import { NOT_FOUND_HTML } from '../functions/_notFoundPage.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -80,4 +81,12 @@ test('routing: a not-yet-published campaign article slug is absent from the vali
   for (const a of unpublished) {
     assert.ok(!VALID_PATHS.has(`/${a.slug}.html`), `${a.slug} is not yet published but appears in the valid-paths manifest`);
   }
+});
+
+test('routing: functions/_notFoundPage.mjs is in sync with public/404.html', () => {
+  assert.equal(
+    NOT_FOUND_HTML,
+    buildNotFoundPage(),
+    'functions/_notFoundPage.mjs is stale — re-run `node scripts/generate-valid-paths.mjs` and commit the result',
+  );
 });
