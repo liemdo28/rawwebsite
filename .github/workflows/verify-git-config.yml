@@ -1,0 +1,19 @@
+name: RawWebsite Verify Git Config
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  verify-git-config:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read-only Git config check
+        shell: bash
+        env:
+          RAWWEBSITE_SCHEDULER_TOKEN: ${{ secrets.RAWWEBSITE_SCHEDULER_TOKEN }}
+        run: |
+          set -euo pipefail
+          echo "Calling https://rawwebsitenew.pages.dev/api/scheduler/diagnostics"
+          curl --fail-with-body \
+            -X GET "https://rawwebsitenew.pages.dev/api/scheduler/diagnostics" \
+            -H "Authorization: Bearer ${RAWWEBSITE_SCHEDULER_TOKEN}"

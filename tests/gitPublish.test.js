@@ -12,6 +12,7 @@ import {
   commitToGit,
   commitMenuToGit,
   buildGitAuditEntry,
+  verifyGitConfig,
 } from '../lib/gitPublish.js';
 import { postToMarkdown } from '../lib/posts.js';
 import { renderArticlePage } from '../lib/renderArticlePage.js';
@@ -245,4 +246,83 @@ test('buildGitAuditEntry: surfaces error in meta on failure', () => {
   assert.equal(entry.meta.ok, false);
   assert.equal(entry.meta.error, 'github_api_error:401');
   assert.equal(entry.meta.commit, null);
+});
+
+test('verifyGitConfig: returns ok:true with repository, branch, and sha on a successful read', async () => {
+  const origFetch = globalThis.fetch;
+  let observedUrl, observedHeaders;
+  globalThis.fetch = async (url, init) => {
+    observedUrl = url;
+    observedHeaders = init.headers;
+    return jsonResponse({ object: { sha: 'abc123def456' } });
+  };
+  try {
+    const r = await verifyGitConfig(ENV);
+    assert.equal(r.ok, true);
+    assert.equal(r.status, 200);
+    assert.equal(r.repository, 'acme/website');
+    assert.equal(r.branch, 'main');
+    assert.equal(r.sha, 'abc123def456');
+    assert.match(observedUrl, /\/repos\/acme\/website\/git\/ref\/heads\/main$/);
+    assert.equal(observedHeaders.Authorization, 'Bearer ghp_test_123');
+  } finally {
+    globalThis.fetch = origFetch;
+  }
+});
+
+test('verifyGitConfig: makes exactly one GET request and no writes', async () => {
+  const origFetch = globalThis.fetch;
+  let callCount = 0;
+  let methods = [];
+  globalThis.fetch = async (url, init) => {
+    callCount++;
+    methods.push(init.method || 'GET');
+    return jsonResponse({ object: { sha: 'onlyread' } });
+  };
+  try {
+    await verifyGitConfig(ENV);
+    assert.equal(callCount, 1);
+    assert.deepEqual(methods, ['GET']);
+  } finally {
+    globalThis.fetch = origFetch;
+  }
+});
+
+test('verifyGitConfig: distinguishes 400/401/403/404 and includes GitHub\'s sanitized message', async () => {
+  const origFetch = globalThis.fetch;
+  for (const [status, body] of [[400, '{"message":"Bad request"}'], [401, '{"message":"Bad credentials"}'], [403, '{"message":"Resource not accessible by personal access token"}'], [404, '{"message":"Not Found"}']]) {
+    globalThis.fetch = async () => new Response(body, { status, headers: { 'Content-Type': 'application/json' } });
+    const r = await verifyGitConfig(ENV);
+    assert.equal(r.ok, false);
+    assert.equal(r.status, status);
+    assert.match(r.error, new RegExp(`github_api_error:${status}`));
+  }
+  globalThis.fetch = origFetch;
+});
+
+test('verifyGitConfig: returns ok:false without any network call when credentials are missing', async () => {
+  const origFetch = globalThis.fetch;
+  let called = false;
+  globalThis.fetch = async () => { called = true; return jsonResponse({}); };
+  try {
+    const r = await verifyGitConfig({});
+    assert.equal(r.ok, false);
+    assert.equal(r.error, 'missing_github_credentials');
+    assert.equal(called, false);
+  } finally {
+    globalThis.fetch = origFetch;
+  }
+});
+
+test('verifyGitConfig: never includes the token or Authorization header value in its result', async () => {
+  const origFetch = globalThis.fetch;
+  globalThis.fetch = async () => jsonResponse({ object: { sha: 'x' } });
+  try {
+    const r = await verifyGitConfig(ENV);
+    const serialized = JSON.stringify(r);
+    assert.doesNotMatch(serialized, /ghp_test_123/);
+    assert.doesNotMatch(serialized, /Bearer/);
+  } finally {
+    globalThis.fetch = origFetch;
+  }
 });
