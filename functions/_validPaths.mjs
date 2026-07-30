@@ -63,6 +63,8 @@ export const VALID_PATHS = new Set([
   "/modern-japanese-dining-the-raw-sushi-stockton-experience.html",
   "/order/stockton",
   "/order/stockton/",
+  "/raw-sushi-bar-happy-hour-and-weekly-specials-stockton",
+  "/raw-sushi-bar-happy-hour-and-weekly-specials-stockton.html",
   "/raw-sushi-bar-why-we-are-stockton-s-local-sushi-spot",
   "/raw-sushi-bar-why-we-are-stockton-s-local-sushi-spot.html",
   "/seo-guides",
