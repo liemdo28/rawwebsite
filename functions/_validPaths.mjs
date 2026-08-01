@@ -45,6 +45,8 @@ export const VALID_PATHS = new Set([
   "/everything-you-need-to-know-about-umami-in-sushi.html",
   "/finding-a-japanese-restaurant-near-trinity-parkway",
   "/finding-a-japanese-restaurant-near-trinity-parkway.html",
+  "/first-time-at-raw-sushi-bar-stockton-what-to-expect",
+  "/first-time-at-raw-sushi-bar-stockton-what-to-expect.html",
   "/handmade-rolls-vs-grocery-sushi-why-fresh-prep-matters",
   "/handmade-rolls-vs-grocery-sushi-why-fresh-prep-matters.html",
   "/how-to-order-sushi-online-in-stockton",

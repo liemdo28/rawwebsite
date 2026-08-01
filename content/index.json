@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "slug": "first-time-at-raw-sushi-bar-stockton-what-to-expect",
+      "title": "First Time at Raw Sushi Bar? Here's What to Expect in Stockton",
+      "excerpt": "Never been to Raw Sushi Bar in Stockton before? Here's what a first visit actually looks like, from parking to ordering.",
+      "date": "2026-07-31",
+      "post_type": "seo_campaign",
+      "image": "campaign/first-visit-hero.webp",
+      "primary_keyword": "raw sushi bar stockton first visit",
+      "secondary_keywords": [
+        "what to expect sushi restaurant stockton",
+        "new to raw sushi bar"
+      ],
+      "published": true
+    },
+    {
       "slug": "raw-sushi-bar-happy-hour-and-weekly-specials-stockton",
       "title": "Raw Sushi Bar's Weekly Happy Hour and Specials Schedule in Stockton",
       "excerpt": "Here's the real weekly happy hour and specials schedule at Raw Sushi Bar Stockton, straight from the menu — times, days, and what's included.",
