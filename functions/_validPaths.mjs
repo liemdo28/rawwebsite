@@ -53,6 +53,8 @@ export const VALID_PATHS = new Set([
   "/how-to-order-sushi-online-in-stockton.html",
   "/how-to-perfectly-enjoy-fresh-nigiri-and-rolls",
   "/how-to-perfectly-enjoy-fresh-nigiri-and-rolls.html",
+  "/inside-raw-sushi-bars-signature-special-rolls-stockton",
+  "/inside-raw-sushi-bars-signature-special-rolls-stockton.html",
   "/is-sushi-the-new-comfort-food-for-stockton-nights",
   "/is-sushi-the-new-comfort-food-for-stockton-nights.html",
   "/japanese-inspired-drinks-beyond-the-basic-martini",
