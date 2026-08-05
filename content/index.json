@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "slug": "a-guide-to-the-nigiri-selection-at-raw-sushi-bar-stockton",
+      "title": "A Guide to the Nigiri Selection at Raw Sushi Bar Stockton",
+      "excerpt": "A practical, item-by-item look at the nigiri selection at Raw Sushi Bar in Stockton, from ebi to uni.",
+      "date": "2026-08-04",
+      "post_type": "seo_campaign",
+      "image": "campaign/nigiri-selection-hero.webp",
+      "primary_keyword": "nigiri stockton",
+      "secondary_keywords": [
+        "raw sushi bar nigiri menu",
+        "sushi nigiri selection stockton"
+      ],
+      "published": true
+    },
+    {
       "slug": "inside-raw-sushi-bars-signature-special-rolls-stockton",
       "title": "Inside Raw Sushi Bar's Signature Special Rolls in Stockton",
       "excerpt": "A closer look at Raw Sushi Bar's named signature rolls in Stockton — what's actually in them, straight from the menu.",
