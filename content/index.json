@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "slug": "beating-central-valley-summer-heat-with-cold-sushi-stockton",
+      "title": "Beating the Central Valley Heat: Cold Sushi Nights in Stockton",
+      "excerpt": "When Central Valley summer heat makes cooking unappealing, cold sushi and sashimi are a straightforward, no-oven dinner option in Stockton.",
+      "date": "2026-08-06",
+      "post_type": "seo_campaign",
+      "image": "campaign/summer-sashimi-hero.webp",
+      "primary_keyword": "sushi stockton summer",
+      "secondary_keywords": [
+        "cold dinner stockton heat",
+        "sashimi summer stockton"
+      ],
+      "published": true
+    },
+    {
       "slug": "a-guide-to-the-nigiri-selection-at-raw-sushi-bar-stockton",
       "title": "A Guide to the Nigiri Selection at Raw Sushi Bar Stockton",
       "excerpt": "A practical, item-by-item look at the nigiri selection at Raw Sushi Bar in Stockton, from ebi to uni.",
