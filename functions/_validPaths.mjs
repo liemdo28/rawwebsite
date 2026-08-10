@@ -67,6 +67,8 @@ export const VALID_PATHS = new Set([
   "/japanese-inspired-drinks-beyond-the-basic-martini.html",
   "/lighter-sushi-options-nigiri-sashimi-and-simple-rolls",
   "/lighter-sushi-options-nigiri-sashimi-and-simple-rolls.html",
+  "/manteca-families-dinner-trip-to-raw-sushi-bar-stockton",
+  "/manteca-families-dinner-trip-to-raw-sushi-bar-stockton.html",
   "/menu/stockton",
   "/menu/stockton/",
   "/modern-japanese-dining-the-raw-sushi-stockton-experience",
