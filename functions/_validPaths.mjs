@@ -37,6 +37,8 @@ export const VALID_PATHS = new Set([
   "/blog-weekend-group-dining-raw-sushi-bar-stockton.html",
   "/blog-what-to-order",
   "/blog-what-to-order.html",
+  "/celebrating-a-birthday-or-milestone-at-raw-sushi-bar-stockton",
+  "/celebrating-a-birthday-or-milestone-at-raw-sushi-bar-stockton.html",
   "/chili-oil-101-adding-heat-to-sushi-night",
   "/chili-oil-101-adding-heat-to-sushi-night.html",
   "/cilantro-lime-sushi-flavors-a-fresh-fusion-favorite",
