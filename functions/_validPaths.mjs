@@ -57,6 +57,8 @@ export const VALID_PATHS = new Set([
   "/first-time-at-raw-sushi-bar-stockton-what-to-expect.html",
   "/handmade-rolls-vs-grocery-sushi-why-fresh-prep-matters",
   "/handmade-rolls-vs-grocery-sushi-why-fresh-prep-matters.html",
+  "/hot-appetizers-and-small-plates-to-share-at-raw-sushi-bar",
+  "/hot-appetizers-and-small-plates-to-share-at-raw-sushi-bar.html",
   "/how-to-order-sushi-online-in-stockton",
   "/how-to-order-sushi-online-in-stockton.html",
   "/how-to-perfectly-enjoy-fresh-nigiri-and-rolls",

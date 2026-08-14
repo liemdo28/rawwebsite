@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "slug": "hot-appetizers-and-small-plates-to-share-at-raw-sushi-bar",
+      "title": "Hot Appetizers and Small Plates Worth Sharing at Raw Sushi Bar",
+      "excerpt": "Beyond edamame: a look at the hot appetizers and small plates on Raw Sushi Bar's Stockton menu, from tempura to beef asparagus.",
+      "date": "2026-08-14",
+      "post_type": "seo_campaign",
+      "image": "campaign/hot-appetizers-hero.webp",
+      "primary_keyword": "raw sushi bar appetizers stockton",
+      "secondary_keywords": [
+        "hot appetizers sushi restaurant",
+        "small plates stockton japanese"
+      ],
+      "published": true
+    },
+    {
       "slug": "celebrating-a-birthday-or-milestone-at-raw-sushi-bar-stockton",
       "title": "Celebrating a Birthday or Milestone at Raw Sushi Bar in Stockton",
       "excerpt": "Planning a birthday or milestone dinner in Stockton? Here's what to know about bringing a cake, reserving a table, and ordering for the group.",
