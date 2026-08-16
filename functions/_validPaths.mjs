@@ -121,6 +121,8 @@ export const VALID_PATHS = new Set([
   "/top-5-spicy-sushi-roll-ideas-in-stockton.html",
   "/top-rated-japanese-restaurants-in-stockton-today",
   "/top-rated-japanese-restaurants-in-stockton-today.html",
+  "/tracy-commuters-dinner-stop-in-stockton-before-i5",
+  "/tracy-commuters-dinner-stop-in-stockton-before-i5.html",
   "/where-to-find-authentic-sushi-in-stockton",
   "/where-to-find-authentic-sushi-in-stockton.html",
   "/why-edamame-and-seaweed-salad-add-the-perfect-crunch",
