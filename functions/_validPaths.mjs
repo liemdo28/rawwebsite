@@ -77,6 +77,8 @@ export const VALID_PATHS = new Set([
   "/menu/stockton/",
   "/modern-japanese-dining-the-raw-sushi-stockton-experience",
   "/modern-japanese-dining-the-raw-sushi-stockton-experience.html",
+  "/never-had-sushi-cooked-options-at-raw-sushi-bar-stockton",
+  "/never-had-sushi-cooked-options-at-raw-sushi-bar-stockton.html",
   "/order/stockton",
   "/order/stockton/",
   "/raw-sushi-bar-happy-hour-and-weekly-specials-stockton",
