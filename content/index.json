@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "slug": "is-the-drive-from-modesto-to-stockton-for-sushi-worth-it",
+      "title": "Is the Drive from Modesto to Stockton Worth It for Sushi? An Honest Look",
+      "excerpt": "Modesto to Stockton is about 29-33 miles, roughly 35-40 minutes. Here's an honest look at whether that drive is worth it for dinner.",
+      "date": "2026-08-22",
+      "post_type": "seo_campaign",
+      "image": "campaign/worth-the-drive-hero.webp",
+      "primary_keyword": "sushi near modesto stockton",
+      "secondary_keywords": [
+        "modesto to stockton drive",
+        "is stockton worth the drive from modesto"
+      ],
+      "published": true
+    },
+    {
       "slug": "sashimi-salads-and-raw-bar-favorites-at-raw-sushi-bar-stockton",
       "title": "Sashimi Salads and Raw Bar Favorites at Raw Sushi Bar Stockton",
       "excerpt": "Beyond a plain sashimi plate: a look at the sashimi salads and raw bar dishes on Raw Sushi Bar's Stockton menu.",

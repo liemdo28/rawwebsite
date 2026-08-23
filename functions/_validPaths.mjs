@@ -67,6 +67,8 @@ export const VALID_PATHS = new Set([
   "/inside-raw-sushi-bars-signature-special-rolls-stockton.html",
   "/is-sushi-the-new-comfort-food-for-stockton-nights",
   "/is-sushi-the-new-comfort-food-for-stockton-nights.html",
+  "/is-the-drive-from-modesto-to-stockton-for-sushi-worth-it",
+  "/is-the-drive-from-modesto-to-stockton-for-sushi-worth-it.html",
   "/japanese-inspired-drinks-beyond-the-basic-martini",
   "/japanese-inspired-drinks-beyond-the-basic-martini.html",
   "/lighter-sushi-options-nigiri-sashimi-and-simple-rolls",
