@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "slug": "vegetarian-friendly-options-at-a-japanese-restaurant-in-stockton",
+      "title": "Vegetarian-Friendly Options at Raw Sushi Bar, Stockton's Japanese Restaurant",
+      "excerpt": "Looking for vegetarian options at a Japanese restaurant in Stockton? Here's what's actually available at Raw Sushi Bar, without raw fish or meat.",
+      "date": "2026-08-24",
+      "post_type": "seo_campaign",
+      "image": "campaign/vegetarian-plate-hero.webp",
+      "primary_keyword": "vegetarian sushi stockton",
+      "secondary_keywords": [
+        "vegetarian japanese restaurant stockton",
+        "meatless sushi options"
+      ],
+      "published": true
+    },
+    {
       "slug": "is-the-drive-from-modesto-to-stockton-for-sushi-worth-it",
       "title": "Is the Drive from Modesto to Stockton Worth It for Sushi? An Honest Look",
       "excerpt": "Modesto to Stockton is about 29-33 miles, roughly 35-40 minutes. Here's an honest look at whether that drive is worth it for dinner.",
