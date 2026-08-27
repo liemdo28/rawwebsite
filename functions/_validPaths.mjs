@@ -119,6 +119,8 @@ export const VALID_PATHS = new Set([
   "/the-best-sushi-dinner-in-stockton-for-rainy-days.html",
   "/the-bold-flavor-of-spicy-tuna-and-salmon-rolls",
   "/the-bold-flavor-of-spicy-tuna-and-salmon-rolls.html",
+  "/the-ponzu-and-garlic-chip-dishes-at-raw-sushi-bar-stockton",
+  "/the-ponzu-and-garlic-chip-dishes-at-raw-sushi-bar-stockton.html",
   "/the-secret-to-fresh-sushi-rice-and-balanced-flavor",
   "/the-secret-to-fresh-sushi-rice-and-balanced-flavor.html",
   "/the-ultimate-guide-to-fresh-sushi-in-stockton",
