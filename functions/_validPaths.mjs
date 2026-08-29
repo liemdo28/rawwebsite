@@ -92,6 +92,8 @@ export const VALID_PATHS = new Set([
   "/seo-guides",
   "/seo-guides.html",
   "/stockton",
+  "/stockton-kings-or-ports-game-night-dinner-guide",
+  "/stockton-kings-or-ports-game-night-dinner-guide.html",
   "/stockton-sushi-visit-faq-parking-groups-reservations",
   "/stockton-sushi-visit-faq-parking-groups-reservations.html",
   "/stockton.html",
