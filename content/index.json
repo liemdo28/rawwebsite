@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "slug": "a-la-carte-sushi-vs-all-you-can-eat-buffet-stockton",
+      "title": "À La Carte Sushi vs. All-You-Can-Eat Buffets: What to Know in Stockton",
+      "excerpt": "Weighing an all-you-can-eat sushi buffet against an à la carte menu in Stockton? Here's an honest comparison of what each actually offers.",
+      "date": "2026-08-30",
+      "post_type": "seo_campaign",
+      "image": "campaign/a-la-carte-plating-hero.webp",
+      "primary_keyword": "sushi buffet vs a la carte stockton",
+      "secondary_keywords": [
+        "all you can eat sushi stockton",
+        "a la carte sushi restaurant"
+      ],
+      "published": true
+    },
+    {
       "slug": "stockton-kings-or-ports-game-night-dinner-guide",
       "title": "Catching a Stockton Kings or Ports Game? Here's Your Dinner Plan",
       "excerpt": "Heading to a Stockton Kings or Stockton Ports game? Raw Sushi Bar is a dinner option worth planning around game night.",

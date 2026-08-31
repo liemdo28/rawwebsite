@@ -7,6 +7,8 @@ export const VALID_PATHS = new Set([
   "/",
   "/a-guide-to-the-nigiri-selection-at-raw-sushi-bar-stockton",
   "/a-guide-to-the-nigiri-selection-at-raw-sushi-bar-stockton.html",
+  "/a-la-carte-sushi-vs-all-you-can-eat-buffet-stockton",
+  "/a-la-carte-sushi-vs-all-you-can-eat-buffet-stockton.html",
   "/a-local-guide-to-sushi-near-stockton",
   "/a-local-guide-to-sushi-near-stockton.html",
   "/beating-central-valley-summer-heat-with-cold-sushi-stockton",
