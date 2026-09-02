@@ -85,6 +85,8 @@ export const VALID_PATHS = new Set([
   "/never-had-sushi-cooked-options-at-raw-sushi-bar-stockton.html",
   "/order/stockton",
   "/order/stockton/",
+  "/ordering-sushi-for-the-office-team-lunch-in-stockton",
+  "/ordering-sushi-for-the-office-team-lunch-in-stockton.html",
   "/raw-sushi-bar-happy-hour-and-weekly-specials-stockton",
   "/raw-sushi-bar-happy-hour-and-weekly-specials-stockton.html",
   "/raw-sushi-bar-why-we-are-stockton-s-local-sushi-spot",
