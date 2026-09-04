@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "slug": "highway-99-road-trip-dinner-stop-in-stockton",
+      "title": "Highway 99 Road Trip? Stockton Is a Practical Dinner Stop",
+      "excerpt": "Driving Highway 99 between Sacramento and the southern Central Valley? Stockton sits roughly in the middle, making it a practical dinner stop.",
+      "date": "2026-09-03",
+      "post_type": "seo_campaign",
+      "image": "campaign/road-trip-dinner-hero.webp",
+      "primary_keyword": "highway 99 stockton dinner stop",
+      "secondary_keywords": [
+        "sacramento to modesto drive dinner",
+        "central valley road trip food"
+      ],
+      "published": true
+    },
+    {
       "slug": "ordering-sushi-for-the-office-team-lunch-in-stockton",
       "title": "Ordering Sushi for the Office: A Team Lunch Guide for Stockton",
       "excerpt": "Planning a team lunch order for a Stockton office? Here's how to order sushi for a group ahead of time for pickup.",
