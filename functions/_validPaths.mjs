@@ -49,6 +49,8 @@ export const VALID_PATHS = new Set([
   "/cocktails-and-sushi-the-ultimate-pairing.html",
   "/daily-sushi-specials-in-stockton-you-can-t-miss",
   "/daily-sushi-specials-in-stockton-you-can-t-miss.html",
+  "/dine-in-takeout-or-delivery-choosing-your-raw-sushi-bar-order",
+  "/dine-in-takeout-or-delivery-choosing-your-raw-sushi-bar-order.html",
   "/dinner-after-lodi-wine-tasting-sushi-in-stockton",
   "/dinner-after-lodi-wine-tasting-sushi-in-stockton.html",
   "/everything-you-need-to-know-about-umami-in-sushi",
