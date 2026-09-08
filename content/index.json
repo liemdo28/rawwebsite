@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "slug": "sacramento-day-trip-stockton-haggin-museum-dinner",
+      "title": "A Sacramento Day-Trip Guide: Haggin Museum, Downtown Stockton, and Dinner",
+      "excerpt": "Planning a day trip from Sacramento? Stockton's Haggin Museum and downtown waterfront pair well with dinner at Raw Sushi Bar, about 49 miles away.",
+      "date": "2026-09-07",
+      "post_type": "seo_campaign",
+      "image": "campaign/downtown-stockton-hero.webp",
+      "primary_keyword": "stockton day trip from sacramento",
+      "secondary_keywords": [
+        "haggin museum stockton",
+        "things to do stockton sacramento visitors"
+      ],
+      "published": true
+    },
+    {
       "slug": "dine-in-takeout-or-delivery-choosing-your-raw-sushi-bar-order",
       "title": "Dine-In, Takeout, or Delivery: Choosing How to Order from Raw Sushi Bar",
       "excerpt": "Not sure whether to dine in, order takeout, or get delivery from Raw Sushi Bar in Stockton? Here's how to decide.",
