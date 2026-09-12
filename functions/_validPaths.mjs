@@ -11,6 +11,8 @@ export const VALID_PATHS = new Set([
   "/a-la-carte-sushi-vs-all-you-can-eat-buffet-stockton.html",
   "/a-local-guide-to-sushi-near-stockton",
   "/a-local-guide-to-sushi-near-stockton.html",
+  "/after-a-day-on-the-delta-dinner-in-stockton",
+  "/after-a-day-on-the-delta-dinner-in-stockton.html",
   "/beating-central-valley-summer-heat-with-cold-sushi-stockton",
   "/beating-central-valley-summer-heat-with-cold-sushi-stockton.html",
   "/best-sushi-stockton-the-definitive-2026-guide",

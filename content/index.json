@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "slug": "after-a-day-on-the-delta-dinner-in-stockton",
+      "title": "After a Day on the Delta: Where Boaters and Anglers Eat Dinner in Stockton",
+      "excerpt": "Spent the day boating or fishing on the California Delta near Stockton? Here's a straightforward dinner option once you're back on land.",
+      "date": "2026-09-11",
+      "post_type": "seo_campaign",
+      "image": "campaign/delta-dinner-hero.webp",
+      "primary_keyword": "dinner after delta boating stockton",
+      "secondary_keywords": [
+        "stockton delta dinner",
+        "restaurant near stockton waterfront"
+      ],
+      "published": true
+    },
+    {
       "slug": "raw-sushi-bar-gift-cards-for-stockton-sushi-fans",
       "title": "Raw Sushi Bar Gift Cards: A Simple Gift Idea for Stockton Sushi Fans",
       "excerpt": "Looking for a gift for someone who loves sushi in Stockton? A Raw Sushi Bar gift card is a straightforward option for any occasion.",
