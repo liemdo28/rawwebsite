@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "slug": "dining-near-university-of-the-pacific-stockton-sushi",
+      "title": "Sushi Near University of the Pacific: A Stockton Dining Option",
+      "excerpt": "Students, parents, and visitors near University of the Pacific in Stockton looking for a sushi dinner have Raw Sushi Bar as a nearby option.",
+      "date": "2026-09-13",
+      "post_type": "seo_campaign",
+      "image": "campaign/student-dining-hero.webp",
+      "primary_keyword": "sushi near university of the pacific",
+      "secondary_keywords": [
+        "stockton restaurant near uop",
+        "college dinner stockton"
+      ],
+      "published": true
+    },
+    {
       "slug": "after-a-day-on-the-delta-dinner-in-stockton",
       "title": "After a Day on the Delta: Where Boaters and Anglers Eat Dinner in Stockton",
       "excerpt": "Spent the day boating or fishing on the California Delta near Stockton? Here's a straightforward dinner option once you're back on land.",
