@@ -81,6 +81,8 @@ export const VALID_PATHS = new Set([
   "/is-the-drive-from-modesto-to-stockton-for-sushi-worth-it.html",
   "/japanese-inspired-drinks-beyond-the-basic-martini",
   "/japanese-inspired-drinks-beyond-the-basic-martini.html",
+  "/kid-friendly-sushi-options-for-families-in-stockton",
+  "/kid-friendly-sushi-options-for-families-in-stockton.html",
   "/lighter-sushi-options-nigiri-sashimi-and-simple-rolls",
   "/lighter-sushi-options-nigiri-sashimi-and-simple-rolls.html",
   "/manteca-families-dinner-trip-to-raw-sushi-bar-stockton",
