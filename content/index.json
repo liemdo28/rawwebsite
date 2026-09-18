@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "slug": "youth-sports-tournament-weekend-dinner-sushi-stockton",
+      "title": "In Stockton for a Weekend Youth Sports Tournament? Where to Eat",
+      "excerpt": "Central Valley weekends are full of youth sports tournaments. If your team is in Stockton, here's a dinner option the whole group can agree on.",
+      "date": "2026-09-17",
+      "post_type": "seo_campaign",
+      "image": "campaign/team-dinner-hero.webp",
+      "primary_keyword": "stockton youth sports tournament dinner",
+      "secondary_keywords": [
+        "team dinner stockton weekend",
+        "sports tournament restaurant stockton"
+      ],
+      "published": true
+    },
+    {
       "slug": "kid-friendly-sushi-options-for-families-in-stockton",
       "title": "Kid-Friendly Sushi Options for Families in Stockton",
       "excerpt": "Bringing kids to a sushi restaurant in Stockton? Here are the menu items at Raw Sushi Bar that tend to work well for younger eaters.",

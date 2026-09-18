@@ -164,5 +164,7 @@ export const VALID_PATHS = new Set([
   "/why-sake-beer-and-sushi-are-a-classic-pairing",
   "/why-sake-beer-and-sushi-are-a-classic-pairing.html",
   "/your-guide-to-japanese-food-delivery-in-stockton",
-  "/your-guide-to-japanese-food-delivery-in-stockton.html"
+  "/your-guide-to-japanese-food-delivery-in-stockton.html",
+  "/youth-sports-tournament-weekend-dinner-sushi-stockton",
+  "/youth-sports-tournament-weekend-dinner-sushi-stockton.html"
 ]);
